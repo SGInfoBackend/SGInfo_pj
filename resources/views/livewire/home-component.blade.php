@@ -1,0 +1,406 @@
+<div>
+    <!-- start carousel -->
+<section id="hero">
+    <!--slider-->
+    <div class="hero_container  ">
+      <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active ">
+            <img src="images/home3.jpg" class="d-block w-100 slider" alt="...">
+          </div>
+          <div class="carousel-item ">
+            <img src="images/home8.jpg" class="d-block w-100 slider" alt="...">
+          </div>
+          <div class="carousel-item ">
+            <img src="images/home6.jpg" class="d-block w-100 slider" alt="...">
+          </div>
+          <div class="carousel-item ">
+            <img src="images/home2.jpg" class="d-block w-100 slider" alt="...">
+          </div>
+          <div class="carousel-item ">
+            <img src="images/home1.jpg" class="d-block w-100 slider" alt="...">
+          </div>
+          <div class="carousel-item ">
+            <img src="images/job.jpg" class="d-block w-100 slider" alt="...">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+    <div class="carousel_text">
+      <h1>Let's Go SINGAPORE</h1>
+      <p class="carousel_para">Lorem ipsum dolor sit amet, consectetur adipisicing.<br> Consequatur vitae pariatur,
+        quisquam natus praesentium aut et inventore? <br>Temporibus voluptates repudiandae consequuntur odit repellat
+        exercitationem<br> fugit minus pariatur.</p>
+      <div class="banner-btn">
+        <a href="room_list.html"><span></span>Rooms</a>
+        <a href="Job.html"><span></span>Jobs</a>
+      </div>
+    </div>
+  </section>
+  <!-- end carousel  -->
+  <!----======== END Navbar & Carousel TDTZ========= -->
+
+  <!-- for home-room -->
+  <section id="home-room">
+    <h2>Rooms for Rent</h2>
+    <a href="room_list.html" class="room-detail">View all rooms</a>
+    <div id="home-room-container">
+      <div class="home-room-sample">
+        <img src="images/room_images/room6.jpg" alt="room6">
+        <a href="room_list.html">
+          <button class="avail-btn">Avail</button>
+        </a>
+        <div class="home-room-des">
+          <h6>MASTER ROOM</h6>
+          <p>1200 $ <span>/ month</span></p>
+          <p class="p1">583 Ang Mo Kio Avenue 3</p>
+          <hr>
+          <div class="home-room-info">
+            <div class="home-room-info-single">
+              <span>Downtown</span>
+            </div>
+            <div class="home-room-info-single">
+              <i class="fa-solid fa-person-walking"></i>
+              <span>3 mins</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="home-room-sample">
+        <img src="images/room_images/room7.jpg" alt="room7">
+        <a href="room_list.html">
+          <button class="avail-btn">Avail</button>
+        </a>
+        <div class="home-room-des">
+          <h6>MASTER ROOM</h6>
+          <p>1200 $ <span>/ month</span></p>
+          <p class="p1">583 Ang Mo Kio Avenue 3</p>
+          <hr>
+          <div class="home-room-info">
+            <div class="home-room-info-single">
+              <span>Downtown</span>
+            </div>
+            <div class="home-room-info-single">
+              <i class="fa-solid fa-person-walking"></i>
+              <span>3 mins</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="home-room-sample">
+        <img src="images/room_images/room8.jpg" alt="room8">
+        <a href="room_list.html">
+          <button class="avail-btn">Avail</button>
+        </a>
+        <div class="home-room-des">
+          <h6>MASTER ROOM</h6>
+          <p>1200 $ <span>/ month</span></p>
+          <p class="p1">583 Ang Mo Kio Avenue 3</p>
+          <hr>
+          <div class="home-room-info">
+            <div class="home-room-info-single">
+              <span>Downtown</span>
+            </div>
+            <div class="home-room-info-single">
+              <i class="fa-solid fa-person-walking"></i>
+              <span>3 mins</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="home-room-sample">
+        <img src="images/room_images/room9.jpg" alt="room9">
+        <a href="room_list.html">
+          <button class="avail-btn">Avail</button>
+        </a>
+        <div class="home-room-des">
+          <h6>MASTER ROOM</h6>
+          <p>1200 $ <span>/ month</span></p>
+          <p class="p1">583 Ang Mo Kio Avenue 3</p>
+          <hr>
+          <div class="home-room-info">
+            <div class="home-room-info-single">
+              <span>Downtown</span>
+            </div>
+            <div class="home-room-info-single">
+              <i class="fa-solid fa-person-walking"></i>
+              <span>3 mins</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End of home-room -->
+
+  <!-- home-gen-info -->
+  <section id="home-gen-info">
+    <h2>General Information</h2>
+    <div class="home-gen-info-container">
+      <img src="images/general_images/visa.jpg" alt="visa">
+      <div class="home-gen-info-det">
+        <h4>What do we need to go to Singapore?</h4>
+        <ul class="home-gen-list">
+          <a href="#">
+            <li>Passport</li>
+          </a>
+          <a href="#">
+            <li>Airticket</li>
+          </a>
+          <a href="#">
+            <li>Covid 19 Vacinaiton Certificate</li>
+          </a>
+          <a href="#">
+            <li>Filling Arrival Card</li>
+          </a>
+        </ul>
+        <a href="general_info.html">
+          <button class="home-gen-btn">See More</button>
+        </a>
+      </div>
+    </div>
+
+  </section>
+  <!-- End of home-gen-info -->
+
+  <!-- ======================== Travel Guide ============================= -->
+
+  <section class="swiper-container mySwiper">
+    <div class="travel_guide">
+      <h1>Travel Guides</h1>
+    </div>
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <img src="./images/general_images/travel-02.jpg" alt="">
+        <div class="overlay">
+          <p>French</p>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <img src="./images/general_images/travel-03.jpg" alt="">
+        <div class="overlay">
+          <p>Myanmar</p>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <img src="./images/general_images/travel-04.jpg" alt="">
+        <div class="overlay">
+          <p>America</p>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <img src="./images/general_images/travel-12.jpg" alt="">
+        <div class="overlay">
+          <p>Japan</p>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <img src="./images/general_images/travel-03.jpg" alt="">
+        <div class="overlay">
+          <p>Korea</p>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <img src="./images/general_images/travel-13.jpg" alt="">
+        <div class="overlay">
+          <p>China</p>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <img src="./images/general_images/travel-02.jpg" alt="">
+        <div class="overlay">
+          <p>Singapore</p>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <img src="./images/general_images/travel-12.jpg" alt="">
+        <div class="overlay">
+          <p>Malisia</p>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div> -->
+    <div class="swiper-pagination"></div>
+  </section>
+
+  <!-- ============================= End of Travel Guide Slider ========================================== -->
+
+  <!-- ============================= Globel News ========================================== -->
+  <section>
+    <div class="trending_news">
+      <p style="border: 5; border-color: black;">TRENDING NEWS</p>
+      <marquee>This text will scroll from right to left</marquee>
+    </div>
+    <div id="globel_news_container">
+      <div class="globel_news_box">
+        <div class="background_color">
+          <p class="news_type news_type1">Travel</p>
+          <h4 class="news_title news_title1">Where is The Best Present In Singapore</h4>
+          <caption class="journalist">Mrs Christ - June 3, 2020</caption>
+        </div>
+      </div>
+      <div id="globel_news_container2">
+        <div class="globel_news_box2">
+          <div class="background_color">
+            <p class="news_type">Health</p>
+            <h4 class="news_title">Work Out as Much as Possible During Your All Vacations</h4>
+          </div>
+        </div>
+        <div class="globel_news_box2 globel_news_box3">
+          <div class="background_color">
+            <p class="news_type">Restaurant</p>
+            <h4 class="news_title">The Health Foods & The Delicious Foods Are Ready Now!</h4>
+          </div>
+        </div>
+        <div class="globel_news_box2 globel_news_box4">
+          <div class="background_color">
+            <p class="news_type">Restaurant</p>
+            <h4 class="news_title">The Health Foods & The Delicious Foods Are Ready Now!</h4>
+          </div>
+        </div>
+        <div class="globel_news_box2 globel_news_box5">
+          <div class="background_color">
+            <p class="news_type">Travel</p>
+            <h4 class="news_title">This Place is Very Instering . We Should Go There</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================= End of Globel News ========================================== -->
+
+  <!-- Start HOME_JOBS -->
+  <div id="home_jobs">
+    <div class="jobs_header">
+
+      <div class="search_icon">
+        <i class="uil uil-search"></i>
+        <input id="search_jobs" type="text" name="What are you looking for?" placeholder="Job title, keyword or company"
+          required>
+      </div>
+      <div class="search_icon">
+        <i class="uil uil-map-marker"></i>
+        <input id="location" type="text" name="Location" placeholder="Area, city or town" required>
+      </div>
+
+      <div class="search_icon">
+        <i class="uil uil-right-indent-alt"></i>
+        <select id="jobs_categories">
+          <option class="jobs_option">All Job Specializations</option>
+          <option class="jobs_option">AAAA</option>
+          <option class="jobs_option">BBBB</option>
+          <option class="jobs_option">CCCC</option>
+          <option class="jobs_option">DDDD</option>
+        </select>
+      </div>
+
+      <button class="search"><a href="#">Search</a></button>
+    </div>
+
+    <section id="jobs_container">
+      <div id="jobs_types">
+        <h3 id="h2"><i class="uil uil-favorite"></i>&nbsp;TOP JOBS&nbsp;<i class="uil uil-favorite"></i></h3>
+        <div id="jobs_type">
+          <div class="jobbackground_color"><a href="#">C# Developer</a></div>
+          <div class="jobbackground_color">$ Under 500,000</div>
+          <div class="jobbackground_color">EC Engineering Co.Ltd</div>
+          <div class="jobbackground_color"><i class="uil uil-map-marker"></i> &nbsp;Yangon, Hlaing</div>
+
+        </div>
+        <div id="jobs_type">
+          <div class="jobbackground_color"><a href="#">iOS Developer</a></div>
+          <div class="jobbackground_color">$ Under 500,000</div>
+          <div class="jobbackground_color">GEC Engineering Co.Ltd</div>
+          <div class="jobbackground_color"><i class="uil uil-map-marker"></i>&nbsp;Yangon, Hlaing</div>
+        </div>
+        <div id="jobs_type">
+          <div class="jobbackground_color"><a href="#">Developer</a></div>
+          <div class="jobbackground_color">$ Under 500,000</div>
+          <div class="jobbackground_color">GEC Engineering Co.Ltd</div>
+          <div class="jobbackground_color"><i class="uil uil-map-marker"></i>&nbsp;Yangon, Hlaing</div>
+        </div>
+        <div id="jobs_type">
+          <div class="jobbackground_color"><a href="#">Developer</a></div>
+          <div class="jobbackground_color">$ Under 500,000</div>
+          <div class="jobbackground_color">GEC Engineering Co.Ltd</div>
+          <div class="jobbackground_color"><i class="uil uil-map-marker"></i>&nbsp;Yangon, Hlaing</div>
+        </div>
+        <div id="jobs_type">
+          <div class="jobbackground_color"><a href="#"> Developer</a></div>
+          <div class="jobbackground_color">$ Under 500,000</div>
+          <div class="jobbackground_color">GEC Engineering Co.Ltd</div>
+          <div class="jobbackground_color"><i class="uil uil-map-marker"></i>&nbsp;Yangon, Hlaing</div>
+        </div>
+        <div id="jobs_type">
+          <div class="jobbackground_color"><a href="#">Python Developer</a></div>
+          <div class="jobbackground_color">$ Under 500,000</div>
+          <div class="jobbackground_color">GEC Engineering Co.Ltd</div>
+          <div class="jobbackground_color"><i class="uil uil-map-marker"></i>&nbsp;Yangon, Hlaing</div>
+        </div>
+        <!--
+            <div class="browse_btn"> -->
+        <button class="browse"><a href="#">Browse All Jobs</a></button>
+        <!-- </div> -->
+
+      </div>
+
+
+    </section>
+
+  </div>
+
+  <!-- END OF HOME-JOBS  -->
+  <!-- start of footer -->
+
+  <section class="btn-section">
+    <h3 class="job">Latest JOBs</h3>
+    <div class="job-btn">
+      <button class="jobbutton"><a href="#">Mobile Developer</a></button>
+      <button class="jobbutton"><a href="#">Andriod Developer</a></button>
+      <button class="jobbutton"><a href="#">iOS Developer</a></button>
+      <button class="jobbutton"><a href="#">Java Developer</a></button>
+    </div>
+
+
+    <div class="job-btn1">
+      <button class="jobbutton"><a href="#">React Developer</a></button>
+      <button class="jobbutton"><a href="#">Odoo Developer</a></button>
+      <button class="jobbutton"><a href="#">Nodejs Developer</a></button>
+    </div>
+
+
+    <div class="job-btn2">
+      <button class="jobbutton"><a href="#">Web Developer</a></button>
+      <button class="jobbutton"><a href="#">Python Developer</a></button>
+
+    </div>
+  </section>
+
+
+  <section class="newsletter">
+    <div class=" newstext">
+
+      <div>
+        <h4>NEWSLETTER SIGN UP</h4>
+        <P>Lorem ipsum, or lipsum as it is sometimes known</P>
+      </div>
+    </div>
+    <div class="form">
+      <input type="text" placeholder="Your email adderss.....">
+      <button class="normal">Subscribe</button>
+    </div>
+  </section>
+</div>

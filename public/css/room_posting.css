@@ -1,0 +1,188 @@
+.card{
+    object-fit: cover;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: auto;
+}
+label{
+    margin-top: 10px;
+    opacity: 0.5;
+    font-size: 16px;
+}
+.form-control {
+    border-bottom-color: rgba(166, 7, 7, 0.488);
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+    border-radius: 0;
+}
+.form-control:focus {
+    box-shadow: none;
+}
+.address_form {
+    padding: 10px;
+}
+
+.home_info {
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-text{
+    color: white;
+}
+
+.rentorsale{
+    display: flex;
+    justify-content: space-between;
+    padding-left: 16px;
+    padding-right: 53%;
+}
+.rent {
+    opacity: 1;
+}
+
+/* ==============================  For Price Range    =============================== */
+#price_unit{
+    width: 200px;
+    height: 40px;
+}
+.form-select:focus{
+    box-shadow: none;
+}
+.pricetext_container{
+    width: 60%;
+    display: flex;
+    justify-items: center;
+}
+.price_dropdown{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    padding-right: 16px;
+}
+
+.price_text{
+    width: 25%;
+    height: 35px;
+}
+.price_text:focus {
+    border: 100px;
+}
+
+/* ======================= number of room container  =============================== */
+.number_of_room_container{
+    display: flex;
+    justify-content: space-between;
+    width: 95%;
+    margin: 16px;
+    
+}
+
+/* ============================ Agent's Information ======================== */
+.agent_info {
+    border-color: rgba(227, 10, 10, 0.806);
+    border-width: 1px;
+    border-spacing: 2px;
+}
+.agent_info:focus {
+border-color: #5c5a74c5;
+border-width: 1px;
+border-spacing: 2px;
+}
+.payment_type_logo {
+    width: 40px;
+    height: 30px;
+}
+.input-group{
+    margin: 12px;
+}
+.agent_informations{
+    display: flex;
+    justify-content: space-between;
+    padding: 16px;
+}
+.payment_type{
+    padding: 12px;
+}
+
+/* ======================================== descriptions ==================================================== */
+.index_type{
+    width: 100%;
+}
+
+/* submit button */
+.btn-info{
+    padding: 12px;
+    margin: 16px;
+    border: 5px;
+}
+.btn-info:focus{
+    border: 15px;
+    border-color: rgba(73, 14, 211, 0.921);
+    box-shadow: none;
+}
+
+
+/* =========================== facities & key features & near by DropDown =============================*/
+
+.facility_container {
+    display: flex;
+    justify-content: space-between;
+    margin: 16px;
+}
+
+/* .features_facilities{
+    display: flex;
+    justify-content: space-between;
+    padding: 16px;
+}
+
+.dropdown{
+    background: rgb(218, 66, 40);
+    transition: 0.2s ease;
+    border-radius: 3px;
+}
+
+.dropdown:hover {
+    background-color: tomato !important;
+    box-shadow: -0px -0px 50px rgb(255, 99, 72);
+}
+
+.btn {
+    color: #fff !important;
+    border: none;
+    background-color: transparent !important;
+    padding: 15px;
+}
+.dropdown-menu{
+    background-color: tomato;
+    width: 200px;
+}
+.dropdown_item{
+    color: #fff;
+
+}
+.dropdown_item:hover{
+    background-color: rgba(0, 0, 0, 0.653) !important;
+    color: #fff !important;
+} */
+
+/* facities & key features & near by Select Box*/
+
+/* .search_select_box {
+    max-width: 400px;
+    margin: 80px auto;
+}
+
+.search_select_box select{
+    width: 100%;
+}
+
+.search_select_box button {
+background-color: #080342 !important;
+padding: 15px 25px;
+color: #fff !important;
+font-size: 20px;
+} */

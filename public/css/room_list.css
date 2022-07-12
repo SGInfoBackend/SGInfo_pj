@@ -1,0 +1,783 @@
+/*=============================== Modal Box =====================================*/
+/* navbar dropdown */
+.dropbtn {
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    padding-top: 8px;
+    font-weight: 500;
+    background-color: #4A9BE3;
+}
+.dropbtn:hover{
+    color: #f7cd6c;
+}
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #4A9BE3;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+.dropdown-content a:hover {
+    background-color: white;
+}
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
+
+/* other model form */
+.main{
+    padding: 20px;
+}
+.first .modal-h1{
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    font-family: 'Oxygen', sans-serif;
+}
+.first .userInput{
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.first .userInput .modal-label{
+    font-weight: bolder;
+}
+.first .userInput .modal-div{
+    margin-bottom: 20px;
+}
+.first .userInput .modal-input,.first .userInput .modal-select{
+    margin-top: 8px;
+    width: 100%;
+    padding: 12px 10px;
+    border: 1px solid #088178;
+    border-radius: 5px;
+    font-size: 14px;
+}
+.userInput .modal-select .modal-option{
+    font-size: 14px;
+}
+.userInput .modal-select .modal-option:nth-child(1){
+    background-color: rgb(77, 75, 75);
+    font-weight: bolder;
+    color: white;
+}
+.first .userInput .modal-input:focus {
+    outline: 1px solid #088178;
+}
+.first .uploadBtn{
+    border: none;
+    border-radius: 5px;
+    padding: 17px;
+    background-color: #088178;
+    color: white;
+    font-size: 14px;
+    font-weight: bolder;
+    margin: 20px 0;
+}
+
+/* room modal form */
+.main-room{
+    padding: 20px 10px;
+}
+.first-room .modal-h1-room{
+    text-align: center;
+    font-size: 30px;
+    font-family: 'Oxygen', sans-serif;
+    font-weight: bold;
+}
+.first-room .userInput-room{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 40px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.modal-div-room{
+    width: 50%;
+    padding: 10px;
+}
+.modal-div-room-textarea{
+    padding: 10px;
+    width: 100%;
+}
+.modal-input-room-textarea{
+    width: 100%;
+    border: 1px solid #088178;
+    margin-top: 10px;
+    opacity: .75;
+    border-radius: 6px;
+}
+.first-room .userInput-room .modal-label-room{
+    font-weight: 500;
+}
+.first-room .userInput-room .modal-div-room{
+    margin-bottom: 10px;
+}
+.first-room .userInput-room .modal-input-room,.first-room .userInput-room .modal-select-room{
+    margin-top: 8px;
+    width: 100%;
+    padding: 12px 10px;
+    border: 1px solid #088178;
+    border-radius: 5px;
+    font-size: 14px;
+}
+.userInput-room .modal-select-room .modal-option-room{
+    font-size: 14px;
+}
+.userInput-room .modal-select-room .modal-option-room:nth-child(1){
+    background-color: rgb(77, 75, 75);
+    font-weight: bolder;
+    color: white;
+}
+.userInput-room .modal-select-room .modal-option-room-special{
+    background-color: white;
+    color: black;
+}
+.userInput-room .modal-select-room .modal-option-room:hover{
+    background-color: #088178;
+    font-weight: bolder;
+    color: white;
+}
+.modal-input-room-image{
+    margin-top: 8px;
+    width: 100%;
+    padding: 5px 10px;
+    border: 1px solid #088178;
+    border-radius: 5px;
+    font-size: 14px;
+}
+.first-room .userInput-room .modal-select-room {
+    padding: 8px 10px;
+}
+.first-room .userInput-room .modal-input-room{
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-radius: 0px;
+    padding: 0px 10px;
+}
+.first-room .userInput-room .modal-input-room:focus {
+    border-bottom: 2px solid #088178;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+.first-room .uploadBtn-room{
+    border: none;
+    border-radius: 5px;
+    padding: 13px 0px;
+    background-color: #088178;
+    color: white;
+    font-size: 15px;
+    margin-bottom: 100px;
+    font-weight: bold;
+    display: inline-block;
+    margin: 0 auto;
+    width: 25%;
+}
+
+/* login modal form */
+.otherLogin .other-p{
+    text-align: center;
+}
+.otherLogin .google,.otherLogin .facebook,.otherLogin .apple{
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid #088178;
+    border-radius: 8px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+.otherLogin .other-img{
+    width: 5%;
+    height: 5%;
+    padding-top: 7px;
+    padding-bottom: 5px;
+    margin-left: 10px;
+    object-fit: cover;
+    margin-right: 15px;
+    border-radius: 4%;
+}
+.otherLogin .other-h2 .other-a{
+    text-decoration: none;
+    color: rgb(74, 69, 69);
+}
+.otherLogin .other-h2{
+    text-align: center;
+    margin-right: 70px;
+    font-size: 17px;
+    margin-top: 10px;
+    width: 100%;
+}
+.otherLogin .other-login{
+    text-align: center;
+    margin-top: 40px;
+}
+.otherLogin .other-login .other-login-a{
+    text-decoration: none;
+}
+.otherLogin .other-login .other-login-a:hover{
+    text-decoration: underline;
+}
+
+/* register modal form */
+.first .modal-h4{
+    text-align: center;
+    margin-top: 25px;
+}
+
+.main-register .first .modal-p{
+    font-size: 12px;
+    margin-top: 20px;
+}
+.line{
+    width: 100%;
+    height: 1px;
+    background-color: rgb(194, 184, 184);
+    margin: 30px 0;
+}
+.otherLogin{
+    margin-left: 20px;
+    margin-right: 20px
+}
+.term .term-p .term-a{
+    text-decoration: underline;
+    color: rgb(135, 130, 130);
+}
+.term .term-p .term-a:hover{
+    font-size: 17px;
+}
+.term .term-p{
+    line-height: 30px;
+    text-align: justify;
+}
+.term{
+    padding: 0 20px;
+}
+
+
+
+
+
+/*=============================== Main Content =====================================*/
+#main{
+    height: auto;  
+    display: flex;
+    flex-direction: column;
+    padding: 0px;
+}
+.main-content{
+    width: 75%;
+    height: auto;
+    padding: 20px 40px;
+    /* border: 1px solid rgb(234, 229, 229); */
+    margin-right: 40px;
+    border-radius: 10px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    margin-top: 70px;
+}
+.hero-room-list{
+    background: url('../images/room_list/room_list_hero.jpg');
+    width: 100%;
+    height: 40vh;
+    background-position: top 25% right 0; 
+    background-size: cover;
+    padding: 0 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    margin-top: -5px;
+}
+.main-content-small{
+    display: flex;
+    margin-bottom: 80px;
+    justify-content: space-between;
+}
+.main-content-small:nth-child(even){
+    display: flex;
+    flex-direction: row-reverse;
+    margin-bottom: 80px;
+    justify-content: space-between;
+    text-align: right;
+}
+.main-content-img{
+    width: 50%;
+    height: 100%;
+    margin-right: 40px;
+    box-shadow: 2px 2px 4px black;
+}
+.main-content-real-img{
+    width: 100%;
+    height: auto;
+}
+.main-content-text{
+    width: 50%;
+}
+.main-content-text:nth-child(even){
+    margin-right: 40px;
+}
+.line {
+    width: 100%;
+    height: 1px;
+    background-color: rgb(194, 184, 184);
+    margin: 20px 0;
+    opacity: .5;
+}
+.main-btn{
+    width: 100%;
+    display: inline-block;
+}
+.view-detail-btn{
+    width: 100%;
+    padding: 10px 20px;
+    background-color: black;
+    color: white;
+    border-radius: 4px;
+    text-decoration: none;
+}
+.view-detail-btn:hover{
+    color: white;
+}
+
+/* pagination */
+#pagination{
+    text-align: center;
+    margin: 40px 0px;
+}
+#pagination .pagination-a{
+    text-decoration: none;
+    background-color: #181a19;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 4px;
+    font-weight: 600;
+}
+#pagination .pagination-a .pagination-i{
+    font-size: 16px;
+    font-weight: 600;
+}
+
+/* NewsLetters */
+#newsLetter{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    background-image: url('img/banner/b14.png');
+    background-repeat: no-repeat;
+    background-position: 20% 30%;
+    background-color: #041e42;
+    padding: 50px 80px;
+}
+#newsLetter .newsLetter-h4{
+    font-size: 22px;
+    font-weight: 700;
+    color: white; 
+}
+#newsLetter .newsLetter-p{
+    font-size: 14px;
+    font-weight: 600;
+    color: white; 
+}
+#newsLetter .newsLetter-p .newsLetter-span{
+    color: #ffbd27; 
+}
+#newsLetter .newsLetter-input{
+    height: 3.125rem;
+    padding: 0 1.25em;
+    font-size: 14px;
+    width: 100%;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    outline: none;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+#newsLetter .newsLetter-btn{
+    color: white;
+    background-color: #168fcc;
+    padding: 8px 0px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    width: 35%;
+}
+#newsLetter .newsLetter-form{
+    display: flex;
+    width: 50%;
+}
+
+/* agent */
+.agent{
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding: 30px;
+}
+.agent-main{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+.agent-each{
+    display: flex;
+    width: 33%;
+    justify-content: space-around;
+    margin-bottom: 50px;
+}
+.agent-main-img{
+    width: 40%;
+}
+.agent-text{
+    width: 60%;
+}
+.agent-img {
+    border-radius: 50%;
+    width: 85px;
+    height: 85px;
+    display: block;
+    margin: 0 auto;
+}
+.agent-h1{
+    margin-bottom: 45px;
+}
+.agent-h3{
+    color: #088178;
+}
+.agent-p{
+    color:#e33c1a;
+}
+
+
+
+
+
+
+/*================================ Responsive ===============================*/
+@media (max-width:799px){
+    /* main content */
+    .hero-room-list {
+        height: 30vh;
+    }
+    .main-content {
+        width: 100%;
+        margin-top: 30px;
+        padding: 20px;
+    }
+    .main-content-text{
+        margin-right: 40px;
+    }
+    .main-content-text:nth-child(even) {
+        margin-right: 20px;
+    }
+    .main-head-h1{
+        font-size: 20px;
+        margin-bottom: 2px;
+    }
+    .main-head-samll{
+        font-size: 12px;
+    }
+    .main-text-p,.main-text-p2{
+        font-size: 12px;
+        margin-bottom: 4px;
+    }
+    .main-text-p2{
+        font-weight: bolder;
+    }
+    .main-content-img {
+        margin-right: 20px;
+        height: 225px;
+    }
+    .main-content-real-img {
+        width: 100%;
+        height: 100%;
+    }
+    .line {
+        margin: 5px 0;
+    }
+    .main-btn {
+        width: 100%;
+        margin-top: 7px;
+    }
+    .view-detail-btn{
+        width: 100%;
+        padding: 5px 10px;
+        background-color: black;
+        color: white;
+        border-radius: 4px;
+        text-decoration: none;
+        font-size: 12px;
+    }
+    .view-detail-btn:hover{
+        color: white;
+    }
+    #pagination {
+        text-align: center;
+        margin: 0px 0px 30px 0px;
+    }
+    #pagination .pagination-a {
+        padding: 6px 12px;
+        font-size: 13px;
+    }
+    #newsLetter {
+        padding: 20px 30px;
+    }
+    #newsLetter .newsLetter-form {
+        width: 70%;
+    }
+    #newsLetter .newsLetter-input {
+        height: auto;
+    }
+    #newsLetter .newsLetter-p {
+        font-size: 12px;
+    }
+    #newsLetter .newsLetter-h4 {
+        font-size: 18px;
+    }
+    .agent {
+        padding: 0px;
+    }
+    .agent-each {
+        width: 45%;
+    }
+    .agent-img {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+    }
+    .agent-text {
+        margin-left: 5px;
+    }
+    .agent-h3 {
+        font-size: 17px;
+    }
+    .agent-p {
+        font-size: 13px;
+    }
+    .agent-h1 {
+        font-size: 22px;
+    }
+
+    /* other modal form */
+     .first .modal-h1 {
+        font-size: 26px;
+    }
+    .first .userInput .modal-label {
+        font-size: 13px;
+    }
+    .first .uploadBtn {
+        font-size: 14px;
+        padding: 13px;
+        font-weight: 100;
+    }
+
+
+    /* room modal form */
+    #job,#room,#article,#login,#register{
+        margin-top: 20px;
+    }
+    .first-room .modal-h1-room {
+        font-size: 26px;
+        font-weight: bold;
+    }
+    .first-room .userInput-room .modal-label-room {
+        font-size: 13px;
+    }
+    .first-room .userInput-room {
+        margin-left: 0px; 
+        margin-right: 0px;
+        margin-bottom: 30px;
+    }
+    .modal-select-room{
+        width: 49%;
+    }
+    .userInput-room .modal-select-room .modal-option-room {
+        font-size: 13px;
+    }
+    .userInput-room .modal-select-room .modal-option-room-special {
+        font-size: 13px;
+    }
+    .room-modal-p{
+        font-size: 10px;
+    }
+    .first-room .userInput-room .modal-select-room {
+        padding: 8px 0px;
+        font-size: 13px;
+    }
+    .first-room .uploadBtn-room {
+        padding: 10px 0px;
+        font-size: 14px;
+        width: 100%;
+    }
+    .dropbtn {
+        padding: 9px 0px;
+    }
+
+    /* register modal form */
+    .term .term-p {
+        font-size: 13px;
+    }
+}
+
+/*================================ Responsive ===============================*/
+@media (max-width:477px){
+    /* main content */
+    .hero-room-list {
+        height: 20vh;
+    }
+    .main-content {
+        padding: 7px;
+    }
+    .main-content-small {
+        margin-bottom: 40px;
+    }
+    .main-content-small:nth-child(even) {
+        margin-bottom: 40px;
+    }
+    .main-content-small {
+        flex-direction: column;
+    }
+    .main-content-small:nth-child(even) {
+        flex-direction: column;
+        text-align: left;
+    }
+    .main-content-img {
+        width: 100%;
+    }
+    .main-content-text {
+        width: 100%;
+        margin-top: 10px;
+    }
+    .main-btn {
+        width: 30%;
+    }
+    #pagination .pagination-a {
+        padding: 8px 13px;
+    }
+    #newsLetter {
+        padding: 20px 15px;
+    }
+    #newsLetter .newsLetter-h4 {
+        font-size: 13px;
+    }
+    #newsLetter .newsLetter-p {
+        font-size: 11px;
+    }
+    #newsLetter .newsLetter-form {
+        width: 100%;
+    }
+    #newsLetter .newsLetter-btn {
+        padding: 4px 0px;
+        font-size: 11px;
+    }
+    #newsLetter .newsLetter-input {
+        font-size: 11px;
+    }
+    .agent {
+        width: 95%;
+    }
+    .agent-main {
+        flex-direction: column;
+    }
+    .agent-each {
+        width: 100%;
+    }
+    .agent-img {
+        margin: 0 auto;
+    }
+    .agent-text {
+        text-align: center;
+    }
+    .agent-h3 {
+        font-size: 15px;
+    }
+    .agent-main-img {
+        position: relative;
+    }
+    .agent-h1 {
+        font-size: 20px;
+    }
+    .agent-img {
+        position: absolute;
+        top: 0;
+        right: 0;
+        display: inline-block;
+    }
+    .agent-p {
+        font-size: 12px;
+    }
+
+    /* other modal form */
+    .main{
+        padding: 0px;
+    }
+    .first{
+        padding: 0px;
+    }
+    .first .modal-h1 {
+        font-size: 23px;
+    }
+    .first .userInput .modal-label {
+        font-size: 12px;
+    }
+    .first .uploadBtn {
+        font-size: 13px;
+        padding: 12px;
+        font-weight: 100;
+    }
+    form.first{
+        padding: 0.01em 0px;
+    }
+
+
+    /* room modal form*/
+     .first-room .modal-h1-room {
+        font-size: 19px;
+    }
+    .first-room .userInput-room .modal-label-room {
+        font-size: 12px;
+    }
+    .modal-div-room-100{
+        width: 100%;
+    }
+    .main-room {
+        padding: 20px 0px;
+    }
+    .first-room .uploadBtn-room {
+        padding: 10px 0px;
+        width: 40%;
+    }
+
+    /* register modal form */
+    .otherLogin .other-h2 {
+        font-size: 14px;
+    }
+    .otherLogin .other-login {
+        font-size: 13px;
+    }
+    .term .term-p {
+        font-size: 12px;
+    }
+}

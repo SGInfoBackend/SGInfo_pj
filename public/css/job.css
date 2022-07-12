@@ -1,0 +1,252 @@
+.bg_blue{
+    background-color: #4A9BE3;
+}
+.info{
+    color: gold;
+}
+.slider{
+    height: 500px;
+}
+.carousel_text{
+    position: absolute;
+    top: 250px;
+    left: 150px;
+    z-index: 1;
+    color: white;
+}
+
+.banner-btn{
+	background-color: transparent;
+   
+}
+.banner-btn a{
+	width: 150px;
+	text-decoration: none;
+	display: inline-block;	
+	padding: 12px 0;
+	color: #fff;
+	border: .5px solid #fff;
+	position: relative;
+	transition: color 0.5s;
+    text-align: center;
+    
+}
+.banner-btn a span{
+	width: 0;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: #4A9BE3;
+    z-index: -1;
+   transition: 0.5s;
+}
+.banner-btn a:hover span{
+	width: 100%;
+}
+.banner-btn a:hover{
+    display: inline-block;
+	color: goldenrod;
+    font-weight: bold;    
+}
+
+@media only screen and (max-width: 600px) {
+    .carousel_text{
+        position: absolute;
+        top: 300px;
+        left: 100px;
+        z-index: 1;
+        color: white;
+        
+    }
+    .banner-btn{
+        margin-top: 30px;
+    }
+    .carousel_para{
+        display: none;
+    }
+}
+
+.remotejob{
+    text-decoration: none;
+    display: none;
+}
+
+.salary_min{
+    width: 100px;
+    border: none;
+    outline: none;
+    display: inline-block;
+}
+.salary_divided{
+    width: 10px;
+    border: none;
+    outline: none;
+    display: inline-block;
+}
+.salary_max{
+    width: 100px;
+    border: none;
+    outline: none;
+    display: inline-block;
+}
+
+.pagination{
+    
+    float: right;
+    margin-right: 150px;
+    margin-top: 30px;
+}
+
+/*====== JobDetail =====*/
+
+  .info-color{
+	color: gold;
+  }
+
+  .btn-apply:hover{
+	color:#fff;
+  }
+
+/*======== Contact CSS =====*/
+
+.social-links{
+	text-align: left;
+}
+.social-links .fa{
+	height: 40px;
+	width: 40px;
+	font-size: 20px;
+	line-height: 40px;
+	border: 1px solid #665bad;
+	margin: 40px 5px 0;
+	color: #009688;
+	cursor: pointer;
+	transition: .5s;
+}
+.social-links .fa-brands:hover{
+	background: #009688;
+	color: #fff;
+	transform: translateY(-7px);
+}
+.social-links p{
+	font-size: 12px;
+	margin-top: 20px;
+}
+
+#feature{
+	width: 100%;
+	padding: 70px 0;
+
+}
+.title-text{
+	text-align: center;
+	padding-bottom: 70px;
+}
+.title-text p{
+	margin: auto;
+	font-size: 20px;
+	color: #4A9BE3;
+	font-weight: bold;
+	position: relative;
+	z-index: 1;
+	display: inline-block;
+}
+.title-text p::after{
+	content: '';
+	width: 50px;
+	height: 35px;
+	background: linear-gradient(#4A9BE3,#fff);
+	position: absolute;
+	top: -20px;
+	left: 0;
+	z-index: -1;
+	transform: rotate(10deg);
+	border-top-left-radius: 35px;
+	border-bottom-right-radius: 35px;
+}
+.title-text h1{
+	font-size: 50px;
+}
+.feature-box{ 
+	width: 80%;
+	margin: auto;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	text-align: center;
+}
+.features{
+	flex-basis: 50%;}
+
+/*========= Fill Your Information */
+.info-fill{
+	text-align: center;
+}
+.card {
+    /* position: relative; */
+    display: flexbox;
+    display: flex;
+    /*width: 70%;*/
+	height: 50%;
+    flex-direction: column;
+    background-color: #4A9BE3;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: 0.25rem;
+	background-color: #4A9BE3;}
+	
+.btn-send{
+	margin: 70px auto 0;
+}
+
+/* navitem logoimg */
+.logoimg{
+    width: 20px;
+    height: 20px;
+}
+.nav-link li a:hover{
+    color: gold;
+}
+
+/*--feature--*/
+
+/* #feature{
+	width: 100%;
+	padding: 70px 0;
+
+} */
+.title-text{
+	text-align: center;
+	padding-bottom: 70px;
+}
+.title-text p{
+	margin: auto;
+	font-size: 20px;
+	color: #4A9BE3;
+	font-weight: bold;
+	position: relative;
+	z-index: 1;
+	display: inline-block;
+}
+.title-text p::after{
+	content: '';
+	width: 50px;
+	height: 35px;
+	background: linear-gradient(#4A9BE3,#fff);
+	position: absolute;
+	top: -20px;
+	left: 0;
+	z-index: -1;
+	transform: rotate(10deg);
+	border-top-left-radius: 35px;
+	border-bottom-right-radius: 35px;
+}
+.title-text h1{
+	font-size: 50px;
+}
+
+nav a:hover{
+	
+	color:gold !important;
+}

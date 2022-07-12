@@ -1,0 +1,854 @@
+@import url('https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap');
+
+/*=============================== Modal Box =====================================*/
+/* navbar dropdown */
+.dropbtn {
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    padding-top: 8px;
+    font-weight: 500;
+    background-color: #4A9BE3;
+}
+.dropbtn:hover{
+    color: #f7cd6c;
+}
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #4A9BE3;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+.dropdown-content a:hover {
+    background-color: white;
+}
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
+/* other model form */
+.main{
+    padding: 20px;
+}
+.first .modal-h1{
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    font-family: 'Oxygen', sans-serif;
+}
+.first .userInput{
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.first .userInput .modal-label{
+    font-weight: bolder;
+}
+.first .userInput .modal-div{
+    margin-bottom: 20px;
+}
+.first .userInput .modal-input,.first .userInput .modal-select{
+    margin-top: 8px;
+    width: 100%;
+    padding: 12px 10px;
+    border: 1px solid #088178;
+    border-radius: 5px;
+    font-size: 14px;
+}
+.userInput .modal-select .modal-option{
+    font-size: 14px;
+}
+.userInput .modal-select .modal-option:nth-child(1){
+    background-color: rgb(77, 75, 75);
+    font-weight: bolder;
+    color: white;
+}
+.first .userInput .modal-input:focus {
+    outline: 1px solid #088178;
+}
+.first .uploadBtn{
+    border: none;
+    border-radius: 5px;
+    padding: 18px;
+    background-color: #088178;
+    color: white;
+    font-size: 15px;
+    font-weight: bolder;
+    margin: 20px 0;
+}
+
+
+/* room modal form */
+.main-room{
+    padding: 20px 10px;
+}
+.first-room .modal-h1-room{
+    text-align: center;
+    font-size: 30px;
+    font-family: 'Oxygen', sans-serif;
+    font-weight: bold;
+}
+.first-room .userInput-room{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 40px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.modal-div-room{
+    width: 50%;
+    padding: 10px;
+}
+.modal-div-room-textarea{
+    padding: 10px;
+    width: 100%;
+}
+.modal-input-room-textarea{
+    width: 100%;
+    border: 1px solid #088178;
+    margin-top: 10px;
+    opacity: .75;
+    border-radius: 6px;
+}
+.first-room .userInput-room .modal-label-room{
+    font-weight:500;
+}
+.first-room .userInput-room .modal-div-room{
+    margin-bottom: 10px;
+}
+.first-room .userInput-room .modal-input-room,.first-room .userInput-room .modal-select-room{
+    margin-top: 8px;
+    width: 100%;
+    padding: 12px 10px;
+    border: 1px solid #088178;
+    border-radius: 5px;
+    font-size: 14px;
+}
+.userInput-room .modal-select-room .modal-option-room{
+    font-size: 14px;
+}
+.userInput-room .modal-select-room .modal-option-room:nth-child(1){
+    background-color: rgb(77, 75, 75);
+    font-weight: bolder;
+    color: white;
+}
+.userInput-room .modal-select-room .modal-option-room-special{
+    background-color: white;
+    color: black;
+}
+.userInput-room .modal-select-room .modal-option-room:hover{
+    background-color: #088178;
+    font-weight: bolder;
+    color: white;
+}
+.modal-input-room-image{
+    margin-top: 8px;
+    width: 100%;
+    padding: 5px 10px;
+    border: 1px solid #088178;
+    border-radius: 5px;
+    font-size: 14px;
+}
+.first-room .userInput-room .modal-select-room {
+    padding: 8px 10px;
+}
+.first-room .userInput-room .modal-input-room{
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-radius: 0px;
+    padding: 0px 10px;
+}
+.first-room .userInput-room .modal-input-room:focus {
+    border-bottom: 2px solid #088178;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+.first-room .uploadBtn-room{
+    border: none;
+    border-radius: 5px;
+    padding: 13px 0px;
+    background-color: #088178;
+    color: white;
+    font-size: 15px;
+    margin-bottom: 100px;
+    font-weight: bold;
+    display: inline-block;
+    margin: 0 auto;
+    width: 25%;
+}
+
+/* login modal form */
+.otherLogin .other-p{
+    text-align: center;
+}
+.otherLogin .google,.otherLogin .facebook,.otherLogin .apple{
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid #088178;
+    border-radius: 8px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+.otherLogin .other-img{
+    width: 5%;
+    height: 5%;
+    padding-top: 7px;
+    padding-bottom: 5px;
+    margin-left: 10px;
+    object-fit: cover;
+    margin-right: 15px;
+    border-radius: 4%;
+}
+.otherLogin .other-h2 .other-a{
+    text-decoration: none;
+    color: rgb(74, 69, 69);
+}
+.otherLogin .other-h2{
+    text-align: center;
+    margin-right: 70px;
+    font-size: 17px;
+    margin-top: 10px;
+    width: 100%;
+}
+.otherLogin .other-login{
+    text-align: center;
+    margin-top: 40px;
+}
+.otherLogin .other-login .other-login-a{
+    text-decoration: none;
+}
+.otherLogin .other-login .other-login-a:hover{
+    text-decoration: underline;
+}
+
+/* register modal form */
+.first .modal-h4{
+    text-align: center;
+    margin-top: 25px;
+}
+
+.main-register .first .modal-p{
+    font-size: 12px;
+    margin-top: 20px;
+}
+.line{
+    width: 100%;
+    height: 1px;
+    background-color: rgb(194, 184, 184);
+    margin: 30px 0;
+}
+.otherLogin{
+    margin-left: 20px;
+    margin-right: 20px
+}
+.term .term-p .term-a{
+    text-decoration: underline;
+    color: rgb(135, 130, 130);
+}
+.term .term-p .term-a:hover{
+    font-size: 17px;
+}
+.term .term-p{
+    line-height: 30px;
+    text-align: justify;
+}
+.term{
+    padding: 0 20px;
+}
+
+
+
+
+
+/*=============================== Main Content =====================================*/
+/* left content */
+#main{
+    margin: 20px;
+    height: auto;   
+    display: flex;
+}
+#left{
+    width: 75%;
+    padding: 20px 40px;
+    border: 1px solid rgb(234, 229, 229);
+    margin-right: 40px;
+    border-radius: 10px;
+}
+.title{
+    display: flex;
+    justify-content: space-between;
+}
+.line{
+    border:none;
+    background-color: grey;
+    width: 100%;
+    height: 1px;
+    margin: 40px 0;
+    opacity: 0.25;
+}
+.image{
+    margin-bottom: 70px;
+}
+.img-small{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+.img-small .img-large-each,.img-large .img-large-each{
+    box-shadow: 3px 3px 7px;
+}
+.room-detail{
+    width: 100%;
+    margin-bottom: 30px;
+}
+.room-detail-list{
+    display: flex;
+    flex-wrap: wrap;
+}
+.room-detail-each{
+    width: 50%;
+    margin: 15px 0px;
+}
+.room-detail-label{
+    display: block;
+    font-size: 17px;
+    opacity: .75;
+    margin-bottom: 10px;
+    color: rgb(231, 228, 228)s;
+}
+.room-detail-input{
+    border: 1px solid rgb(231, 228, 228);
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    width: 90%;
+}
+
+
+.amentities-item .amentities-img{
+    display: inline;
+}
+.overview .overview-h1{
+    margin-bottom: 20px;
+}
+.amenities .amenities-group{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+.amenities .amentities-item{
+    width: 45%;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.amentities-item .amentities-h4{
+    margin: 20px 20px;
+}
+.amentities-item .amentities-li{
+    text-align: justify;
+    margin-left: 50px; 
+    margin-top: 15px;
+}
+.amentities-li .fa-solid{
+    margin-right: 25px;
+}
+.room-rule .part1{
+    display: flex;
+    justify-content: space-around;
+    margin: 25px 0px;
+}
+.part1-left .part1-right-h2,.part1-right .part1-right-h2{
+    margin-bottom: 20px;
+}
+.part1-left .part1-left-li,.part1-right .part1-right-li{
+    list-style-type: disclosure-closed;
+    line-height: 30px;
+}
+.part1 .special{
+    margin-bottom: 30px;
+}
+.other-room-main .other-room{
+    display: flex;
+    justify-content: space-between;
+}
+.other-room .other-room-h2{
+    text-align: left;
+    margin-bottom: 0px;
+}
+.other-room .other-room-small{
+    font-size: 15px;
+}
+.other-room-main .other-room-h2{
+    text-align: left;
+    margin: 15px 0px 0px;
+    font-size: 15px;
+}
+.other-room-left .other-room-left-img,.other-room-right .other-room-right-img{
+    border-radius: 7px;
+    box-shadow: 2px 2px 5px rgb(198, 192, 192);
+}
+.review-main{
+    margin: 50px 20px 5px 5px;
+    border: 1px solid rgb(234, 229, 229);
+    height: auto;   
+    display: flex;
+    padding: 10px 50px;
+    border-radius: 10px;
+}
+.review{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    width: 100%;
+    padding-bottom: 20px;
+}
+.review .review-detail{
+    display: flex;
+    width: 100%;
+}
+.review .review-detail .review-detail-img{
+    width: auto;
+    height: 50%;
+}
+.review .review-detail .review-detail-p{
+    margin-top: 20px;
+}
+.review .review-detail .review-detail-div{
+    width: 100%;
+    margin-left: 20px;
+}
+.review .review-h1{
+    margin: 15px 0px;
+}
+.review .reply .reply-input{
+    border: 1px solid grey;
+    opacity: .25;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+.review .reply .reply-textarea{
+    border: 1px solid rgb(199, 192, 192);
+    padding: 15px;
+    width: 100%;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+.older-comment-btn,.post-btn,.book-btn{
+    max-width: 18%;
+    padding: 5px 15px;
+    border-radius: 5px;
+    font-size: 13px;
+    margin: 30px 0px;
+    background-color: black;
+    cursor: pointer;
+    color: white;
+}
+.post-btn{
+    margin-top: 0px;
+}
+.reply .title-left{
+    margin-bottom: 20px;
+}
+.location{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    width: 100%;
+    padding-bottom: 20px;
+}
+.location-main{
+    height: auto; 
+    width: 100%;  
+    display: flex;
+    border-radius: 10px;
+}
+.location-h1{
+    margin: 20px;
+}
+
+
+
+/* right content */
+#right{
+    width: 30%;
+    height: 88vh;
+    padding: 20px 30px;
+    position: sticky;
+    top: 100px;
+    overflow: scroll;
+    border: 1px solid rgb(95, 104, 99);
+    border-radius: 10px;
+    box-shadow: 10px 10px 30px;
+}
+.booking-room .booking-room-input{
+    border: 1px solid grey;
+    width: 100%;
+    height: 40px;
+    border-radius: 10px;
+    padding: 0px 10px;
+}
+.booking-room .booking-room-select{
+    border: 1px solid grey;
+    width: 100%;
+    height: 40px;
+    border-radius: 10px;
+    padding: 0px 10px;
+}
+.booking-room{
+    width: 100%;
+    padding: 10px 0px;
+}
+.booking-room .room .room-h1{
+    text-align: center;
+    font-size: 22px;
+    color: white;
+    background-color: black;
+    padding: 20px 20px;
+    border-radius: 15px;
+    margin-bottom: 30px;    
+    box-shadow: 10px 10px 40px rgb(199, 192, 192);
+}
+.booking-room .booking-room-label{
+    width: 100%;
+    text-align: left;
+    margin-bottom: 5px;
+}
+.booking-room .formControl{
+    margin-bottom: 18px;
+}
+.book-btn{
+    min-width: 60%;
+    padding: 10px 20px;
+    font-size: 15px;
+    background-color: black;
+    cursor: pointer;
+    color: white;
+    margin-left: 10%;
+    border-radius: 10px;
+    display: block;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+.modal-select .modal-option:nth-child(1){
+    background-color: rgb(77, 75, 75);
+    font-weight: bolder;
+    color: white;
+}
+.modal-input:focus {
+    outline: 1px solid #088178;
+}
+
+.booking-room-textarea{
+    border: 1px solid rgb(199, 192, 192);
+    padding: 15px;
+    width: 100%;
+    border-radius: 10px;
+}
+
+
+/*================================ Responsive ===============================*/
+@media (max-width:799px){
+
+    /* main content */
+    .review .review-detail img {
+        height: 50%;
+        width: 50%;
+    }
+    #main {
+        flex-direction: column;
+        margin: 0px;
+    }
+    .amentities-ul{
+        padding: 0px;
+    }
+    .amenities .amentities-item {
+        width: 50%;
+    }
+    .other-room-main .other-room-h2 {
+        font-size: 13px;
+    }
+    .other-room .other-room-small {
+        font-size: 12px;
+    }
+    .review-main {
+        padding: 10px 15px;
+    }
+    .review .reply .reply-input {
+        width: 90%;
+        margin-bottom: 15px;
+    }
+    .older-comment-btn, .post-btn, .book-btn {
+        max-width: 35%;
+    }
+    .post-btn {
+        width: auto;
+    }
+    #right {
+        width: 95%;
+        margin: 0;
+    }
+    #left {
+        width: 100%;
+        padding: 20px 0px;
+        margin-right: 0px;
+    }
+    .booking-room .room .room-h1 {
+        font-size: 20px;
+    }
+    .title-right-h3{
+        font-size: 15px;
+    }
+    .extra span {
+        text-align: left;
+    }
+    .comment-btn {
+        width: 30%;
+        padding: 11px 20px;
+    }
+    .review .review-detail img {
+        height: 50%;
+        width: auto;
+        border-radius: 50%;
+    }
+    #left {
+        padding: 20px 10px;
+        border: none;
+    }
+    .amenities .amenities-group {
+        margin-top: 20px;
+    }
+    .book-btn {
+        margin: 0 auto;
+    }
+    #right{
+        margin-bottom: 40px;
+    }
+
+    /* other modal form */
+    .first .modal-h1 {
+        font-size: 26px;
+    }
+    .first .userInput .modal-label {
+        font-size: 13px;
+    }
+    .first .uploadBtn {
+        font-size: 14px;
+        padding: 13px;
+        font-weight: 100;
+    }
+    
+
+    /* room modal form */
+    #job,#room,#article,#login,#register{
+        margin-top: 20px;
+    }
+    .first-room .modal-h1-room {
+        font-size: 26px;
+        font-weight: bold;
+    }
+    .first-room .userInput-room .modal-label-room {
+        font-size: 13px;
+    }
+    .modal-room-p{
+        font-size: 13px;
+    }
+    .first-room .userInput-room {
+        margin-left: 0px; 
+        margin-right: 0px;
+        margin-bottom: 30px;
+    }
+    .modal-select-room{
+        width: 49%;
+    }
+    .userInput-room .modal-select-room .modal-option-room {
+        font-size: 13px;
+    }
+    .userInput-room .modal-select-room .modal-option-room-special {
+        font-size: 13px;
+    }
+    .room-modal-p{
+        font-size: 13px;
+    }
+    .first-room .userInput-room .modal-select-room {
+        padding: 8px 0px;
+        font-size: 13px;
+    }
+    .first-room .uploadBtn-room {
+        padding: 10px 0px;
+        font-size: 14px;
+        width: 100%;
+    }
+    .dropbtn {
+        padding: 9px 0px;
+    }
+
+    /* register modal form */
+     .term .term-p {
+        font-size: 13px;
+    }
+   
+}
+
+/*================================ Responsive ===============================*/
+@media (max-width:477px){
+
+    /* main content */
+    #main {
+        margin: 0;
+    }
+    .title-right{
+        width: 30%;
+        padding-left: 10px;
+        text-align: right;
+    }
+    .room-detail-each {
+        width: 100%;
+        margin: 15px 0px;
+    }
+    .overview-p {
+        font-size: 14px;
+        text-align: justify;
+    }
+    .amenities .amentities-item {
+        width: 100%;
+    }
+    .amenities .amentities-item {
+        text-align: left;
+    }
+    .amentities-item .amentities-li {
+        font-size: 14px;
+    }
+    .room-detail-label {
+        font-size: 15px;
+    }
+    .room-detail-input {
+        font-size: 14px;
+    }
+    .other-room-main .other-room {
+        flex-direction: column;
+    }
+    .other-room-left{
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    .other-room-left-img{
+        width: 100%;
+    }
+    .review-main {
+        border: none;
+        width: 100%;
+    }
+    .reply-p{
+        font-size: 13px;
+    }
+    .reply-label{
+        font-size: 13px;
+    }
+    .older-comment-btn, .post-btn, .book-btn {
+        max-width: 50%;
+    }
+    .booking-room .room .room-h1 {
+        font-size: 18px;
+    }
+    .title-h1{
+        font-size: 20px;
+    }
+    .overview-p {
+        font-size: 13px;
+    }
+    .review-main {
+        padding: 10px 10px;
+    }
+    .comment-btn {
+        width: 37%;
+        padding: 11px 15px;
+    }
+    .review .reply input {
+        width: 10%;
+    }
+    .review-h3{
+        font-size: 18px;
+    }
+    .review .review-detail .review-detail-p {
+        font-size: 12px;
+    }
+    #right {
+        width: 100%;
+    }
+    .book-btn{
+        margin-top: 20px;
+    }
+
+    /* other modal form */
+    .main{
+        padding: 0px;
+    }
+    .first{
+        padding: 0px;
+    }
+    .first .modal-h1 {
+        font-size: 23px;
+    }
+    .first .userInput .modal-label {
+        font-size: 12px;
+    }
+    .first .uploadBtn {
+        font-size: 13px;
+        padding: 12px;
+        font-weight: 100;
+    }
+    form.first{
+        padding: 0.01em 0px;
+    }
+
+     /* room modal form */
+     .first-room .modal-h1-room {
+        font-size: 19px;
+    }
+    .first-room .userInput-room .modal-label-room {
+        font-size: 12px;
+    }
+    .modal-div-room-100{
+        width: 100%;
+    }
+    .main-room {
+        padding: 20px 0px;
+    }
+    .first-room .uploadBtn-room {
+        padding: 10px 0px;
+        width: 40%;
+    }
+
+    /* register modal form */
+    .otherLogin .other-h2 {
+        font-size: 14px;
+    }
+    .otherLogin .other-login {
+        font-size: 13px;
+    }
+    .term .term-p {
+        font-size: 12px;
+    }
+
+}

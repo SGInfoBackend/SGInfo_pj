@@ -1,0 +1,264 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap');
+*{
+    font-family: 'Spartan', sans-serif;
+}
+/*============================ Login =========================
+=======================================================================*/
+
+#login,#register{
+    margin: 0 auto;
+    border: 1px solid black;
+    background-color: white;
+    padding: 20px;
+    width: 30%;
+    height: 80%;
+    box-shadow: 5px 5px 20px;
+    border-radius: 10px;
+}
+#login .main {
+    padding: 20px;
+}
+
+/* first part */
+#login .first h1,#register .first h1 {
+    text-align: center;
+    font-size: 30px;
+}
+.first .userInput {
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+}
+.first .userInput label{
+    font-weight: bolder;
+}
+.first .userInput p a{
+    font-size: 14px;
+    color: rgb(60, 60, 228);
+    text-decoration: none;
+}
+.first .userInput p a:hover{
+    text-decoration: underline;
+}
+.first .userInput .email {
+    margin-bottom: 20px;
+}
+.first .userInput input {
+    margin-top: 8px;
+    width: 95%;
+    padding: 15px 10px;
+    border: 1px solid #088178;
+    border-radius: 5px;
+    font-size: 14px;
+}
+.first .userInput input:focus {
+    outline: 1px solid #088178;
+}
+.first .loginButton{
+    border: none;
+    border-radius: 5px;
+    padding: 18px;
+    background-color: #088178;
+    color: white;
+    font-size: 15px;
+    font-weight: bolder;
+    margin: 20px 0;
+}
+
+/* other logIn */
+
+.otherLogin p{
+    text-align: center;
+}
+.otherLogin .google,.otherLogin .facebook,.otherLogin .apple{
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid #088178;
+    border-radius: 8px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+.otherLogin img{
+    width: 5%;
+    height: 5%;
+    padding-top: 15px;
+    padding-bottom: 5px;
+    margin-left: 10px;
+    object-fit: cover;
+    margin-right: 15px;
+    border-radius: 4%;
+}
+.otherLogin h2 a{
+    text-decoration: none;
+    color: rgb(74, 69, 69);
+}
+.otherLogin h2{
+    text-align: center;
+    margin-right: 70px;
+    font-size: 17px;
+    margin-top: 18px;
+    width: 100%;
+}
+.otherLogin .signup{
+    text-align: center;
+    margin-top: 40px;
+}
+.otherLogin .signup a{
+    text-decoration: none;
+}
+.otherLogin .signup a:hover{
+    text-decoration: underline;
+}
+
+/*============================ Register =========================
+=======================================================================*/
+
+#register {
+    width: 30%;
+}
+
+#register .otherLogin img {
+    width: 8%;
+    height: 8%;
+    padding-top: 21px;
+    padding-bottom: 5px;
+    margin-left: 12px;
+    object-fit: cover;
+    margin-right: 15px;
+    border-radius: 4%;
+}
+
+#register .otherLogin .google,#register.otherLogin .facebook{
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid #088178;
+    border-radius: 8px;
+    width: 100%;
+    margin-bottom: 20px;
+} 
+
+#register .first h1 {
+    text-align: center;
+    font-size: 32px;
+}
+#register .first h4{
+    text-align: center;
+}
+#register .first .userInput .email{
+    margin-top: 20px;
+}
+#register .main-register{
+    padding: 30px;
+}
+#register .main-register .first p{
+    font-size: 12px;
+    margin-top: 20px;
+}
+#register .otherLogin .register a{
+    text-decoration: none;
+}
+#register .otherLogin .register a:hover{
+    text-decoration: underline;
+}
+#register .otherLogin .register{
+    text-align: center;
+    margin-top: 40px;
+}
+#register .main-register .otherLogin h2 {
+    text-align: center;
+    font-size: 17px;
+    padding: 10px 0px;
+    width: 100%;
+}
+#register .line{
+    width: 100%;
+    height: 1px;
+    background-color: rgb(194, 184, 184);
+    margin: 30px 0;
+}
+#register .term p a{
+    text-decoration: underline;
+    color: rgb(135, 130, 130);
+}
+#register .term p a:hover{
+    font-size: 17px;
+}
+#register .term p{
+    line-height: 30px;
+    text-align: justify;
+}
+#register .term{
+    padding: 0 20px;
+}
+
+/*================================ Responsive ===============================*/
+@media (max-width:799px){
+    #login, #register {
+        width: 60%;
+    }
+    #register .main-register {
+        padding: 5px;
+    }
+    #register .term p {
+        font-size: 14px;
+    }
+    .otherLogin img {
+        width: 19%;
+        margin-top: 2px;
+    }
+    .otherLogin h2 {
+        /* margin-right: 50px;
+        font-size: 14px; */
+    }
+    #register .otherLogin .register {
+        font-size: 15px;
+    }
+    .otherLogin p {
+        font-size: 14px;
+    }
+    #register .otherLogin img {
+        width: 8%;
+        height: 8%;
+        padding-top: 21px;
+    }
+    #login .otherLogin img {
+        width: 8%;
+        height: 8%;
+        padding-top: 15px;
+    }
+
+    #register .main-register .otherLogin h2 {
+        padding: 10px 0px;
+    }
+
+}
+
+@media (max-width:477px){
+    #login, #register {
+        width: 85%;
+    }
+    #register .term p {
+        font-size: 12px;
+    }
+    .otherLogin h2 {
+        margin-right: 50px;
+        font-size: 13px;
+    }
+    .first .userInput label {
+        font-size: 14px;
+    }
+    .first .loginButton {
+        padding: 14px;
+        margin: 16px 0;
+    }
+    .otherLogin p {
+        font-size: 12px;
+    }
+    #register .otherLogin .register {
+        font-size: 14px;
+    }
+    #login .otherLogin img {
+        padding-top: 10px;
+    }
+}
+
