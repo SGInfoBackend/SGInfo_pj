@@ -238,45 +238,38 @@
   <!-- ============================= End of Travel Guide Slider ========================================== -->
 
   <!-- ============================= Globel News ========================================== -->
-  <section>
+  <section id="globel_trending_news_container">
     <div class="trending_news">
       <p style="border: 5; border-color: black;">TRENDING NEWS</p>
       <marquee>This text will scroll from right to left</marquee>
     </div>
     <div id="globel_news_container">
-      <div class="globel_news_box">
-        <div class="background_color">
-          <p class="news_type news_type1">Travel</p>
-          <h4 class="news_title news_title1">Where is The Best Present In Singapore</h4>
-          <caption class="journalist">Mrs Christ - June 3, 2020</caption>
-        </div>
-      </div>
+        @foreach ($general as $article)
+            <div class="globel_news_box_general" style="background-image: url({{ asset('/images/general_images/' . $article->G_PHOTO) }})">
+                <a href="{{ route('detailarticle',["General_ID"=>$article->General_ID]) }}">
+                <div class="background_color">
+                    <p class="news_type news_type1">{{ Str::limit($article->G_Description, 50) }}</p>
+                    <h4 class="news_title news_title1">{{ $article->G_Title }}
+                    </h4>
+                    <caption class="journalist">Mrs Christ - {{ $article->created_at }}</caption>
+                </div>
+                </a>
+            </div>
+        @endforeach
       <div id="globel_news_container2">
-        <div class="globel_news_box2">
-          <div class="background_color">
-            <p class="news_type">Health</p>
-            <h4 class="news_title">Work Out as Much as Possible During Your All Vacations</h4>
+          @foreach ($generals as $general)
+          <div class="globel_news_box_article" style="background-image: url({{ asset('/images/general_images/' . $general->G_PHOTO) }})">
+            <a href="{{ route('detailarticle',["General_ID"=>$general->General_ID]) }}">
+                <div class="background_color">
+                <p class="news_type">{{ Str::limit($general->G_Description, 50) }}</p>
+                <h4 class="news_title">{{ $general->G_Title }}</h4>
+                </div>
+             </a>
           </div>
-        </div>
-        <div class="globel_news_box2 globel_news_box3">
-          <div class="background_color">
-            <p class="news_type">Restaurant</p>
-            <h4 class="news_title">The Health Foods & The Delicious Foods Are Ready Now!</h4>
-          </div>
-        </div>
-        <div class="globel_news_box2 globel_news_box4">
-          <div class="background_color">
-            <p class="news_type">Restaurant</p>
-            <h4 class="news_title">The Health Foods & The Delicious Foods Are Ready Now!</h4>
-          </div>
-        </div>
-        <div class="globel_news_box2 globel_news_box5">
-          <div class="background_color">
-            <p class="news_type">Travel</p>
-            <h4 class="news_title">This Place is Very Instering . We Should Go There</h4>
-          </div>
-        </div>
+        @endforeach
+
       </div>
+
     </div>
   </section>
 
