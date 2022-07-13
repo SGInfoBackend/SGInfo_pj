@@ -152,9 +152,9 @@
                         <div class="card-body">
                             <h4>Salary</h4>
                               <div class="input-group mb-3">
-                                  <input wire:ignore type="text" id="slider1" class="form-control" placeholder="Min" aria-label="Min" id="salaryMin">
+                                  <input type="text" class="form-control" placeholder="Min" value="0" aria-label="Min">
                                   <span class="input-group-text">-</span>
-                                  <input wire:ignore type="text" id="slider2" class="form-control" placeholder="Max" aria-label="Max" id="salaryMax">
+                                  <input type="text" class="form-control" placeholder="Max" value="0" aria-label="Max">
                                   </div>
                             </div>
                     </div>
@@ -179,50 +179,3 @@
     </div>
 </div>
 
-
-@push('scripts')
-    <script>
-        var Slider1Handler = function(){
-
-        var slider1 = document.getElementsById('slider1');
-        noUiSlider.create(slider1, {
-            start: [ 0 ],
-            connect: [true, false],
-            step: 1000,
-            tooltips: true,
-            orientation: "horizontal",
-            range: {
-            'min': [  200000 ],
-            'max': [ 1000000 ]
-            }
-        });
-        };
-
-        var Slider2Handler = function(){
-
-        var slider2 = document.getElementsById('slider2');
-        noUiSlider.create(slider2, {
-            start: [ 0 ],
-            connect: [true, false],
-            step: 1000,
-            tooltips: true,
-            orientation: "horizontal",
-            range: {
-            'min': [  200000 ],
-            'max': [ 1000000 ]
-            }
-
-        });
-        };
-        // console.log(slider2);
-
-        slider1.noUiSlider.on('change', function(value) {
-            @this.set('min_price', value[0]);
-            @this.set('max_price', value[1]);
-        });
-        slider2.noUiSlider.on('change', function(value) {
-            @this.set('min_price', value[0]);
-            @this.set('max_price', value[1]);
-        });
-    </script>
-@endpush
