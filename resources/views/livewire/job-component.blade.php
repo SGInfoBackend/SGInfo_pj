@@ -152,9 +152,11 @@
                         <div class="card-body">
                             <h4>Salary</h4>
                               <div class="input-group mb-3">
-                                  <input type="text" class="form-control" placeholder="Min" value="0" aria-label="Min">
+
+                                  <input wire:ignore type="text" id="slider1" class="form-control" placeholder="Min" aria-label="Min" id="salaryMin">
                                   <span class="input-group-text">-</span>
-                                  <input type="text" class="form-control" placeholder="Max" value="0" aria-label="Max">
+                                  <input wire:ignore type="text" id="slider2" class="form-control" placeholder="Max" aria-label="Max" id="salaryMax">
+
                                   </div>
                             </div>
                     </div>
