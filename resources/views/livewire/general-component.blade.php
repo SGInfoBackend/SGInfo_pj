@@ -6,54 +6,32 @@
       <marquee>This text will scroll from right to left</marquee>
     </div>
     <div id="globel_news_container">
-
-
-      <div class="globel_news_box">
-        <a href="general_info_detail.html">
-          <div class="background_color">
-            <p class="news_type news_type1">Travel</p>
-            <h4 class="news_title news_title1">Where is The Best Present In Singapore, Let's purchase a lot of presents
-            </h4>
-            <caption class="journalist">Mrs Christ - June 3, 2020</caption>
-          </div>
-        </a>
-      </div>
-
+        @foreach ($general as $article)
+            <div class="globel_news_box_general" style="background-image: url({{ asset('/images/general_images/' . $article->G_PHOTO) }})">
+                <a href="{{ route('detailarticle',["General_ID"=>$article->General_ID]) }}">
+                <div class="background_color">
+                    <p class="news_type news_type1">{{ Str::limit($article->G_Description, 50) }}</p>
+                    <h4 class="news_title news_title1">{{ $article->G_Title }}
+                    </h4>
+                    <caption class="journalist">Mrs Christ - {{ $article->created_at }}</caption>
+                </div>
+                </a>
+            </div>
+        @endforeach
       <div id="globel_news_container2">
-        <div class="globel_news_box2">
-          <a href="general_info_detail.html">
-            <div class="background_color">
-              <p class="news_type">Health</p>
-              <h4 class="news_title">Work Out as Much as Possible During Your All Vacations</h4>
+          @foreach ($generals as $general)
+          <div class="globel_news_box_article" style="background-image: url({{ asset('/images/general_images/' . $general->G_PHOTO) }})">
+            <a href="{{ route('detailarticle',["General_ID"=>$general->General_ID]) }}">
+                <div class="background_color">
+                <p class="news_type">{{ Str::limit($general->G_Description, 50) }}</p>
+                <h4 class="news_title">{{ $general->G_Title }}</h4>
+                </div>
+             </a>
+          </div>
+        @endforeach
 
-            </div>
-          </a>
-        </div>
-        <div class="globel_news_box2 globel_news_box3">
-          <a href="general_info_detail.html">
-            <div class="background_color">
-              <p class="news_type">Restaurant</p>
-              <h4 class="news_title">The Health Foods & The Delicious Foods Are Ready Now!</h4>
-            </div>
-          </a>
-        </div>
-        <div class="globel_news_box2 globel_news_box4">
-          <a href="general_info_detail.html">
-            <div class="background_color">
-              <p class="news_type">Restaurant</p>
-              <h4 class="news_title">The Health Foods & The Delicious Foods Are Ready Now!</h4>
-            </div>
-          </a>
-        </div>
-        <div class="globel_news_box2 globel_news_box5">
-          <a href="general_info_detail.html">
-            <div class="background_color">
-              <p class="news_type">Travel</p>
-              <h4 class="news_title">This Place is Very Instering,We Should Go There immediately!</h4>
-            </div>
-          </a>
-        </div>
       </div>
+
     </div>
   </section>
 
@@ -66,6 +44,7 @@
     <div class="first-global">
       <h3 class="header3">GLOBLE NEWS</h3>
       <div class="information">
+
         <div class="news">
           <div class="gl-news-photo1">
             <a href="general_info_detail.html">
