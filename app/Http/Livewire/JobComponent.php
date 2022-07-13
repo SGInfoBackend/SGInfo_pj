@@ -15,6 +15,15 @@ class JobComponent extends Component
     // public $check;
     public $selected = [];
 
+    public $min_price;
+    public $max_price;
+
+    public function mount()
+    {
+        $this->min_price = 1;
+        $this->max_price = 1000;
+    }
+
     // public $jobtitle1;
     // public $jobtitle2;
     // public $jobtitle3;
@@ -36,10 +45,10 @@ class JobComponent extends Component
     {
         $typeofroles = JobTypeOfRole::all();
 
-        $result = array_keys(array_filter($this->selected));
+        // $result = array_keys(array_filter($this->selected));
 
-
-        $jobs = Job::where('Typeofrole_ID', $result)
+        // Job::where('Typeofrole_ID', $this->selected)
+        $jobs = Job::orderBy('Job_ID','DESC')->paginate(8);
                 // ->orWhere('Typeofrole_ID', $this->check2)
                 // ->orWhere('Typeofrole_ID', $this->check3)
                 // ->orWhere('Job_title', $this->jobtitle1)
@@ -51,7 +60,7 @@ class JobComponent extends Component
                 // ->orWhere('Job_title', $this->jobtitle7)
                 // ->orWhere('Job_title', $this->jobtitle8)
                 // ->orWhere('Job_title', $this->jobtitle9)
-                ->orderBy('Job_ID','DESC')->paginate(5);
+
         return view('livewire.job-component',['jobs'=>$jobs, 'typeofroles'=>$typeofroles])->layout('layouts.base');
     }
 }

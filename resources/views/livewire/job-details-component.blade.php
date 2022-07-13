@@ -38,7 +38,7 @@
                <p>-Must possess at least Computer Science/Information  </p>
                <p>-Technology or equivalent.</p>
                <p>-Preferable UCSY Bachelor's Degree</p>
-               <p>-Full-Time Positions Available</p>
+               <p>-{{ $rolename->Typeofrole_Name }} Positions Available</p>
                <p>-Self-motivated and enthusiastic</p>
                <p>-English 4 Skills</p>
                <a class=" btn-apply btn btn-outline-primary" href="{{ route('applyjob', ['Job_title'=>$jobdetails->Job_title]) }}" role="button">Apply Job</a>
@@ -50,8 +50,8 @@
            @foreach ($similarjobs as $similarjob)
             <div class="card my-2 shadow">
                 <div class="card-body">
-                <h5 class="card-title"><i class="fa-solid fa-briefcase pe-2 text-primary"></i><a href="jobdetail.html" style="text-decoration:none;">{{ $similarjob->Job_title }}</a></h5>
-                <p class="card-text">Salary -> {{ $similarjob->SALARY }}</p>
+                <h5 class="card-title"><i class="fa-solid fa-briefcase pe-2 text-primary"></i><a href="{{ route('jobdetails', ['Job_ID'=>$jobdetails->Job_ID]) }}" style="text-decoration:none;">{{ $similarjob->Job_title }}</a></h5>
+                <p class="card-text text-dark">Salary -> {{ $similarjob->SALARY }}</p>
                 </div>
             </div>
            @endforeach
