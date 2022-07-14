@@ -15,7 +15,7 @@ class HomeComponent extends Component
     {
         $search_job_title = '%'. $this->job_title. '%';
         $search_job_location = '%'. $this->location. '%';
-        $rentHouses = RentHouse::paginate(4);
+        $rentHouses = RentHouse::orderBy('Rent_House_ID', 'DESC')->paginate(4);
         $jobs = Job::where('Job_title', 'LIKE', $search_job_title)
                     ->orWhere('Job_location', 'LIKE',$search_job_title )
                     ->paginate(5);
