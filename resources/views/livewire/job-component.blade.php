@@ -20,24 +20,14 @@
                     <div class="card shadow">
                         <div class="card-body">
                             <h4>Job Type</h4>
+                            @foreach ($jobs as $job)
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="full_time" checked>
+                                <input class="form-check-input" type="checkbox" value="{{ $job->Typeofrole_ID }}" wire:model="selected.{{ $job->Typeofrole_ID }}" id="full_time" checked>
                                 <label class="form-check-label" for="full_time">
                                     Full Time
                                 </label>
                             </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="part_time" >
-                                <label class="form-check-label" for="part_time">
-                                  Part Time
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="internship" >
-                                <label class="form-check-label" for="internship">
-                                  Internship
-                                </label>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>
