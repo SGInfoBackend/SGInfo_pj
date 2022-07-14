@@ -67,26 +67,31 @@
                 </div>
 
                 <div class="main">
-                    <form class="w3-container first" action="">
+                    <form class="w3-container first" method="POST" action="{{ route('register')}}">
+                        @csrf
                         <h1 class="modal-h1">Sign up</h1>
                         <h4 class="modal-h4">Search everything on your own time from SG Info</h4>
                         <div class="userInput">
                             <div class="modal-div">
                                 <label for="" class="modal-label">FULL NAME</label> <br>
-                                <input class="modal-input" type="text" placeholder="Enter fullname">
+                                <input class="modal-input" name="name" type="text" placeholder="Enter fullname">
                             </div>
                             <div class="modal-div">
                                 <label for="" class="modal-label">EMAIL</label> <br>
-                                <input class="modal-input" type="text" placeholder="Enter email">
+                                <input class="modal-input" name="email" type="text" placeholder="Enter email">
                             </div>
                             <div class="modal-div">
                                 <label for="" class="modal-label">PASSWORD</label> <br>
-                                <input class="modal-input" type="password" placeholder="Enter password">
+                                <input class="modal-input" name="password" type="password" placeholder="Enter password">
+                            </div>
+                            <div class="modal-div">
+                                <label for="" class="modal-label">COMFIRMED PASSWORD</label> <br>
+                                <input class="modal-input" name="password_confirmation" type="password" placeholder="Confirm your password">
                             </div>
                             <p class="modal-p">Between 8 and 72 characters</p>
-                            <button class="uploadBtn">REGISTER</button>
+                            <button class="uploadBtn" type="submit">REGISTER</button>
                         </div>
-
+                    </form>
                         <div class="otherLogin">
                             <p class="other-p">(OR)</p>
                             <div class="google">
@@ -107,7 +112,6 @@
                                 <p class="term-p">This site is protected by reCAPTCHA Enterprise and the Google <a href="" class="term-a">Privacy Policy</a> and <a href="" class="term-a">Terms of Service apply</a>.</p>
                             </div>
                         </div>
-                    </form>
                 </div>
             </div>
         </div>
