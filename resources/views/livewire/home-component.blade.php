@@ -51,95 +51,37 @@
   <!-- for home-room -->
   <section id="home-room">
     <h2>Rooms for Rent</h2>
-    <a href="room_list.html" class="room-detail">View all rooms</a>
+    <a href="{{ route('rooms')}}" class="room-detail">View all rooms</a>
     <div id="home-room-container">
-      <div class="home-room-sample">
-        <img src="images/room_images/room6.jpg" alt="room6">
-        <a href="room_list.html">
-          <button class="avail-btn">Avail</button>
-        </a>
-        <div class="home-room-des">
-          <h6>MASTER ROOM</h6>
-          <p>1200 $ <span>/ month</span></p>
-          <p class="p1">583 Ang Mo Kio Avenue 3</p>
-          <hr>
-          <div class="home-room-info">
-            <div class="home-room-info-single">
-              <span>Downtown</span>
+      @foreach ($rentHouses as $rentHouse )
+        <div class="home-room-sample">
+            <a href="{{ route('roomdetails',['Rent_House_ID' => $rentHouse->Rent_House_ID])}}">
+                <img src="images/room_list/{{ $rentHouse->RH_PHOTO}}" alt="room">
+            </a>
+            <a href="room_list.html">
+                @if ($rentHouse->Avaliable_From > now())
+                    <button class="avail-btn">Avail</button>
+                @else
+                    <button class="avail-btn">Expired</button>
+                @endif
+            </a>
+            <div class="home-room-des">
+            <h6>{{ $rentHouse->Project_type}}</h6>
+            <p>${{ $rentHouse->PRICE_MAX}} <span>/ month</span></p>
+            <p class="p1">{{ $rentHouse->ADDRESS}}</p>
+            <hr>
+            <div class="home-room-info">
+                <div class="home-room-info-single">
+                <span>Downtown</span>
+                </div>
+                <div class="home-room-info-single">
+                <i class="fa-solid fa-person-walking"></i>
+                <span>3 mins</span>
+                </div>
             </div>
-            <div class="home-room-info-single">
-              <i class="fa-solid fa-person-walking"></i>
-              <span>3 mins</span>
             </div>
-          </div>
         </div>
-      </div>
-
-      <div class="home-room-sample">
-        <img src="images/room_images/room7.jpg" alt="room7">
-        <a href="room_list.html">
-          <button class="avail-btn">Avail</button>
-        </a>
-        <div class="home-room-des">
-          <h6>MASTER ROOM</h6>
-          <p>1200 $ <span>/ month</span></p>
-          <p class="p1">583 Ang Mo Kio Avenue 3</p>
-          <hr>
-          <div class="home-room-info">
-            <div class="home-room-info-single">
-              <span>Downtown</span>
-            </div>
-            <div class="home-room-info-single">
-              <i class="fa-solid fa-person-walking"></i>
-              <span>3 mins</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="home-room-sample">
-        <img src="images/room_images/room8.jpg" alt="room8">
-        <a href="room_list.html">
-          <button class="avail-btn">Avail</button>
-        </a>
-        <div class="home-room-des">
-          <h6>MASTER ROOM</h6>
-          <p>1200 $ <span>/ month</span></p>
-          <p class="p1">583 Ang Mo Kio Avenue 3</p>
-          <hr>
-          <div class="home-room-info">
-            <div class="home-room-info-single">
-              <span>Downtown</span>
-            </div>
-            <div class="home-room-info-single">
-              <i class="fa-solid fa-person-walking"></i>
-              <span>3 mins</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="home-room-sample">
-        <img src="images/room_images/room9.jpg" alt="room9">
-        <a href="room_list.html">
-          <button class="avail-btn">Avail</button>
-        </a>
-        <div class="home-room-des">
-          <h6>MASTER ROOM</h6>
-          <p>1200 $ <span>/ month</span></p>
-          <p class="p1">583 Ang Mo Kio Avenue 3</p>
-          <hr>
-          <div class="home-room-info">
-            <div class="home-room-info-single">
-              <span>Downtown</span>
-            </div>
-            <div class="home-room-info-single">
-              <i class="fa-solid fa-person-walking"></i>
-              <span>3 mins</span>
-            </div>
-          </div>
-        </div>
-      </div>
+      @endforeach
     </div>
   </section>
   <!-- End of home-room -->

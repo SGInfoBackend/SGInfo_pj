@@ -16,19 +16,19 @@
                     </div>
                     <div class="title-right">
                         <p>from</p>
-                        <h3>${{$roomDetail->PRICE_MIN}} / night</h3>
+                        <h3>${{$roomDetail->PRICE_MAX}} / Month</h3>
                     </div>
                 </div>
                 <div class="line"></div>
                 <div class="image">
                     <div class="img-large">
-                        <img src="{{asset('assets/images/room_detail/1-detail.jpg')}}" alt="">
+                        <img src="{{asset('images/room_list/')}}/{{ $roomDetail->RH_PHOTO}}" alt="">
                     </div>
                     <div class="img-small">
-                        <img src="{{asset('assets/images/room_detail/2-detail.jpg')}}" style="width: 24%;" alt="">
-                        <img src="{{asset('assets/images/room_detail/3-detail.jpg')}}" style="width: 24%;" alt="">
-                        <img src="{{asset('assets/images/room_detail/4-detail.jpg')}}" style="width: 24%;" alt="">
-                        <img src="{{asset('assets/images/room_detail/5-detail.jpg')}}" style="width: 24%;" alt="">
+                        <img src="{{asset('images/room_detail/2-detail.jpg')}}" style="width: 24%;" alt="">
+                        <img src="{{asset('images/room_detail/3-detail.jpg')}}" style="width: 24%;" alt="">
+                        <img src="{{asset('images/room_detail/4-detail.jpg')}}" style="width: 24%;" alt="">
+                        <img src="{{asset('images/room_detail/5-detail.jpg')}}" style="width: 24%;" alt="">
                     </div>
                 </div>
                 <div class="overview">
@@ -43,40 +43,20 @@
                     <h1>FACILITIES & AMENITIES</h1>
                     <div class="amenities-group">
                         <div class="amentities-item">
-                            <img src="{{asset('assets/images/room_detail/air-conditioner.svg')}}" style="width: 15%;" alt="">
-                            <p>Air conditione</p>
+                            <ol>
+                                <img src="{{asset('assets/images/room_detail/air-conditioner.svg')}}" style="width: 15%;" alt="">
+                                @foreach ($facilities as $facilitie )
+                                <li>{{ $facilitie}}</li>
+                                @endforeach
+                            </ol>
                         </div>
                         <div class="amentities-item">
-                            <img src="{{asset('assets/images/room_detail/hair-dryer.svg')}}" style="width: 15%;" alt="">
-                            <p>Hair Dryer</p>
-                        </div>
-                        <div class="amentities-item">
-                            <img src="{{asset('assets/images/room_detail/savings.svg')}}" style="width: 15%;" alt="">
-                            <p>Saving Safe</p>
-                        </div>
-                        <div class="amentities-item">
-                            <img src="{{asset('assets/images/room_detail/bathtub.svg')}}" style="width: 15%;" alt="">
-                            <p>Bathtub</p>
-                        </div>
-                        <div class="amentities-item">
-                            <img src="{{asset('assets/images/room_detail/wifi.svg')}}" style="width: 15%;" alt="">
-                            <p>High speed Wifi</p>
-                        </div>
-                        <div class="amentities-item">
-                            <img src="{{asset('assets/images/room_detail/tv.svg')}}" style="width: 15%;" alt="">
-                            <p>Cable TV</p>
-                        </div>
-                        <div class="amentities-item">
-                            <img src="{{asset('assets/images/room_detail/telephone.svg')}}" style="width: 15%;" alt="">
-                            <p>Cable TV</p>
-                        </div>
-                        <div class="amentities-item">
-                            <img src="{{asset('assets/images/room_detail/laundry.svg')}}" style="width: 15%;" alt="">
-                            <p>Laundry</p>
-                        </div>
-                        <div class="amentities-item">
-                            <img src="{{asset('assets/images/room_detail/towel.svg')}}" style="width: 15%;" alt="">
-                            <p>Towels</p>
+                            <ol>
+                                <img src="{{asset('assets/images/room_detail/air-conditioner.svg')}}" style="width: 15%;" alt="">
+                                @foreach ($keyfeatures as $keyfeature )
+                                <li>{{ $keyfeature}}</li>
+                                @endforeach
+                            </ol>
                         </div>
                     </div>
                 </div>

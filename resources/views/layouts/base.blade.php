@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="{{asset('css/general_info_detail.css')}}">
   <link rel="stylesheet" href="{{asset('css/room_list.css')}}">
   <link rel="stylesheet" href="{{asset('css/room_posting.css')}}">
-  <link rel="stylesheet" href="{{asset('css/login_register.css')}}">
+  {{-- <link rel="stylesheet" href="{{asset('css/login_register.css')}}"> --}}
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
   integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
@@ -28,7 +28,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.1.6/css/unicons.css">
-  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.1.6/css/unicons.css">
   <!-- font awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
     integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
@@ -39,10 +38,16 @@
   <!-- Icon Scout -->
   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
   <!-- SWIPER JS -->
+  <!-- CSS only -->
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+  {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous"> --}}
   <!-- <link
         rel="stylesheet"
         href="https://unpkg.com/swiper/swiper-bundle.min.css"
       /> -->
+
+<script src="{{ asset('js/jquery.min.js')}}"></script>
   <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
   <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
 
@@ -90,22 +95,33 @@
             <div class="dropdown">
                 <button class="dropbtn">Upload</button>
                 <div class="dropdown-content">
-                    <a href="{{ route('addjob')}}" class="dropdown-a" onclick="document.getElementById('job').style.display='block'">Job</a>
-                    <a href="{{ route('addarticle')}}" class="dropdown-b" onclick="document.getElementById('article').style.display='block'">Article</a>
-                    <a href="{{ route('addroom')}}" class="dropdown-c" onclick="document.getElementById('room').style.display='block'">Room</a>
+                    <a href="#" class="dropdown-a" onclick="document.getElementById('job').style.display='block'">Job</a>
+                    <a href="#" class="dropdown-b" onclick="document.getElementById('article').style.display='block'">Article</a>
+                    <a href="#" class="dropdown-c" onclick="document.getElementById('room').style.display='block'">Room</a>
                 </div>
             </div>
           </li>
-          <li class="nav-item  ms-lg-4">
-            <div class="dropdown">
-                <button class="dropbtn"><i class="fa-regular fa-user"></i></button>
-                <div class="dropdown-content">
-                    <a href="/register" class="dropdown-d" onclick="document.getElementById('register').style.display='block'">Register</a>
-                    <a href="/login" class="dropdown-e" onclick="document.getElementById('login').style.display='block'">Login</a>
-                    <a href="">Logout</a>
+          @if (Auth::check())
+              <li class="nav-item  ms-lg-4">
+                <div class="dropdown">
+                    <button class="dropbtn"><i class="fa-regular fa-user"></i></button>
+                    <div class="dropdown-content">
+                            <a title="logout" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" href="{{ route('logout')}}">Logout</a>
+                            <form id="logout-form" action="{{ route('logout')}}" method="POST">@csrf</form>
+                    </div>
                 </div>
-            </div>
-          </li>
+              </li>
+            @else
+              <li class="nav-item  ms-lg-4">
+                <div class="dropdown">
+                    <button class="dropbtn"><i class="fa-regular fa-user"></i></button>
+                    <div class="dropdown-content">
+                      <a href="#" class="dropdown-d" onclick="document.getElementById('register').style.display='block'">Register</a>
+                      <a href="#" class="dropdown-e" onclick="document.getElementById('login').style.display='block'">Login</a>
+                    </div>
+                </div>
+              </li>
+            @endif
           <li class="nav-item  ms-lg-4">
             <a class="nav-link active" href="#"><img src="{{ asset('images/myanmar.png') }}" alt="" class="logoimg"></a>
           </li>
@@ -114,7 +130,110 @@
     </div>
   </nav>
   <!-- end nav -->
+    <div class="w3-container" wire:ignore>
+        <div id="login" class="w3-modal">
+            <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
+                <div class="w3-center"><br>
+                    <span onclick="document.getElementById('login').style.display='none'" class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
+                </div>
 
+                <div class="main">
+                    <form class="w3-container first" name="frm-login" method="POST" action="{{ route('login')}}">
+                        @csrf
+                        <h1 class="modal-h1">Welcome to SG Info</h1>
+                        <div class="userInput">
+                            <div class="modal-div">
+                                <label for="" class="modal-label">EMAIL</label> <br>
+                                <input class="modal-input" name="email" type="text" placeholder="Enter email">
+                            </div>
+                            <div class="modal-div">
+                                <label for="" class="modal-label">PASSWORD</label> <br>
+                                <input class="modal-input" name="password" type="password" placeholder="Enter password">
+                            </div>
+                            <p><a href="">Forgot Password?</a></p>
+                            <button class="uploadBtn" type="submit">LOGIN</button>
+                        </div>
+                    </form>
+                        <div class="otherLogin">
+                            <p class="other-p">(OR)</p>
+                            <div class="google">
+                                <img class="other-img" src="images/login_register/google.svg" alt="">
+                                <h2 class="other-h2"><a class="other-a" href="">Continue with Google</a></h2>
+                            </div>
+                            <div class="facebook">
+                                <img class="other-img" src="images/login_register/facebook.svg" alt="">
+                                <h2 class="other-h2"><a href="" class="other-a">Continue with Facebook</a> </h2>
+                            </div>
+                            <div class="apple">
+                                <img class="other-img" src="images/login_register/apple.svg" alt="">
+                                <h2 class="other-h2"><a class="other-a" href="">Continue with Apple</a></h2>
+                            </div>
+                            <div class="other-login">New to SG Info? <a href="" class="other-login-a">Sign up</a></div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="w3-container" wire:ignore>
+        <div id="register" class="w3-modal">
+            <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
+                <div class="w3-center"><br>
+                    <span onclick="document.getElementById('register').style.display='none'" class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
+                </div>
+
+                <div class="main">
+                    <form class="w3-container first" method="POST" action="{{ route('register')}}">
+                        @csrf
+                        <h1 class="modal-h1">Sign up</h1>
+                        <h4 class="modal-h4">Search everything on your own time from SG Info</h4>
+                        <div class="userInput">
+                            <div class="modal-div">
+                                <label for="" class="modal-label">FULL NAME</label> <br>
+                                <input class="modal-input" name="name" type="text" placeholder="Enter fullname">
+                            </div>
+                            <div class="modal-div">
+                                <label for="" class="modal-label">EMAIL</label> <br>
+                                <input class="modal-input" name="email" type="text" placeholder="Enter email">
+                            </div>
+                            <div class="modal-div">
+                                <label for="" class="modal-label">PASSWORD</label> <br>
+                                <input class="modal-input" name="password" type="password" placeholder="Enter password">
+                            </div>
+                            <div class="modal-div">
+                                <label for="" class="modal-label">COMFIRMED PASSWORD</label> <br>
+                                <input class="modal-input" name="password_confirmation" type="password" placeholder="Confirm your password">
+                            </div>
+                            <p class="modal-p">Between 8 and 72 characters</p>
+                            <button class="uploadBtn" type="submit">REGISTER</button>
+                        </div>
+                    </form>
+                        <div class="otherLogin">
+                            <p class="other-p">(OR)</p>
+                            <div class="google">
+                                <img class="other-img" src="images/login_register/google.svg" alt="">
+                                <h2 class="other-h2"><a class="other-a" href="">Continue with Google</a></h2>
+                            </div>
+                            <div class="facebook">
+                                <img class="other-img" src="images/login_register/facebook.svg" alt="">
+                                <h2 class="other-h2"><a href="" class="other-a">Continue with Facebook</a> </h2>
+                            </div>
+                            <div class="other-login">Already a member? <a href="" class="other-login-a">Log in</a></div>
+                        </div>
+
+                        <div class="term&condition">
+                            <div class="line"></div>
+                            <div class="term">
+                                <p class="term-p"><i class="fa-solid fa-square-check"></i>  I accept Coursera's <a href="" class="term-a">Terms of Use</a> and <a href="" class="term-a">Privacy Notice</a>. Having trouble logging in? <a href="">Learner help center</a></p>
+                                <p class="term-p">This site is protected by reCAPTCHA Enterprise and the Google <a href="" class="term-a">Privacy Policy</a> and <a href="" class="term-a">Terms of Service apply</a>.</p>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @livewire('add-house-component')
+    @livewire('add-general-component')
+    @livewire('add-job-component')
     {{$slot}}
     <footer class="section-footer">
         <div class="col">
@@ -158,7 +277,6 @@
         </div>
       </footer>
       <!-- end of footer -->
-      <script src="{{ asset('js/jquery.min.js')}}"></script>
       <script src="{{ asset('js/main.js')}}"></script>
       {{-- noUiSlider cdn --}}
 	  <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.6.0/nouislider.min.js" integrity="sha512-1mDhG//LAjM3pLXCJyaA+4c+h5qmMoTc7IuJyuNNPaakrWT9rVTxICK4tIizf7YwJsXgDC2JP74PGCc7qxLAHw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>

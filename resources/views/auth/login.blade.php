@@ -55,21 +55,22 @@
                 </div>
 
                 <div class="main">
-                    <form class="w3-container first" action="">
+                    <form class="w3-container first" name="frm-login" method="POST" action="{{ route('login')}}">
+                        @csrf
                         <h1 class="modal-h1">Welcome to SG Info</h1>
                         <div class="userInput">
                             <div class="modal-div">
                                 <label for="" class="modal-label">EMAIL</label> <br>
-                                <input class="modal-input" type="text" placeholder="Enter email">
+                                <input class="modal-input" name="email" type="text" placeholder="Enter email">
                             </div>
                             <div class="modal-div">
                                 <label for="" class="modal-label">PASSWORD</label> <br>
-                                <input class="modal-input" type="password" placeholder="Enter password">
+                                <input class="modal-input" name="password" type="password" placeholder="Enter password">
                             </div>
                             <p><a href="">Forgot Password?</a></p>
-                            <button class="uploadBtn">LOGIN</button>
+                            <button class="uploadBtn" type="submit">LOGIN</button>
                         </div>
-
+                    </form>
                         <div class="otherLogin">
                             <p class="other-p">(OR)</p>
                             <div class="google">
@@ -86,7 +87,6 @@
                             </div>
                             <div class="other-login">New to SG Info? <a href="" class="other-login-a">Sign up</a></div>
                         </div>
-                    </form>
                 </div>
             </div>
         </div>
