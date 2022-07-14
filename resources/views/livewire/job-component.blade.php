@@ -3,6 +3,9 @@
         nav svg{
             height: 20px;
         }
+        .slider {
+            height: 37px !important;
+        }
     </style>
 
     <div class="py-5 title-text">
@@ -144,15 +147,16 @@
                 </div>
 
 
-                <div class="col-12 my-5">
+                <div class="col-12 my-5" style="margin-top: 1.7rem !important;">
                     <div class="card shadow">
                         <div class="card-body">
                             <h4>Salary</h4>
-
                               <div class="input-group mb-3">
-                                  <input type="text" class="form-control" placeholder="Min" aria-label="Min" value="0" id="salaryMin">
+
+                                  <input wire:ignore type="text" id="slider1" class="form-control" placeholder="Min" aria-label="Min" id="salaryMin">
                                   <span class="input-group-text">-</span>
-                                  <input type="text" class="form-control" placeholder="Max" aria-label="Max" value="0" id="salaryMax">
+                                  <input wire:ignore type="text" id="slider2" class="form-control" placeholder="Max" aria-label="Max" id="salaryMax">
+
                                   </div>
                             </div>
                     </div>
@@ -161,38 +165,19 @@
 
           </div>
           <div class="col-12 col-md-9">
-            <div class="card my-2 shadow">
-                <div class="card-body">
-                    <a href="jobdetail.html" class="text-decoration-none">IOS Developer</a>
-                    <p class="mt-2">Junior iOS Developer (M/F 1 Post)မြောက်ဒဂုံမြို့နယ်ရှိ Software House IT Company တွင် Junior iOS Developer ရာထူးဖြင့် လုပ်ကိုင်ရန်Working Day: Monday to SaturdayWorking Time: 9:00 to 6:00Working Location: North Dagon Tsp, YangonSa...</p>
-                    <a href="jobdetail.html" class="text-decoration-none">Python</a>
+
+            @foreach ($jobs as $job)
+                <div class="card my-2 shadow">
+                    <div class="card-body">
+                        <a href="{{ route('jobdetails', ['Job_ID'=>$job->Job_ID]) }}" class="text-decoration-none">{{ $job->Job_title }}</a>
+                        <p class="mt-2">{{ Str::limit($job->Job_Description, 100) }}</p>
+                        <a href="{{ route('jobdetails', ['Job_ID'=>$job->Job_ID]) }}" class="text-decoration-none">See More..</a>
+                    </div>
                 </div>
-            </div>
-            <div class="card my-2 shadow">
-                <div class="card-body">
-                    <a href="jobdetail.html" class="text-decoration-none">Android Developer</a>
-                    <p class="mt-2">Junior iOS Developer (M/F 1 Post)မြောက်ဒဂုံမြို့နယ်ရှိ Software House IT Company တွင် Junior iOS Developer ရာထူးဖြင့် လုပ်ကိုင်ရန်Working Day: Monday to SaturdayWorking Time: 9:00 to 6:00Working Location: North Dagon Tsp, YangonSa...</p>
-                    <a href="jobdetail.html" class="text-decoration-none">Java</a>
-                    <a href="jobdetail.html" class="text-decoration-none">Kotlin</a>
-                </div>
-            </div>
-            <div class="card my-2 shadow">
-                <div class="card-body">
-                    <a href="jobdetail.html" class="text-decoration-none">C# Developer</a>
-                    <p class="mt-2">Junior iOS Developer (M/F 1 Post)မြောက်ဒဂုံမြို့နယ်ရှိ Software House IT Company တွင် Junior iOS Developer ရာထူးဖြင့် လုပ်ကိုင်ရန်Working Day: Monday to SaturdayWorking Time: 9:00 to 6:00Working Location: North Dagon Tsp, YangonSa...</p>
-                    <a href="jobdetail.html" class="text-decoration-none">Java</a>
-                    <a href="jobdetail.html" class="text-decoration-none">Kotlin</a>
-                </div>
-            </div>
-            <div class="card my-2 shadow">
-                <div class="card-body">
-                    <a href="jobdetail.html" class="text-decoration-none">Java Developer</a>
-                    <p class="mt-2">Junior iOS Developer (M/F 1 Post)မြောက်ဒဂုံမြို့နယ်ရှိ Software House IT Company တွင် Junior iOS Developer ရာထူးဖြင့် လုပ်ကိုင်ရန်Working Day: Monday to SaturdayWorking Time: 9:00 to 6:00Working Location: North Dagon Tsp, YangonSa...</p>
-                    <a href="jobdetail.html" class="text-decoration-none">Java</a>
-                    <a href="jobdetail.html" class="text-decoration-none">Kotlin</a>
-                </div>
-            </div>
+            @endforeach
+
           </div>
         </div>
     </div>
 </div>
+

@@ -9,6 +9,7 @@ use App\Http\Livewire\AddJobComponent;
 use App\Http\Livewire\Admin\AdminDashboardComponent;
 use App\Http\Livewire\ApplyJobComponent;
 use App\Http\Livewire\GeneralComponent;
+use App\Http\Livewire\GeneralDetailComponent;
 use App\Http\Livewire\JobDetailsComponent;
 use App\Http\Livewire\RoomComponent;
 use App\Http\Livewire\RoomDetailComponent;
@@ -32,11 +33,14 @@ use Illuminate\Support\Facades\Route;
 // });
 Route::get('/', HomeComponent::class)->name('home');
 Route::get('/rooms', RoomComponent::class)->name('rooms');
-Route::get('/general', GeneralComponent::class)->name('general');
 Route::get('/contact', ContactComponent::class)->name('contact');
 Route::get('/job', JobComponent::class)->name('job');
 Route::get('/addjob', AddJobComponent::class)->name('addjob');
+// For General
+Route::get('/general', GeneralComponent::class)->name('general');
 Route::get('/addarticle', AddGeneralComponent::class)->name('addarticle');
+Route::get('/detailarticle/{General_ID}', GeneralDetailComponent::class)->name('detailarticle');
+// End General
 Route::get('/addrom', AddHouseComponent::class)->name('addroom');
 Route::get('/roomdetail/{Rent_House_ID}', RoomDetailComponent::class)->name('roomdetails');
 // Job Details

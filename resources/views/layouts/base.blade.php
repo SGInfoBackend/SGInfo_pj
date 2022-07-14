@@ -59,9 +59,9 @@
   <!-- Google Font(Montserrat) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;200;300;400;500;600;700;800;900&family=Montserrat:wght@200;300;400;500;600;700;800;900&family=Open+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;200;300;400;500;600;700;800;900&family=Montserrat:wght@200;300;400;500;600;700;800;900&family=Open+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+  {{-- noUiSlider cdn --}}
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.6.0/nouislider.min.css" integrity="sha512-qveKnGrvOChbSzAdtSs8p69eoLegyh+1hwOMbmpCViIwj7rn4oJjdmMvWOuyQlTOZgTlZA0N2PXA7iA8/2TUYA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -123,7 +123,7 @@
               </li>
             @endif
           <li class="nav-item  ms-lg-4">
-            <a class="nav-link active" href="#"><img src="{{ asset('images/myanmar.png')}}" alt="" class="logoimg"></a>
+            <a class="nav-link active" href="#"><img src="{{ asset('images/myanmar.png') }}" alt="" class="logoimg"></a>
           </li>
         </ul>
       </div>
@@ -278,6 +278,10 @@
       </footer>
       <!-- end of footer -->
       <script src="{{ asset('js/main.js')}}"></script>
+      {{-- noUiSlider cdn --}}
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.6.0/nouislider.min.js" integrity="sha512-1mDhG//LAjM3pLXCJyaA+4c+h5qmMoTc7IuJyuNNPaakrWT9rVTxICK4tIizf7YwJsXgDC2JP74PGCc7qxLAHw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     @livewireScripts()
+
+    @stack('scripts')
 </body>
 </html>

@@ -221,7 +221,7 @@
     display: flex;
     margin: 20px 30px;
     justify-content: space-between;
-   
+
 }
 .first-global {
     width: 60%;
@@ -282,7 +282,7 @@
 }
 
 .gl-news-photo3 .image3 {
-    
+
 width: 100px;
 height: 100px;
 margin: auto 15px;
@@ -326,7 +326,7 @@ object-fit: cover;
     .gl-text {
         margin-left: 20px;
         width: 80%;
-        
+
     }
     #gl-general {
         margin: 20px 0;
@@ -378,7 +378,7 @@ object-fit: cover;
     display: flex;
     justify-content: space-between;
     margin: 16px 50px;
-    
+
 }
 .article{
      width: 100%;
@@ -450,7 +450,7 @@ hr{
     bottom: 15%;
     width: 100%;
     align-items: center;
-    z-index: 15; 
+    z-index: 15;
     text-align: center;
     color: white;
 }
@@ -499,23 +499,12 @@ hr{
 #globel_trending_news_container{
     margin: 12px 50px;
 }
-#globel_news_container {    
+#globel_news_container {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
     padding: 12px;
-    
-}
 
-.globel_news_box {
-    justify-content: center;
-    align-items: center;
-    background-image: url("../images/general_images/makeup_artist.jpg");
-    background-size: cover;
-    background-position: center;
-    width: 50%;
-    height: 500px;
-    position: relative;
 }
 .background_color {
     background-color: rgba(22, 9, 9, 0.488);
@@ -591,7 +580,7 @@ hr{
     grid-row-gap: 1rem;
     position: relative;
 }
-
+/*
 #globel_news_container2 .globel_news_box2{
     flex-direction: column;
     justify-content: center;
@@ -602,25 +591,44 @@ hr{
     width: 100%;
     height: 100%;
     position: relative;
-    
+
 }
 
-#globel_news_container2 .globel_news_box2.globel_news_box3 {
-    background-image: url("../images/general_images/travel-02.jpg");
-}
 
-#globel_news_container2 .globel_news_box2.globel_news_box4 {
-    background-image: url("../images/general_images/travel-03.jpg");
+.globel_news_box {
+    justify-content: center;
+    align-items: center;
+    background-image: url("../images/general_images/makeup_artist.jpg");
+    background-size: cover;
+    background-position: center;
+    width: 50%;
+    height: 500px;
+    position: relative;
+} */
+.globel_news_box_general {
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    background-position: center;
+    width: 50%;
+    height: 500px;
+    position: relative;
 }
-
-#globel_news_container2 .globel_news_box2.globel_news_box5 {
-    background-image: url("../images/general_images/travel-11.jpg");
+#globel_news_container2 .globel_news_box_article
+{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+    position: relative;
 }
-
 
 @media(max-width: 799px){
-    
-#globel_news_container {    
+
+#globel_news_container {
     display: block;
     position: relative;
 }
@@ -645,13 +653,13 @@ hr{
 
 
 @media(max-width: 477px){
-    
+
 .news_type {
     bottom: 15%;
     font-size:12px;
   }
-     
-#globel_news_container {    
+
+#globel_news_container {
     display: block;
     position: relative;
 }
@@ -667,7 +675,7 @@ hr{
     margin-top: 16px;
     height: 400px;
 }
-    
+
     }
 
 
@@ -725,22 +733,22 @@ hr{
   .overlay p {
     width: 80%;
     display: block;
-    position: absolute; 
-    top: 50%; 
-    left: 50%; 
+    position: absolute;
+    top: 50%;
+    left: 50%;
     -webkit-transform: translate(-50%,-50%);
-    -ms-transform: translate(-50%,-50%); 
+    -ms-transform: translate(-50%,-50%);
     transform: translate(-50%,-50%);
     /* font-family: Impact, Haettenschweiler, "Franklin Gothic Bold", "Arial Black", sans-serif; */
-    font-size: 28px; 
+    font-size: 28px;
     font-weight: bold;
     color: #fff;
     line-height: 70px;
-    text-align: center; 
-    margin: 0; 
+    text-align: center;
+    margin: 0;
     z-index: 9;
   }
-  
+
   .swiper-slide:hover .overlay {
     bottom: 0;
     height: 100%;
