@@ -26,6 +26,7 @@ class JobComponent extends Component
 
     public function render()
     {
+
         // $result = array_keys(array_filter($this->selectedId));
         // dd($result);
         // if($this->selectedId){
@@ -48,6 +49,6 @@ class JobComponent extends Component
         //     $products = Job::whereBetween('SALARY',[$this->min_price,$this->max_price])-> orderBy('created_at','DESC')->paginate($this->pagesize);
         // }
 
-        return view('livewire.job-component',['jobs'=>$jobs, 'typeofroles'=>$typeofroles])->layout('layouts.base');
+        return view('livewire.job-component', ['jobs'=>$jobs, 'typeofroles'=>$typeofroles])->layout('layouts.base');
     }
 }
