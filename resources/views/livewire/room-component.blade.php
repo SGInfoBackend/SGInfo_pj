@@ -1,4 +1,10 @@
 <div>
+    <style>
+        nav svg
+        {
+            height: 20px;
+        }
+    </style>
     <section id="main">
         <!-- hero -->
         <div class="hero-room-list">
@@ -9,13 +15,13 @@
             @foreach ($rooms as $room )
                 <div class="main-content-small">
                     <div class="main-content-img">
-                        <img src="images/room_list/room_list_1.jpg" class="main-content-real-img" alt="">
+                        <img src="{{ asset('/images/room_list')}}/{{$room->RH_PHOTO}}" class="main-content-real-img" alt="">
                     </div>
                     <div class="main-content-text">
                         <div class="main-head">
                             <h1 class="main-head-h1">{{ $room->PROJECT_NAME}}</h1>
-                            <small class="main-head-small">135 sqft | </small>
-                            <small class="main-head-small">5&nbsp;<i class="fa-solid fa-bed"></i>&nbsp;&nbsp;3&nbsp;<i class="fa-solid fa-bath"></i></small>
+                            <small class="main-head-small">{{$room->Floor_Size}} sqft | </small>
+                            <small class="main-head-small">{{$room->No_Room}}&nbsp;<i class="fa-solid fa-bed"></i>&nbsp;&nbsp;{{ $room->No_Birthroom}}&nbsp;<i class="fa-solid fa-bath"></i></small>
                         </div>
                         <div class="line"></div>
                         <div class="main-text">
@@ -32,10 +38,7 @@
 
         <!-- pagination -->
         <section id="pagination" class="section-p1">
-            <a href="#" class="pagination-a"><i class="pagination-i fa-solid fa-arrow-left"></i></a>
-            <a href="#" class="pagination-a">1</a>
-            <a href="#" class="pagination-a">2</a>
-            <a href="#" class="pagination-a"><i class="pagination-i fa-solid fa-arrow-right"></i></a>
+            {{$rooms->links()}}
         </section>
 
         <!-- New Letters -->

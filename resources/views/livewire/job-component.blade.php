@@ -20,28 +20,15 @@
                     <div class="card shadow">
                         <div class="card-body">
                             <h4>Job Type</h4>
-                            {{-- @foreach ($jobs as $job)
-
-                            @endforeach --}}
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="full_time" wire:model='show'>
-                                <label class="form-check-label" for="full_time">
-                                    Full Time
-                                </label>
-                                Label Email: {{ var_export($show) }}
-                            </div>
-                            {{-- <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="{{ $job->Typeofrole_ID }}" id="part_time" wire:model='selected'>
-                                <label class="form-check-label" for="part_time">
-                                  Part Time
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="{{ $job->Typeofrole_ID }}" id="internship" wire:model='selected'>
-                                <label class="form-check-label" for="internship">
-                                  Internship
-                                </label>
-                            </div> --}}
+                            @foreach ($typeofroles as $typeofrole)
+                                <div class="form-check">
+                                    <input class="form-check-input" name="typeofrole" type="checkbox" value="{{ $typeofrole->Typeofrole_ID }}" wire:model="selectedId" id="{{ $typeofrole->Typeofrole_ID }}" >
+                                    <label class="form-check-label" for="{{ $typeofrole->Typeofrole_Name }}">
+                                        {{ $typeofrole->Typeofrole_Name }}
+                                    </label>
+                                </div>
+                            @endforeach
+                            {{-- {{var_export($selectedId)}} --}}
                         </div>
                     </div>
                 </div>
@@ -157,9 +144,9 @@
                             <h4>Salary</h4>
                               <div class="input-group mb-3">
 
-                                  <input wire:ignore type="text" id="slider1" class="form-control" placeholder="Min" aria-label="Min" id="salaryMin">
+                                  <input wire:ignore type="text" id="slider" class="form-control"  placeholder="Min" aria-label="Min" id="salaryMin" wire:model="min_price" >
                                   <span class="input-group-text">-</span>
-                                  <input wire:ignore type="text" id="slider2" class="form-control" placeholder="Max" aria-label="Max" id="salaryMax">
+                                  <input wire:ignore type="text" id="slider" class="form-control" placeholder="Max" aria-label="Max" id="salaryMax" wire:model="max_price">
 
                                   </div>
                             </div>
@@ -169,8 +156,7 @@
 
           </div>
           <div class="col-12 col-md-9">
-
-            {{-- @foreach ($jobs as $job)
+            @foreach ($jobs as $job)
                 <div class="card my-2 shadow">
                     <div class="card-body">
                         <a href="{{ route('jobdetails', ['Job_ID'=>$job->Job_ID]) }}" class="text-decoration-none">{{ $job->Job_title }}</a>
@@ -178,8 +164,7 @@
                         <a href="{{ route('jobdetails', ['Job_ID'=>$job->Job_ID]) }}" class="text-decoration-none">See More..</a>
                     </div>
                 </div>
-            @endforeach --}}
-
+            @endforeach
           </div>
         </div>
     </div>

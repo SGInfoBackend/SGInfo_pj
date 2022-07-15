@@ -1,5 +1,5 @@
 <div>
-    <div class="w3-container">
+    <div class="w3-container" wire:ignore>
         <div id="job" class="w3-modal">
             <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
                 <div class="w3-center"><br>

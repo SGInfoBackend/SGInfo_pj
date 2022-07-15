@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\KeyFeature;
 use App\Models\RentHouse;
 use Livewire\Component;
 
@@ -16,6 +17,12 @@ class RoomDetailComponent extends Component
     public function render()
     {
         $roomDetail = RentHouse::where('Rent_House_ID', $this->renthouse_id)->first();
-        return view('livewire.room-detail-component', ['roomDetail' => $roomDetail])->layout('layouts.base');
+        $facitlites = explode(',', $roomDetail->Facilities_IDS);
+        $keyfeatures = explode(',', $roomDetail->KeyFeature_IDS);
+        return view('livewire.room-detail-component', [
+            'roomDetail' => $roomDetail,
+            'facilities' => $facitlites,
+            'keyfeatures' => $keyfeatures
+            ])->layout('layouts.base');
     }
 }

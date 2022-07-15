@@ -2,113 +2,122 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Facilitity;
+use App\Models\KeyFeature;
+use Livewire\WithFileUploads;
 use App\Models\RentHouse;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class AddHouseComponent extends Component
 {
+    use WithFileUploads;
     public $project_name;
     public $project_type;
-    public $floor_level;
+    public $floor_lv;
     public $floor_size;
-    public $RH_Nearest_MRT_LRT;
-    public $RH_MRT_LRT_Line;
+    public $mrt_line;
+    public $mrt_near;
     public $address;
     public $developer;
     public $psf;
-    public $avaliable_from;
-    public $min_price;
-    public $max_price;
+    public $availability;
+    public $sor;
+    public $price;
     public $no_room;
-    public $no_birthroom;
-    public $no_toilet;
-    public $cooking_allow;
+    public $no_birth;
+    public $ros;
+    public $images;
     public $description;
-    public $house_image;
-    public $SorR;
-    public $flat_y_n;
+    public $keyfeatures=[];
+    public $facilities=[];
+    public $currency;
 
-
-    public function updated($fields)
+    public function updated($fileds)
     {
-        $this->validateOnly($fields,[
+        $this->validateOnly($fileds,[
             'project_name' => 'required',
             'project_type' => 'required',
-            'floor_level' => 'required',
+            'floor_lv' => 'required',
             'floor_size' => 'required',
-            'RH_Nearest_MRT_LRT' => 'required',
-            'RH_MRT_LRT_Line' => 'required',
+            'mrt_line' => 'required',
+            'mrt_near' => 'required',
             'address' => 'required',
             'developer' => 'required',
             'psf' => 'required',
-            'avaliable_from' => 'required',
-            'min_price' => 'required|numeric',
-            'max_price' => 'required|numeric',
+            'availability' => 'required',
+            'sor' => 'required',
+            'price' => 'required|numeric',
             'no_room' => 'required|numeric',
-            'no_birthroom' => 'required|numeric',
-            'no_toilet' => 'required|numeric',
-            'cooking_allow' => 'required',
+            'no_birth' => 'required|numeric',
             'description' => 'required',
-            'house_image' => 'required',
-            'SorR' => 'required',
-            'flat_y_n' => 'required',
+            'keyfeatures' => 'required',
+            'facilities' => 'required',
         ]);
     }
 
-    public function storeHouse()
+    public function store()
     {
-        $this->validate([
-            'project_name' => 'required',
-            'project_type' => 'required',
-            'floor_level' => 'required',
-            'floor_size' => 'required',
-            'RH_Nearest_MRT_LRT' => 'required',
-            'RH_MRT_LRT_Line' => 'required',
-            'address' => 'required',
-            'developer' => 'required',
-            'psf' => 'required',
-            'avaliable_from' => 'required',
-            'min_price' => 'required|numeric',
-            'max_price' => 'required|numeric',
-            'no_room' => 'required|numeric',
-            'no_birthroom' => 'required|numeric',
-            'no_toilet' => 'required|numeric',
-            'cooking_allow' => 'required',
-            'description' => 'required',
-            'house_image' => 'required',
-            'SorR' => 'required',
-            'flat_y_n' => 'required',
-        ]);
-
-        $rent_house = new RentHouse();
-
+        // $this->validate([
+        //     'project_name' => 'required',
+        //     'project_type' => 'required',
+        //     'floor_lv' => 'required',
+        //     'floor_size' => 'required',
+        //     'mrt_line' => 'required',
+        //     'mrt_near' => 'required',
+        //     'address' => 'required',
+        //     'developer' => 'required',
+        //     'psf' => 'required',
+        //     'availability' => 'required',
+        //     'sor' => 'required',
+        //     'price' => 'required|numeric',
+        //     'no_room' => 'required|numeric',
+        //     'no_birth' => 'required|numeric',
+        //     'description' => 'required',
+        //     'keyfeatures' => 'required',
+        //     'facilities' => 'required',
+        // ]);
+        if(Auth::check())
+        {
+            $rent_house = new RentHouse();
         $rent_house->PROJECT_NAME = $this->project_name;
         $rent_house->Project_type = $this->project_type;
-        $rent_house->Floor_lvl = $this->projefloor_levelct_name;
+        $rent_house->Floor_lvl = $this->floor_lv;
         $rent_house->Floor_Size = $this->floor_size;
-        $rent_house->RH_Nearest_MRT_LRT = $this->RH_Nearest_MRT_LRT;
-        $rent_house->RH_MRT_LRT_Line = $this->RH_MRT_LRT_Line;
+        $rent_house->RH_MRT_LRT_Line = $this->mrt_line;
+        $rent_house->RH_Nearest_MRT_LRT = $this->mrt_near;
         $rent_house->ADDRESS = $this->address;
         $rent_house->DEVELOPER = $this->developer;
         $rent_house->PSF = $this->psf;
-        $rent_house->Avaliable_From = $this->avaliable_from;
-        $rent_house->PRICE_MIN = $this->min_price;
-        $rent_house->PRICE_MAX = $this->max_price;
+        $rent_house->Avaliable_From = $this->availability;
+        $rent_house->SorR = $this->sor;
+        $rent_house->PRICE_MAX = $this->price. ' ' .$this->currency;
         $rent_house->No_Room = $this->no_room;
-        $rent_house->No_Birthroom = $this->no_birthroom;
-        $rent_house->No_Toilet = $this->no_toilet;
-        $rent_house->Cooking_Allow = $this->cooking_allow;
-        $rent_house->RH_Description = $this->description;
-        $image = Carbon::now()->timestamp. '.' .$this->house_image->extension();
-        $this->house_image->storeAs('room_images', $image);
-        $rent_house->RH_PHOTO = $image;
-        $rent_house->SorR = $this->SorR;
-        $rent_house->Flat_Y_N = $this->flat_y_n;
-        $rent_house->save();
-        session()->flash('success_message', 'Rent House Data has been added successfully!');
-    }
+        $rent_house->No_Birthroom = $this->no_birth;
 
+        $imageName = Carbon::now()->timestamp. '.'. $this->images->extension();
+        $this->images->storeAs('room_list', $imageName);
+        $rent_house->RH_PHOTO = $imageName;
+
+        $arr_1 = implode(',', $this->keyfeatures);
+        $arr_2 = implode(',', $this->facilities);
+
+        $rent_house->USER_ID = Auth::user()->id;
+
+        $rent_house->RH_Description = $this->description;
+        $rent_house->KeyFeature_IDS = $arr_1;
+        $rent_house->Facilities_IDS = $arr_2;
+        $rent_house->save();
+
+        session()->flash('success_message','House information has been created successfullly');
+
+        }
+
+        return redirect()->route('login');
+
+
+    }
     public function render()
     {
         return view('livewire.add-house-component')->layout('layouts.base');
