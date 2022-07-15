@@ -13,16 +13,8 @@ class JobComponent extends Component
     // public $check2;
     // public $check3;
     // public $check;
-    public $selected = [];
-
-    public $min_price;
-    public $max_price;
-
-    public function mount()
-    {
-        $this->min_price = 1;
-        $this->max_price = 1000;
-    }
+    // public $selected = [""];
+    public $show = false;
 
     // public $jobtitle1;
     // public $jobtitle2;
@@ -43,12 +35,12 @@ class JobComponent extends Component
     use WithPagination;
     public function render()
     {
-        $typeofroles = JobTypeOfRole::all();
+        // $typeofroles = JobTypeOfRole::all();
 
         // $result = array_keys(array_filter($this->selected));
 
         // Job::where('Typeofrole_ID', $this->selected)
-        $jobs = Job::orderBy('Job_ID','DESC')->paginate(8);
+        // $jobs = Job::when(count(array_filter($this->selected)), function($query) {return $query->whereIn('Typeofrole_ID', $this->selected);})->orderBy('Job_ID','DESC')->paginate(8);
                 // ->orWhere('Typeofrole_ID', $this->check2)
                 // ->orWhere('Typeofrole_ID', $this->check3)
                 // ->orWhere('Job_title', $this->jobtitle1)
@@ -60,7 +52,8 @@ class JobComponent extends Component
                 // ->orWhere('Job_title', $this->jobtitle7)
                 // ->orWhere('Job_title', $this->jobtitle8)
                 // ->orWhere('Job_title', $this->jobtitle9)
+                // dd($jobs);
 
-        return view('livewire.job-component',['jobs'=>$jobs, 'typeofroles'=>$typeofroles])->layout('layouts.base');
+        return view('livewire.job-component')->layout('layouts.base');
     }
 }

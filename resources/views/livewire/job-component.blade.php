@@ -20,24 +20,28 @@
                     <div class="card shadow">
                         <div class="card-body">
                             <h4>Job Type</h4>
+                            {{-- @foreach ($jobs as $job)
+
+                            @endforeach --}}
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="full_time" checked>
+                                <input class="form-check-input" type="checkbox" id="full_time" wire:model='show'>
                                 <label class="form-check-label" for="full_time">
                                     Full Time
                                 </label>
+                                Label Email: {{ var_export($show) }}
                             </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="part_time" >
+                            {{-- <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="{{ $job->Typeofrole_ID }}" id="part_time" wire:model='selected'>
                                 <label class="form-check-label" for="part_time">
                                   Part Time
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="internship" >
+                                <input class="form-check-input" type="checkbox" value="{{ $job->Typeofrole_ID }}" id="internship" wire:model='selected'>
                                 <label class="form-check-label" for="internship">
                                   Internship
                                 </label>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                 </div>
@@ -166,7 +170,7 @@
           </div>
           <div class="col-12 col-md-9">
 
-            @foreach ($jobs as $job)
+            {{-- @foreach ($jobs as $job)
                 <div class="card my-2 shadow">
                     <div class="card-body">
                         <a href="{{ route('jobdetails', ['Job_ID'=>$job->Job_ID]) }}" class="text-decoration-none">{{ $job->Job_title }}</a>
@@ -174,7 +178,7 @@
                         <a href="{{ route('jobdetails', ['Job_ID'=>$job->Job_ID]) }}" class="text-decoration-none">See More..</a>
                     </div>
                 </div>
-            @endforeach
+            @endforeach --}}
 
           </div>
         </div>
