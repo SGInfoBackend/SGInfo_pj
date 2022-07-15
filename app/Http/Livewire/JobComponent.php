@@ -9,44 +9,44 @@ use Livewire\WithPagination;
 
 class JobComponent extends Component
 {
-    // public $check1;
-    // public $check2;
-    // public $check3;
-    // public $check;
-    public $selected ;
-    // public $selected = [
-    //     0 => "Full Time",
-    //     1 => "Part Time",
-    //     2 => "All FURY",
-    // ];
+    public $selectedId = [] ;
 
     public $min_price;
     public $max_price;
 
-    // public function mount()
-    // {
-    //     $this->min_price = 1;
-    //     $this->max_price = 1000;
-    // }
-
-    // public function mount($Typeofrole_ID)
-    // {
-    //     $this->selected = $Typeofrole_ID;
-    // }
-
-
     use WithPagination;
+
+    public function mount()
+    {
+        $this->selectedId = [1];
+
+        $this->min_price= 1;
+        $this->max_price= 10000;
+    }
+
     public function render()
     {
+        // $result = array_keys(array_filter($this->selectedId));
+        // dd($result);
+        // if($this->selectedId){
+        //     $jobs = Job::where('Typeofrole_ID',$this->selectedId)->paginate(10);
+        // }
+
         $typeofroles = JobTypeOfRole::all();
 
-        // $result = array_keys(array_filter($this->selected));
-
-        // Job::where('Typeofrole_ID', $this->selected)
-        $jobs = Job::where('Typeofrole_ID', $this->selected)
-                    ->orWhere()->get();
-                // ->orWhere('Typeofrole_ID', $this->check2)
-                // dd($jobs);
+        if($this->selectedId)
+        {
+            $jobs = Job::where('Typeofrole_ID',$this->selectedId)->whereBetween('SALARY',[$this->min_price,$this->max_price])->paginate(10);
+            // dd($jobs);
+        }
+        else
+        {
+            $jobs = Job::orderBy('Job_ID','DESC')->whereBetween('SALARY',[$this->min_price,$this->max_price])->paginate(10);
+        }
+        // dd($jobs);
+        // if($this->sorting=='slider'){
+        //     $products = Job::whereBetween('SALARY',[$this->min_price,$this->max_price])-> orderBy('created_at','DESC')->paginate($this->pagesize);
+        // }
 
         return view('livewire.job-component',['jobs'=>$jobs, 'typeofroles'=>$typeofroles])->layout('layouts.base');
     }

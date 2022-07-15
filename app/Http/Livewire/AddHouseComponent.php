@@ -109,6 +109,7 @@ class AddHouseComponent extends Component
         $rent_house->KeyFeature_IDS = $arr_1;
         $rent_house->Facilities_IDS = $arr_2;
         $rent_house->save();
+
         session()->flash('success_message','House information has been created successfullly');
 
         }
