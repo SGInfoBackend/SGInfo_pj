@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use App\Models\General;
 use App\Models\GHeader;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
@@ -32,42 +33,38 @@ class AddGeneralComponent extends Component
     public function addArtical()
     {
         // dd('GG');
-        $this->validate([
-            'gname' => 'required',
-            'gtitle' => 'required',
-            'gheader_id' => 'required',
-            'gphotos' => 'image|max:1024',
-            'gdescription' => 'required',
-        ]);
+        if(Auth::check())
+        {
+            $this->validate([
+                'gname' => 'required',
+                'gtitle' => 'required',
+                'gheader_id' => 'required',
+                'gphotos' => 'image|max:1024',
+                'gdescription' => 'required',
+            ]);
 
-        $artical = new General();
-        // dd($artical);
-        // $artical->USER_ID  = $this->user_id;
-        $artical->G_Name = $this->gname;
-        $artical->G_Title = $this->gtitle;
-        $artical->GHeader_ID = $this->gheader_id;
+            $artical = new General();
+            // dd($artical);
+            $artical->USER_ID  = Auth::user()->id;
+            $artical->G_Name = $this->gname;
+            $artical->G_Title = $this->gtitle;
+            $artical->GHeader_ID = $this->gheader_id;
 
-        $imageName = Carbon::now()->timestamp. '.' . $this->gphotos->extension();
-        $this->gphotos->storeAs('general_images',$imageName);
-        $artical->G_PHOTO = $imageName;
-        // dd($artical->G_PHOTO);
+            $imageName = Carbon::now()->timestamp. '.' . $this->gphotos->extension();
+            $this->gphotos->storeAs('general_images',$imageName);
+            $artical->G_PHOTO = $imageName;
+            // dd($artical->G_PHOTO);
 
-        // $imgName = Carbon::now()->timestamp. $key. '.' .$gphotos->extension();
-        // // dd($imgName);
-        // $gphoto->storeAs('general_images',$imgName);
-        // $imagesname = $imagesname . ',' .$imgName;
-        // dd($imagesname);
-            // $artical->G_PHOTO = $imagesname;
-            // dd($artical->G_PHOTO );
+            $artical->G_Description  = $this->gdescription;
 
-        // dd($artical->G_PHOTO);
+            $artical->save();
 
-        $artical->G_Description  = $this->gdescription;
+            session()->flash('message','Article has been created successfully!');
 
-        $artical->save();
 
-        session()->flash('message','Article has been created successfully!');
+        }
 
+        return redirect()->route('login');
         // return redirect()->to('/general');
 
     }
