@@ -37,7 +37,7 @@ body{
     line-height: 1.7;
     color: var(--color-white);
     background-color: var(--main-color);
-   
+
     /* background: var(--color-bg); */
 }
 .container{
@@ -46,7 +46,7 @@ body{
 }
 
 
-    
+
 section h2{
    text-align: center;
    margin-bottom: 4rem;
@@ -134,7 +134,7 @@ img{
     background-color: #000;
     width: 100%;
     margin-top: 1.5rem;
-    
+
 }
 
 .newsletter h4{
@@ -153,7 +153,7 @@ img{
     align-items: center;
     justify-content: space-between;
     padding-left: 40px;
-    
+
 }
 
 
@@ -162,7 +162,7 @@ img{
     padding:1rem, 2rem ;
     display: flex;
     width:100;
-    
+
 }
 
 .btn-section{
@@ -177,7 +177,7 @@ img{
     #newsletter .form {
         width: 50%;
     }
-    
+
 
 
 .form{
@@ -185,7 +185,7 @@ img{
 
     display: flex;
     width:100;
-    
+
 }
 
 .normal {
@@ -205,15 +205,15 @@ img{
 
 
 @media(max-width: 477px){
-    
+
     #newsletter {
-        padding: 40px 20px; 
+        padding: 40px 20px;
      }
- 
+
      #newsletter .form {
          width: 100%;
      }
- 
+
      footer .copyright {
         text-align: start;
      }
@@ -235,8 +235,8 @@ img{
         display: flex;
         width:100;
         margin-left: 10%;
-        
-        
+
+
     }
     footer p {
         font-size: 13px;
@@ -536,7 +536,7 @@ a.room-detail:hover{
 @keyframes introLoad {
     from {
         clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
-        
+
     }
 
     to {
@@ -561,12 +561,12 @@ a.room-detail:hover{
 .jobs_header {
     padding-top: 3rem;
     text-align: center;
-    width: 100%; 
+    width: 100%;
     margin-top: 1rem;
     /* margin-left: 4rem;    */
     margin-bottom: 3rem;
     display: flex;
-    
+
     justify-content:space-evenly;
 }
 
@@ -635,7 +635,7 @@ a.room-detail:hover{
     cursor: pointer;
     background-color: #e60078;
     width: 8rem;
-    border-radius: 0.4rem;   
+    border-radius: 0.4rem;
 }
 
 .search a{
@@ -674,11 +674,11 @@ a.room-detail:hover{
 #jobs_type{
     height: 100%;
     display: flex;
-    
+
     justify-content:space-evenly;
     /* flex-wrap: wrap; */
-    
-    
+
+
     background-size: cover;
     margin: 20px;
     padding: 10px;
@@ -744,12 +744,12 @@ a.room-detail:hover{
 
     .search_icon{
         width: 92%;
-        
+
         margin-bottom: 0.5rem;
         /* margin-left: 1rem; */
-        
+
     }
-    
+
     #search_jobs{
         width: 90%;
         margin-bottom: 0.5rem;
@@ -790,13 +790,13 @@ a.room-detail:hover{
     grid-template-columns: 1fr 1fr;
     /* justify-content: space-between; */
     /* flex-wrap: wrap; */
-    
-    
+
+
     background-size: cover;
     margin: 20px;
     padding: 10px;
     padding-bottom: 0.1rem;
-    
+
     }
 
     .browse{
@@ -871,7 +871,7 @@ a.room-detail:hover{
     /* #jobs_type{
         margin: 0;
         padding: 9px 0 9px 0;
-        
+
     } */
     #jobs_type{
     height: 100%;
@@ -879,8 +879,8 @@ a.room-detail:hover{
     grid-template-columns: 1fr 1fr;
     /* justify-content: space-between; */
     /* flex-wrap: wrap; */
-    
-    
+
+
     background-size: cover;
     margin: 20px;
     padding: 10px;
@@ -949,22 +949,22 @@ a.room-detail:hover{
   .overlay p {
     width: 80%;
     display: block;
-    position: absolute; 
-    top: 50%; 
-    left: 50%; 
+    position: absolute;
+    top: 50%;
+    left: 50%;
     -webkit-transform: translate(-50%,-50%);
-    -ms-transform: translate(-50%,-50%); 
+    -ms-transform: translate(-50%,-50%);
     transform: translate(-50%,-50%);
     /* font-family: Impact, Haettenschweiler, "Franklin Gothic Bold", "Arial Black", sans-serif; */
-    font-size: 28px; 
+    font-size: 28px;
     font-weight: bold;
     color: #fff;
     line-height: 70px;
-    text-align: center; 
-    margin: 0; 
+    text-align: center;
+    margin: 0;
     z-index: 9;
   }
-  
+
   .swiper-slide:hover .overlay {
     bottom: 0;
     height: 100%;
@@ -974,7 +974,7 @@ a.room-detail:hover{
 
 /*========= ==========  ======= Globel News ======  =========== ==================*/
 
-#globel_news_container {    
+#globel_news_container {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -1076,7 +1076,7 @@ a.room-detail:hover{
     width: 100%;
     height: 100%;
     position: relative;
-    
+
 }
 
 #globel_news_container2 .globel_news_box2.globel_news_box3 {
@@ -1093,8 +1093,8 @@ a.room-detail:hover{
 
 
 @media(max-width: 799px){
-    
-#globel_news_container {    
+
+#globel_news_container {
     display: block;
     position: relative;
 }
@@ -1115,11 +1115,11 @@ a.room-detail:hover{
 
 
 @media(max-width: 477px){
-    
+
 .news_type {
     bottom: 15%;
   }
-    
+
     }
 
 
@@ -1148,9 +1148,9 @@ a.room-detail:hover{
 .demo-wrap {
     overflow: hidden;
     position: relative;
-    
+
   }
-  
+
   .demo-bg {
     opacity: 0.6;
     position: absolute;
@@ -1174,7 +1174,7 @@ a.room-detail:hover{
     color: gold;
 }
 nav a:hover{
-	
+
 	color:gold !important;
 }
 .slider{
@@ -1190,19 +1190,19 @@ nav a:hover{
 
 .banner-btn{
 	background-color: transparent;
-   
+
 }
 .banner-btn a{
 	width: 150px;
 	text-decoration: none;
-	display: inline-block;	
+	display: inline-block;
 	padding: 12px 0;
 	color: #fff;
 	border: .5px solid #fff;
 	position: relative;
 	transition: color 0.5s;
     text-align: center;
-    
+
 }
 .banner-btn a span{
 	width: 0;
@@ -1220,7 +1220,7 @@ nav a:hover{
 .banner-btn a:hover{
     display: inline-block;
 	color: goldenrod;
-    font-weight: bold;    
+    font-weight: bold;
 }
 
 @media only screen and (max-width: 799px) {
@@ -1230,7 +1230,7 @@ nav a:hover{
         left: 100px;
         z-index: 1;
         color: white;
-        
+
     }
     .banner-btn{
         margin-top: 30px;
@@ -1259,11 +1259,11 @@ nav a:hover{
 
 
 
-  
 
 
 
 
 
-    
+
+
 
