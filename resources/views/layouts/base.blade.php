@@ -289,6 +289,9 @@
         window.addEventListener('hide_modal', event => {
             $('#room').hide();
         })
+        window.addEventListener('hide_modal', event => {
+            $('#article').hide();
+        })
     </script>
     @stack('scripts')
 </body>

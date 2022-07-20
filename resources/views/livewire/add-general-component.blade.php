@@ -7,11 +7,6 @@
                 </div>
 
                 <div class="main">
-
-                    @if(Session::has('message'))
-                        <div class="alert alert-success" role="alert">{{ Session::get('message') }}</div>
-                    @endif
-
                     <form class="w3-container first" wire:submit.prevent="addArtical" enctype="multipart/form-data" >
                         <h1 class="modal-h1">ARTICLE UPLOAD FORM</h1>
                         <div class="userInput">
@@ -55,4 +50,9 @@
             </div>
         </div>
     </div>
+    @if (Session::has('message'))
+    <script>
+        toastr.success("{!! Session::get('message') !!}");
+    </script>
+    @endif
 </div>
