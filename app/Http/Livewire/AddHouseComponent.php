@@ -59,11 +59,7 @@ class AddHouseComponent extends Component
 
     public function store()
     {
-        if(Auth::check())
-        {
-            $rent_house = new RentHouse();
-        $rent_house->PROJECT_NAME = $this->project_name;
-
+        $this->validate([
             'project_type' => 'required',
             'availability' => 'required',
             'developer' => 'required',
@@ -82,7 +78,6 @@ class AddHouseComponent extends Component
             'description' => 'required',
         ]);
         $rent_house = new RentHouse();
-
         $rent_house->Project_type = $this->project_type;
         $rent_house->Floor_lvl = $this->floor_lv;
         $rent_house->Floor_Size = $this->floor_size;
@@ -109,7 +104,6 @@ class AddHouseComponent extends Component
         $rent_house->KeyFeature_IDS = $arr_1;
         $rent_house->Facilities_IDS = $arr_2;
         $rent_house->save();
-
         session()->flash('success_message','House information has been created successfullly');
         $this->dispatchBrowserEvent('hide_modal');
 
