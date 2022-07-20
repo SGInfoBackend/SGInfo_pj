@@ -26,7 +26,7 @@
                         <div class="line"></div>
                         <div class="main-text">
                             <p class="main-text-p">{{ $room->RH_Description}}</p>
-                            <p class="main-text-p2">From ${{$room->PRICE_MAX}} USD /month</p>
+                            <p class="main-text-p2">From ${{$room->PRICE_MAX}} /month</p>
                         </div>
                         <div class="main-btn">
                             <a class="view-detail-btn" href="{{ route('roomdetails',['Rent_House_ID' => $room->Rent_House_ID])}}">View Detail</a>

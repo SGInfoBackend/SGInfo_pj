@@ -29,7 +29,7 @@ class JobComponent extends Component
 
     public function render()
     {
-        // $result = array_keys(array_filter($this->selectedJob));
+
         // dd($result);
         // if($this->selectedId){
         //     $jobs = Job::where('Typeofrole_ID',$this->selectedId)->paginate(10);
@@ -51,11 +51,7 @@ class JobComponent extends Component
         {
             $jobs = Job::orderBy('Job_ID','DESC')->where('Job_title',$this->selectedJob)->whereBetween('SALARY',[$this->min_price,$this->max_price])->paginate(10);
         }
-        // dd($jobs);
-        // if($this->sorting=='slider'){
-        //     $products = Job::whereBetween('SALARY',[$this->min_price,$this->max_price])-> orderBy('created_at','DESC')->paginate($this->pagesize);
-        // }
 
-        return view('livewire.job-component',['jobs'=>$jobs, 'typeofroles'=>$typeofroles])->layout('layouts.base');
+        return view('livewire.job-component', ['jobs'=>$jobs, 'typeofroles'=>$typeofroles])->layout('layouts.base');
     }
 }

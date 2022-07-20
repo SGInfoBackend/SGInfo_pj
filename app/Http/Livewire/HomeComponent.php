@@ -6,6 +6,7 @@ use App\Models\General;
 use App\Models\GHeader;
 use App\Models\Job;
 use App\Models\RentHouse;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class HomeComponent extends Component

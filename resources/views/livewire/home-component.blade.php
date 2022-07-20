@@ -40,8 +40,8 @@
         quisquam natus praesentium aut et inventore? <br>Temporibus voluptates repudiandae consequuntur odit repellat
         exercitationem<br> fugit minus pariatur.</p>
       <div class="banner-btn">
-        <a href="room_list.html"><span></span>Rooms</a>
-        <a href="Job.html"><span></span>Jobs</a>
+        <a href="{{ route('rooms')}}"><span></span>Rooms</a>
+        <a href="{{ route('job')}}"><span></span>Jobs</a>
       </div>
     </div>
   </section>
