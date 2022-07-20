@@ -120,20 +120,22 @@
 
   <section class="swiper-container mySwiper">
     <div class="travel_guide">
-      <h1>Travel Guides</h1>
+      <h4>TRAVEL GUIDES</h4>
     </div>
-    <div class="swiper-wrapper">
+    <div class="swiper">
         @foreach ($travelGuide as $travelguide)
-        <div class="swiper-slide">
-            <img src="{{ asset('/images/general_images') }}/{{ $travelguide->G_PHOTO }}" alt="">
-            <div class="overlay">
-            <p>{{ $travelguide->G_Title }}</p>
+        <div class="swiper-wrapper">
+            <div class="swiper-slide card text-center cover" style="background-image: url({{ asset('/images/general_images/' . $travelguide->G_PHOTO) }}) ">
+                <div class="card-body">
+                    <div class="overlay">
+                        <p class="travel_type">{{ $travelguide->G_Title }}</p>
+                        <p>{{ Str::limit($travelguide->G_Description, 10) }}</p>
+                    </div>
+                </div>
             </div>
         </div>
-      @endforeach
+        @endforeach
     </div>
-    <!-- <div class="swiper-button-next"></div>
-    <div class="swiper-button-prev"></div> -->
     <div class="swiper-pagination"></div>
   </section>
 
@@ -147,7 +149,7 @@
     </div>
     <div id="globel_news_container">
         @foreach ($trending as $article)
-            <div class="globel_news_box_general" style="background-image: url({{ asset('/images/general_images' . $article->G_PHOTO) }})">
+            <div class="globel_news_box" style="background-image: url({{ asset('/images/general_images/' . $article->G_PHOTO) }})">
                 <a href="{{ route('detailarticle',["General_ID"=>$article->General_ID]) }}">
                 <div class="background_color">
                     <p class="news_type news_type1">{{ Str::limit($article->G_Description, 50) }}</p>
@@ -160,7 +162,7 @@
         @endforeach
       <div id="globel_news_container2">
           @foreach ($trendings as $general)
-          <div class="globel_news_box_article" style="background-image: url({{ asset('/images/general_images/' . $general->G_PHOTO) }})">
+          <div class="globel_news_box2" style="background-image: url({{ asset('/images/general_images/' . $general->G_PHOTO) }})">
             <a href="{{ route('detailarticle',["General_ID"=>$general->General_ID]) }}">
                 <div class="background_color">
                 <p class="news_type">{{ Str::limit($general->G_Description, 50) }}</p>
@@ -169,12 +171,9 @@
              </a>
           </div>
         @endforeach
-
       </div>
-
     </div>
   </section>
-
   <!-- ============================= End of Globel News ========================================== -->
 
   <!-- Start HOME_JOBS -->

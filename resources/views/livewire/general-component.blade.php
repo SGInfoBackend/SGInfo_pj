@@ -6,23 +6,21 @@
       <marquee>This text will scroll from right to left</marquee>
     </div>
     <div id="globel_news_container">
-
-            @foreach ($trending as $article)
-                <div class="globel_news_box_general" style="background-image: url({{ asset('/images/general_images/' . $article->G_PHOTO) }})">
-                    <a href="{{ route('detailarticle',["General_ID"=>$article->General_ID]) }}">
-                    <div class="background_color">
-                        <p class="news_type news_type1">{{ Str::limit($article->G_Description, 50) }}</p>
-                        <h4 class="news_title news_title1">{{ $article->G_Title }}
-                        </h4>
-                        <caption class="journalist">Mrs Christ - {{ $article->created_at }}</caption>
-                    </div>
-                    </a>
+        @foreach ($trending as $article)
+            <div class="globel_news_box" style="background-image: url({{ asset('/images/general_images/' . $article->G_PHOTO) }})">
+                <a href="{{ route('detailarticle',["General_ID"=>$article->General_ID]) }}">
+                <div class="background_color">
+                    <p class="news_type news_type1">{{ Str::limit($article->G_Description, 50) }}</p>
+                    <h4 class="news_title news_title1">{{ $article->G_Title }}
+                    </h4>
+                    <caption class="journalist">Mrs Christ - {{ $article->created_at }}</caption>
                 </div>
-            @endforeach
-
+                </a>
+            </div>
+        @endforeach
       <div id="globel_news_container2">
           @foreach ($trendings as $general)
-          <div class="globel_news_box_article" style="background-image: url({{ asset('/images/general_images/' . $general->G_PHOTO) }})">
+          <div class="globel_news_box2" style="background-image: url({{ asset('/images/general_images/' . $general->G_PHOTO) }})">
             <a href="{{ route('detailarticle',["General_ID"=>$general->General_ID]) }}">
                 <div class="background_color">
                 <p class="news_type">{{ Str::limit($general->G_Description, 50) }}</p>
@@ -31,9 +29,7 @@
              </a>
           </div>
         @endforeach
-
       </div>
-
     </div>
   </section>
 
@@ -45,77 +41,99 @@
   <section id="global-news">
     <div class="first-global">
       <h3 class="header3">GLOBLE NEWS</h3>
-      <div class="information">
-
-        @foreach ($globleNew as $globle)
-            <div class="news">
+        <div class="information">
+            @foreach ($globleNew as $globle)
                 <div class="gl-news-photo1">
-                <a href="{{ route('detailarticle',["General_ID"=>$globle->General_ID]) }}">
-                    <img src="{{ asset('/images/general_images')}}/{{ $globle->G_PHOTO }}" class="image1">
-                </a>
-                <div class="gl-news-des">
-                    <h4 class="header4">{{ $globle->G_Title }}</h4>
-                    <h4 class="header4"><strong>{{ Str::limit($general->G_Description, 50) }}</strong></h4>
-                    <p> {{ Auth::user()->name }} - {{ Carbon\Carbon::parse($general->created_at)->format(' F d , Y   /   h:i A') }} <br>
-                        {{ Str::limit($general->G_Description, 50) }}
-                    </P>
+                    <a href="{{ route('detailarticle',["General_ID"=>$globle->General_ID]) }}">
+                        <img src="{{ asset('/images/general_images')}}/{{ $globle->G_PHOTO }}" class="image1">
+                    </a>
+                    <div class="gl-news-des">
+                        <h4 class="header4">{{ $globle->G_Title }}</h4>
+                        <h4 class="header4"><strong>{{ Str::limit($general->G_Description, 50) }}</strong></h4>
+                        <p> {{ Auth::user()->name }} - {{ Carbon\Carbon::parse($general->created_at)->format(' F d , Y   /   h:i A') }} <br>
+                            {{ Str::limit($general->G_Description, 50) }}
+                        </P>
+                    </div>
                 </div>
-                </div>
-            </div>
-        @endforeach
-
-        <div class="fourphotos">
-          <div class="column">
-            @foreach ($globleNews as $globle)
-            <div class="gl-news-photo2">
-              <!-- <a href="general_info_detail.html"> -->
-              <img src="{{ asset('/images/general_images')}}/{{ $globle->G_PHOTO }}" class="image2">
-              <!-- </a> -->
-              <p class="gl-text"><strong>{{ Str::limit($globle->G_Description, 50) }}</strong><br>
-                {{ Carbon\Carbon::parse($globle->created_at)->format(' F d , Y ') }}
-              </p>
-            </div>
             @endforeach
-          </div>
+            <div class="fourphotos">
+                @foreach ($globleNews as $globle)
+                <div class="gl-news-photo2">
+                    <!-- <a href="general_info_detail.html"> -->
+                    <img src="{{ asset('/images/general_images')}}/{{ $globle->G_PHOTO }}" class="image2">
+                    <!-- </a> -->
+                    <p class="gl-text"><strong>{{ Str::limit($globle->G_Description, 50) }}</strong><br>
+                        {{ Carbon\Carbon::parse($globle->created_at)->format(' F d , Y ') }}
+                    </p>
+                </div>
+                @endforeach
+            </div>
         </div>
-      </div>
     </div>
-    <div id="gl-general">
-      <div class="news-contianer">
+    <div id="must_read_container">
           <h3 class="header3">MUST READ</h3>
-          <div class="popular">
-            @foreach ($mustRead as $mustread)
+          <div class="gen_info_card">
+            <h4>What do we need to go to Singapore?</h4>
+            <ul>
+                <li><a href="#">Passport </a></li>
+                <li><a href="#">Airticket</a></li>
+                <li> <a href="#">Covid 19 Vacinaiton Certificate</a></li>
+                <li> <a href="#">Filling Arrival Card</a></li>
+            </ul>
+
+            {{-- @foreach ($mustRead as $mustread)
                 <div class="gl-news-photo3">
                     <img src="{{ asset('/images/general_images')}}/{{ $mustread->G_PHOTO }}"  class="image3" >
                     <p class="gl-text">{{ Str::limit($mustread->G_Description, 50) }}</p>
                 </div>
-            @endforeach
+            @endforeach --}}
+
+            <button class="gen_info_btn"  onclick="changeColor()">See More</button>
         </div>
-      </div>
     </div>
   </section>
   <!-- ============================= End of Globel news ========================================== -->
 
  <!-- ======================== Travel Guide ============================= -->
 
- <section class="swiper-container mySwiper">
+ {{-- <section class="swiper-container mySwiper">
   <div class="travel_guide">
     <h1>Travel Guides</h1>
   </div>
-  @foreach ($travelGuide as $travelguide)
-    <div class="swiper-wrapper">
-        <div class="swiper-slide">
-        <img src="{{ asset('/images/general_images')}}/{{ $travelguide->G_PHOTO }}" >
+  <div class="swiper-wrapper">
+    @foreach ($travelGuide as $travelguide)
+    <div class="swiper-slide card text-center cover" style="background-image: url({{ asset('/images/general_images/' . $travelguide->G_PHOTO) }})">
+        <div class="card-body">
         <div class="overlay">
-            <p>{{ $travelguide->G_Title }}</p>
+            <p class="travel_type">{{ $travelguide->G_Title }}</p>
+            <p>{{ $travelguide->G_Description }}</p>
         </div>
         </div>
     </div>
-  @endforeach
-  <!-- <div class="swiper-button-next"></div>
-<div class="swiper-button-prev"></div> -->
+    @endforeach
+ </div>
   <div class="swiper-pagination"></div>
-</section>
+</section> --}}
+<section class="swiper-container mySwiper">
+    <div class="travel_guide">
+      <h4>TRAVEL GUIDES</h4>
+    </div>
+    <div class="swiper">
+        @foreach ($travelGuide as $travelguide)
+        <div class="swiper-wrapper">
+            <div class="swiper-slide card text-center cover" style="background-image: url({{ asset('/images/general_images/' . $travelguide->G_PHOTO) }}) ">
+                <div class="card-body">
+                    <div class="overlay">
+                        <p class="travel_type">{{ $travelguide->G_Title }}</p>
+                        <p>{{ Str::limit($travelguide->G_Description, 20) }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @endforeach
+    </div>
+    <div class="swiper-pagination"></div>
+  </section>
 
 <!-- ============================= End of Travel Guide Slider ========================================== -->
 
@@ -125,40 +143,38 @@
     <div id="first_general">
       <div class="first_container">
           @foreach ($present as $Present)
-            <div class="single">
-                <h3 class="header_3">PRESENTS</h3>
+            <h3 class="header_3">PRESENTS</h3>
+            <a href="{{ route('detailarticle',["General_ID"=>$Present->General_ID]) }}">
+            <img src="{{ asset('/images/general_images')}}/{{ $Present->G_PHOTO }}"  class="gift_img">
+            </a>
+            <div class="single_des">
+                <h5 class="header_5">PRESENT</h5>
+                <h4>{{ $Present->G_Name }}</h4>
+                span><strong>{{ Auth::user()->name }}</strong> - {{ Carbon\Carbon::parse($Present->created_at)->format(' F d , Y') }}</span>
+                <p>{{ Str::limit($Present->G_Description, 200) }}</p>
+            </div>
+
+            <div class="small_article">
+                <div class="small_img">
                 <a href="{{ route('detailarticle',["General_ID"=>$Present->General_ID]) }}">
-                <img src="{{ asset('/images/general_images')}}/{{ $Present->G_PHOTO }}"  class="gift_img">
+                    <img src="{{ asset('/images/general_images')}}/{{ $Present->G_PHOTO }}" >
                 </a>
-                <h5 class="header_5">{{ $Present->G_Title }}</h5>
-                <div class="single_des">
-                    <h4>{{ $Present->G_Name }}</h4>
-                    <span><strong>{{ Auth::user()->name }}</strong> - {{ Carbon\Carbon::parse($Present->created_at)->format(' F d , Y') }}</span>
-                    <p>{{ Str::limit($mustread->G_Description, 200) }}</p>
-                </div>
-                <div class="small_article">
-                    <div class="small_img">
-                    <a href="{{ route('detailarticle',["General_ID"=>$Present->General_ID]) }}">
-                        <img src="{{ asset('/images/general_images')}}/{{ $Present->G_PHOTO }}" >
-                    </a>
-                    <p class="small_title">
-                        <strong>Hand Me Name</strong> <br>
-                        <span><strong>{{ Auth::user()->name }}</strong> - {{ Carbon\Carbon::parse($Present->created_at)->format(' F d , Y') }}</span> <br>
-                    </p>
-                    </div>
+                <p class="small_title">
+                    <strong>Hand Me Name</strong> <br>
+                    <span><strong>{{ Auth::user()->name }}</strong> - {{ Carbon\Carbon::parse($Present->created_at)->format(' F d , Y') }}</span> <br>
+                </p>
                 </div>
             </div>
-            @endforeach
+         @endforeach
       </div>
-      <div class="first_container">
-        @foreach ($restaurant as $Restaurant)
-          <div class="single">
-              <h3 class="header_3">RESTAURANTS</h3>
+      <div class="first_container first_container_2">
+        <h3 class="header_3">RESTAURANTS</h3>
+            @foreach ($restaurant as $Restaurant)
                 <a href="{{ route('detailarticle',["General_ID"=>$Restaurant->General_ID]) }}">
                 <img src="{{ asset('/images/general_images')}}/{{ $Restaurant->G_PHOTO }}"  class="gift_img">
                 </a>
-                <h5 class="header_5">Restaurant</h5>
                 <div class="single_des">
+                    <h5 class="header_5">Restaurant</h5>
                     <h4>{{ $Restaurant->G_Name }}</h4>
                     <span><strong>{{ Auth::user()->name }}</strong> - {{  Carbon\Carbon::parse($Restaurant->created_at)->format(' F d , Y')  }}</span>
                     <p>{{ Str::limit($Restaurant->G_Description, 50) }}</p>
@@ -174,12 +190,11 @@
                         </p>
                     </div>
                 </div>
-            </div>
-        @endforeach
+            @endforeach
+      </div>
     </div>
-    <div id="first_general">
-      <div class="first_container">
-        <div class="group">
+    <div id="second_general">
+      <div class="second_container">
           <h3 class="header_3">MOST POPULAR</h3>
           <div class="circle_gp">
             @foreach ($mostPopular as $popular)
@@ -189,11 +204,10 @@
                     </a>
                     <p>
                     {{ $popular->G_Title }} <br>
-                    <span>{{ Str::limit($popular->G_Description, 20) }}</span>
+                    <span>{{ Str::limit($popular->G_Description, 70) }}</span>
                     </p>
                 </div>
             @endforeach
-          </div>
         </div>
       </div>
     </div>
@@ -205,7 +219,7 @@
     <div class="article_container">
       <div class="article_title">
         <h4 class="health_title">Health & Education</h4>
-        <hr style="width:65%" , size="5" , color=darkblue />
+        <hr class="longline"/>
       </div>
       <div class="article">
         @foreach ($healthEducation as $health)
