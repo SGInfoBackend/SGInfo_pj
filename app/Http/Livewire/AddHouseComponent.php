@@ -59,7 +59,11 @@ class AddHouseComponent extends Component
 
     public function store()
     {
-        $this->validate([
+        if(Auth::check())
+        {
+            $rent_house = new RentHouse();
+        $rent_house->PROJECT_NAME = $this->project_name;
+
             'project_type' => 'required',
             'availability' => 'required',
             'developer' => 'required',
@@ -78,6 +82,7 @@ class AddHouseComponent extends Component
             'description' => 'required',
         ]);
         $rent_house = new RentHouse();
+
         $rent_house->Project_type = $this->project_type;
         $rent_house->Floor_lvl = $this->floor_lv;
         $rent_house->Floor_Size = $this->floor_size;
