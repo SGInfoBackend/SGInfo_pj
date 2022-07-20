@@ -1,12 +1,19 @@
 <div>
-    <div class="w3-container" wire:ignore>
-        <div id="room" class="w3-modal">
+    <style>
+        .toast-success {
+            background-color: #086e08 !important;
+            position: relative;
+            top: 100px !important;
+        }
+    </style>
+    <div class="w3-container">
+        <div id="room" class="w3-modal" wire:ignore.self>
             <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="width:65%">
                 <div class="w3-center"><br>
                     <span onclick="document.getElementById('room').style.display='none'" class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
                 </div>
 
-                <div class="main-room">
+                <div class="main-room" >
                     <form class="w3-container first-room" wire:submit.prevent="store">
                         <h1 class="modal-h1-room">ROOM UPLOAD FORM</h1>
                         @if (Session::has('success_message'))
@@ -19,56 +26,56 @@
                                 <label for="" class="modal-label-room">PROPERTY TYPE</label> <br>
                                 <input class="modal-input-room" type="text" wire:model="project_type">
                                 @error('project_type')
-                                    <span class="alert alert-danger">{{$message}}</span>
+                                    <p class="alert text-danger">{{$message}}</p>
                                 @enderror
                             </div>
                             <div class="modal-div-room">
                                 <label for="" class="modal-label-room">AVAILABILITY</label> <br>
                                 <input class="modal-input-room" type="date" wire:model="availability">
                                 @error('availability')
-                                    <span class="alert alert-danger">{{$message}}</span>
+                                    <p class="alert text-danger">{{$message}}</p>
                                 @enderror
                             </div>
                             <div class="modal-div-room">
                                 <label for="" class="modal-label-room">DEVELOPER</label> <br>
                                 <input class="modal-input-room" type="text" wire:model="developer">
                                 @error('developer')
-                                    <span class="alert alert-danger">{{$message}}</span>
+                                    <p class="alert text-danger">{{$message}}</p>
                                 @enderror
                             </div>
                             <div class="modal-div-room">
                                 <label for="" class="modal-label-room">FLOOR LEVEL</label> <br>
                                 <input class="modal-input-room" type="text" wire:model="floor_lv">
                                 @error('floor_lv')
-                                    <span class="alert alert-danger">{{$message}}</span>
+                                    <p class="alert text-danger">{{$message}}</p>
                                 @enderror
                             </div>
                             <div class="modal-div-room">
                                 <label for="" class="modal-label-room">FLOOR SIZE (sqft)</label> <br>
                                 <input class="modal-input-room" type="text" wire:model="floor_size">
                                 @error('floor_size')
-                                    <span class="alert alert-danger">{{$message}}</span>
+                                    <p class="alert text-danger">{{$message}}</p>
                                 @enderror
                             </div>
                             <div class="modal-div-room">
                                 <label for="" class="modal-label-room">PSF (psf)</label> <br>
                                 <input class="modal-input-room" type="text" wire:model="psf">
                                 @error('psf')
-                                    <span class="alert alert-danger">{{$message}}</span>
+                                    <p class="alert text-danger">{{$message}}</p>
                                 @enderror
                             </div>
                             <div class="modal-div-room">
                                 <label for="" class="modal-label-room">NEAREST MRT/LRT</label> <br>
                                 <input class="modal-input-room" type="text" wire:model="mrt_near">
                                 @error('mrt_near')
-                                    <span class="alert alert-danger">{{$message}}</span>
+                                    <p class="alert text-danger">{{$message}}</p>
                                 @enderror
                             </div>
                             <div class="modal-div-room modal-div-room-textarea">
                                 <label for="" class="modal-label-room">ADDRESS</label> <br>
                                 <textarea class="modal-input-room-textarea" name="" id="" cols="30" rows="5" wire:model="address"></textarea></textarea>
                                 @error('address')
-                                    <span class="alert alert-danger">{{$message}}</span>
+                                    <p class="alert text-danger">{{$message}}</p>
                                 @enderror
                             </div>
                             <div class="modal-div-room modal-div-room-100">
@@ -79,27 +86,27 @@
                                     <option value="for sale" class="modal-option-room">for sale</option>
                                 </select>
                                 @error('ros')
-                                    <span class="alert alert-danger">{{$message}}</span>
+                                    <p class="alert text-danger">{{$message}}</p>
                                 @enderror
                             </div>
                             <div class="modal-div-room modal-div-room-100">
                                 <label for="" class="modal-label-room modal-div-room-100">PRICE RATE(per month)</label> <br>
                                 <input class="modal-input-room modal-input-room-new" style="width: 48%;" type="text" wire:model="price">
                                 <select class="modal-select-room" style="width: 48%;" wire:model="currency">
-                                    <option value="USD" selected disabled class="modal-option-room">Currency</option>
+                                    <option value="" selected disabled class="modal-option-room">Currency</option>
                                     <option value="USD" class="modal-option-room">USD</option>
                                     <option value="SGD" class="modal-option-room">SGD</option>
                                     <option value="YEN" class="modal-option-room">YEN</option>
                                 </select>
                                 @error('price')
-                                    <span class="alert alert-danger">{{$message}}</span>
+                                    <p class="alert text-danger">{{$message}}</p>
                                 @enderror
                             </div>
                             <div class="modal-div-room modal-div-room-100">
                                 <label for="" class="modal-label-room">PLEASE UPLOAD PHOTOS</label> <br>
                                 <input class="modal-input-room-image" type="file" wire:model="images">
                                 @error('images')
-                                    <span class="alert alert-danger">{{$message}}</span>
+                                    <p class="alert text-danger">{{$message}}</p>
                                 @enderror
                             </div>
                             <div class="modal-div-room modal-div-room-100">
@@ -113,9 +120,9 @@
                                     <option value="5" class="modal-option-room">5</option>
                                 </select>
                                 @error('no_room')
-                                    <span class="alert alert-danger">{{$message}}</span>
+                                    <p class="alert text-danger">{{$message}}</p>
                                 @enderror
-                                <select name="" id="" class="modal-select-room" style="width: 48%;" wire:model="no_birth">
+                                <select class="modal-select-room" style="width: 48%;" wire:model="no_birth">
                                     <option value="" selected disabled class="modal-option-room">Bath room</option>
                                     <option value="1" class="modal-option-room">1</option>
                                     <option value="2" class="modal-option-room">2</option>
@@ -124,12 +131,12 @@
                                     <option value="5" class="modal-option-room">5</option>
                                 </select>
                                 @error('no_birth')
-                                    <span class="alert alert-danger">{{$message}}</span>
+                                    <p class="alert text-danger">{{$message}}</p>
                                 @enderror
                             </div>
                             <div class="modal-div-room modal-div-room-100">
-                                <label for="" class="modal-label-room">SELECT KEY FEATURES</label> <br>
-                                <select name="" id="" class="modal-select-room" style="width: 100%;padding-left:10px;" multiple wire:model="keyfeatures">
+                                <label class="modal-label-room">SELECT KEY FEATURES</label> <br>
+                                <select class="modal-select-room" style="width: 100%;padding-left:10px;" multiple wire:model="keyfeatures">
                                     <option value="Air-Conditioning" class="modal-option-room-special">Air-Conditioning</option>
                                     <option value="Cooker Hob/Hood" class="modal-option-room">Cooker Hob/Hood</option>
                                     <option value="Fridge" class="modal-option-room">Fridge</option>
@@ -147,12 +154,12 @@
                                 </select>
                                 <p>Please press Ctrl key and click to select multiple items</p>
                                 @error('keyfeatures')
-                                    <span class="alert alert-danger">{{$message}}</span>
+                                    <p class="alert text-danger">{{$message}}</p>
                                 @enderror
                             </div>
                             <div class="modal-div-room modal-div-room-100">
-                                <label for="" class="modal-label-room">SELECT FACILITIES</label> <br>
-                                <select name="" id="" class="modal-select-room" style="width: 100%;padding-left:10px;" multiple wire:model="facilities">
+                                <label class="modal-label-room">SELECT FACILITIES</label> <br>
+                                <select class="modal-select-room" style="width: 100%;padding-left:10px;" multiple wire:model="facilities">
                                     <option value="Barbeque Area" class="modal-option-room-special">Barbeque Area</option>
                                     <option value="Covered car park" class="modal-option-room">Covered car park</option>
                                     <option value="Function room" class="modal-option-room">Function room</option>
@@ -167,18 +174,22 @@
                                     <option value="Tennis courts" class="modal-option-room">Tennis courts</option>
                                 </select>
                                 @error('facilities')
-                                    <span class="alert alert-danger">{{$message}}</span>
+                                    <p class="alert text-danger">{{$message}}</p>
                                 @enderror
                             </div>
 
                             <div class="modal-div-room modal-div-room-textarea">
-                                <label for="" class="modal-label-room">DESCRIPTION</label> <br>
-                                <textarea class="modal-input-room-textarea" name="" id="" cols="30" rows="10" wire:model="description"></textarea>
+                                <label class="modal-label-room">DESCRIPTION</label> <br>
+                                <textarea class="modal-input-room-textarea" cols="30" rows="10" wire:model="description"></textarea>
                                 @error('description')
-                                    <span class="alert alert-danger">{{$message}}</span>
+                                    <p class="alert text-danger">{{$message}}</p>
                                 @enderror
                             </div>
-                            <button type="submit" class="uploadBtn-room">UPLOAD</button>
+                            <button @click.prevent="$dispatch('toast-confirmation', {
+                                action: 'complete',
+                                message: 'Are you sure to complete this task ?'
+                            })"
+                             type="submit" class="uploadBtn-room">UPLOAD</button>
                         </div>
                     </form>
                 </div>
@@ -186,4 +197,9 @@
         </div>
     </div>
 
+    @if (Session::has('success_message'))
+    <script>
+        toastr.success("{!! Session::get('success_message') !!}");
+    </script>
+    @endif
 </div>
