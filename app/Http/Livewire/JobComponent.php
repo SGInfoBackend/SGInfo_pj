@@ -28,27 +28,28 @@ class JobComponent extends Component
     public function render()
     {
 
-        // $result = array_keys(array_filter($this->selectedId));
         // dd($result);
         // if($this->selectedId){
         //     $jobs = Job::where('Typeofrole_ID',$this->selectedId)->paginate(10);
         // }
+        // dd($this->selectedJob);
+        // $selectedjob = in_array(true, $this->selectedJob) ;
+        // dd($selectedjob);
 
+        // $result = array_fill_keys($this->selectedJob->toArray(), true);
+        // dd($result);
         $typeofroles = JobTypeOfRole::all();
 
         if($this->selectedId)
         {
             $jobs = Job::where('Typeofrole_ID',$this->selectedId)->where('Job_title', $this->selectedJob)->whereBetween('SALARY',[$this->min_price,$this->max_price])->paginate(10);
+
             // dd($jobs);
         }
         else
         {
-            $jobs = Job::orderBy('Job_ID','DESC')->whereBetween('SALARY',[$this->min_price,$this->max_price])->paginate(10);
+            $jobs = Job::orderBy('Job_ID','DESC')->where('Job_title',$this->selectedJob)->whereBetween('SALARY',[$this->min_price,$this->max_price])->paginate(10);
         }
-        // dd($jobs);
-        // if($this->sorting=='slider'){
-        //     $products = Job::whereBetween('SALARY',[$this->min_price,$this->max_price])-> orderBy('created_at','DESC')->paginate($this->pagesize);
-        // }
 
         return view('livewire.job-component', ['jobs'=>$jobs, 'typeofroles'=>$typeofroles])->layout('layouts.base');
     }

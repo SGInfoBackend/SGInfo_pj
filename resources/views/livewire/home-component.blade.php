@@ -40,8 +40,8 @@
         quisquam natus praesentium aut et inventore? <br>Temporibus voluptates repudiandae consequuntur odit repellat
         exercitationem<br> fugit minus pariatur.</p>
       <div class="banner-btn">
-        <a href="room_list.html"><span></span>Rooms</a>
-        <a href="Job.html"><span></span>Jobs</a>
+        <a href="{{ route('rooms')}}"><span></span>Rooms</a>
+        <a href="{{ route('job')}}"><span></span>Jobs</a>
       </div>
     </div>
   </section>
@@ -123,54 +123,14 @@
       <h1>Travel Guides</h1>
     </div>
     <div class="swiper-wrapper">
-      <div class="swiper-slide">
-        <img src="./images/general_images/travel-02.jpg" alt="">
-        <div class="overlay">
-          <p>French</p>
+        @foreach ($travelGuide as $travelguide)
+        <div class="swiper-slide">
+            <img src="{{ asset('/images/general_images') }}/{{ $travelguide->G_PHOTO }}" alt="">
+            <div class="overlay">
+            <p>{{ $travelguide->G_Title }}</p>
+            </div>
         </div>
-      </div>
-      <div class="swiper-slide">
-        <img src="./images/general_images/travel-03.jpg" alt="">
-        <div class="overlay">
-          <p>Myanmar</p>
-        </div>
-      </div>
-      <div class="swiper-slide">
-        <img src="./images/general_images/travel-04.jpg" alt="">
-        <div class="overlay">
-          <p>America</p>
-        </div>
-      </div>
-      <div class="swiper-slide">
-        <img src="./images/general_images/travel-12.jpg" alt="">
-        <div class="overlay">
-          <p>Japan</p>
-        </div>
-      </div>
-      <div class="swiper-slide">
-        <img src="./images/general_images/travel-03.jpg" alt="">
-        <div class="overlay">
-          <p>Korea</p>
-        </div>
-      </div>
-      <div class="swiper-slide">
-        <img src="./images/general_images/travel-13.jpg" alt="">
-        <div class="overlay">
-          <p>China</p>
-        </div>
-      </div>
-      <div class="swiper-slide">
-        <img src="./images/general_images/travel-02.jpg" alt="">
-        <div class="overlay">
-          <p>Singapore</p>
-        </div>
-      </div>
-      <div class="swiper-slide">
-        <img src="./images/general_images/travel-12.jpg" alt="">
-        <div class="overlay">
-          <p>Malisia</p>
-        </div>
-      </div>
+      @endforeach
     </div>
     <!-- <div class="swiper-button-next"></div>
     <div class="swiper-button-prev"></div> -->
@@ -186,8 +146,8 @@
       <marquee>This text will scroll from right to left</marquee>
     </div>
     <div id="globel_news_container">
-        @foreach ($general as $article)
-            <div class="globel_news_box_general" style="background-image: url({{ asset('/images/general_images/' . $article->G_PHOTO) }})">
+        @foreach ($trending as $article)
+            <div class="globel_news_box_general" style="background-image: url({{ asset('/images/general_images' . $article->G_PHOTO) }})">
                 <a href="{{ route('detailarticle',["General_ID"=>$article->General_ID]) }}">
                 <div class="background_color">
                     <p class="news_type news_type1">{{ Str::limit($article->G_Description, 50) }}</p>
@@ -199,7 +159,7 @@
             </div>
         @endforeach
       <div id="globel_news_container2">
-          @foreach ($generals as $general)
+          @foreach ($trendings as $general)
           <div class="globel_news_box_article" style="background-image: url({{ asset('/images/general_images/' . $general->G_PHOTO) }})">
             <a href="{{ route('detailarticle',["General_ID"=>$general->General_ID]) }}">
                 <div class="background_color">
@@ -224,7 +184,7 @@
       <div class="search_icon">
         <i class="uil uil-search"></i>
         <input id="search_jobs" type="text" name="What are you looking for?" placeholder="Job title, keyword or company"
-          required>
+          required wire:model="search">
       </div>
       <div class="search_icon">
         <i class="uil uil-map-marker"></i>
@@ -233,12 +193,10 @@
 
       <div class="search_icon">
         <i class="uil uil-right-indent-alt"></i>
-        <select id="jobs_categories">
-          <option class="jobs_option">All Job Specializations</option>
-          <option class="jobs_option">AAAA</option>
-          <option class="jobs_option">BBBB</option>
-          <option class="jobs_option">CCCC</option>
-          <option class="jobs_option">DDDD</option>
+        <select id="jobs_categories" wire:model="job_title">
+            @foreach ($allJobs as $alljob)
+            <option class="jobs_option" value="{{ $alljob->Job_title }}">{{ $alljob->Job_title }}</option>
+          @endforeach
         </select>
       </div>
 

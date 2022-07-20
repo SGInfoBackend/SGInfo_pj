@@ -21,6 +21,7 @@ class AddGeneralComponent extends Component
     public $gdescription;
 
     public function updated($fields){
+
         $this->validateOnly($fields,[
             'gname' => 'required',
             'gtitle' => 'required',
@@ -28,13 +29,11 @@ class AddGeneralComponent extends Component
             'gphotos' => 'image|max:1024',
             'gdescription' => 'required',
         ]);
+
     }
 
     public function addArtical()
     {
-        // dd('GG');
-        if(Auth::check())
-        {
             $this->validate([
                 'gname' => 'required',
                 'gtitle' => 'required',
@@ -44,7 +43,7 @@ class AddGeneralComponent extends Component
             ]);
 
             $artical = new General();
-            // dd($artical);
+
             $artical->USER_ID  = Auth::user()->id;
             $artical->G_Name = $this->gname;
             $artical->G_Title = $this->gtitle;
@@ -53,19 +52,13 @@ class AddGeneralComponent extends Component
             $imageName = Carbon::now()->timestamp. '.' . $this->gphotos->extension();
             $this->gphotos->storeAs('general_images',$imageName);
             $artical->G_PHOTO = $imageName;
-            // dd($artical->G_PHOTO);
 
             $artical->G_Description  = $this->gdescription;
 
             $artical->save();
 
             session()->flash('message','Article has been created successfully!');
-
-
-        }
-
-        return redirect()->route('login');
-        // return redirect()->to('/general');
+            $this->dispatchBrowserEvent('hide_modal');
 
     }
     // add general

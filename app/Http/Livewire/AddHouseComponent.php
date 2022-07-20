@@ -9,6 +9,7 @@ use App\Models\RentHouse;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
+use Livewire\Event;
 
 class AddHouseComponent extends Component
 {
@@ -37,55 +38,49 @@ class AddHouseComponent extends Component
     public function updated($fileds)
     {
         $this->validateOnly($fileds,[
-            'project_name' => 'required',
             'project_type' => 'required',
+            'availability' => 'required',
+            'developer' => 'required',
             'floor_lv' => 'required',
             'floor_size' => 'required',
-            'mrt_line' => 'required',
+            'psf' => 'required',
             'mrt_near' => 'required',
             'address' => 'required',
-            'developer' => 'required',
-            'psf' => 'required',
-            'availability' => 'required',
-            'sor' => 'required',
+            'ros' => 'required',
             'price' => 'required|numeric',
+            'images' => 'required|image',
             'no_room' => 'required|numeric',
             'no_birth' => 'required|numeric',
-            'description' => 'required',
             'keyfeatures' => 'required',
             'facilities' => 'required',
+            'description' => 'required',
         ]);
     }
 
     public function store()
     {
-        // $this->validate([
-        //     'project_name' => 'required',
-        //     'project_type' => 'required',
-        //     'floor_lv' => 'required',
-        //     'floor_size' => 'required',
-        //     'mrt_line' => 'required',
-        //     'mrt_near' => 'required',
-        //     'address' => 'required',
-        //     'developer' => 'required',
-        //     'psf' => 'required',
-        //     'availability' => 'required',
-        //     'sor' => 'required',
-        //     'price' => 'required|numeric',
-        //     'no_room' => 'required|numeric',
-        //     'no_birth' => 'required|numeric',
-        //     'description' => 'required',
-        //     'keyfeatures' => 'required',
-        //     'facilities' => 'required',
-        // ]);
-        if(Auth::check())
-        {
-            $rent_house = new RentHouse();
-        $rent_house->PROJECT_NAME = $this->project_name;
+        $this->validate([
+            'project_type' => 'required',
+            'availability' => 'required',
+            'developer' => 'required',
+            'floor_lv' => 'required',
+            'floor_size' => 'required',
+            'psf' => 'required',
+            'mrt_near' => 'required',
+            'address' => 'required',
+            'ros' => 'required',
+            'price' => 'required|numeric',
+            'images' => 'required|image',
+            'no_room' => 'required|numeric',
+            'no_birth' => 'required|numeric',
+            'keyfeatures' => 'required',
+            'facilities' => 'required',
+            'description' => 'required',
+        ]);
+        $rent_house = new RentHouse();
         $rent_house->Project_type = $this->project_type;
         $rent_house->Floor_lvl = $this->floor_lv;
         $rent_house->Floor_Size = $this->floor_size;
-        $rent_house->RH_MRT_LRT_Line = $this->mrt_line;
         $rent_house->RH_Nearest_MRT_LRT = $this->mrt_near;
         $rent_house->ADDRESS = $this->address;
         $rent_house->DEVELOPER = $this->developer;
@@ -109,13 +104,8 @@ class AddHouseComponent extends Component
         $rent_house->KeyFeature_IDS = $arr_1;
         $rent_house->Facilities_IDS = $arr_2;
         $rent_house->save();
-
         session()->flash('success_message','House information has been created successfullly');
-
-        }
-
-        return redirect()->route('login');
-
+        $this->dispatchBrowserEvent('hide_modal');
 
     }
     public function render()
