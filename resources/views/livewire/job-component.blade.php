@@ -22,13 +22,13 @@
                             <h4>Job Type</h4>
                             @foreach ($typeofroles as $typeofrole)
                                 <div class="form-check">
-                                    <input class="form-check-input" name="typeofrole" type="checkbox" value="{{ $typeofrole->Typeofrole_ID }}" wire:model="selectedId" id="{{ $typeofrole->Typeofrole_ID }}" >
+                                    <input class="form-check-input" name="typeofrole" type="checkbox" value="{{ $typeofrole->Typeofrole_ID }}" wire:model="selectedId" id="{{ $typeofrole->Typeofrole_ID }}">
                                     <label class="form-check-label" for="{{ $typeofrole->Typeofrole_Name }}">
                                         {{ $typeofrole->Typeofrole_Name }}
                                     </label>
                                 </div>
                             @endforeach
-                            {{-- {{var_export($selectedId)}} --}}
+                            {{-- {{ var_export($selectedId) }} --}}
                         </div>
                     </div>
                 </div>
@@ -36,15 +36,14 @@
                     <div class="card shadow ">
                         <div class="card-body">
                             <h4>Position</h4>
-                                    @foreach ($jobs as $job)
-                                        <div class="form-check">
-                                            <input class="form-check-input" name="job" type="checkbox" value="{{ $job->Job_title }}" wire:model="selectedJob" >
-                                            <label class="form-check-label" for="{{ $job->Job_title }}">
-                                                {{ $job->Job_title }}
-                                            </label>
-                                        </div>
-                                    @endforeach
-                            {{-- {{var_export($selectedJob)}} --}}
+                            @foreach ($jobs as $job)
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="{{ $job->Job_title }}" wire:model="selectedJob" id="{{ $job->Job_ID }}">
+                                    <label class="form-check-label" for="{{ $job->Job_title }}">
+                                        {{ $job->Job_title }}
+                                    </label>
+                                </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>
@@ -111,15 +110,23 @@
 
           </div>
           <div class="col-12 col-md-9">
-            @foreach ($jobs as $job)
+            @if($selectedId)
+                @foreach ($jobs as $job)
+                    <div class="card my-2 shadow">
+                        <div class="card-body">
+                            <h5 class="text-decoration-none">{{ $job->Job_title }}</h5> {{--  href="{{ route('jobdetails', ['Job_ID'=>$job->Job_ID]) }}" --}}
+                            <p class="mt-2">{{ Str::limit($job->Job_Description, 100) }}</p>
+                            <a href="{{ route('jobdetails', ['Job_ID'=>$job->Job_ID]) }}" class="text-decoration-none">See More..</a>
+                        </div>
+                    </div>
+                @endforeach
+            @else
                 <div class="card my-2 shadow">
                     <div class="card-body">
-                        <a href="{{ route('jobdetails', ['Job_ID'=>$job->Job_ID]) }}" class="text-decoration-none">{{ $job->Job_title }}</a>
-                        <p class="mt-2">{{ Str::limit($job->Job_Description, 100) }}</p>
-                        <a href="{{ route('jobdetails', ['Job_ID'=>$job->Job_ID]) }}" class="text-decoration-none">See More..</a>
+                        <p class="text-primary text-muted">Here is no Job!</p>
                     </div>
                 </div>
-            @endforeach
+            @endif
           </div>
         </div>
     </div>

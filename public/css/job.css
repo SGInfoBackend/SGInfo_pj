@@ -1,3 +1,6 @@
+label {
+    margin-top: 0px !important;
+}
 .bg_blue{
     background-color: #4A9BE3;
 }
@@ -17,19 +20,19 @@
 
 .banner-btn{
 	background-color: transparent;
-   
+
 }
 .banner-btn a{
 	width: 150px;
 	text-decoration: none;
-	display: inline-block;	
+	display: inline-block;
 	padding: 12px 0;
 	color: #fff;
 	border: .5px solid #fff;
 	position: relative;
 	transition: color 0.5s;
     text-align: center;
-    
+
 }
 .banner-btn a span{
 	width: 0;
@@ -47,7 +50,7 @@
 .banner-btn a:hover{
     display: inline-block;
 	color: goldenrod;
-    font-weight: bold;    
+    font-weight: bold;
 }
 
 @media only screen and (max-width: 600px) {
@@ -57,7 +60,7 @@
         left: 100px;
         z-index: 1;
         color: white;
-        
+
     }
     .banner-btn{
         margin-top: 30px;
@@ -92,7 +95,7 @@
 }
 
 .pagination{
-    
+
     float: right;
     margin-right: 150px;
     margin-top: 30px;
@@ -168,7 +171,7 @@
 .title-text h1{
 	font-size: 50px;
 }
-.feature-box{ 
+.feature-box{
 	width: 80%;
 	margin: auto;
 	display: flex;
@@ -195,7 +198,7 @@
     border: 1px solid rgba(0,0,0,.125);
     border-radius: 0.25rem;
 	background-color: #4A9BE3;}
-	
+
 .btn-send{
 	margin: 70px auto 0;
 }
@@ -247,6 +250,6 @@
 }
 
 nav a:hover{
-	
+
 	color:gold !important;
 }
