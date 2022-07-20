@@ -280,6 +280,12 @@
       <script src="{{ asset('js/main.js')}}"></script>
       {{-- noUiSlider cdn --}}
 	  <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.6.0/nouislider.min.js" integrity="sha512-1mDhG//LAjM3pLXCJyaA+4c+h5qmMoTc7IuJyuNNPaakrWT9rVTxICK4tIizf7YwJsXgDC2JP74PGCc7qxLAHw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <script>
+        window.addEventListener('hide_form', event => {
+            $('#job').modal('hide');
+            // alert('is working');
+        });
+      </script>
     @livewireScripts()
 
     @stack('scripts')

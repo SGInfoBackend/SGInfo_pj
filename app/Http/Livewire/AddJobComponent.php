@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\Job;
+use App\Models\JobTypeOfRole;
 use Livewire\Component;
 
 class AddJobComponent extends Component
@@ -44,22 +45,24 @@ class AddJobComponent extends Component
             'job_type_role' => 'required',
         ]);
 
-
-        $job = new Job();
-        $job->Job_title = $this->job_title;
-        $job->Typeofrole_ID = $this->job_type_role;
-        $job->Company = $this->company;
-        $job->SALARY = $this->salary;
-        $job->Job_location = $this->job_location;
-        $job->Category_job = $this->job_category;
-        $job->Company_URL = $this->company_url_link;
-        $job->Job_Description = $this->job_description;
-        $job->save();
+        $jobs = new Job();
+        $jobs->Job_title = $this->job_title;
+        $jobs->Typeofrole_ID = $this->job_type_role;
+        $jobs->Company = $this->company;
+        $jobs->SALARY = $this->salary;
+        $jobs->Job_location = $this->job_location;
+        $jobs->Category_job = $this->job_category;
+        $jobs->Company_URL = $this->company_url_link;
+        $jobs->Job_Description = $this->job_description;
+        $jobs->save();
         session()->flash('success_message', 'Job Information has been added successfully!');
+        $this->dispatchBrowserEvent('hide_form');
     }
 
     public function render()
     {
-        return view('livewire.add-job-component')->layout('layouts.base');
+
+        $typeofroles = JobTypeOfRole::all();
+        return view('livewire.add-job-component', ['typeofroles'=>$typeofroles])->layout('layouts.base');
     }
 }
