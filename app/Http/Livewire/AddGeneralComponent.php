@@ -21,6 +21,7 @@ class AddGeneralComponent extends Component
     public $gdescription;
 
     public function updated($fields){
+
         $this->validateOnly($fields,[
             'gname' => 'required',
             'gtitle' => 'required',
@@ -28,13 +29,14 @@ class AddGeneralComponent extends Component
             'gphotos' => 'image|max:1024',
             'gdescription' => 'required',
         ]);
+
     }
 
     public function addArtical()
     {
         // dd('GG');
-        if(Auth::check())
-        {
+        // if(Auth::check())
+        // {
             $this->validate([
                 'gname' => 'required',
                 'gtitle' => 'required',
@@ -61,11 +63,9 @@ class AddGeneralComponent extends Component
 
             session()->flash('message','Article has been created successfully!');
 
+        // }
 
-        }
-
-        return redirect()->route('login');
-        // return redirect()->to('/general');
+        // return redirect()->route('login');
 
     }
     // add general

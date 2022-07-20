@@ -59,25 +59,25 @@ class AddHouseComponent extends Component
 
     public function store()
     {
-        // $this->validate([
-        //     'project_name' => 'required',
-        //     'project_type' => 'required',
-        //     'floor_lv' => 'required',
-        //     'floor_size' => 'required',
-        //     'mrt_line' => 'required',
-        //     'mrt_near' => 'required',
-        //     'address' => 'required',
-        //     'developer' => 'required',
-        //     'psf' => 'required',
-        //     'availability' => 'required',
-        //     'sor' => 'required',
-        //     'price' => 'required|numeric',
-        //     'no_room' => 'required|numeric',
-        //     'no_birth' => 'required|numeric',
-        //     'description' => 'required',
-        //     'keyfeatures' => 'required',
-        //     'facilities' => 'required',
-        // ]);
+        $this->validate([
+            'project_name' => 'required',
+            'project_type' => 'required',
+            'floor_lv' => 'required',
+            'floor_size' => 'required',
+            'mrt_line' => 'required',
+            'mrt_near' => 'required',
+            'address' => 'required',
+            'developer' => 'required',
+            'psf' => 'required',
+            'availability' => 'required',
+            'sor' => 'required',
+            'price' => 'required|numeric',
+            'no_room' => 'required|numeric',
+            'no_birth' => 'required|numeric',
+            'description' => 'required',
+            'keyfeatures' => 'required',
+            'facilities' => 'required',
+        ]);
         if(Auth::check())
         {
             $rent_house = new RentHouse();

@@ -49,9 +49,6 @@ Route::get('/job/job-details/{Job_ID}', JobDetailsComponent::class)->name('jobde
 // Applying Job
 Route::get('/applyjob/{Job_title}', ApplyJobComponent::class)->name('applyjob');
 
-
-
-
 // Route::middleware([
 //     'auth:sanctum',
 //     config('jetstream.auth_session'),

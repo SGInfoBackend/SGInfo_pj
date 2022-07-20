@@ -36,60 +36,15 @@
                     <div class="card shadow ">
                         <div class="card-body">
                             <h4>Position</h4>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="andorid" checked>
-                                <label class="form-check-label" for="andorid">
-                                    Android Developer
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="web" >
-                                <label class="form-check-label" for="web">
-                                  Web Developer
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="odoo" >
-                                <label class="form-check-label" for="odoo">
-                                  Odoo Developer
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="ios" checked>
-                                <label class="form-check-label" for="ios">
-                                    IOS Developer
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="react" >
-                                <label class="form-check-label" for="react">
-                                  React Developer
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="swip" >
-                                <label class="form-check-label" for="swip">
-                                  Swip Developer
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="python" checked>
-                                <label class="form-check-label" for="python">
-                                    Python Developer
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="c#" >
-                                <label class="form-check-label" for="c#">
-                                  C# Developer
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="notejs" >
-                                <label class="form-check-label" for="notejs">
-                                  Notejs Developer
-                                </label>
-                            </div>
+                                    @foreach ($jobs as $job)
+                                        <div class="form-check">
+                                            <input class="form-check-input" name="job" type="checkbox" value="{{ $job->Job_title }}" wire:model="selectedJob" >
+                                            <label class="form-check-label" for="{{ $job->Job_title }}">
+                                                {{ $job->Job_title }}
+                                            </label>
+                                        </div>
+                                    @endforeach
+                            {{-- {{var_export($selectedJob)}} --}}
                         </div>
                     </div>
                 </div>
