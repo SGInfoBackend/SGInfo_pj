@@ -51,18 +51,8 @@ Route::get('/job/job-details/{Job_ID}', JobDetailsComponent::class)->name('jobde
 Route::get('/applyjob/{Job_title}', ApplyJobComponent::class)->name('applyjob');
 
 
-// For User 
+// For User
 Route::get('/profile', UserProfileComponent::class)->name('user.profile');
-
-// Route::middleware([
-//     'auth:sanctum',
-//     config('jetstream.auth_session'),
-//     'verified'
-// ])->group(function () {
-//     Route::get('/dashboard', function () {
-//         return view('dashboard');
-//     })->name('dashboard');
-// });
 
 // For User
 Route::middleware(['auth:sanctum', 'verified'])->group(function() {
