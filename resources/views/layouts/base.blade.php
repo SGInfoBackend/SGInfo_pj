@@ -95,23 +95,39 @@
           <li class="nav-item ms-lg-4">
             <div class="dropdown">
                 <button class="dropbtn">Upload</button>
-                <div class="dropdown-content">
-                    <a href="#" class="dropdown-a" onclick="document.getElementById('job').style.display='block'">Job</a>
-                    <a href="#" class="dropdown-b" onclick="document.getElementById('article').style.display='block'">Article</a>
-                    <a href="#" class="dropdown-c" onclick="document.getElementById('room').style.display='block'">Room</a>
-                </div>
+                    <div class="dropdown-content">
+                        <a href="#" class="dropdown-a" onclick="document.getElementById('job').style.display='block'">Job</a>
+                        <a href="#" class="dropdown-b" onclick="document.getElementById('article').style.display='block'">Article</a>
+                        <a href="#" class="dropdown-c" onclick="document.getElementById('room').style.display='block'">Room</a>
+                    </div>
             </div>
           </li>
           @if (Auth::check())
+              @if(Auth::user()->utype == 'ADM')
               <li class="nav-item  ms-lg-4">
                 <div class="dropdown">
                     <button class="dropbtn"><i class="fa-regular fa-user"></i></button>
                     <div class="dropdown-content">
-                            <a title="logout" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" href="{{ route('logout')}}">Logout</a>
-                            <form id="logout-form" action="{{ route('logout')}}" method="POST">@csrf</form>
+                        <a href="{{ route('user.profile') }}" class="dropdown-e">Profile</a>
+                        <a href="{{ route('admin.dashboard') }}" class="dropdown-e">Dashboard</a>
+                        <a title="logout" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" href="{{ route('logout')}}">Logout</a>
+                        <form id="logout-form" action="{{ route('logout')}}" method="POST">@csrf</form>
                     </div>
                 </div>
               </li>
+              @else
+              <li class="nav-item  ms-lg-4">
+                <div class="dropdown">
+                    <button class="dropbtn"><i class="fa-regular fa-user"></i></button>
+                    <div class="dropdown-content">
+                        <a href="{{ route('user.profile') }}" class="dropdown-e">Profile</a>
+                        <a href="{{ route('user.dashboard') }}" class="dropdown-e">Dashboard</a>
+                        <a title="logout" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" href="{{ route('logout')}}">Logout</a>
+                        <form id="logout-form" action="{{ route('logout')}}" method="POST">@csrf</form>
+                    </div>
+                </div>
+              </li>
+              @endif
             @else
               <li class="nav-item  ms-lg-4">
                 <div class="dropdown">
@@ -291,6 +307,13 @@
         })
         window.addEventListener('hide_modal', event => {
             $('#article').hide();
+        })
+        window.addEventListener('hide_modal', event => {
+            $('#staticBackdrop').hide();
+        })
+        window.addEventListener('show_modal', event => {
+            $('#room').hide();
+            $('#login').css('display', 'block');
         })
     </script>
     @stack('scripts')
