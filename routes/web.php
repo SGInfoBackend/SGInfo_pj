@@ -37,6 +37,7 @@ Route::get('/', HomeComponent::class)->name('home');
 Route::get('/general', GeneralComponent::class)->name('general');
 Route::get('/detailarticle/{General_ID}', GeneralDetailComponent::class)->name('detailarticle');
 Route::get('/rooms', RoomComponent::class)->name('rooms');
+
 Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])->group(function () {
     // For Rooms
 // Route::get('/rooms', RoomComponent::class)->name('rooms');
@@ -52,8 +53,9 @@ Route::get('/roomdetail/{Rent_House_ID}', RoomDetailComponent::class)->name('roo
 Route::get('/job/job-details/{Job_ID}', JobDetailsComponent::class)->name('jobdetails');
 // Applying Job
 Route::get('/applyjob/{Job_title}', ApplyJobComponent::class)->name('applyjob');
+Route::get('/user/profile', UserProfileComponent::class)->name('user.profile');
 
-
+});
 // For User
 Route::middleware(['auth:sanctum', 'verified'])->group(function() {
     Route::get('/user/dashboard', UserDashboardComponent::class)->name('user.dashboard');
