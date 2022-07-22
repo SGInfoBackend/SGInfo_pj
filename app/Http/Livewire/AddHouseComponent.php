@@ -59,6 +59,10 @@ class AddHouseComponent extends Component
 
     public function store()
     {
+        if(!Auth::check())
+        {
+            $this->dispatchBrowserEvent('show_modal');
+        }
         $this->validate([
             'project_type' => 'required',
             'availability' => 'required',
