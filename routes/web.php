@@ -55,7 +55,10 @@ Route::get('/job/job-details/{Job_ID}', JobDetailsComponent::class)->name('jobde
 Route::get('/applyjob/{Job_title}', ApplyJobComponent::class)->name('applyjob');
 Route::get('/user/profile', UserProfileComponent::class)->name('user.profile');
 
+
 });
+
+
 // For User
 Route::middleware(['auth:sanctum', 'verified'])->group(function() {
     Route::get('/user/dashboard', UserDashboardComponent::class)->name('user.dashboard');
