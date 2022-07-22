@@ -170,11 +170,29 @@
                             <button class="uploadBtn" type="submit">LOGIN</button>
                         </div>
                     </form>
+<<<<<<< HEAD
+                        <div class="otherLogin">
+                            <p class="other-p">(OR)</p>
+                            <div class="google">
+                                <img class="other-img" src="images/login_register/google.svg" alt="">
+                                <h2 class="other-h2"><a class="other-a" href="{{ route('googleauth') }}">Continue with Google</a></h2>
+                            </div>
+                            <div class="facebook">
+                                <img class="other-img" src="images/login_register/facebook.svg" alt="">
+                                <h2 class="other-h2"><a href="" class="other-a">Continue with Facebook</a> </h2>
+                            </div>
+                            <div class="apple">
+                                <img class="other-img" src="images/login_register/apple.svg" alt="">
+                                <h2 class="other-h2"><a class="other-a" href="">Continue with Apple</a></h2>
+                            </div>
+                            <div class="other-login">New to SG Info? <a href="" class="other-login-a">Sign up</a></div>
+=======
                     <div class="otherLogin">
                         <p class="other-p">(OR)</p>
                         <div class="google">
                             <img class="other-img" src="images/login_register/google.svg" alt="">
                             <h2 class="other-h2"><a class="other-a" href="">Continue with Google</a></h2>
+>>>>>>> b7539d861f2ff8393cd8a3b5ef0222cb3f5e2fd9
                         </div>
                         <div class="facebook">
                             <img class="other-img" src="images/login_register/facebook.svg" alt="">
