@@ -35,26 +35,30 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 Route::get('/', HomeComponent::class)->name('home');
+// For General
+Route::get('/general', GeneralComponent::class)->name('general');
+Route::get('/detailarticle/{General_ID}', GeneralDetailComponent::class)->name('detailarticle');
 Route::get('/rooms', RoomComponent::class)->name('rooms');
+
+Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])->group(function () {
+    // For Rooms
+// Route::get('/rooms', RoomComponent::class)->name('rooms');
 Route::get('/contact', ContactComponent::class)->name('contact');
 Route::get('/job', JobComponent::class)->name('job');
 Route::get('/addjob', AddJobComponent::class)->name('addjob');
 // For General
-Route::get('/general', GeneralComponent::class)->name('general');
 Route::get('/addarticle', AddGeneralComponent::class)->name('addarticle');
-Route::get('/detailarticle/{General_ID}', GeneralDetailComponent::class)->name('detailarticle');
 // End General
 Route::get('/addrom', AddHouseComponent::class)->name('addroom');
 Route::get('/roomdetail/{Rent_House_ID}', RoomDetailComponent::class)->name('roomdetails');
 // Job Details
 Route::get('/job/job-details/{Job_ID}', JobDetailsComponent::class)->name('jobdetails');
-
 // Applying Job
 Route::get('/applyjob/{Job_title}', ApplyJobComponent::class)->name('applyjob');
+Route::get('/user/profile', UserProfileComponent::class)->name('user.profile');
 
 
-// For User
-Route::get('/profile', UserProfileComponent::class)->name('user.profile');
+});
 
 // For User
 Route::middleware(['auth:sanctum', 'verified'])->group(function() {

@@ -26,7 +26,7 @@ class HomeComponent extends Component
         $rentHouses = RentHouse::orderBy('Rent_House_ID', 'DESC')->paginate(4);
         $searchJob = Job::where('Job_title',$search)->orWhere('Job_location',$search)->orWhere('Company',$search)->get();
         $jobs = Job::where('Job_title', 'LIKE', $search_job_title)
-                    ->orWhere('Job_location', 'LIKE',$search_job_location )
+                    ->orWhere('Job_location', 'LIKE' )
                     ->paginate(10);
         $allJobs = Job::all();
         // For Trendings

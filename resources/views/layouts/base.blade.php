@@ -153,7 +153,6 @@
                 <div class="w3-center"><br>
                     <span onclick="document.getElementById('login').style.display='none'" class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
                 </div>
-
                 <div class="main">
                     <form class="w3-container first" name="frm-login" method="POST" action="{{ route('login')}}">
                         @csrf
@@ -171,6 +170,7 @@
                             <button class="uploadBtn" type="submit">LOGIN</button>
                         </div>
                     </form>
+<<<<<<< HEAD
                         <div class="otherLogin">
                             <p class="other-p">(OR)</p>
                             <div class="google">
@@ -186,7 +186,24 @@
                                 <h2 class="other-h2"><a class="other-a" href="">Continue with Apple</a></h2>
                             </div>
                             <div class="other-login">New to SG Info? <a href="" class="other-login-a">Sign up</a></div>
+=======
+                    <div class="otherLogin">
+                        <p class="other-p">(OR)</p>
+                        <div class="google">
+                            <img class="other-img" src="images/login_register/google.svg" alt="">
+                            <h2 class="other-h2"><a class="other-a" href="">Continue with Google</a></h2>
+>>>>>>> b7539d861f2ff8393cd8a3b5ef0222cb3f5e2fd9
                         </div>
+                        <div class="facebook">
+                            <img class="other-img" src="images/login_register/facebook.svg" alt="">
+                            <h2 class="other-h2"><a href="" class="other-a">Continue with Facebook</a> </h2>
+                        </div>
+                        <div class="apple">
+                            <img class="other-img" src="images/login_register/apple.svg" alt="">
+                            <h2 class="other-h2"><a class="other-a" href="">Continue with Apple</a></h2>
+                        </div>
+                        <div class="other-login">New to SG Info? <a href="" class="other-login-a">Sign up</a></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -252,48 +269,51 @@
     @livewire('add-general-component')
     @livewire('add-job-component')
     {{$slot}}
-    <footer class="section-footer">
-        <div class="col">
-          <h4>SG<span class="info">INFO</span></h4>
-          <p>Lorem ipsum dolor sit amet<br> consectetur adipisicing elit. <br> Voluptatibus, dignissimos.
-            <br> Lorem ipsum dolor sit amet <br> consectetur adipisicing<br> elit.
-          </p>
-        </div>
+   <!-- footer -->
+  <footer class="section-footer">
 
-        <div class="col">
-          <h4>INFORMATION</h4>
-          <!-- <a href="#">About us</a> -->
-          <a href="Contact.html">Contact Us</a>
-          <a href="#">Terms & Conditions</a>
-          <a href="#">Privacy Policy</a>
-          <a href="#">F.A.Q.</a>
-        </div>
+    <div class="foot-col">
+      <h4 class="footer-h4">SG<span class="info">INFO</span></h4>
+      <p class="footer-p">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus, dignissimos.
+        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      </p>
+    </div>
 
-        <div class="col">
-          <h4>QUICK LINKS</h4>
-          <a href="#">Rooms</a>
-          <a href="Job.html">Jobs</a>
-          <a href="#">General</a>
-        </div>
+    <div class="foot-col">
+      <h4 class="footer-h4">INFORMATION</h4>
+      <a class="footer-a" href="Contact.html">Contact Us</a>
+      <a class="footer-a" href="#">Terms & Conditions</a>
+      <a class="footer-a" href="#">Privacy Policy</a>
+      <a class="footer-a" href="#">F.A.Q.</a>
+    </div>
 
-        <div class="col">
-          <h4>CONTACT</h4>
-          <p>90 Madison Ave,First Floor New York,NY</p>
-          <a href="tel:+95 1 9669724">Telephone: 200 256 1855</a>
-          <a href="mailto:sginfo@myanmar.com">Email: mail@yourmail.com</a>
-          <div class="social-links">
-            <i class="uil uil-facebook-f uil_icon"></i>
-            <i class="uil uil-instagram-alt uil_icon"></i>
-            <i class="uil uil-twitter uil_icon"></i>
-            <i class="uil uil-youtube uil_icon"></i>
-          </div>
-        </div>
+    <div class="foot-col">
+      <h4 class="footer-h4">QUICK LINKS</h4>
+      <a class="footer-a" href="room_list.html">Rooms</a>
+      <a class="footer-a" href="Job.html">Jobs</a>
+      <a class="footer-a" href="general_info.html">General</a>
+    </div>
 
-        <div class="copyright">
-          <p>ITVisionHub SGcamp4@2022 | All Rights Reserved</p>
-        </div>
-      </footer>
-      <!-- end of footer -->
+    <div class="foot-col footer-last">
+      <h4 class="footer-h4">CONTACT</h4>
+      <p class="footer-p">90 Madison Ave,First Floor New York,NY</p>
+      <a class="footer-a" href="tel:+9519669724">Telephone: 200 256 1855</a>
+      <a class="footer-a" href="mailto:sginfo@myanmar.com">Email: mail@yourmail.com</a>
+      <div class="social-links">
+        <i class="uil uil-facebook-f uil_icon"></i>
+        <i class="uil uil-instagram-alt uil_icon"></i>
+        <i class="uil uil-twitter uil_icon"></i>
+        <i class="uil uil-youtube uil_icon"></i>
+      </div>
+    </div>
+
+    <div class="copyright">
+      <p class="footer-p footer-p-last">ITVisionHub SGcamp4@2022 | All Rights Reserved</p>
+    </div>
+
+  </footer>
+
+  <!-- end of footer -->
       <script src="{{ asset('js/main.js')}}"></script>
       {{-- noUiSlider cdn --}}
       <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
