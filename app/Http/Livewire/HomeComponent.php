@@ -17,13 +17,17 @@ class HomeComponent extends Component
 
     public function render()
     {
+
+        $allJobs = Job::all();
+
         $search_job_title = '%'. $this->job_title. '%';
         $search = '%'. $this->search. '%';
         // $search_job_location = '%'. $this->location. '%';
         $rentHouses = RentHouse::orderBy('Rent_House_ID', 'DESC')->paginate(4);
         $searchJob = Job::where('Job_title',$search)->orWhere('Job_location',$search)->orWhere('Company',$search)->get();
         $jobs = Job::where('Job_title', 'LIKE', $search_job_title)
-                    ->paginate(5);
+                    ->orWhere('Job_location', 'LIKE',$search_job_location )
+                    ->paginate(10);
         $allJobs = Job::all();
         // For Trendings
         $trending = General::where('GHeader_ID','=','1')->limit(1)->get();
@@ -35,6 +39,7 @@ class HomeComponent extends Component
         $gheaders = GHeader::all();
 
         return view('livewire.home-component',[
+            'allJobs' => $allJobs,
             'jobs' => $jobs,
             'rentHouses' => $rentHouses,
             'allJobs' => $allJobs,

@@ -95,23 +95,39 @@
           <li class="nav-item ms-lg-4">
             <div class="dropdown">
                 <button class="dropbtn">Upload</button>
-                <div class="dropdown-content">
-                    <a href="#" class="dropdown-a" onclick="document.getElementById('job').style.display='block'">Job</a>
-                    <a href="#" class="dropdown-b" onclick="document.getElementById('article').style.display='block'">Article</a>
-                    <a href="#" class="dropdown-c" onclick="document.getElementById('room').style.display='block'">Room</a>
-                </div>
+                    <div class="dropdown-content">
+                        <a href="#" class="dropdown-a" onclick="document.getElementById('job').style.display='block'">Job</a>
+                        <a href="#" class="dropdown-b" onclick="document.getElementById('article').style.display='block'">Article</a>
+                        <a href="#" class="dropdown-c" onclick="document.getElementById('room').style.display='block'">Room</a>
+                    </div>
             </div>
           </li>
           @if (Auth::check())
+              @if(Auth::user()->utype == 'ADM')
               <li class="nav-item  ms-lg-4">
                 <div class="dropdown">
                     <button class="dropbtn"><i class="fa-regular fa-user"></i></button>
                     <div class="dropdown-content">
-                            <a title="logout" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" href="{{ route('logout')}}">Logout</a>
-                            <form id="logout-form" action="{{ route('logout')}}" method="POST">@csrf</form>
+                        <a href="{{ route('user.profile') }}" class="dropdown-e">Profile</a>
+                        <a href="{{ route('admin.dashboard') }}" class="dropdown-e">Dashboard</a>
+                        <a title="logout" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" href="{{ route('logout')}}">Logout</a>
+                        <form id="logout-form" action="{{ route('logout')}}" method="POST">@csrf</form>
                     </div>
                 </div>
               </li>
+              @else
+              <li class="nav-item  ms-lg-4">
+                <div class="dropdown">
+                    <button class="dropbtn"><i class="fa-regular fa-user"></i></button>
+                    <div class="dropdown-content">
+                        <a href="{{ route('user.profile') }}" class="dropdown-e">Profile</a>
+                        <a href="{{ route('user.dashboard') }}" class="dropdown-e">Dashboard</a>
+                        <a title="logout" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" href="{{ route('logout')}}">Logout</a>
+                        <form id="logout-form" action="{{ route('logout')}}" method="POST">@csrf</form>
+                    </div>
+                </div>
+              </li>
+              @endif
             @else
               <li class="nav-item  ms-lg-4">
                 <div class="dropdown">
@@ -284,6 +300,7 @@
       {{-- noUiSlider cdn --}}
       <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 	  <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.6.0/nouislider.min.js" integrity="sha512-1mDhG//LAjM3pLXCJyaA+4c+h5qmMoTc7IuJyuNNPaakrWT9rVTxICK4tIizf7YwJsXgDC2JP74PGCc7qxLAHw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     @livewireScripts()
@@ -293,6 +310,13 @@
         })
         window.addEventListener('hide_modal', event => {
             $('#article').hide();
+        })
+        window.addEventListener('hide_modal', event => {
+            $('#staticBackdrop').hide();
+        })
+        window.addEventListener('show_modal', event => {
+            $('#room').hide();
+            $('#login').css('display', 'block');
         })
     </script>
     @stack('scripts')

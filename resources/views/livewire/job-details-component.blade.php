@@ -13,10 +13,10 @@
         </div>
 
         <h6 class="my-5">Post : {{ $jobdetails->created_at->diffForHumans() }}
-           <i class="fa-solid fa-share-nodes px-2"></i>
-           <i class="fa-brands fa-facebook pe-2 text-primary"></i>
-           <i class="fa-brands fa-youtube pe-2 text-danger"></i>
-           <i class="fa-brands fa-twitter text-primary"></i>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=YourPageLink.com&display=popup"><i class="fa-solid fa-share-nodes px-2"></i></a>
+            <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook pe-2 text-primary"></i></a>
+            <a href="https://www.youtube.com/"><i class="fa-brands fa-youtube pe-2 text-danger"></i></a>
+            <a href="https://www.twitter.com/"><i class="fa-brands fa-twitter text-primary"></i></a>
        </h6>
        <div class="row">
          <div class="col-12 col-md-8">
@@ -60,3 +60,15 @@
        </div>
        <br>
 </div>
+
+@push('scripts')
+    <script>
+        (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.4&appId=241110544128";
+        fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+@endpush

@@ -14,6 +14,7 @@ use App\Http\Livewire\JobDetailsComponent;
 use App\Http\Livewire\RoomComponent;
 use App\Http\Livewire\RoomDetailComponent;
 use App\Http\Livewire\User\UserDashboardComponent;
+use App\Http\Livewire\UserProfileComponent;
 use App\Models\General;
 use Illuminate\Support\Facades\Route;
 
@@ -51,15 +52,15 @@ Route::get('/roomdetail/{Rent_House_ID}', RoomDetailComponent::class)->name('roo
 Route::get('/job/job-details/{Job_ID}', JobDetailsComponent::class)->name('jobdetails');
 // Applying Job
 Route::get('/applyjob/{Job_title}', ApplyJobComponent::class)->name('applyjob');
-});
+
 
 // For User
-// Route::middleware(['auth:sanctum', 'verified'])->group(function() {
-//     Route::get('/user/dashboard', UserDashboardComponent::class)->name('user.dashboard');
-// });
+Route::middleware(['auth:sanctum', 'verified'])->group(function() {
+    Route::get('/user/dashboard', UserDashboardComponent::class)->name('user.dashboard');
+});
 
 
-// // For Admin
-// Route::middleware(['auth:sanctum', 'verified', 'authadmin'])->group(function() {
-//     Route::get('/admin/dashboard', AdminDashboardComponent::class)->name('admin.dashboard');
-// });
+// For Admin
+Route::middleware(['auth:sanctum', 'verified', 'authadmin'])->group(function() {
+    Route::get('/admin/dashboard', AdminDashboardComponent::class)->name('admin.dashboard');
+});
