@@ -52,7 +52,7 @@ Route::get('/roomdetail/{Rent_House_ID}', RoomDetailComponent::class)->name('roo
 Route::get('/job/job-details/{Job_ID}', JobDetailsComponent::class)->name('jobdetails');
 // Applying Job
 Route::get('/applyjob/{Job_title}', ApplyJobComponent::class)->name('applyjob');
-
+});
 
 // For User
 Route::middleware(['auth:sanctum', 'verified'])->group(function() {
