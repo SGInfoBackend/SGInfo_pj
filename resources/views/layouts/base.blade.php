@@ -175,7 +175,7 @@
                             <p class="other-p">(OR)</p>
                             <div class="google">
                                 <img class="other-img" src="images/login_register/google.svg" alt="">
-                                <h2 class="other-h2"><a class="other-a" href="">Continue with Google</a></h2>
+                                <h2 class="other-h2"><a class="other-a" href="{{ route('googleauth') }}">Continue with Google</a></h2>
                             </div>
                             <div class="facebook">
                                 <img class="other-img" src="images/login_register/facebook.svg" alt="">

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Livewire\AddGeneralComponent;
 use App\Http\Livewire\AddHouseComponent;
 use App\Http\Livewire\ContactComponent;
@@ -8,6 +9,7 @@ use App\Http\Livewire\JobComponent;
 use App\Http\Livewire\AddJobComponent;
 use App\Http\Livewire\Admin\AdminDashboardComponent;
 use App\Http\Livewire\ApplyJobComponent;
+use App\Http\Livewire\AuthSocialComponent;
 use App\Http\Livewire\GeneralComponent;
 use App\Http\Livewire\GeneralDetailComponent;
 use App\Http\Livewire\JobDetailsComponent;
@@ -59,8 +61,14 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function() {
     Route::get('/user/dashboard', UserDashboardComponent::class)->name('user.dashboard');
 });
 
-
 // For Admin
 Route::middleware(['auth:sanctum', 'verified', 'authadmin'])->group(function() {
     Route::get('/admin/dashboard', AdminDashboardComponent::class)->name('admin.dashboard');
 });
+
+// Social Media Authentication
+// Route::get('auth/google', [AuthController::class, 'redirectToGoogle'])->name('googleauth');
+// Route::get('auth/google/callback', [AuthController::class, 'handleGoogleCallback']);
+
+Route::get('auth/google',[AuthSocialComponent::class, 'redirectToGoogle'])->name('googleauth');
+Route::get('auth/google/callback',[AuthSocialComponent::class, 'handleGoogleCallback']);
