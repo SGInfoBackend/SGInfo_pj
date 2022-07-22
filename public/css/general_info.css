@@ -775,12 +775,12 @@
             box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.77);
         }
 
-    .cover{
+    /* .cover{
         color: rgb(255, 255, 255);
         position: relative;
-        /* background: url("../images/general_images/beach.avif") no-repeat scroll 0px 100% / cover transparent; */
+        background: url("../images/general_images/beach.avif") no-repeat scroll 0px 100% / cover transparent;
     }
-    /* .cover1{
+    .cover1{
         background: url("../images/general_images/travel-02.jpg") no-repeat scroll 0px 100% / cover transparent;
     }
     .cover2{
@@ -813,12 +813,13 @@
         margin-top: 50%;
       }
       .overlay .travel_type{
-        font-size: 25px;
-        font-weight: bold;
+        font-size: 17px;
+        font-weight: initial;
         color: #fff;
         top: 40%;
       }
       .overlay p {
+        font-weight: initial;
         width: 80%;
         display: block;
         position: absolute;
@@ -827,7 +828,7 @@
         -webkit-transform: translate(-50%,-50%);
         -ms-transform: translate(-50%,-50%);
         transform: translate(-50%,-50%);
-        font-size: 18px;
+        font-size: 17px;
         color: #fff;
         text-align: center;
         margin: 0;

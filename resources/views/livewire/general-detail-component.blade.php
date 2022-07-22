@@ -12,7 +12,9 @@
         <hr class="line" style="width:100%" , size="5" , color=darkblue />
         <div id="news_posting_date">
           <i class="uil uil-edit-alt writer_icon"></i>
-          <p>BY THOMAS REINER</p>
+          @if (Auth::check())
+            <p>{{ Auth::user()->name }}</p>
+          @endif
           <i class="uil uil-schedule calendar"></i>
           {{-- <p><b>NOVEMBER</b> 25, 2021</p> --}}
           <p>{{ Carbon\Carbon::parse($general->created_at)->format(' F d , Y   /   h:i A') }}</p>

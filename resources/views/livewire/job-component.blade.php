@@ -80,7 +80,6 @@
                   </div>
                 </div>
 
-
                 <div class="col-12 my-2">
                   <div class="card my-2 shadow">
                     <div class="card-body workfromhome">
@@ -90,7 +89,6 @@
                     </div>
                   </div>
                 </div>
-
 
                 <div class="col-12 my-5" style="margin-top: 1.7rem !important;">
                     <div class="card shadow">
