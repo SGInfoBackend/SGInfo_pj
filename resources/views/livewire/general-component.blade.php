@@ -101,14 +101,9 @@
             <div class="travel_guide">
             <h4>TRAVEL GUIDES</h4>
             </div>
-<<<<<<< HEAD
                 <div class="swiper">
                     @foreach ($travelGuide as $travelguide)
                     <div class="swiper-wrapper">
-=======
-                <div class="swiper-wrapper">
-                     @foreach ($travelGuide as $travelguide)
->>>>>>> fa051a4b6206f3dd2c462cbc1d2e088c1e4f1513
                         <div class="swiper-slide card text-center " style="background-image: url({{ asset('/images/general_images/' . $travelguide->G_PHOTO) }}) ; color: rgb(255, 255, 255);
                             position: relative;">
                             <div class="card-body">
@@ -118,6 +113,7 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
                     @endforeach
                 </div>
             <div class="swiper-pagination"></div>
