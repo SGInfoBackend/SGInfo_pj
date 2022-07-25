@@ -11,6 +11,7 @@ class JobComponent extends Component
 {
     public $selectedId = [];
     public $selectedJob = [];
+    public $expLevel = [];
 
     public $min_price;
     public $max_price;
@@ -42,8 +43,7 @@ class JobComponent extends Component
 
         if($this->selectedId)
         {
-            $jobs = Job::where('Typeofrole_ID',$this->selectedId)->where('Job_title', $this->selectedJob)->whereBetween('SALARY',[$this->min_price,$this->max_price])->paginate(10);
-
+            $jobs = Job::where('Typeofrole_ID',$this->selectedId)->where('Job_title', $this->selectedJob)->where('exp_level', $this->expLevel)->whereBetween('SALARY',[$this->min_price,$this->max_price])->paginate(10);
             // dd($jobs);
         }
         else
