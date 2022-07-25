@@ -166,6 +166,26 @@
                         </div>
                     </form>
                     <div class="otherLogin">
+<<<<<<< HEAD
+<<<<<<< HEAD
+                        <p class="other-p">(OR)</p>
+                        <div class="google">
+                            <img class="other-img" src="images/login_register/google.svg" alt="">
+                            <h2 class="other-h2"><a class="other-a" href="">Continue with Google</a></h2>
+                        </div>
+                        <div class="facebook">
+                            <img class="other-img" src="images/login_register/facebook.svg" alt="">
+                            <h2 class="other-h2"><a href="" class="other-a">Continue with Facebook</a> </h2>
+                        </div>
+                        <div class="apple">
+                            <img class="other-img" src="images/login_register/apple.svg" alt="">
+                            <h2 class="other-h2"><a class="other-a" href="">Continue with Apple</a></h2>
+                        </div>
+                        <div class="other-login">New to SG Info? <a href="" class="other-login-a">Sign up</a></div>
+                    </div>
+=======
+=======
+>>>>>>> d2f9f9f416fa22c6507df89f7870470ed1a077e3
                             <p class="other-p">(OR)</p>
                             <div class="google">
                                 <img class="other-img" src="images/login_register/google.svg" alt="">
@@ -180,6 +200,10 @@
                                 <h2 class="other-h2"><a class="other-a" href="{{ route('githubauth') }}">Continue with GitHub</a></h2>
                             </div>
                             <div class="other-login">New to SG Info? <a href="" class="other-login-a">Sign up</a></div>
+<<<<<<< HEAD
+>>>>>>> af5037296199c1873b3f26644bf3edf7fe5c7a58
+=======
+>>>>>>> d2f9f9f416fa22c6507df89f7870470ed1a077e3
                 </div>
             </div>
         </div>
