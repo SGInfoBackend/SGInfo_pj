@@ -575,8 +575,7 @@ a.room-detail:hover{
     text-align: center;
     width: 100%;
     margin-top: 1rem;
-    /* margin-left: 4rem;    */
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
     display: flex;
 
     justify-content:space-evenly;
@@ -596,7 +595,7 @@ a.room-detail:hover{
     display: inline-block;
 }
 
-#search_jobs{
+.search_jobs{
     /* font-family: 'Roboto', sans-serif; */
     border-radius: 0.3rem;
     font-size: 15px;
@@ -663,7 +662,7 @@ a.room-detail:hover{
 #jobs_container{
     background-color: #7fb8ea;
     width: 100%;
-    padding: 4.5%;
+    padding: 3%;
 }
 
 #jobs_types {
@@ -692,7 +691,6 @@ a.room-detail:hover{
 
 
     background-size: cover;
-    margin: 20px;
     padding: 10px;
     padding-bottom: 0.1rem;
 }
@@ -824,7 +822,7 @@ a.room-detail:hover{
         margin-right: 16px;
     }
 
-    #search_jobs{
+    .search_jobs{
         border-radius: 0.3rem;
         font-size: 15px;
         height: 2.8rem;
