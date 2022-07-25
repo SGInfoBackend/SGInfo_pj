@@ -42,11 +42,6 @@
   <!-- CSS only -->
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-  {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous"> --}}
-  <!-- <link
-        rel="stylesheet"
-        href="https://unpkg.com/swiper/swiper-bundle.min.css"
-      /> -->
 
 <script src="{{ asset('js/jquery.min.js')}}"></script>
   <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
@@ -95,23 +90,39 @@
           <li class="nav-item ms-lg-4">
             <div class="dropdown">
                 <button class="dropbtn">Upload</button>
-                <div class="dropdown-content">
-                    <a href="#" class="dropdown-a" onclick="document.getElementById('job').style.display='block'">Job</a>
-                    <a href="#" class="dropdown-b" onclick="document.getElementById('article').style.display='block'">Article</a>
-                    <a href="#" class="dropdown-c" onclick="document.getElementById('room').style.display='block'">Room</a>
-                </div>
+                    <div class="dropdown-content">
+                        <a href="#" class="dropdown-a" onclick="document.getElementById('job').style.display='block'">Job</a>
+                        <a href="#" class="dropdown-b" onclick="document.getElementById('article').style.display='block'">Article</a>
+                        <a href="#" class="dropdown-c" onclick="document.getElementById('room').style.display='block'">Room</a>
+                    </div>
             </div>
           </li>
           @if (Auth::check())
+              @if(Auth::user()->utype == 'ADM')
               <li class="nav-item  ms-lg-4">
                 <div class="dropdown">
                     <button class="dropbtn"><i class="fa-regular fa-user"></i></button>
                     <div class="dropdown-content">
-                            <a title="logout" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" href="{{ route('logout')}}">Logout</a>
-                            <form id="logout-form" action="{{ route('logout')}}" method="POST">@csrf</form>
+                        <a href="{{ route('user.profile') }}" class="dropdown-e">Profile</a>
+                        <a href="{{ route('admin.dashboard') }}" class="dropdown-e">Dashboard</a>
+                        <a title="logout" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" href="{{ route('logout')}}">Logout</a>
+                        <form id="logout-form" action="{{ route('logout')}}" method="POST">@csrf</form>
                     </div>
                 </div>
               </li>
+              @else
+              <li class="nav-item  ms-lg-4">
+                <div class="dropdown">
+                    <button class="dropbtn"><i class="fa-regular fa-user"></i></button>
+                    <div class="dropdown-content">
+                        <a href="{{ route('user.profile') }}" class="dropdown-e">Profile</a>
+                        <a href="{{ route('user.dashboard') }}" class="dropdown-e">Dashboard</a>
+                        <a title="logout" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" href="{{ route('logout')}}">Logout</a>
+                        <form id="logout-form" action="{{ route('logout')}}" method="POST">@csrf</form>
+                    </div>
+                </div>
+              </li>
+              @endif
             @else
               <li class="nav-item  ms-lg-4">
                 <div class="dropdown">
@@ -137,7 +148,6 @@
                 <div class="w3-center"><br>
                     <span onclick="document.getElementById('login').style.display='none'" class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
                 </div>
-
                 <div class="main">
                     <form class="w3-container first" name="frm-login" method="POST" action="{{ route('login')}}">
                         @csrf
@@ -155,11 +165,11 @@
                             <button class="uploadBtn" type="submit">LOGIN</button>
                         </div>
                     </form>
-                        <div class="otherLogin">
+                    <div class="otherLogin">
                             <p class="other-p">(OR)</p>
                             <div class="google">
                                 <img class="other-img" src="images/login_register/google.svg" alt="">
-                                <h2 class="other-h2"><a class="other-a" href="">Continue with Google</a></h2>
+                                <h2 class="other-h2"><a class="other-a" href="{{ route('googleauth') }}">Continue with Google</a></h2>
                             </div>
                             <div class="facebook">
                                 <img class="other-img" src="images/login_register/facebook.svg" alt="">
@@ -170,7 +180,6 @@
                                 <h2 class="other-h2"><a class="other-a" href="">Continue with Apple</a></h2>
                             </div>
                             <div class="other-login">New to SG Info? <a href="" class="other-login-a">Sign up</a></div>
-                        </div>
                 </div>
             </div>
         </div>
@@ -236,48 +245,51 @@
     @livewire('add-general-component')
     @livewire('add-job-component')
     {{$slot}}
-    <footer class="section-footer">
-        <div class="col">
-          <h4>SG<span class="info">INFO</span></h4>
-          <p>Lorem ipsum dolor sit amet<br> consectetur adipisicing elit. <br> Voluptatibus, dignissimos.
-            <br> Lorem ipsum dolor sit amet <br> consectetur adipisicing<br> elit.
-          </p>
-        </div>
+   <!-- footer -->
+  <footer class="section-footer">
 
-        <div class="col">
-          <h4>INFORMATION</h4>
-          <!-- <a href="#">About us</a> -->
-          <a href="Contact.html">Contact Us</a>
-          <a href="#">Terms & Conditions</a>
-          <a href="#">Privacy Policy</a>
-          <a href="#">F.A.Q.</a>
-        </div>
+    <div class="foot-col">
+      <h4 class="footer-h4">SG<span class="info">INFO</span></h4>
+      <p class="footer-p">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus, dignissimos.
+        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      </p>
+    </div>
 
-        <div class="col">
-          <h4>QUICK LINKS</h4>
-          <a href="#">Rooms</a>
-          <a href="Job.html">Jobs</a>
-          <a href="#">General</a>
-        </div>
+    <div class="foot-col">
+      <h4 class="footer-h4">INFORMATION</h4>
+      <a class="footer-a" href="Contact.html">Contact Us</a>
+      <a class="footer-a" href="#">Terms & Conditions</a>
+      <a class="footer-a" href="#">Privacy Policy</a>
+      <a class="footer-a" href="#">F.A.Q.</a>
+    </div>
 
-        <div class="col">
-          <h4>CONTACT</h4>
-          <p>90 Madison Ave,First Floor New York,NY</p>
-          <a href="tel:+95 1 9669724">Telephone: 200 256 1855</a>
-          <a href="mailto:sginfo@myanmar.com">Email: mail@yourmail.com</a>
-          <div class="social-links">
-            <i class="uil uil-facebook-f uil_icon"></i>
-            <i class="uil uil-instagram-alt uil_icon"></i>
-            <i class="uil uil-twitter uil_icon"></i>
-            <i class="uil uil-youtube uil_icon"></i>
-          </div>
-        </div>
+    <div class="foot-col">
+      <h4 class="footer-h4">QUICK LINKS</h4>
+      <a class="footer-a" href="room_list.html">Rooms</a>
+      <a class="footer-a" href="Job.html">Jobs</a>
+      <a class="footer-a" href="general_info.html">General</a>
+    </div>
 
-        <div class="copyright">
-          <p>ITVisionHub SGcamp4@2022 | All Rights Reserved</p>
-        </div>
-      </footer>
-      <!-- end of footer -->
+    <div class="foot-col footer-last">
+      <h4 class="footer-h4">CONTACT</h4>
+      <p class="footer-p">90 Madison Ave,First Floor New York,NY</p>
+      <a class="footer-a" href="tel:+9519669724">Telephone: 200 256 1855</a>
+      <a class="footer-a" href="mailto:sginfo@myanmar.com">Email: mail@yourmail.com</a>
+      <div class="social-links">
+        <i class="uil uil-facebook-f uil_icon"></i>
+        <i class="uil uil-instagram-alt uil_icon"></i>
+        <i class="uil uil-twitter uil_icon"></i>
+        <i class="uil uil-youtube uil_icon"></i>
+      </div>
+    </div>
+
+    <div class="copyright">
+      <p class="footer-p footer-p-last">ITVisionHub SGcamp4@2022 | All Rights Reserved</p>
+    </div>
+
+  </footer>
+
+  <!-- end of footer -->
       <script src="{{ asset('js/main.js')}}"></script>
       {{-- noUiSlider cdn --}}
       <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
@@ -292,6 +304,13 @@
         })
         window.addEventListener('hide_modal', event => {
             $('#article').hide();
+        })
+        window.addEventListener('hide_modal', event => {
+            $('#staticBackdrop').hide();
+        })
+        window.addEventListener('show_modal', event => {
+            $('#room').hide();
+            $('#login').css('display', 'block');
         })
     </script>
     @stack('scripts')

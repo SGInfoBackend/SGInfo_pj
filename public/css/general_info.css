@@ -11,56 +11,29 @@
 /* start middle_general */
 
 #general_info {
-    width: 100%;
+    /* width: 100%; */
     display: flex;
-    /* flex-wrap: wrap; */
+    margin: 0px 80px;
 
 }
 
 #first_general {
-    width: 100%;
+    width: 60%;
     display: flex;
     justify-content: space-between;
 }
 
 .first_container {
     width: 100%;
-    margin: 20px;
-    padding: 0 20px;
+    /* margin: 20px; */
+    padding-right: 20px;
 }
 
 .second_container {
-    margin: 20px;
-    padding: 0 10px;
+    /* margin: 20px; */
+    padding-left: 20px;
 }
 
-.single {
-    position: relative;
-}
-
-.single h3::after {
-    content: "";
-    width: 30%;
-    height: 3px;
-    background-color: #fab702;
-    position: absolute;
-    margin-top: 12px;
-    margin-left: 30px;
-}
-
-.group {
-    position: relative;
-}
-
-.group h3::after {
-    content: "";
-    width: 30%;
-    height: 3px;
-    background-color: #fab702;
-    position: absolute;
-    margin-top: 12px;
-    margin-left: 30px;
-}
 
 .first_container .header_3 {
     padding: 0.5em 0;
@@ -70,13 +43,13 @@
     padding: 0.5em 0;
 }
 
-.first_container .single .gift_img {
+.first_container .gift_img {
     padding: 0.8em 0;
     width: 100%;
     height: 200px;
 }
 
-.first_container .single .single_des {
+.first_container .single_des {
     width: 100%;
     padding: 0.5em 0;
     text-align: justify;
@@ -109,72 +82,65 @@
 
 .small_article .small_title {
     margin: auto 0;
-    width: 120px;
 }
 
 #second_general {
-    width: 35%;
+    width: 40%;
 }
 
-.group .circle {
+.circle {
     padding: 10px 5px;
     display: flex;
     align-items: flex-start;
 }
 
-.group .circle img {
+.circle img {
     width: 90px;
     height: 90px;
     margin: auto 0;
     object-fit: cover;
     margin-right: 15px;
     border-radius: 50%;
-    background-repeat: round;
 }
 
-.group .circle p {
+.circle p {
     padding: 8px 0;
     margin: auto 0;
 }
 
-.group .circle p span {
+.circle p span {
     font-weight: bold;
 }
 
 @media (max-width:799px) {
     #general_info {
-        justify-content: center;
         display: flex;
         flex-wrap: wrap;
+        width: 80%;
     }
 
     .first_container {
-        margin: 20px 20px 0 20px;
+        margin-right: 10px;
+        padding-right: 0px;
+    }
+
+    .first_container_2 {
+        margin-left: 10px;
     }
 
     #first_general {
         width: 100%;
     }
-
-    .first_container {
-        width: 50%;
-    }
-
-    .single h3::after {
-        content: none;
-    }
-
-    .group h3::after {
-        content: none;
-    }
-
     .small_article .small_title {
         font-size: 15px;
     }
 
-    .first_container .single .single_des {
+    .single_des {
         text-align: justify;
     }
+    .second_container {
+    padding-left: 0px;
+}
 
     #second_general {
         width: 100%;
@@ -185,23 +151,34 @@
         flex-wrap: wrap;
     }
 
-    .group .circle {
+    .circle {
         width: 50%;
     }
 }
 
 @media (max-width: 477px) {
     #general_info {
+        width: 80%;
+        margin: 20px auto;
         justify-content: center;
     }
 
     #first_general {
         display: flex;
         flex-wrap: wrap;
-    }
-
-    #first_general .first_container {
         width: 100%;
+    }
+    .first_container {
+        width: 100%;
+        margin: 0 auto;
+        padding-right: 0px;
+    }
+    #second_general {
+        width: 100%;
+        margin: 0 auto;
+    }
+    .second_container {
+        padding-left: 0px;
     }
 
     #second_general .second_container .circle_gp {
@@ -211,6 +188,7 @@
 
     .circle_gp .circle {
         width: 100%;
+        padding: 12px 0px;
     }
 }
 
@@ -220,8 +198,8 @@
 /* Globle News */
 
 #global-news {
+    margin: 20px 80px;
     display: flex;
-    margin: 20px 30px;
     justify-content: space-between;
 
 }
@@ -229,136 +207,128 @@
     width: 60%;
     padding: 12px;
 }
-.information {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    margin-top: 35px;
-}
-.first-global .header3 {
-    padding: 0 20px;
-}
-
-
-.first-global h3::after{
-    content:"";
-    width: 30%;
-    height: 3px;
-    margin-top: 10px;
-    margin-left: 28px;
-    margin-bottom: 10px;
-    background-color: #fab702;
-    position: absolute;
-}
-
-.gl-news-photo1 {
-    width: 100%;
-    padding: 0px 20px;
-}
-.news .image1{
-    width: 100%;
-    height: 200px;
-}
-.fourphotos {
-    width: 50%;
-}
-
-.gl-news-des {
-    text-align: justify;
-    line-height: 22px;
-}
-
-.column .gl-news-photo2{
-    padding: 0px 10PX;
-    display: flex;
-    align-items: flex-start;
-}
-
-.image2 {
-    width: 100%;
-    height: 80px;
-    background-repeat: round;
-    background-size: cover;
-}
-
-.gl-text {
-    margin-left: 20px;
-}
-
-.gl-news-photo3 .image3 {
-
-width: 50%;
-height: 100px;
-margin: 10px;
-object-fit: cover;
-background-repeat: round;
-background-position: initial;
-}
 #gl-general {
     width: 40%;
 }
-.news-container {
+.first-global .information {
     width: 100%;
-}
-.popular {
-    width: 100%;
-    margin-top: 35px;
-}
-/* p{
-    width: 100px;
-} */
-
-.gl-news-photo3 {
-    /* padding: 10px 30px; */
     display: flex;
-    align-items: flex-start;
-    /* width: 25em; */
+    justify-content: space-between;
+    margin-top: 25px;
 }
-.gl-news-photo3 p {
-    margin: 20px;
-    text-align: justify;
+.information .gl-news-photo1 {
+    width: 40%;
+}
+.gl-news-photo1 .image1{
+    height: 160px;
+}
+.gl-news-des .header4{
+    padding: 10px 0px;
+    margin-bottom: 0px;
+}
+.information .fourphotos{
+    width: 60%;
+}
+.gl-news-photo2{
+    display: flex;
+    align-items: center;
+
+}
+.gl-news-photo2 .image2{
+    width: 30%;
+    height: 80px;
+    padding: 0px 12px 4px 12px;
+}
+#must_read_container {
+    width: 40%;
+    text-align: center;
+    margin-top: 10px;
+
+}
+.gen_info_card {
+    background-color: #f7c94b;
+    width: 100%;
+    text-align: start;
+    height: 300px;
+    padding: 20px;
+    margin-top: 30px;
+    line-height: 40px;
+}
+
+.gen_info_card .gen_info_btn {
+    margin-left: 60%;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 5px 30px;
+    color: #000;
+    border: none;
+    outline: none;
 }
 
 @media (max-width:799px) {
     #global-news {
-       flex-wrap: wrap;
+       display: block;
+       justify-content: center;
+       margin: 0px 80px;
+       width: 80%;
+    }
+    .information{
+        width: 100%;
     }
     .first-global {
         width: 100%;
+        padding: 0px;
+    }
+    .first-global .header3 {
+        padding: 0px;
     }
 
     .image2 {
         width: 100%;
         height: 100px;
     }
-
-    .gl-text {
-        margin-left: 20px;
-        width: 80%;
-
+    .gl-news-photo2 {
+        width: 100%;
+        display: flex;
+        /* padding: 10px 10px; */
+        align-items: flex-start;
     }
+
     #gl-general {
         margin: 20px 0;
         width: 100%;
     }
     .gl-news-photo3 .image3 {
-        /* width: 150px;
+        width: 150px;
         height: 150px;
         margin: auto 0;
         object-fit: cover;
         margin-right: 15px;
-        padding: 5px 5px; */
-        width: 70%;
-        height: 90px;
-        margin: auto 0px;
-        object-fit: cover;
-        background-repeat: round;
-        background-position: initial;
-
+        padding: 5px 5px;
     }
+    #must_read_container {
+    width: 100%;
+}
 }
 
 @media(max-width: 477px){
+     #global-news {
+            width: 80%;
+            margin: 0 auto;
+        }
+    .first-global {
+        width: 100%;
+    }
+    .information .gl-news-photo1 {
+        width: 100%;
+    }
+    .information .fourphotos {
+        width: 100%;
+    }
+    .gl-news-des {
+        margin-top: 10px;
+    }
     .gl-news-des p {
         margin: 10px 0;
     }
@@ -368,21 +338,35 @@ background-position: initial;
         height: 100px;
     }
 
-    .column .gl-news-photo2 {
-        padding: 10px 10px;
+    .gl-news-photo2 {
+        display: flex;
+        padding: 10px 0;
         align-items: flex-start;
     }
-
+    .gl-news-photo2 .image2 {
+        width: 30%;
+        height: 80px;
+        padding: 0 10px 0 0;
+    }
     .information {
         width: 100%;
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;
     }
-
-    .fourphotos {
+    #must_read_container {
         width: 100%;
-        padding: 10px 0;
+        text-align: left;
+    }
+    .gen_info_card {
+        line-height: 35px;
+        margin-top: 20px;
+    }
+    .gen_info_card .gen_info_btn {
+        font-size: 14px;
+        font-weight: 600;
+        padding: 5px 30px;
+        margin-left: 50%;
     }
 }
 
@@ -393,7 +377,7 @@ background-position: initial;
 #health_education_container{
     display: flex;
     justify-content: space-between;
-    margin: 16px 50px;
+    margin: 16px 80px;
 
 }
 .article{
@@ -422,17 +406,27 @@ background-position: initial;
     display: flex;
     justify-content: space-between;
 }
-hr{
+.longline{
     margin: auto;
+    width: 65%;
+    size: 5;
+    color:darkblue;
+}
+
+.shortline{
+    margin: auto;
+    width:30%;
+    size: 5;
+    color:darkblue;
 }
 .edu_description{
     color: #000;
-    word-spacing: 5px;
+    /* text-align: justify; */
     width: 100%;
 }
 .edu_title{
     color: #000;
-    word-spacing: 12px;
+    word-spacing: 5px;
 }
 .article_type{
     color: #000;
@@ -448,16 +442,16 @@ hr{
     margin-top: 16px;
     margin-right: 16px;
 }
-.article_image {
-    width: 260px;
-    height: 70px;
-    background-repeat: round;
+.article_image{
+    width: 200px;
+    height: 150px;
 }
 .article_container{
     width: 100%;
 }
 .article_text{
     padding-left: 16px;
+    margin: auto 0;
 }
 .img_slider{
     height: 300px;
@@ -482,7 +476,20 @@ hr{
     #health_education_container{
         display: block;
         justify-content: space-between;
-        margin: 16px;
+        width: 80%;
+    }
+    .article_container {
+        margin-bottom: 20px;
+    }
+    .article_row {
+        margin-top: 16px;
+        margin-right: 0px;
+        text-align: justify;
+    }
+    .article_row {
+        margin-top: 16px;
+        margin-right: 0px;
+        text-align: justify;
     }
     .advertisement{
         width: 100%;
@@ -494,13 +501,38 @@ hr{
 }
 @media(max-width: 477px){
     #health_education_container{
-        display: block;
+        width: 80%;
+        /* display: block; */
         justify-content: space-between;
-        margin: 16px;
+        margin: 0 auto;
+    }
+    .article_container {
+        width: 100%;
+    }
+    .article_row {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 20px;
+    }
+    .article_image {
+        width: 100%;
+        height: 200px;
+    }
+    .article_text {
+        padding-left: 0px;
+        margin-top: 20px;
+        text-align: justify;
+    }
+    .article_row1 {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 20px;
     }
     .advertisement{
         width: 100%;
-        /* height: 100px; */
+        margin-bottom: 25px;
     }
     .item {
         height: 200px;
@@ -514,14 +546,26 @@ hr{
 /*========= ==========  ======= Globel News ======  =========== ==================*/
 
 #globel_trending_news_container{
-    margin: 12px 50px;
+    margin: 12px 80px;
+    padding-top: 20px;
 }
+
 #globel_news_container {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    padding: 12px;
+    padding: 20px 0px;
+}
 
+.globel_news_box {
+    justify-content: center;
+    align-items: center;
+    background-image: url("../images/general_images/travel-03.jpg");
+    background-size: cover;
+    background-position: center;
+    width: 50%;
+    height: 500px;
+    position: relative;
 }
 .background_color {
     background-color: rgba(22, 9, 9, 0.488);
@@ -572,19 +616,15 @@ hr{
 
   .trending_news {
     display: flex;
-    justify-content: space-between;
-    margin-left: 16px;
-    margin-right: 16px;
-    margin-top: 20px;
   }
 
   .trending_news p {
     color: #000;
-    width: 30%;
+    width: 20%;
   }
   .trending_news marquee {
     color: #000;
-    width: 60%;
+    width: 80%;
   }
 
 #globel_news_container2 {
@@ -597,12 +637,12 @@ hr{
     grid-row-gap: 1rem;
     position: relative;
 }
-/*
+
 #globel_news_container2 .globel_news_box2{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-image: url("../images/general_images/travel-12.jpg");
+    background-image: url("../images/general_images/health-00.jpg");
     background-size: cover;
     background-position: center;
     width: 100%;
@@ -611,37 +651,18 @@ hr{
 
 }
 
+#globel_news_container2 .globel_news_box2.globel_news_box3 {
+    background-image: url("../images/general_images/restaurant-04.jpg");
+}
 
-.globel_news_box {
-    justify-content: center;
-    align-items: center;
-    background-image: url("../images/general_images/makeup_artist.jpg");
-    background-size: cover;
-    background-position: center;
-    width: 50%;
-    height: 500px;
-    position: relative;
-} */
-.globel_news_box_general {
-    justify-content: center;
-    align-items: center;
-    background-size: cover;
-    background-position: center;
-    width: 50%;
-    height: 500px;
-    position: relative;
+#globel_news_container2 .globel_news_box2.globel_news_box4 {
+    background-image: url("../images/general_images/health-20.jpg");
 }
-#globel_news_container2 .globel_news_box_article
-{
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-size: cover;
-    background-position: center;
-    width: 100%;
-    height: 100%;
-    position: relative;
+
+#globel_news_container2 .globel_news_box2.globel_news_box5 {
+    background-image: url("../images/general_images/travel-11.jpg");
 }
+
 
 @media(max-width: 799px){
 
@@ -660,20 +681,33 @@ hr{
     width: 100%;
     margin-top: 16px;
     height: 400px;
+    padding-left: 0px;
 }
 .news_type {
     font-size:12px;
-
+  }
+  .trending_news p {
+    width: 40%;
+  }
+  .trending_news marquee {
+    width: 80%;
   }
 
 }
 
-
 @media(max-width: 477px){
-
+    #globel_trending_news_container{
+        width: 80%;
+        margin: 0 auto;
+        /* padding-top: 20px; */
+    }
 .news_type {
-    bottom: 15%;
-    font-size:12px;
+    bottom: 10%;
+    font-size:14px;
+  }
+  .news_title{
+    font-size: 14px;
+    padding-right: 10px;
   }
 
 #globel_news_container {
@@ -685,15 +719,25 @@ hr{
     width: 100%;
     height: 300px;
     position: relative;
+    align-items: flex-start;
+
 }
 
 #globel_news_container2 {
     width: 100%;
     margin-top: 16px;
     height: 400px;
+    padding-left: 0px;
+}
+.trending_news{
+    width: 100%;
+}
+.trending_news p {
+    width: 50%;
+    margin-bottom: 10px;
 }
 
-    }
+}
 
 
 /*========= ==========  ======= End Of Globel News ======  =========== ==================*/
@@ -702,76 +746,131 @@ hr{
 /*========= ==========  ======= Travel Guides Slider ======  =========== ==================*/
 
 .travel_guide {
-    padding-bottom: 10px 50px;
+    padding-top: 20px;
+    padding-bottom: 10px;
     text-align: center;
 }
 
+.card-body{
+    height: 320px;
+}
+
 .swiper-container {
-    min-height: 300px;
-    background: #bcd8f0;
+    min-height: 280px;
     overflow: hidden;
     scroll-behavior: smooth;
-    margin: 12px 50px;
+    margin: 12px 80px;
+
+    }
+    .swiper{
+        display: flex;
     }
     .swiper-wrapper {
-    margin: 16px;
+        display: flex;
+        margin: 16px;
+        box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        .swiper-slide {
+            background-repeat: round !important;
+            box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.77);
+        }
+
+    /* .cover{
+        color: rgb(255, 255, 255);
+        position: relative;
+        background: url("../images/general_images/beach.avif") no-repeat scroll 0px 100% / cover transparent;
     }
-  .swiper-slide img {
-    display: block;
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    box-shadow: 8px 8px 11px rgba(216, 216, 216, 0.1);
-    /* background-repeat: round; */
-  }
-
-  @media (max-width: 477px) {
-    .swiper-wrapper {
-        padding: 0;
+    .cover1{
+        background: url("../images/general_images/travel-02.jpg") no-repeat scroll 0px 100% / cover transparent;
     }
+    .cover2{
+        background: url("../images/general_images/travel-03.jpg") no-repeat scroll 0px 100% / cover transparent;
+    }
+    .cover3{
+        background: url("../images/general_images/travel-08.jpg") no-repeat scroll 0px 100% / cover transparent;
+    }
+    .cover4{
+        background: url("../images/general_images/travel-04.jpg") no-repeat scroll 0px 100% / cover transparent;
+    } */
 
-  }
-  .overlay {
-    /* position: absolute; */
-    bottom: 100%;
-    left: 0;
-    right: 0;
-    background-color: rgba(22, 9, 9, 0.488);
-    opacity: 10;
-    overflow: hidden;
-    width: 100%;
-    height: 0;
-    transition: .5s ease;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    position: absolute;
-    text-align: center;
-    margin-top: 50%;
-  }
-  .overlay p {
-    width: 80%;
-    display: block;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%,-50%);
-    -ms-transform: translate(-50%,-50%);
-    transform: translate(-50%,-50%);
-    /* font-family: Impact, Haettenschweiler, "Franklin Gothic Bold", "Arial Black", sans-serif; */
-    font-size: 28px;
-    font-weight: bold;
-    color: #fff;
-    line-height: 70px;
-    text-align: center;
-    margin: 0;
-    z-index: 9;
-  }
 
-  .swiper-slide:hover .overlay {
-    bottom: 0;
-    height: 100%;
-  }
+    .overlay {
+        position: absolute;
+        bottom: 100%;
+        left: 0;
+        right: 0;
+        background-color: rgba(22, 9, 9, 0.488);
+        opacity: 10;
+        overflow: hidden;
+        width: 100%;
+        height: 0;
+        transition: .5s ease;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        position: absolute;
+        text-align: center;
+        margin-top: 50%;
+      }
+      .overlay .travel_type{
+        font-size: 17px;
+        font-weight: initial;
+        color: #fff;
+        top: 40%;
+      }
+      .overlay p {
+        font-weight: initial;
+        width: 80%;
+        display: block;
+        position: absolute;
+        top: 60%;
+        left: 50%;
+        -webkit-transform: translate(-50%,-50%);
+        -ms-transform: translate(-50%,-50%);
+        transform: translate(-50%,-50%);
+        font-size: 17px;
+        color: #fff;
+        text-align: center;
+        margin: 0;
+        z-index: 9;
+      }
+      .swiper-slide:hover .overlay {
+        bottom: 0;
+        height: 100%;
+      }
 
+      @media (max-width: 799px) {
+
+        .swiper-wrapper {
+           padding: 0;
+           height: 200px;
+       }
+       .overlay .travel_type{
+           font-size: 16px;
+           font-weight: bold;
+           color: #fff;
+           top: 35%;
+         }
+         .overlay p {
+           font-size: 13px;
+         }
+       .card-body{
+           height: 230px;
+       }
+     }
+     @media (max-width: 799px) {
+     .swiper-container{
+        margin: 12px 80px;
+     }
+    }
+    @media (max-width: 477px) {
+     .swiper-container{
+        margin: 0 auto;
+        width: 80%;
+     }
+     .travel_guide{
+        text-align: left;
+     }
+    }
 /*========= ==========  ======= End Of Travel Guides Slider ======  =========== ==================*/
 

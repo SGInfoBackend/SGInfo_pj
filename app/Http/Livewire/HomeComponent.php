@@ -30,13 +30,11 @@ class HomeComponent extends Component
 
         $allJobs = Job::all();
 
-
-        $rentHouses = RentHouse::orderBy('Rent_House_ID', 'DESC')->paginate(4);
         // For Trendings
         $trending = General::where('GHeader_ID','=','1')->limit(1)->get();
         $trendings = General::where('GHeader_ID','=','1')->orderBy('General_ID','DESC')->limit(5)->get();
         // For Travelguide
-        $travelGuide = General::where('GHeader_ID','=','3')->orderBy('General_ID','DESC')->take(1)->get();
+        $travelGuide = General::where('GHeader_ID','=','3')->orderBy('General_ID','DESC')->take(4)->get();
         // dd($travelGuide);
 
         $gheaders = GHeader::all();

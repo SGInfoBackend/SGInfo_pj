@@ -12,6 +12,18 @@
     font-family: 'Sawarabi Mincho', serif;
     /* font-family: 'Montserrat', sans-serif;/ */
 }
+/* User Profile Start */
+.gradient-custom {
+    /* fallback for old browsers */
+    background: #f6d365;
+
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right bottom, rgba(246, 211, 101, 1), rgba(253, 160, 133, 1));
+
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right bottom, rgba(246, 211, 101, 1), rgba(253, 160, 133, 1))
+    }
+/* User Profile End */
 :root{
     --color-primary: #6c63ff;
     --color-success: #00bf8e;
@@ -748,7 +760,7 @@ a.room-detail:hover{
 
     }
 
-    .search_jobs{
+    #search_jobs{
         width: 90%;
         margin-bottom: 0.5rem;
         margin-left: 0;

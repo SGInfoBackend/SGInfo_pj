@@ -19,7 +19,7 @@ class GeneralComponent extends Component
         $globleNews = General::where('GHeader_ID','=','2')->orderBy('General_ID','DESC')->limit(4)->get();
 
         // dd($globleNew);
-        $travelGuide = General::where('GHeader_ID','=','3')->orderBy('General_ID','DESC')->limit(1)->get();
+        $travelGuide = General::where('GHeader_ID','=','3')->orderBy('General_ID','DESC')->get();
 
         $healthEducation = General::where('GHeader_ID','=','4')->limit(2)->get();
 
