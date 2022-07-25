@@ -42,11 +42,6 @@
   <!-- CSS only -->
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-  {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous"> --}}
-  <!-- <link
-        rel="stylesheet"
-        href="https://unpkg.com/swiper/swiper-bundle.min.css"
-      /> -->
 
 <script src="{{ asset('js/jquery.min.js')}}"></script>
   <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
@@ -171,6 +166,7 @@
                         </div>
                     </form>
                     <div class="otherLogin">
+<<<<<<< HEAD
                         <p class="other-p">(OR)</p>
                         <div class="google">
                             <img class="other-img" src="images/login_register/google.svg" alt="">
@@ -186,6 +182,22 @@
                         </div>
                         <div class="other-login">New to SG Info? <a href="" class="other-login-a">Sign up</a></div>
                     </div>
+=======
+                            <p class="other-p">(OR)</p>
+                            <div class="google">
+                                <img class="other-img" src="images/login_register/google.svg" alt="">
+                                <h2 class="other-h2"><a class="other-a" href="{{ route('googleauth') }}">Continue with Google</a></h2>
+                            </div>
+                            <div class="facebook">
+                                <img class="other-img" src="images/login_register/facebook.svg" alt="">
+                                <h2 class="other-h2"><a href="" class="other-a">Continue with Facebook</a> </h2>
+                            </div>
+                            <div class="apple">
+                                <img class="other-img" src="images/login_register/apple.svg" alt="">
+                                <h2 class="other-h2"><a class="other-a" href="">Continue with Apple</a></h2>
+                            </div>
+                            <div class="other-login">New to SG Info? <a href="" class="other-login-a">Sign up</a></div>
+>>>>>>> af5037296199c1873b3f26644bf3edf7fe5c7a58
                 </div>
             </div>
         </div>

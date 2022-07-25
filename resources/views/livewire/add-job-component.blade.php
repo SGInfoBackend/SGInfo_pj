@@ -56,6 +56,17 @@
                                 @error('job_loaction') <p class="text-danger">{{ $message }}</p> @enderror
                             </div>
                             <div class="modal-div">
+                                <label for="" class="modal-label">EXPERIENCE lEVEL</label> <br>
+                                <select name="" id="" class="modal-select" wire:model='exp_level'>
+                                    <option value="" selected disabled class="modal-option">Choose Exp Level</option>
+                                    <option value="Fresher/Entry" class="modal-option">Fresher/Entry</option>
+                                    <option value="Manager" class="modal-option">Manager</option>
+                                    <option value="Director Above" class="modal-option">Director Above</option>
+                                    <option value="1year_Exp & Above" class="modal-option">1year_Exp & Above</option>
+                                </select>
+                                @error('exp_level') <p class="text-danger">{{ $message }}</p> @enderror
+                            </div>
+                            <div class="modal-div">
                                 <label for="" class="modal-label">DESCRIPTION</label> <br>
                                 <textarea class="modal-input" name="" id="" cols="30" rows="10" wire:model='job_description'></textarea>
                                 @error('job_description') <p class="text-danger">{{ $message }}</p> @enderror
