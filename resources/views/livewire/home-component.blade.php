@@ -1,4 +1,9 @@
 <div>
+    <style>
+        nav svg {
+            height: 20px;
+        }
+    </style>
     <!-- start carousel -->
 <section id="hero">
     <!--slider-->
@@ -183,12 +188,11 @@
 
       <div class="search_icon">
         <i class="uil uil-search"></i>
-        <input id="search_jobs" type="text" name="What are you looking for?" placeholder="Job title, keyword or company"
-          required wire:model="search">
+        <input class="search_jobs" type="text" placeholder="Job title, keyword or company" wire:model="searchTerm">
       </div>
       <div class="search_icon">
         <i class="uil uil-map-marker"></i>
-        <input id="location" type="text" name="Location" placeholder="Area, city or town" required>
+        <input id="location" type="text" name="Location" placeholder="Area, city or town">
       </div>
 
       <div class="search_icon">
@@ -204,26 +208,28 @@
     </div>
 
     <section id="jobs_container">
-      <div id="jobs_types">
-        <h3 id="h2"><i class="uil uil-favorite"></i>&nbsp;TOP JOBS&nbsp;<i class="uil uil-favorite"></i></h3>
-        @foreach ($jobs as $job)
-            <div id="jobs_type">
-                <div class="jobbackground_color"><a href="{{ route('jobdetails', ['Job_ID'=>$job->Job_ID]) }}">{{ $job->Job_title }}</a></div>
-                <div class="jobbackground_color">${{ $job->SALARY }}</div>
-                <div class="jobbackground_color">{{ $job->Company }}</div>
-                <div class="jobbackground_color"><i class="uil uil-map-marker"></i> &nbsp;Yangon, Hlaing</div>
-            </div>
-        @endforeach
-        <!--
-            <div class="browse_btn"> -->
-        <button class="browse"><a href="#">Browse All Jobs</a></button>
-        <!-- </div> -->
-
-      </div>
-
-
+        <div id="jobs_types">
+            <h3 id="h2"><i class="uil uil-favorite"></i>&nbsp;TOP JOBS&nbsp;<i class="uil uil-favorite"></i></h3>
+               @if (count($jobs))
+                    @foreach ($jobs as $job)
+                    <div class="row">
+                        <div id="jobs_type">
+                            <div class="jobbackground_color"><a href="{{ route('jobdetails', ['Job_ID'=>$job->Job_ID]) }}">{{ $job->Job_title }}</a></div>
+                            <div class="jobbackground_color">${{ $job->SALARY }}</div>
+                            <div class="jobbackground_color">{{ $job->Company }}</div>
+                            <div class="jobbackground_color"><i class="uil uil-map-marker"></i> &nbsp;{{ Str::limit($job->Job_location, 20) }}</div>
+                        </div>
+                    </div>
+                    @endforeach
+               @else
+                    <div id="jobs_type">No Data Found!</div>
+               @endif
+            <button class="browse my-3"><a href="#">Browse All Jobs</a></button>
+        </div>
+        <div class="my-3">
+            {{ $jobs->links() }}
+        </div>
     </section>
-
   </div>
 
   <!-- END OF HOME-JOBS  -->
@@ -233,19 +239,19 @@
     <h3 id="h2"><i class="uil uil-favorite"></i>&nbsp;LATEST JOBS&nbsp;<i class="uil uil-favorite"></i></h3>
     <div class="job-btn">
         @foreach ($allJobs->slice(0, 4) as $alljob)
-            <button class="jobbutton"><a href="{{ route('jobdetails', ['Job_ID'=>$job->Job_ID]) }}">{{ $alljob->Job_title }}</a></button>
+            <button class="jobbutton"><a href="{{ route('jobdetails', ['Job_ID'=>$alljob->Job_ID]) }}">{{ $alljob->Job_title }}</a></button>
         @endforeach
     </div>
 
     <div class="job-btn1">
         @foreach ($allJobs->slice(4, 3) as $alljob)
-            <button class="jobbutton"><a href="{{ route('jobdetails', ['Job_ID'=>$job->Job_ID]) }}">{{ $alljob->Job_title }}</a></button>
+            <button class="jobbutton"><a href="{{ route('jobdetails', ['Job_ID'=>$alljob->Job_ID]) }}">{{ $alljob->Job_title }}</a></button>
         @endforeach
     </div>
 
     <div class="job-btn2">
         @foreach ($allJobs->slice(7, 2) as $alljob)
-            <button class="jobbutton"><a href="{{ route('jobdetails', ['Job_ID'=>$job->Job_ID]) }}">{{ $alljob->Job_title }}</a></button>
+            <button class="jobbutton"><a href="{{ route('jobdetails', ['Job_ID'=>$alljob->Job_ID]) }}">{{ $alljob->Job_title }}</a></button>
         @endforeach
     </div>
   </section>

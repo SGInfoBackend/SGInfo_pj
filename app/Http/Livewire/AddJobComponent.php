@@ -15,6 +15,7 @@ class AddJobComponent extends Component
     public $job_location;
     public $job_category;
     public $company_url_link;
+    public $exp_level;
     public $job_description;
     public $job_type_role;
 
@@ -27,6 +28,7 @@ class AddJobComponent extends Component
             'job_location' => 'required',
             'job_category' => 'required',
             'company_url_link' => 'required',
+            'exp_level' => 'required',
             'job_description' => 'required',
             'job_type_role' => 'required',
         ]);
@@ -41,6 +43,7 @@ class AddJobComponent extends Component
             'job_location' => 'required',
             'job_category' => 'required',
             'company_url_link' => 'required',
+            'exp_level' => 'required',
             'job_description' => 'required',
             'job_type_role' => 'required',
         ]);
@@ -53,6 +56,7 @@ class AddJobComponent extends Component
         $jobs->Job_location = $this->job_location;
         $jobs->Category_job = $this->job_category;
         $jobs->Company_URL = $this->company_url_link;
+        $jobs->exp_level = $this->exp_level;
         $jobs->Job_Description = $this->job_description;
         $jobs->save();
         session()->flash('success_message', 'Job Information has been added successfully!');

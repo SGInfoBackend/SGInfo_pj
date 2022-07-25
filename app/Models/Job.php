@@ -16,4 +16,11 @@ class Job extends Model
     {
         return $this->hasMany(JobTypeOfRole::class, 'Typeofrole_ID');
     }
+
+    // public static function search($query)
+    // {
+    //     return empty($query) ? static::query()
+    //         : static::where('Job_title', 'like', '%'.$query.'%')
+    //         ->orWhere('Company', 'like', '%'.$query.'%');
+    // }
 }
