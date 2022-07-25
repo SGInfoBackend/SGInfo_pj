@@ -190,11 +190,11 @@
                             </div>
                             <div class="facebook">
                                 <img class="other-img" src="images/login_register/facebook.svg" alt="">
-                                <h2 class="other-h2"><a href="" class="other-a">Continue with Facebook</a> </h2>
+                                <h2 class="other-h2"><a href="{{ route('facebookauth') }}" class="other-a">Continue with Facebook</a> </h2>
                             </div>
                             <div class="apple">
                                 <img class="other-img" src="images/login_register/apple.svg" alt="">
-                                <h2 class="other-h2"><a class="other-a" href="">Continue with Apple</a></h2>
+                                <h2 class="other-h2"><a class="other-a" href="{{ route('githubauth') }}">Continue with GitHub</a></h2>
                             </div>
                             <div class="other-login">New to SG Info? <a href="" class="other-login-a">Sign up</a></div>
 >>>>>>> af5037296199c1873b3f26644bf3edf7fe5c7a58

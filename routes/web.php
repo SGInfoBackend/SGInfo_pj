@@ -71,8 +71,13 @@ Route::middleware(['auth:sanctum', 'verified', 'authadmin'])->group(function() {
 });
 
 // Social Media Authentication
-// Route::get('auth/google', [AuthController::class, 'redirectToGoogle'])->name('googleauth');
-// Route::get('auth/google/callback', [AuthController::class, 'handleGoogleCallback']);
-
-Route::get('auth/google',[AuthSocialComponent::class, 'redirectToGoogle'])->name('googleauth');
+Route::get('login/google',[AuthSocialComponent::class, 'redirectToGoogle'])->name('googleauth');
 Route::get('auth/google/callback',[AuthSocialComponent::class, 'handleGoogleCallback']);
+
+// Facebook login
+Route::get('login/facebook',[AuthSocialComponent::class, 'redirectToFacebook'])->name('facebookauth');
+Route::get('auth/facebook/callback',[AuthSocialComponent::class, 'handleFacebookCallback']);
+
+// Github login
+Route::get('login/github',[AuthSocialComponent::class, 'redirectToGithub'])->name('githubauth');
+Route::get('auth/github/callback',[AuthSocialComponent::class, 'handleGithubCallback']);
