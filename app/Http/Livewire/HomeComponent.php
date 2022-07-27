@@ -6,7 +6,6 @@ use App\Models\General;
 use App\Models\GHeader;
 use App\Models\Job;
 use App\Models\RentHouse;
-use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -14,18 +13,27 @@ class HomeComponent extends Component
 {
     use WithPagination;
     // public $job_title;
-    // public $location;
-    public $searchTerm;
+    public $job_location;
+    public $searchTerm = null;
+    protected $queryString = ['searchTerm' => ['except' => '']];
+
+    public function updatedSearchTerm()
+    {
+        $this->resetPage();
+    }
 
     public function render()
     {
-
-        $search = '%'. $this->searchTerm. '%';
-        // $searchJob = Job::where('Job_title',$search)->orWhere('Job_location',$search)->orWhere('Company',$search)->get();
+        sleep(1);
+        $search = '%'. $this->job_location. '%';
+        // $searchJob = Job::where('Job_location',$search)->get();
+        $rentHouses = RentHouse::orderBy('Rent_House_ID', 'DESC')->paginate(5);
         $jobs = Job::where(function($query) {
             $query->where('Job_title', 'like', '%'. $this->searchTerm . '%');
             $query->orWhere('Company', 'like', '%'. $this->searchTerm . '%');
+            $query->orWhere('Job_location', 'like', '%'. $this->job_location . '%');
         })->orderBy('Job_ID', 'desc')->paginate(5);
+
 
 
         $allJobs = Job::all();
