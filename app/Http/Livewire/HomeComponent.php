@@ -7,7 +7,6 @@ use App\Models\GHeader;
 use App\Models\Job;
 use App\Models\RentHouse;
 use Livewire\Component;
-use Livewire\WithPagination;
 
 class HomeComponent extends Component
 {
@@ -34,10 +33,7 @@ class HomeComponent extends Component
             $query->orWhere('Job_location', 'like', '%'. $this->job_location . '%');
         })->orderBy('Job_ID', 'desc')->paginate(5);
 
-
-
         $allJobs = Job::all();
-
         // For Trendings
         $trending = General::where('GHeader_ID','=','1')->limit(1)->get();
         $trendings = General::where('GHeader_ID','=','1')->orderBy('General_ID','DESC')->limit(5)->get();
@@ -51,10 +47,11 @@ class HomeComponent extends Component
             'allJobs' => $allJobs,
             'jobs' => $jobs,
             'rentHouses' => $rentHouses,
+            'allJobs' => $allJobs,
             'trending' => $trending,
             'trendings' => $trendings,
             'travelGuide' => $travelGuide,
-            // 'searchJob' => $searchJob,
+            'searchJobs' => $searchJob,
             'gheaders' => $gheaders,
         ])->layout('layouts.base');
     }
