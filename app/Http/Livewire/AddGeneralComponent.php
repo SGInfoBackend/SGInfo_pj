@@ -24,9 +24,9 @@ class AddGeneralComponent extends Component
 
         $this->validateOnly($fields,[
             'gname' => 'required',
-            'gtitle' => 'required',
+            'gtitle' => 'required|string',
             'gheader_id' => 'required',
-            'gphotos' => 'image|max:1024',
+            'gphotos' => 'image|mimes:jpeg,png,jpg|max:1024',
             'gdescription' => 'required',
         ]);
 
@@ -36,9 +36,9 @@ class AddGeneralComponent extends Component
     {
             $this->validate([
                 'gname' => 'required',
-                'gtitle' => 'required',
+                'gtitle' => 'required|string',
                 'gheader_id' => 'required',
-                'gphotos' => 'image|max:1024',
+                'gphotos' => 'image|mimes:jpeg,png,jpg|max:1024',
                 'gdescription' => 'required',
             ]);
 

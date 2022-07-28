@@ -101,7 +101,7 @@
             <div class="travel_guide">
             <h4>TRAVEL GUIDES</h4>
             </div>
-                <div class="swiper">
+                <div class="travel">
                     @foreach ($travelGuide as $travelguide)
                     <div class="swiper-wrapper">
                         <div class="swiper-slide card text-center " style="background-image: url({{ asset('/images/general_images/' . $travelguide->G_PHOTO) }}) ; color: rgb(255, 255, 255);

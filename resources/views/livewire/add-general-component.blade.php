@@ -33,9 +33,9 @@
                             <div class="modal-div">
                                 <label for="" class="modal-label">PLEASE UPLOAD PHOTOS</label> <br>
                                 <input class="modal-input" type="file" wire:model="gphotos">
-                                @if ($gphotos)
+                                {{-- @if ($gphotos)
                                     <img src="{{ $gphotos->temporaryUrl() }}" style="width:50px;height:50px">
-                                @endif
+                                @endif --}}
                                 @error('gphotos') <p class="text-danger">{{ $message }}</p> @enderror
                             </div>
                             <div class="modal-div">
