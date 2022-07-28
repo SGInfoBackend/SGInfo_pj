@@ -6,28 +6,33 @@ use App\Models\General;
 use App\Models\GHeader;
 use App\Models\Job;
 use App\Models\RentHouse;
-use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class HomeComponent extends Component
 {
-    public $job_title;
-    public $location;
-    public $search;
+    use WithPagination;
+    // public $job_title;
+    public $job_location;
+    public $searchTerm = null;
+    protected $queryString = ['searchTerm' => ['except' => '']];
+
+    public function updatedSearchTerm()
+    {
+        $this->resetPage();
+    }
 
     public function render()
     {
+        sleep(1);
+        $search = '%'. $this->job_location. '%';
+        // $searchJob = Job::where('Job_location',$search)->get();
+        $rentHouses = RentHouse::orderBy('Rent_House_ID', 'DESC')->paginate(5);
+        $jobs = Job::where(function($query) {
+            $query->where('Job_title', 'like', '%'. $this->searchTerm . '%');
+            $query->orWhere('Company', 'like', '%'. $this->searchTerm . '%');
+            $query->orWhere('Job_location', 'like', '%'. $this->job_location . '%');
+        })->orderBy('Job_ID', 'desc')->paginate(5);
 
-        $allJobs = Job::all();
-
-        $search_job_title = '%'. $this->job_title. '%';
-        $search = '%'. $this->search. '%';
-        $search_job_location = '%'. $this->location. '%';
-        $rentHouses = RentHouse::orderBy('Rent_House_ID', 'DESC')->paginate(4);
-        $searchJob = Job::where('Job_title',$search)->orWhere('Job_location',$search)->orWhere('Company',$search)->get();
-        $jobs = Job::where('Job_title', 'LIKE', $search_job_title)
-                    ->orWhere('Job_location', 'LIKE' )
-                    ->paginate(10);
         $allJobs = Job::all();
         // For Trendings
         $trending = General::where('GHeader_ID','=','1')->limit(1)->get();

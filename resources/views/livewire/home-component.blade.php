@@ -188,30 +188,38 @@
 
       <div class="search_icon">
         <i class="uil uil-search"></i>
-        <input class="search_jobs" type="text" placeholder="Job title, keyword or company" wire:model="searchTerm">
+        <input class="search_jobs" type="text" placeholder="Job title, keyword or company"
+            wire:model="searchTerm"
+            wire:keydown.escape="updatedSearchTerm"
+            wire:keydown.tab="updatedSearchTerm"
+        />
       </div>
       <div class="search_icon">
         <i class="uil uil-map-marker"></i>
-        <input id="location" type="text" name="Location" placeholder="Area, city or town">
+        <input id="location" type="text" name="Location" placeholder="Area, city or town"
+            wire:model="job_location"
+            {{-- wire:keydown.escape="updatedSearchTerm"
+            wire:keydown.tab="updatedSearchTerm" --}}
+        />
       </div>
 
       <div class="search_icon">
         <i class="uil uil-right-indent-alt"></i>
-        <select id="jobs_categories" wire:model="job_title">
-            @foreach ($allJobs as $alljob)
-            <option class="jobs_option" value="{{ $alljob->Job_title }}">{{ $alljob->Job_title }}</option>
+        <select id="jobs_categories" wire:model="title">
+            @foreach ($jobs as $job)
+            <option class="jobs_option" value="{{ $job->Job_title }}">{{ $job->Job_title }}</option>
           @endforeach
         </select>
       </div>
 
-      <button class="search"><a href="#">Search</a></button>
+      <button type="submit" class="search"><a href="#">Search</a></button>
     </div>
 
     <section id="jobs_container">
         <div id="jobs_types">
             <h3 id="h2"><i class="uil uil-favorite"></i>&nbsp;TOP JOBS&nbsp;<i class="uil uil-favorite"></i></h3>
-               @if (count($jobs))
-                    @foreach ($jobs as $job)
+               {{-- @if (count($jobs)) --}}
+                    @forelse ($jobs as $job)
                     <div class="row">
                         <div id="jobs_type">
                             <div class="jobbackground_color"><a href="{{ route('jobdetails', ['Job_ID'=>$job->Job_ID]) }}">{{ $job->Job_title }}</a></div>
@@ -220,10 +228,12 @@
                             <div class="jobbackground_color"><i class="uil uil-map-marker"></i> &nbsp;{{ Str::limit($job->Job_location, 20) }}</div>
                         </div>
                     </div>
-                    @endforeach
-               @else
+                    @empty
+                        <div id="jobs_type">No Results Found!</div>
+                    @endforelse
+               {{-- @else
                     <div id="jobs_type">No Data Found!</div>
-               @endif
+               @endif --}}
             <button class="browse my-3"><a href="#">Browse All Jobs</a></button>
         </div>
         <div class="my-3">
