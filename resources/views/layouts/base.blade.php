@@ -16,6 +16,7 @@
   <link rel="stylesheet" href="{{asset('css/general_info_detail.css')}}">
   <link rel="stylesheet" href="{{asset('css/room_list.css')}}">
   <link rel="stylesheet" href="{{asset('css/room_posting.css')}}">
+  <link rel="stylesheet" href="{{asset('css/table.css')}}">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   {{-- <link rel="stylesheet" href="{{asset('css/login_register.css')}}"> --}}
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -166,21 +167,21 @@
                         </div>
                     </form>
                     <div class="otherLogin">
-                            <p class="other-p">(OR)</p>
-                            <div class="google">
-                                <img class="other-img" src="images/login_register/google.svg" alt="">
-                                <h2 class="other-h2"><a class="other-a" href="{{ route('googleauth') }}">Continue with Google</a></h2>
-                            </div>
-                            <div class="facebook">
-                                <img class="other-img" src="images/login_register/facebook.svg" alt="">
-                                <h2 class="other-h2"><a href="{{ route('facebookauth') }}" class="other-a">Continue with Facebook</a> </h2>
-                            </div>
-                            <div class="apple">
-                                <img class="other-img" src="images/login_register/apple.svg" alt="">
-                                <h2 class="other-h2"><a class="other-a" href="{{ route('githubauth') }}">Continue with GitHub</a></h2>
-                            </div>
-                            <div class="other-login">New to SG Info? <a href="" class="other-login-a">Sign up</a></div>
-                </div>
+                        <p class="other-p">(OR)</p>
+                        <div class="google">
+                            <img class="other-img" src="images/login_register/google.svg" alt="">
+                            <h2 class="other-h2"><a class="other-a" href="{{ route('googleauth') }}">Continue with Google</a></h2>
+                        </div>
+                        <div class="facebook">
+                            <img class="other-img" src="images/login_register/facebook.svg" alt="">
+                            <h2 class="other-h2"><a href="{{ route('facebookauth') }}" class="other-a">Continue with Facebook</a> </h2>
+                        </div>
+                        <div class="apple">
+                            <img class="other-img" src="images/login_register/apple.svg" alt="">
+                            <h2 class="other-h2"><a class="other-a" href="{{ route('githubauth') }}">Continue with GitHub</a></h2>
+                        </div>
+                        <div class="other-login">New to SG Info? <a href="" class="other-login-a">Sign up</a></div>
+                    </div>
             </div>
         </div>
     </div>
@@ -291,6 +292,7 @@
 
   <!-- end of footer -->
       <script src="{{ asset('js/main.js')}}"></script>
+      <script src="{{ asset('js/table.js')}}"></script>
       {{-- noUiSlider cdn --}}
       <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 	  <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.6.0/nouislider.min.js" integrity="sha512-1mDhG//LAjM3pLXCJyaA+4c+h5qmMoTc7IuJyuNNPaakrWT9rVTxICK4tIizf7YwJsXgDC2JP74PGCc7qxLAHw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
