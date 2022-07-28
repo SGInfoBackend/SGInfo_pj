@@ -762,7 +762,7 @@
     margin: 12px 80px;
 
     }
-    .swiper{
+    .travel{
         display: flex;
     }
     .swiper-wrapper {
@@ -871,6 +871,9 @@
      .travel_guide{
         text-align: left;
      }
+     .travel{
+        display: flow-root;
+    }
     }
 /*========= ==========  ======= End Of Travel Guides Slider ======  =========== ==================*/
 
