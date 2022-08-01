@@ -1,0 +1,12 @@
+Steps:
+1. Admin Login
+2. Admin create user group 
+3 manage user
+4. All form validation 
+5. set message function 
+
+21/01/21
+1. Orders
+2. Create discount table
+3. Setting -> Admin & User groups
+4. 

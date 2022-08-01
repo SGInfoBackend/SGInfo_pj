@@ -40,7 +40,6 @@ Route::get('/', HomeComponent::class)->name('home');
 Route::get('/general', GeneralComponent::class)->name('general');
 Route::get('/detailarticle/{General_ID}', GeneralDetailComponent::class)->name('detailarticle');
 Route::get('/rooms', RoomComponent::class)->name('rooms');
-
 Route::get('/job', JobComponent::class)->name('job');
 
 Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])->group(function () {
