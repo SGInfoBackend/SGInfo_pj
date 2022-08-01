@@ -312,6 +312,7 @@
         })
         window.addEventListener('show_modal', event => {
             $('#room').hide();
+            $('#article').hide();
             $('#login').css('display', 'block');
         })
     </script>
