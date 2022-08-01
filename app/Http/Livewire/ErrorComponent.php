@@ -8,6 +8,6 @@ class ErrorComponent extends Component
 {
     public function render()
     {
-        return view('livewire.error-component');
+        return view('livewire.error-component')->layout('layouts.base');
     }
 }

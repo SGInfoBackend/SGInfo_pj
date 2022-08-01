@@ -127,22 +127,22 @@
     <div class="travel_guide">
     <h4>TRAVEL GUIDES</h4>
     </div>
-    <div class="travel">
-        @foreach ($travelGuide as $travelguide)
-        <div class="swiper-wrapper">
-            <div class="swiper-slide card text-center " style="background-image: url({{ asset('/images/general_images/' . $travelguide->G_PHOTO) }}) ; color: rgb(255, 255, 255);
-                position: relative;">
-                <div class="card-body">
-                    <div class="overlay">
-                        <p class="travel_type">{{ $travelguide->G_Title }}</p>
-                        <p>{{ Str::limit($travelguide->G_Description, 20) }}</p>
+        <div class="travel">
+            @foreach ($travelGuide as $travelguide)
+            <div class="swiper-wrapper">
+                <div class="swiper-slide card text-center " style="background-image: url({{ asset('/images/general_images/' . $travelguide->G_PHOTO) }}) ; color: rgb(255, 255, 255);
+                    position: relative;">
+                    <div class="card-body-general">
+                        <div class="overlay">
+                            <p class="travel_type">{{ $travelguide->G_Title }}</p>
+                            <p>{{ Str::limit($travelguide->G_Description, 20) }}</p>
+                        </div>
                     </div>
                 </div>
             </div>
+            @endforeach
         </div>
-        @endforeach
-    </div>
-      <div class="swiper-pagination"></div>
+    <div class="swiper-pagination"></div>
 </section>
 
   <!-- ============================= End of Travel Guide Slider ========================================== -->
@@ -186,33 +186,40 @@
   <div id="home_jobs">
     <div class="jobs_header">
 
-      <div class="search_icon">
-        <i class="uil uil-search"></i>
-        <input class="search_jobs" type="text" placeholder="Job title, keyword or company"
-            wire:model="searchTerm"
-            wire:keydown.escape="updatedSearchTerm"
-            wire:keydown.tab="updatedSearchTerm"
-        />
-      </div>
-      <div class="search_icon">
-        <i class="uil uil-map-marker"></i>
-        <input id="location" type="text" name="Location" placeholder="Area, city or town"
-            wire:model="job_location"
-            {{-- wire:keydown.escape="updatedSearchTerm"
-            wire:keydown.tab="updatedSearchTerm" --}}
-        />
-      </div>
+      <form style="display:flex" action="{{ route('job') }}">
 
-      <div class="search_icon">
-        <i class="uil uil-right-indent-alt"></i>
-        <select id="jobs_categories" wire:model="title">
-            @foreach ($jobs as $job)
-            <option class="jobs_option" value="{{ $job->Job_title }}">{{ $job->Job_title }}</option>
-          @endforeach
-        </select>
-      </div>
+          <div class="search_icon" >
+            <i class="uil uil-search"></i>
+            <input class="search_jobs" type="text" placeholder="Job title, keyword or company"
+                wire:model="searchTerm"
+                {{-- wire:keydown.escape="updatedSearchTerm"
+                wire:keydown.tab="updatedSearchTerm" --}}
+            />
+          </div>
 
-      <button type="submit" class="search"><a href="#">Search</a></button>
+          <div class="search_icon" style="margin-left:5px;">
+            <i class="uil uil-map-marker"></i>
+            <input id="location" type="text" name="Location" placeholder="Area, city or town"
+                wire:model="job_location"
+                {{-- wire:keydown.escape="updatedSearchTerm"
+                wire:keydown.tab="updatedSearchTerm" --}}
+            />
+          </div>
+
+          <div class="search_icon" style="margin-left:5px;">
+            <i class="uil uil-right-indent-alt"></i>
+            <select id="jobs_categories" wire:model="job_title">
+                <option class="jobs_option">All Job</option>
+                @foreach ($allJobs as $job)
+                    <option class="jobs_option" data-id="{{ $job->Job_title }}">{{ $job->Job_title }}</option>
+                @endforeach
+            </select>
+          </div>
+
+          <button type="submit" class="search" style="margin-left:5px;">Search</button>
+
+      </form>
+
     </div>
 
     <section id="jobs_container">
@@ -234,7 +241,7 @@
                {{-- @else
                     <div id="jobs_type">No Data Found!</div>
                @endif --}}
-            <button class="browse my-3"><a href="#">Browse All Jobs</a></button>
+            <button class="browse my-3"><a href="{{ route('job') }}">Browse All Jobs</a></button>
         </div>
         <div class="my-3">
             {{ $jobs->links() }}

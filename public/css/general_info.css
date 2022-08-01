@@ -751,8 +751,8 @@
     text-align: center;
 }
 
-.card-body{
-    height: 320px;
+.card-body-general{
+    height: 300px !important;
 }
 
 .swiper-container {
@@ -854,8 +854,8 @@
          .overlay p {
            font-size: 13px;
          }
-       .card-body{
-           height: 230px;
+       .card-body-general{
+           height: 300px !important;
        }
      }
      @media (max-width: 799px) {

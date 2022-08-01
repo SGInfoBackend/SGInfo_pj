@@ -1,3 +1,3 @@
 <div>
-    <h1>Please Login </h1>
+    @error('gname') <p class="text-danger">{{ $message }}</p> @enderror
 </div>
