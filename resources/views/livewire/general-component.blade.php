@@ -101,12 +101,12 @@
             <div class="travel_guide">
             <h4>TRAVEL GUIDES</h4>
             </div>
-                <div class="swiper">
+                <div class="travel">
                     @foreach ($travelGuide as $travelguide)
                     <div class="swiper-wrapper">
                         <div class="swiper-slide card text-center " style="background-image: url({{ asset('/images/general_images/' . $travelguide->G_PHOTO) }}) ; color: rgb(255, 255, 255);
                             position: relative;">
-                            <div class="card-body">
+                            <div class=" card-body-general">
                                 <div class="overlay">
                                     <p class="travel_type">{{ $travelguide->G_Title }}</p>
                                     <p>{{ Str::limit($travelguide->G_Description, 20) }}</p>

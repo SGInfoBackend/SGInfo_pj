@@ -2,10 +2,11 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\Facilitity;
-use App\Models\KeyFeature;
+use App\Http\Requests\RentHouseValidationRequest;
 use Livewire\WithFileUploads;
 use App\Models\RentHouse;
+use App\Rules\DateValidation;
+use App\Rules\PropertyName;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
@@ -48,7 +49,7 @@ class AddHouseComponent extends Component
             'address' => 'required',
             'ros' => 'required',
             'price' => 'required|numeric',
-            'images' => 'required|image',
+            'images' => 'image|mimes:jpg,jpeg,png,gif|max:2048',
             'no_room' => 'required|numeric',
             'no_birth' => 'required|numeric',
             'keyfeatures' => 'required',
@@ -63,9 +64,16 @@ class AddHouseComponent extends Component
         {
             $this->dispatchBrowserEvent('show_modal');
         }
+        // $request->all();
         $this->validate([
-            'project_type' => 'required',
-            'availability' => 'required',
+            'project_type' => [
+                'required',
+                new PropertyName()
+            ],
+            'availability' => [
+                'required',
+                new DateValidation()
+            ],
             'developer' => 'required',
             'floor_lv' => 'required',
             'floor_size' => 'required',
@@ -74,13 +82,14 @@ class AddHouseComponent extends Component
             'address' => 'required',
             'ros' => 'required',
             'price' => 'required|numeric',
-            'images' => 'required|image',
+            'images' => 'image|mimes:jpg,jpeg,png,gif|max:2048',
             'no_room' => 'required|numeric',
             'no_birth' => 'required|numeric',
             'keyfeatures' => 'required',
             'facilities' => 'required',
             'description' => 'required',
         ]);
+
         $rent_house = new RentHouse();
         $rent_house->Project_type = $this->project_type;
         $rent_house->Floor_lvl = $this->floor_lv;

@@ -751,8 +751,8 @@
     text-align: center;
 }
 
-.card-body{
-    height: 320px;
+.card-body-general{
+    height: 300px !important;
 }
 
 .swiper-container {
@@ -762,7 +762,7 @@
     margin: 12px 80px;
 
     }
-    .swiper{
+    .travel{
         display: flex;
     }
     .swiper-wrapper {
@@ -854,8 +854,8 @@
          .overlay p {
            font-size: 13px;
          }
-       .card-body{
-           height: 230px;
+       .card-body-general{
+           height: 300px !important;
        }
      }
      @media (max-width: 799px) {
@@ -871,6 +871,9 @@
      .travel_guide{
         text-align: left;
      }
+     .travel{
+        display: flow-root;
+    }
     }
 /*========= ==========  ======= End Of Travel Guides Slider ======  =========== ==================*/
 

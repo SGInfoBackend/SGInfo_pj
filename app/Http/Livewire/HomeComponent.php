@@ -12,7 +12,8 @@ use Livewire\WithPagination;
 class HomeComponent extends Component
 {
     use WithPagination;
-    // public $job_title;
+    public $alljobs;
+    public $job_title;
     public $job_location;
     public $searchTerm = null;
     protected $queryString = ['searchTerm' => ['except' => '']];
@@ -25,13 +26,34 @@ class HomeComponent extends Component
     public function render()
     {
         sleep(1);
-        $search = '%'. $this->searchTerm. '%';
+        // $search = '%'. $this->searchTerm. '%';
         // $searchJob = Job::where('Job_location',$search)->get();
         $rentHouses = RentHouse::orderBy('Rent_House_ID', 'DESC')->paginate(5);
-        $jobs = Job::where(function($query) {
-            $query->where('Job_title', 'like', '%'. $this->searchTerm . '%');
-            $query->orWhere('Company', 'like', '%'. $this->searchTerm . '%');
-        })->orderBy('Job_ID', 'desc')->paginate(5);
+
+        if($this->searchTerm)
+        {
+            $jobs = Job::where(function($query) {
+                $query->where('Job_title', 'like', '%'. $this->searchTerm . '%');
+                $query->orWhere('Company', 'like', '%'. $this->searchTerm . '%');
+            })->orderBy('Job_ID', 'desc')->paginate(5);
+        }
+        elseif($this->job_location)
+        {
+            $jobs = Job::where(function($query) {
+                $query->orWhere('Job_location', 'like', '%'. $this->job_location . '%');
+                $query->orWhere('Company', 'like', '%'. $this->job_location . '%');
+            })->orderBy('Job_ID', 'desc')->paginate(5);
+        }
+        elseif($this->job_title)
+        {
+            $jobs = Job::where(function($query) {
+                $query->orWhere('Job_title', 'like', '%'. $this->job_title . '%');
+                $query->orWhere('Company', 'like', '%'. $this->job_title . '%');
+            })->orderBy('Job_ID', 'desc')->paginate(5);
+        }
+        else{
+            $jobs = Job::orderBy('created_at','DESC')->paginate(5);
+        }
 
         $allJobs = Job::all();
         // For Trendings

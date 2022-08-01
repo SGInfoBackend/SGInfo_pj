@@ -18,6 +18,7 @@ use App\Http\Livewire\RoomDetailComponent;
 use App\Http\Livewire\User\UserDashboardComponent;
 use App\Http\Livewire\UserProfileComponent;
 use App\Models\General;
+use Faker\Generator;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -43,20 +44,19 @@ Route::get('/job', JobComponent::class)->name('job');
 
 Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])->group(function () {
     // For Rooms
-// Route::get('/rooms', RoomComponent::class)->name('rooms');
-Route::get('/contact', ContactComponent::class)->name('contact');
-Route::get('/addjob', AddJobComponent::class)->name('addjob');
-// For General
-Route::get('/addarticle', AddGeneralComponent::class)->name('addarticle');
-// End General
-Route::get('/addrom', AddHouseComponent::class)->name('addroom');
-Route::get('/roomdetail/{Rent_House_ID}', RoomDetailComponent::class)->name('roomdetails');
-// Job Details
-Route::get('/job/job-details/{Job_ID}', JobDetailsComponent::class)->name('jobdetails');
-// Applying Job
-Route::get('/applyjob/{Job_title}', ApplyJobComponent::class)->name('applyjob');
-Route::get('/user/profile', UserProfileComponent::class)->name('user.profile');
-
+    // Route::get('/rooms', RoomComponent::class)->name('rooms');
+    Route::get('/contact', ContactComponent::class)->name('contact');
+    Route::get('/addjob', AddJobComponent::class)->name('addjob');
+    // For General
+    Route::get('/addarticle', GeneralComponent::class)->name('addarticle');
+    // End General
+    Route::get('/addrom', AddHouseComponent::class)->name('addroom');
+    Route::get('/roomdetail/{Rent_House_ID}', RoomDetailComponent::class)->name('roomdetails');
+    // Job Details
+    Route::get('/job/job-details/{Job_ID}', JobDetailsComponent::class)->name('jobdetails');
+    // Applying Job
+    Route::get('/applyjob/{Job_title}', ApplyJobComponent::class)->name('applyjob');
+    Route::get('/user/profile', UserProfileComponent::class)->name('user.profile');
 
 });
 
