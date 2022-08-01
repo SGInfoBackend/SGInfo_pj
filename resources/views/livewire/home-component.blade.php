@@ -237,7 +237,7 @@
             <button class="browse my-3"><a href="#">Browse All Jobs</a></button>
         </div>
         <div class="my-3">
-            {{ $jobs->links() }}
+            {{ $jobs->onEachSide(1)->links() }}
         </div>
     </section>
   </div>

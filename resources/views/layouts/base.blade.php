@@ -310,6 +310,7 @@
         })
         window.addEventListener('show_modal', event => {
             $('#room').hide();
+            $('#job').hide();
             $('#login').css('display', 'block');
         })
     </script>
