@@ -49,39 +49,41 @@
                 </div>
 
                 <div class="col-12 my-2">
-                  <div class="card shadow">
-                      <div class="card-body">
-                          <h4>Experience Level</h4>
-                          <div class="form-check">
-                              <input class="form-check-input" type="checkbox" value="" id="full_time" checked>
-                              <label class="form-check-label" for="">
-                                  Fresher/Entry
-                              </label>
-                          </div>
-                          <div class="form-check">
-                              <input class="form-check-input" type="checkbox" value="" id="part_time" >
-                              <label class="form-check-label" for="part_time">
-                                Manager
-                              </label>
-                          </div>
-                          <div class="form-check">
-                              <input class="form-check-input" type="checkbox" value="" id="internship" >
-                              <label class="form-check-label" for="internship">
-                                Director Above
-                              </label>
-                          </div>
-                          <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="internship" >
-                            <label class="form-check-label" for="internship">
-                             1year_Exp & Above
-                            </label>
+                    <div class="card shadow">
+                        <div class="card-body">
+                            <h4>Experience Level</h4>
+                            @foreach ($jobs as $job)
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="{{ $job->exp_level }}" wire:model="expLevel" id="{{ $job->Job_ID }}">
+                                    <label class="form-check-label" for="{{ $job->exp_level }}">
+                                        {{ $job->exp_level }}
+                                    </label>
+                                </div>
+                            @endforeach
+                            {{-- <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="part_time" >
+                                <label class="form-check-label" for="part_time">
+                                    Manager
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="internship" >
+                                <label class="form-check-label" for="internship">
+                                    Director Above
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="internship" >
+                                <label class="form-check-label" for="internship">
+                                1year_Exp & Above
+                                </label>
+                            </div> --}}
                         </div>
-                      </div>
-                  </div>
+                    </div>
                 </div>
 
                 <div class="col-12 my-2">
-                  <div class="card my-2 shadow">
+                  <div class="card card-h my-2 shadow">
                     <div class="card-body workfromhome">
                       <a href="" class="text-decoration-none">
                          <p class="mb-0">Search only <span class="fw-bold">Work from Home OR Remote Jobs</span></p>
@@ -91,7 +93,7 @@
                 </div>
 
                 <div class="col-12 my-5" style="margin-top: 1.7rem !important;">
-                    <div class="card shadow">
+                    <div class="card card-h shadow">
                         <div class="card-body">
                             <h4>Salary</h4>
                               <div class="input-group mb-3">
@@ -110,7 +112,7 @@
           <div class="col-12 col-md-9">
             @if($selectedId)
                 @foreach ($jobs as $job)
-                    <div class="card my-2 shadow">
+                    <div class="card card-height my-2 shadow">
                         <div class="card-body">
                             <h5 class="text-decoration-none">{{ $job->Job_title }}</h5> {{--  href="{{ route('jobdetails', ['Job_ID'=>$job->Job_ID]) }}" --}}
                             <p class="mt-2">{{ Str::limit($job->Job_Description, 100) }}</p>
@@ -119,7 +121,7 @@
                     </div>
                 @endforeach
             @else
-                <div class="card my-2 shadow">
+                <div class="card card-height my-2 shadow">
                     <div class="card-body">
                         <p class="text-primary text-muted">Here is no Job!</p>
                     </div>
