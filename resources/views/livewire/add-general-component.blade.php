@@ -7,7 +7,7 @@
                 </div>
 
                 <div class="main">
-                    <form class="w3-container first" wire:submit.prevent="addArtical" enctype="multipart/form-data" >
+                   <form class="w3-container first" wire:submit.prevent="addArtical" enctype="multipart/form-data" >
                         <h1 class="modal-h1">ARTICLE UPLOAD FORM</h1>
                         <div class="userInput">
                             <div class="modal-div">
@@ -23,7 +23,6 @@
                             <div class="modal-div">
                                 <label for="" class="modal-label">NEWS TYPE</label> <br>
                                 <select wire:model="gheader_id" class="modal-select">
-                                    {{-- <option value="" selected disabled class="modal-option">Choose news type</option> --}}
                                     @foreach ($gheaders as $gheader)
                                         <option value="{{ $gheader->GHeader_ID }}">{{ $gheader->GHeader_Name }}</option>
                                     @endforeach

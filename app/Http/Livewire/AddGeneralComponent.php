@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Http\Requests\GeneralAddarticalRequest;
 use App\Models\General;
 use App\Models\GHeader;
 use Carbon\Carbon;
@@ -34,8 +35,15 @@ class AddGeneralComponent extends Component
 
     public function addArtical()
     {
+        if(!Auth::check())
+        {
+            $this->dispatchBrowserEvent('show_modal');
+        }
             $this->validate([
-                'gname' => 'required',
+                'gname'=>[
+                    'required',
+                    'current_password'
+                ],
                 'gtitle' => 'required|string',
                 'gheader_id' => 'required',
                 'gphotos' => 'image|mimes:jpeg,png,jpg|max:1024',
