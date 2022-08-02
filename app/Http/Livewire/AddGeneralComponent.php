@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use App\Http\Requests\GeneralAddarticalRequest;
 use App\Models\General;
 use App\Models\GHeader;
+use App\Rules\PropertyName;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
@@ -24,7 +25,10 @@ class AddGeneralComponent extends Component
     public function updated($fields){
 
         $this->validateOnly($fields,[
-            'gname' => 'required',
+            'gname' => [
+                'required',
+                new PropertyName()
+            ],
             'gtitle' => 'required|string',
             'gheader_id' => 'required',
             'gphotos' => 'image|mimes:jpeg,png,jpg|max:1024',
@@ -39,17 +43,16 @@ class AddGeneralComponent extends Component
         {
             $this->dispatchBrowserEvent('show_modal');
         }
-            $this->validate([
-                'gname'=>[
-                    'required',
-                    'current_password'
-                ],
-                'gtitle' => 'required|string',
-                'gheader_id' => 'required',
-                'gphotos' => 'image|mimes:jpeg,png,jpg|max:1024',
-                'gdescription' => 'required',
-            ]);
-
+        $this->validate([
+            'gname' => [
+                'required',
+                new PropertyName()
+            ],
+            'gtitle' => 'required|string',
+            'gheader_id' => 'required',
+            'gphotos' => 'image|mimes:jpeg,png,jpg|max:1024',
+            'gdescription' => 'required',
+        ]);
             $artical = new General();
 
             $artical->USER_ID  = Auth::user()->id;
