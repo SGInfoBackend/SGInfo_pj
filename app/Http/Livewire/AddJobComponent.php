@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\Job;
 use App\Models\JobTypeOfRole;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class AddJobComponent extends Component
@@ -36,6 +37,11 @@ class AddJobComponent extends Component
 
     public function storeJob()
     {
+        if(!Auth::check())
+        {
+            $this->dispatchBrowserEvent('show_modal');
+        }
+
         $this->validate([
             'job_title' => 'required',
             'company' => 'required',
