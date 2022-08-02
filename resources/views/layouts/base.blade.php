@@ -305,6 +305,9 @@
             $('#room').hide();
         })
         window.addEventListener('hide_modal', event => {
+            $('#job').hide();
+        })
+        window.addEventListener('hide_modal', event => {
             $('#article').hide();
         })
         window.addEventListener('hide_modal', event => {

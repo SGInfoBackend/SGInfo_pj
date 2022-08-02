@@ -1,11 +1,6 @@
 <div class="main">
-    <form wire:submit.prevent='storeJob' class="w3-container first">
+    <form wire:submit.prevent='storeJob' class="w3-container first" enctype="multipart/form-data">
         <h1 class="modal-h1">JOB UPLOAD FORM</h1>
-        @if (Session::has('success_message'))
-            <div class="alert alert-success">
-                {{ Session::get('success_message') }}
-            </div>
-        @endif
         <div class="userInput">
             <div class="modal-div">
                 <label for="" class="modal-label">JOB TITLE</label> <br>
@@ -45,7 +40,18 @@
             <div class="modal-div">
                 <label for="" class="modal-label">JOB LOCATION</label> <br>
                 <input class="modal-input" type="text" wire:model='job_location'>
-                @error('job_loaction') <p class="text-danger">{{ $message }}</p> @enderror
+                @error('job_location') <p class="text-danger">{{ $message }}</p> @enderror
+            </div>
+            <div class="modal-div">
+                <label for="" class="modal-label">EXP LEVEL</label> <br>
+                <select name="" id="" class="modal-select" wire:model='exp_level'>
+                    <option value="" selected disabled class="modal-option">Choose Level</option>
+                    <option value="Fresher/Entry" class="modal-option-room">Fresher/Entry</option>
+                    <option value="Manager" class="modal-option-room">Manager</option>
+                    <option value="Director Above" class="modal-option-room">Director Above</option>
+                    <option value="1year_Exp & Above" class="modal-option-room">1year_Exp & Above</option>
+                </select>
+                @error('exp_level') <p class="text-danger">{{ $message }}</p> @enderror
             </div>
             <div class="modal-div">
                 <label for="" class="modal-label">DESCRIPTION</label> <br>
