@@ -1,41 +1,36 @@
 <div class="main">
     <form class="w3-container first" wire:submit.prevent="addArtical" enctype="multipart/form-data" >
-        <h1 class="modal-h1">ARTICLE UPLOAD FORM</h1>
-        <div class="userInput">
-            <div class="modal-div">
-                <label for="" class="modal-label">JOURNALIST NAME</label> <br>
-                <input class="modal-input" type="text" wire:model="gname">
-                @error('gname') <p class="text-danger">{{ $message }}</p> @enderror
-            </div>
-            <div class="modal-div">
-                <label for="" class="modal-label">NEWS TITLE</label> <br>
-                <input class="modal-input" type="text" wire:model="gtitle">
-                @error('gtitle') <p class="text-danger">{{ $message }}</p> @enderror
-            </div>
-            <div class="modal-div">
-                <label for="" class="modal-label">NEWS TYPE</label> <br>
-                <select wire:model="gheader_id" class="modal-select">
-                    {{-- <option value="" selected disabled class="modal-option">Choose news type</option> --}}
+         <h1 class="modal-h1">ARTICLE UPLOAD FORM</h1>
+         <div class="userInput">
+
+             <x-form.label><x-slot name="name">Journalist Name</x-slot></x-form.label>
+             <x-form.input><x-slot name="input" wire:model="gname"></x-slot></x-form.input>
+             <x-form.alert for="gname" />
+
+             <x-form.label><x-slot name="name">News Title</x-slot></x-form.label>
+             <x-form.input><x-slot name="input" wire:model="gtitle"></x-slot></x-form.input>
+             <x-form.alert for="gtitle" />
+
+             <x-form.label><x-slot name="name">News Type</x-slot></x-form.label>
+             <x-form.select>
+                <x-slot name="select" wire:model="gheader_id">
                     @foreach ($gheaders as $gheader)
                         <option value="{{ $gheader->GHeader_ID }}">{{ $gheader->GHeader_Name }}</option>
                     @endforeach
-                </select>
-                @error('gheader_id') <p class="text-danger">{{ $message }}</p> @enderror
-            </div>
-            <div class="modal-div">
-                <label for="" class="modal-label">PLEASE UPLOAD PHOTOS</label> <br>
-                <input class="modal-input" type="file" wire:model="gphotos">
-                @if ($gphotos)
-                    <img src="{{ $gphotos->temporaryUrl() }}" style="width:50px;height:50px">
-                @endif
-                @error('gphotos') <p class="text-danger">{{ $message }}</p> @enderror
-            </div>
-            <div class="modal-div">
-                <label for="" class="modal-label">DESCRIPTION</label> <br>
-                <textarea class="modal-input" name="" id="" cols="30" rows="10" wire:model="gdescription"></textarea>
-                @error('gdescription') <p class="text-danger">{{ $message }}</p> @enderror
-            </div>
-            <button class="uploadBtn" type="submit">UPLOAD</button>
-        </div>
-    </form>
-</div>
+                </x-slot>
+            </x-form.select>
+            <x-form.alert for="gheader_id"/>
+
+            <x-form.label><x-slot name="name">PLEASE UPLOAD PHOTOS</x-slot></x-form.label>
+            <x-form.input><x-slot name="input" type="file" wire:model="gphotos"></x-slot></x-form.input>
+            <x-form.alert for="gphotos"/>
+
+            <x-form.label><x-slot name="name">DESCRIPTION</x-slot></x-form.label>
+            <x-form.textarea><x-slot name="description" cols="30" rows="10" wire:model="gdescription"></x-slot></x-form.textarea>
+            <x-form.alert for="gdescription"/>
+
+            <x-button />
+
+         </div>
+     </form>
+ </div>
