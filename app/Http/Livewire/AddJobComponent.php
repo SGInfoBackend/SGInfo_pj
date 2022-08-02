@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\Job;
 use App\Models\JobTypeOfRole;
+use App\Rules\PropertyName;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
@@ -23,6 +24,10 @@ class AddJobComponent extends Component
     public function updated($fields)
     {
         $this->validateOnly($fields, [
+            // 'job_title' => [
+            //     'required',
+            //     new PropertyName()
+            // ],
             'job_title' => 'required',
             'company' => 'required',
             'salary' => 'required|numeric',
@@ -43,6 +48,10 @@ class AddJobComponent extends Component
         }
 
         $this->validate([
+            // 'job_title' => [
+            //     'required',
+            //     new PropertyName()
+            // ],
             'job_title' => 'required',
             'company' => 'required',
             'salary' => 'required|numeric',
@@ -56,7 +65,7 @@ class AddJobComponent extends Component
 
         $jobs = new Job();
         $jobs->Job_title = $this->job_title;
-        $jobs->Typeofrole_ID = $this->job_type_role;
+        dd($jobs->Job_title);
         $jobs->Company = $this->company;
         $jobs->SALARY = $this->salary;
         $jobs->Job_location = $this->job_location;
@@ -64,7 +73,9 @@ class AddJobComponent extends Component
         $jobs->Company_URL = $this->company_url_link;
         $jobs->exp_level = $this->exp_level;
         $jobs->Job_Description = $this->job_description;
+        $jobs->Typeofrole_ID = $this->job_type_role;
         $jobs->save();
+
         session()->flash('success_message', 'Job Information has been added successfully!');
         $this->dispatchBrowserEvent('hide_form');
     }
