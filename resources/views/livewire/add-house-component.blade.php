@@ -12,7 +12,6 @@
                 <div class="w3-center"><br>
                     <span onclick="document.getElementById('room').style.display='none'" class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
                 </div>
-
                 @include('livewire.components.add-house-form')
             </div>
         </div>
