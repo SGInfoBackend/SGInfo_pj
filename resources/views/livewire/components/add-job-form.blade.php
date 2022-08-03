@@ -2,11 +2,50 @@
     <form wire:submit.prevent='storeJob' class="w3-container first" enctype="multipart/form-data">
         <h1 class="modal-h1">JOB UPLOAD FORM</h1>
         <div class="userInput">
-            <div class="modal-div">
+
+            <x-form.label><x-slot name="name">JOB TITLE</x-slot></x-form.label>
+            <x-form.input><x-slot name="input" wire:model="job_title"></x-slot></x-form.input>
+            <x-form.alert for="job_title" />
+
+            <x-form.label><x-slot name="name">COMPANY NAME</x-slot></x-form.label>
+            <x-form.input><x-slot name="input" wire:model="company"></x-slot></x-form.input>
+            <x-form.alert for="company" />
+
+            <x-form.label><x-slot name="name">COMPANY URL</x-slot></x-form.label>
+            <x-form.input><x-slot name="input" wire:model="company_url_link"></x-slot></x-form.input>
+            <x-form.alert for="company_url_link" />
+
+            <x-form.label><x-slot name="name">TYPE OF ROLE</x-slot></x-form.label>
+             <x-form.select>
+                <x-slot name="select" wire:model="job_type_role">
+                    <option value="" selected disabled class="modal-option">Choose role</option>
+                    @foreach ($typeofroles as $typeofrole)
+                        <option value="{{ $typeofrole->Typeofrole_ID }}" class="modal-option">{{ $typeofrole->Typeofrole_Name }}</option>
+                    @endforeach
+                </x-slot>
+            </x-form.select>
+            <x-form.alert for="job_type_role"/>
+
+            <x-form.label><x-slot name="name">SALARY</x-slot></x-form.label>
+            <x-form.input><x-slot name="input" wire:model="salary"></x-slot></x-form.input>
+            <x-form.alert for="salary" />
+
+            <x-form.label><x-slot name="name">JOB LOCATION</x-slot></x-form.label>
+            <x-form.input><x-slot name="input" wire:model="job_location"></x-slot></x-form.input>
+            <x-form.alert for="job_location" />
+
+            <x-form.label><x-slot name="name">DESCRIPTION</x-slot></x-form.label>
+            <x-form.textarea><x-slot name="description" cols="30" rows="10" wire:model="job_description"></x-slot></x-form.textarea>
+            <x-form.alert for="job_description"/>
+
+            <x-button />
+
+            {{-- <div class="modal-div">
                 <label for="" class="modal-label">JOB TITLE</label> <br>
                 <input class="modal-input" type="text" wire:model='job_title'>
                 @error('job_title') <p class="text-danger">{{ $message }}</p> @enderror
             </div>
+
             <div class="modal-div">
                 <label for="" class="modal-label">COMPANY NAME</label> <br>
                 <input class="modal-input" type="text" wire:model='company'>
@@ -58,7 +97,7 @@
                 <textarea class="modal-input" name="" id="" cols="30" rows="10" wire:model='job_description'></textarea>
                 @error('job_description') <p class="text-danger">{{ $message }}</p> @enderror
             </div>
-            <button type="submit" class="uploadBtn">UPLOAD</button>
+            <button type="submit" class="uploadBtn">UPLOAD</button> --}}
         </div>
     </form>
 </div>
