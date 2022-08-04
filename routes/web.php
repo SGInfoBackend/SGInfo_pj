@@ -81,3 +81,5 @@ Route::get('auth/facebook/callback',[AuthSocialComponent::class, 'handleFacebook
 // Github login
 Route::get('login/github',[AuthSocialComponent::class, 'redirectToGithub'])->name('githubauth');
 Route::get('auth/github/callback',[AuthSocialComponent::class, 'handleGithubCallback']);
+
+// Route::resource('login',[AuthSocialComponent::class]);

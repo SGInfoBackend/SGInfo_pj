@@ -62,5 +62,11 @@
             $('#article').hide();
             $('#login').css('display', 'block');
         })
+        document.querySelector('#register-form').addEventListener('submit', (e) => {
+        e.preventDefault();
+        fetch("{{ route('register')}}", {
+            method: 'post'
+        }).then((res) => console.log(res));
+        });
     </script>
   @endpush()
