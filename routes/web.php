@@ -13,6 +13,7 @@ use App\Http\Livewire\AuthSocialComponent;
 use App\Http\Livewire\GeneralComponent;
 use App\Http\Livewire\GeneralDetailComponent;
 use App\Http\Livewire\JobDetailsComponent;
+use App\Http\Livewire\RegistrationLoginComponent;
 use App\Http\Livewire\RoomComponent;
 use App\Http\Livewire\RoomDetailComponent;
 use App\Http\Livewire\User\UserDashboardComponent;
@@ -31,11 +32,18 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+// Route::get('login', [AuthController::class, 'index'])->name('login');
+// Route::post('post-login', [AuthController::class, 'postLogin'])->name('login.post');
+// Route::get('registration', [AuthController::class, 'registration'])->name('register');
+// Route::post('post-registration', [AuthController::class, 'postRegistration'])->name('register.post');
+// Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 
 // Route::get('/', function () {
 //     return view('welcome');
 // });
 Route::get('/', HomeComponent::class)->name('home');
+
+Route::get('/registration', RegistrationLoginComponent::class)->name('registrationlogin');
 // For General
 Route::get('/general', GeneralComponent::class)->name('general');
 Route::get('/detailarticle/{General_ID}', GeneralDetailComponent::class)->name('detailarticle');

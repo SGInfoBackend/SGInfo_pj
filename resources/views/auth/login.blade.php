@@ -46,6 +46,6 @@
         </form>
     </x-jet-authentication-card>
 </x-guest-layout> --}}
-{{-- <x-base-layout>
+<x-base-layout>
     <x-partials.login />
-</x-base-layout> --}}
+</x-base-layout>
