@@ -37,7 +37,6 @@
     <p class="footer-p footer-p-last">ITVisionHub SGcamp4@2022 | All Rights Reserved</p>
   </div>
 
-
   <script src="{{ asset('js/main.js')}}"></script>
   <script src="{{ asset('js/table.js')}}"></script>
   {{-- noUiSlider cdn --}}
@@ -54,7 +53,7 @@
             $('#article').hide();
         })
         window.addEventListener('hide_modal', event => {
-            $('#staticBackdrop').hide();
+            $('#register').hide();
         })
         window.addEventListener('show_modal', event => {
             $('#room').hide();

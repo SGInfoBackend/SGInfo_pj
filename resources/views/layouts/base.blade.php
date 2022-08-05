@@ -11,9 +11,11 @@
 <!-- start nav -->
 <x-partials.nav />
 <!-- end nav -->
-
+{{--
 <x-partials.login />
-<x-partials.register />
+<x-partials.register /> --}}
+
+@livewire('registration-login-component')
 
 @livewire('add-house-component')
 @livewire('add-general-component')
