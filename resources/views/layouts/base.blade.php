@@ -5,6 +5,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="csrf-token" content="{{ csrf_token() }}" />
   <title>SGInfo</title>
   <link rel="stylesheet" href="{{ asset('css/home_page.css')}}">
   <link rel="stylesheet" href="{{ asset('css/general_info.css')}}">
@@ -185,63 +186,66 @@
             </div>
         </div>
     </div>
-    <div class="w3-container" wire:ignore>
-        <div id="register" class="w3-modal">
-            <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
-                <div class="w3-center"><br>
-                    <span onclick="document.getElementById('register').style.display='none'" class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
-                </div>
+    <div class="w3-container">
+      <div id="register" class="w3-modal" wire:ignore.self>
+          <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
+              <div class="w3-center"><br>
+                  <span onclick="document.getElementById('register').style.display='none'" class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
+              </div>
 
-                <div class="main">
-                    <form class="w3-container first" method="POST" action="{{ route('register')}}">
-                        @csrf
-                        <h1 class="modal-h1">Sign up</h1>
-                        <h4 class="modal-h4">Search everything on your own time from SG Info</h4>
-                        <div class="userInput">
-                            <div class="modal-div">
-                                <label for="" class="modal-label">FULL NAME</label> <br>
-                                <input class="modal-input" name="name" type="text" placeholder="Enter fullname">
-                            </div>
-                            <div class="modal-div">
-                                <label for="" class="modal-label">EMAIL</label> <br>
-                                <input class="modal-input" name="email" type="text" placeholder="Enter email">
-                            </div>
-                            <div class="modal-div">
-                                <label for="" class="modal-label">PASSWORD</label> <br>
-                                <input class="modal-input" name="password" type="password" placeholder="Enter password">
-                            </div>
-                            <div class="modal-div">
-                                <label for="" class="modal-label">COMFIRMED PASSWORD</label> <br>
-                                <input class="modal-input" name="password_confirmation" type="password" placeholder="Confirm your password">
-                            </div>
-                            <p class="modal-p">Between 8 and 72 characters</p>
-                            <button class="uploadBtn" type="submit">REGISTER</button>
-                        </div>
-                    </form>
-                        <div class="otherLogin">
-                            <p class="other-p">(OR)</p>
-                            <div class="google">
-                                <img class="other-img" src="images/login_register/google.svg" alt="">
-                                <h2 class="other-h2"><a class="other-a" href="">Continue with Google</a></h2>
-                            </div>
-                            <div class="facebook">
-                                <img class="other-img" src="images/login_register/facebook.svg" alt="">
-                                <h2 class="other-h2"><a href="" class="other-a">Continue with Facebook</a> </h2>
-                            </div>
-                            <div class="other-login">Already a member? <a href="" class="other-login-a">Log in</a></div>
-                        </div>
+              <div class="main">
+                  <form class="w3-container first" enctype="multipart/form-data">
+                      <h1 class="modal-h1">Sign up</h1>
+                      <h4 class="modal-h4">Search everything on your own time from SG Info</h4>
+                      <div class="userInput">
+                          <div class="modal-div">
+                              <label for="" class="modal-label">FULL NAME</label> <br>
+                              <input class="modal-input" name="name" id="name" type="text" placeholder="Enter fullname" wire:model="name">
+                              <span class="text-danger" id="name_error"></span>
+                          </div>
+                          <div class="modal-div">
+                              <label for="" class="modal-label">EMAIL</label> <br>
+                              <input class="modal-input" name="email" id="email" type="text" placeholder="Enter email" wire:model="email">
+                              <span class="text-danger" id="email_error"></span>
+                          </div>
+                          <div class="modal-div">
+                              <label for="" class="modal-label">PASSWORD</label> <br>
+                              <input class="modal-input" name="password" id="password"  type="password" placeholder="Enter password" wire:model="password">
+                              <span class="text-danger" id="password_error"></span>
+                          </div>
+                          <div class="modal-div">
+                              <label for="" class="modal-label">COMFIRMED PASSWORD</label> <br>
+                              <input class="modal-input" name="password_confirmation" id="password_confirmation"  type="password" placeholder="Confirm your password" wire:model="password_confirmation">
+                              <span class="text-danger" id="password_confirmation_error"></span>
+                          </div>
+                          <button class="uploadBtn" id="register-submit">REGISTER</button>
+                      </div>
+                  </form>
+                      <div class="otherLogin">
+                          <p class="other-p">(OR)</p>
+                          <div class="google">
+                              <img class="other-img" src="images/login_register/google.svg" alt="">
+                              <h2 class="other-h2"><a class="other-a" href="">Continue with Google</a></h2>
+                          </div>
+                          <div class="facebook">
+                              <img class="other-img" src="images/login_register/facebook.svg" alt="">
+                              <h2 class="other-h2"><a href="" class="other-a">Continue with Facebook</a> </h2>
+                          </div>
+                          <div class="other-login">Already a member? <a href="" class="other-login-a">Log in</a></div>
+                      </div>
 
-                        <div class="term&condition">
-                            <div class="line"></div>
-                            <div class="term">
-                                <p class="term-p"><i class="fa-solid fa-square-check"></i>  I accept Coursera's <a href="" class="term-a">Terms of Use</a> and <a href="" class="term-a">Privacy Notice</a>. Having trouble logging in? <a href="">Learner help center</a></p>
-                                <p class="term-p">This site is protected by reCAPTCHA Enterprise and the Google <a href="" class="term-a">Privacy Policy</a> and <a href="" class="term-a">Terms of Service apply</a>.</p>
-                            </div>
-                        </div>
-                </div>
-            </div>
-        </div>
-    </div>
+                      <div class="term&condition">
+                          <div class="line"></div>
+                          <div class="term">
+                              <p class="term-p"><i class="fa-solid fa-square-check"></i>  I accept Coursera's <a href="" class="term-a">Terms of Use</a> and <a href="" class="term-a">Privacy Notice</a>. Having trouble logging in? <a href="">Learner help center</a></p>
+                              <p class="term-p">This site is protected by reCAPTCHA Enterprise and the Google <a href="" class="term-a">Privacy Policy</a> and <a href="" class="term-a">Terms of Service apply</a>.</p>
+                          </div>
+                      </div>
+              </div>
+          </div>
+      </div>
+  </div>
+    {{-- @livewire('register-component') --}}
     @livewire('add-house-component')
     @livewire('add-general-component')
     @livewire('add-job-component')
@@ -298,9 +302,49 @@
 	  <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.6.0/nouislider.min.js" integrity="sha512-1mDhG//LAjM3pLXCJyaA+4c+h5qmMoTc7IuJyuNNPaakrWT9rVTxICK4tIizf7YwJsXgDC2JP74PGCc7qxLAHw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
+    
     @livewireScripts()
-    <script>
+      <script type="text/javascript">
+            $(document).ready(function(){
+              $('#register-submit').on('click',function(e){
+                e.preventDefault();
+                var name = $('#name').val();               
+                var password = $('#password').val();
+                var confirmed_password = $('#password_confirmation').val();
+                if(password != confirmed_password)
+                {
+                  $('#password_confirmation_error').text("Password does not match!");
+                }
+                
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                  });
+                $.ajax({
+                    url: "{{ url('register') }}",
+                    method: 'post',
+                    data: {
+                      name: $('#name').val(),
+                      email: $('#email').val(),
+                      password: $('#password').val(),
+                      password_confirmation: $('#password_confirmation').val()
+                    },
+                    success: function(data){
+                      location.reload();
+                      $('#register').hide();
+                    },
+                    error: function(error){
+                      $('#name_error').text(error.responseJSON.errors.name);
+                      $('#email_error').text(error.responseJSON.errors.email);
+                      $('#password_error').text(error.responseJSON.errors.password);
+                      $('#password_confirmation_error').text(error.responseJSON.errors.password_confirmation);
+                    }
+                    });
+                });
+              });
+        </script>
+      <script>
         window.addEventListener('hide_modal', event => {
             $('#room').hide();
         })

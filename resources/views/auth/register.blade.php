@@ -75,21 +75,33 @@
                             <div class="modal-div">
                                 <label for="" class="modal-label">FULL NAME</label> <br>
                                 <input class="modal-input" name="name" type="text" placeholder="Enter fullname">
+                                @error('name')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
                             <div class="modal-div">
                                 <label for="" class="modal-label">EMAIL</label> <br>
                                 <input class="modal-input" name="email" type="text" placeholder="Enter email">
+                                @error('email')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
                             <div class="modal-div">
                                 <label for="" class="modal-label">PASSWORD</label> <br>
                                 <input class="modal-input" name="password" type="password" placeholder="Enter password">
+                                @error('password')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
                             <div class="modal-div">
                                 <label for="" class="modal-label">COMFIRMED PASSWORD</label> <br>
                                 <input class="modal-input" name="password_confirmation" type="password" placeholder="Confirm your password">
+                                @error('password_confirmation')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
                             <p class="modal-p">Between 8 and 72 characters</p>
-                            <button class="uploadBtn" type="submit">REGISTER</button>
+                            <button class="uploadBtn" type="submit" onclick="document.getElementById('register').style.display='block'">REGISTER</button>
                         </div>
                     </form>
                         <div class="otherLogin">
