@@ -64,6 +64,7 @@ class AddJobComponent extends Component
         ]);
 
         $jobs = new Job();
+        $jobs->USER_ID = Auth::user()->id;
         $jobs->Job_title = $this->job_title;
         dd($jobs->Job_title);
         $jobs->Company = $this->company;
@@ -76,8 +77,8 @@ class AddJobComponent extends Component
         $jobs->Typeofrole_ID = $this->job_type_role;
         $jobs->save();
 
-        session()->flash('success_message', 'Job Information has been added successfully!');
-        $this->dispatchBrowserEvent('hide_form');
+        session()->flash('message', 'Job Information has been added successfully!');
+        $this->dispatchBrowserEvent('hide_modal');
     }
 
     public function render()

@@ -10,7 +10,7 @@ class Job extends Model
     use HasFactory;
     protected $table = "sg_info_job";
 
-    protected $fillable = ['Job_title', 'Company', 'SALARY', 'Job_location', 'Category_job', 'Category_job', 'Company_URL', 'Job_Description'];
+    protected $fillable = ['Job_title', 'Company', 'SALARY', 'Job_location', 'Category_job', 'Category_job', 'Company_URL', 'Job_Description', 'exp_level'];
 
     public function typeofrole()
     {
