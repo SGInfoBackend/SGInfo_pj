@@ -12,8 +12,10 @@
 <!-- start nav -->
 <x-partials.nav />
 <!-- end nav -->
-<x-partials.register />
-<x-partials.login />
+
+    <x-partials.register />
+    <x-partials.login />
+
     @livewire('add-house-component')
     @livewire('add-general-component')
     @livewire('add-job-component')
@@ -21,11 +23,9 @@
     {{$slot}}
 
 
-    <!-- footer -->
     <footer class="section-footer">
         <x-partials.footer />
     </footer>
-    <!-- end of footer -->
 
     @livewireScripts()
 

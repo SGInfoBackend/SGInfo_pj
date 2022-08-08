@@ -14,19 +14,12 @@ class RegistrationLoginComponent extends Component
     public $users, $email, $password, $name,$confirmPassword;
     // public $registerForm = false;
 
-    public function rules(){
-        return[
-            'name' => ['required', new UserExists],
-            'email' => ['required', new UserExists],
-            'password' => ['required',new UserExists],
-            'confirmPassword' => ['required','same:password'],
-        ];
-    }
-    // public $messages = [
-    //     'name.min' => 'Your name must be :min ',
-    //     'email.unique' => 'This user is already exists',
-    //     'password.min' => 'Your password must be min :min ',
-    // ];
+    public $rules =[
+                    'name' => 'required',
+                    'email' => 'required',
+                    'password' => 'required',
+                    // 'confirmPassword' => 'required','same:password',
+                    ];
 
 
     private function resetInputFields(){
@@ -41,7 +34,7 @@ class RegistrationLoginComponent extends Component
 
         if(Auth::attempt(array('email' => $this->email, 'password' => $this->password))){
             session()->flash('message', 'Post successfully updated.');
-                return redirect()->back();
+                return redirect()->route('home');
         }else{
             session()->flash('error', 'email and password are wrong.');
         }
@@ -55,6 +48,15 @@ class RegistrationLoginComponent extends Component
         return redirect('login-register');
     }
 
+    // public function rules(){
+    //     return[
+    //         'name' => ['required', new UserExists],
+    //         'email' => ['required', new UserExists],
+    //         'password' => ['required',new UserExists],
+    //         'confirmPassword' => ['required','same:password'],
+    //     ];
+    // }
+
     public function updated($fields)
     {
         $this->validateOnly($fields);
@@ -62,7 +64,7 @@ class RegistrationLoginComponent extends Component
 
     public function registerStore(User $user)
     {
-        // $this->validate();
+        $this->validate();
 
         $this->resetInputFields();
 
