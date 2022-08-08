@@ -8,12 +8,12 @@
 
 <body>
 
-    <!-- start nav -->
-    <x-partials.nav />
-    <!-- end nav -->
 
-    <x-partials.login />
-    <x-partials.register />
+<!-- start nav -->
+<x-partials.nav />
+<!-- end nav -->
+<x-partials.register />
+<x-partials.login />
 
     @livewire('add-house-component')
     @livewire('add-general-component')
@@ -25,12 +25,10 @@
     <footer class="section-footer">
         <x-partials.footer />
     </footer>
-    <!-- end of footer -->
 
     @livewireScripts()
 
     @stack('scripts')
-
 
 </body>
 </html>
