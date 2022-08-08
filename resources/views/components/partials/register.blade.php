@@ -6,29 +6,41 @@
                     <span onclick="document.getElementById('register').style.display='none'" class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
                 </div>
                 <div class="main">
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+
+>>>>>>> 0872be12f70c38d3a25835c226fd3c244e22163a
+>>>>>>> tw
                     <form class="w3-container first" enctype="multipart/form-data" >
                         <h1 class="modal-h1">Sign up</h1>
                         <h4 class="modal-h4">Search everything on your own time from SG Info</h4>
                         <div class="userInput">
                             <div class="modal-div">
+<<<<<<< HEAD
                                 <label for="" class="modal-label">FULL NAME</label> <br>
 
                                 <input class="modal-input" id="name" type="text"  placeholder="Your name is required"  >
+=======
+                                <x-form.label name="Full Name"/>
+                                <x-form.input id="name" type="text"  placeholder="Your name is required"/>
+>>>>>>> tw
                                 <x-form.alert  class="text-danger" id="name_error"/>
                             </div>
                             <div class="modal-div">
-                                <label for="" class="modal-label">EMAIL</label> <br>
-                                <input class="modal-input" id="email" type="email"  placeholder="Enter email">
+                                <x-form.label name="Email"/>
+                                <x-form.input id="email" type="email"  placeholder="Enter email"/>
                                 <x-form.alert class="text-danger" id="email_error" />
                             </div>
                             <div class="modal-div">
-                                <label for="" class="modal-label">PASSWORD</label> <br>
-                                <input class="modal-input" id="password" type="password" placeholder="Enter password">
+                                <x-form.label name="Password"/>
+                                <x-form.input id="password" type="password" placeholder="Enter password"/>
                                 <x-form.alert class="text-danger" id="password_error"/>
                             </div>
                             <div class="modal-div">
-                                <label for="" class="modal-label">COMFIRMED PASSWORD</label> <br>
-                                <input class="modal-input" id="password_confirmation"  type="password" placeholder="Confirm your password">
+                                <x-form.label name="Confirm Password"/>
+                                <x-form.input id="password_confirmation"  type="password" placeholder="Confirm your password"/>
                                 <x-form.alert class="text-danger" id="password_confirmation_error"/>
                             </div>
                             <p class="modal-p">Between 8 and 72 characters</p>
@@ -39,11 +51,11 @@
                         <p class="other-p">(OR)</p>
                         <div class="google">
                             <img class="other-img" src="images/login_register/google.svg" alt="">
-                            <h2 class="other-h2"><a class="other-a" href="">Continue with Google</a></h2>
+                            <h2 class="other-h2"><a class="other-a" href="{{ route('googleauth') }}">Continue with Google</a></h2>
                         </div>
                         <div class="facebook">
                             <img class="other-img" src="images/login_register/facebook.svg" alt="">
-                            <h2 class="other-h2"><a href="" class="other-a">Continue with Facebook</a> </h2>
+                            <h2 class="other-h2"><a href="{{ route('facebookauth') }}" class="other-a">Continue with Facebook</a> </h2>
                         </div>
                         <div class="other-login">Already a member? <a href="" class="other-login-a">Log in</a></div>
                     </div>
