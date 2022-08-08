@@ -51,7 +51,7 @@ class UserExists implements Rule
     public function message()
     {
         return [
-            'email'=>'This user already exists!',
+            'email'=>'This email already exists!',
             'password'=>'Your password must be at least 8!',
             'name'=>'Your name must be string!',
         ];

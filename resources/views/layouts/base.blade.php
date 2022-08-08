@@ -11,9 +11,9 @@
 <!-- start nav -->
 <x-partials.nav />
 <!-- end nav -->
-{
-@livewire('registration-login-component')
 
+    <x-partials.register />
+    <x-partials.login />
 
     @livewire('add-house-component')
     @livewire('add-general-component')
@@ -22,11 +22,9 @@
     {{$slot}}
 
 
-    <!-- footer -->
     <footer class="section-footer">
         <x-partials.footer />
     </footer>
-    <!-- end of footer -->
 
     @livewireScripts()
 
