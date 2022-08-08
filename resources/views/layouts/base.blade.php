@@ -12,15 +12,9 @@
 <!-- start nav -->
 <x-partials.nav />
 <!-- end nav -->
-<<<<<<< HEAD
-
-    <x-partials.register />
-    <x-partials.login />
-
-=======
 <x-partials.register />
 <x-partials.login />
->>>>>>> 69dcfa6a770a8c872cf45e32f4b04255f0cc6d0b
+
     @livewire('add-house-component')
     @livewire('add-general-component')
     @livewire('add-job-component')
@@ -36,21 +30,21 @@
 
     @stack('scripts')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    
+
     @livewireScripts()
       <script type="text/javascript">
             $(document).ready(function(){
               $('#register-submit').on('click',function(e){
                 alert('hello');
                 e.preventDefault();
-                var name = $('#name').val();               
+                var name = $('#name').val();
                 var password = $('#password').val();
                 var confirmed_password = $('#password_confirmation').val();
                 if(password != confirmed_password)
                 {
                   $('#password_confirmation_error').text("Password does not match!");
                 }
-                
+
                 $.ajaxSetup({
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
