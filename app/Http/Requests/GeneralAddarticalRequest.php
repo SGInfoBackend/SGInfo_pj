@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\PropertyName;
 use Illuminate\Foundation\Http\FormRequest;
 
 class GeneralAddarticalRequest extends FormRequest
@@ -24,21 +25,24 @@ class GeneralAddarticalRequest extends FormRequest
     public function rules()
     {
         return [
-            //
-            'gname' => 'required',
+            'gname'=>[
+                'required',
+                new PropertyName()
+            ],
+            // 'gname' => 'required|string',
             'gtitle' => 'required|string',
             'gheader_id' => 'required',
-            'gphotos' => 'image|mimes:jpeg,png,jpg|max:1024',
+            'gphotos' => 'required|image|mimes:jpeg,png,jpg|max:1024',
             'gdescription' => 'required',
         ];
     }
-    public function updated($fields){
-        $this->validateOnly($fields,[
-            'gname' => 'required',
-            'gtitle' => 'required|string',
-            'gheader_id' => 'required',
-            'gphotos' => 'image|mimes:jpeg,png,jpg|max:1024',
-            'gdescription' => 'required',
-        ]);
+    public function messages(){
+        return [
+            'gname.required' => 'Name is required',
+            'gname.string' => 'Name must be string',
+            'gtitle.required' => 'Post title is required',
+            'gtitle.string' => 'Title must be string',
+        ];
     }
+
 }

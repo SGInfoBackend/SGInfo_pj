@@ -37,4 +37,5 @@ class PropertyName implements Rule
     {
         return 'Name lenght is not more than 20';
     }
+
 }
