@@ -11,27 +11,26 @@
 <!-- start nav -->
 <x-partials.nav />
 <!-- end nav -->
-{{--
-<x-partials.login />
-<x-partials.register /> --}}
-
+{
 @livewire('registration-login-component')
 
-@livewire('add-house-component')
-@livewire('add-general-component')
-@livewire('add-job-component')
 
-{{$slot}}
+    @livewire('add-house-component')
+    @livewire('add-general-component')
+    @livewire('add-job-component')
 
-<!-- footer -->
-<footer class="section-footer">
-    <x-partials.footer />
-</footer>
-<!-- end of footer -->
+    {{$slot}}
 
-@livewireScripts()
 
-@stack('scripts')
+    <!-- footer -->
+    <footer class="section-footer">
+        <x-partials.footer />
+    </footer>
+    <!-- end of footer -->
+
+    @livewireScripts()
+
+    @stack('scripts')
 
 
 </body>
