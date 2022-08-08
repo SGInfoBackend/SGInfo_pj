@@ -7,23 +7,13 @@ use Illuminate\Contracts\Validation\Rule;
 
 class UserExists implements Rule
 {
-    /**
-     * Create a new rule instance.
-     *
-     * @return void
-     */
+    public $data = [];
+
     public function __construct()
     {
         //
     }
 
-    /**
-     * Determine if the validation rule passes.
-     *
-     * @param  string  $attribute
-     * @param  mixed  $value
-     * @return bool
-     */
     public function passes($attribute, $value)
     {
 
@@ -55,5 +45,11 @@ class UserExists implements Rule
             'password'=>'Your password must be at least 8!',
             'name'=>'Your name must be string!',
         ];
+    }
+
+    public function setData($data)
+    {
+        $this->data = $data;
+        return $this;
     }
 }

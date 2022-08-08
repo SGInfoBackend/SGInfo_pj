@@ -74,7 +74,6 @@
                password_confirmation: $('#password_confirmation').val()
             },
             success: function(data){
-                console.log(data);
               location.reload();
               $('#register').hide();
               },
