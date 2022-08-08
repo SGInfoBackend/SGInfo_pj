@@ -7,37 +7,35 @@
                 </div>
                 <div class="main">
                     {{-- <x-jet-validation-errors class="mb-4" style="color:red !important" /> --}}
-                    <form class="w3-container first" id="register-form" method="POST" wire:submit.prevent="registerStore">
+                    <form class="w3-container first" id="register-form" action="#" >
                         @csrf
                         <h1 class="modal-h1">Sign up</h1>
                         <h4 class="modal-h4">Search everything on your own time from SG Info</h4>
                         <div class="userInput">
                             <div class="modal-div">
                                 <label for="" class="modal-label">FULL NAME</label> <br>
-                                <input class="modal-input"  wire:model="name" type="text"  placeholder="Your name is required"  >
-                                <x-form.alert  for="name"/>
+                                <input class="modal-input"  wire:model="name" id="name" type="text"  placeholder="Your name is required"  >
+                                <x-form.alert  id="name_error"/>
                             </div>
 
                             <div class="modal-div">
                                 <label for="" class="modal-label">EMAIL</label> <br>
-                                <input class="modal-input"  wire:model="email" type="email"  placeholder="Enter email">
-                                <x-form.alert  for="email"/>
+                                <input class="modal-input"  wire:model="email" type="email" id="email"  placeholder="Enter email">
+                                <x-form.alert   id="email_error"/>
                             </div>
 
                             <div class="modal-div">
                                 <label for="" class="modal-label">PASSWORD</label> <br>
-                                <input class="modal-input" wire:model="password" type="password" placeholder="Enter password">
-                                <x-form.alert  for="password"/>
+                                <input class="modal-input" wire:model="password" type="password" id="password" placeholder="Enter password">
+                                <x-form.alert  for="password" id="password_error"/>
                             </div>
 
                             <div class="modal-div">
                                 <label for="" class="modal-label">COMFIRMED PASSWORD</label> <br>
-                                <input class="modal-input" wire:model="confirmPassword"  type="password" placeholder="Confirm your password">
-                                <x-form.alert  for="confirmPassword"/>
+                                <input class="modal-input" wire:model="confirmPassword"  type="password" id="password_confirmation" placeholder="Confirm your password">
+                                <x-form.alert  for="confirmPassword" id="password_confirmation_error"/>
                             </div>
-
-                            <p class="modal-p">Between 8 and 72 characters</p>
-                            <button id="register-click" class="uploadBtn" type="submit">REGISTER</button>
+                            <button id="register-click" class="uploadBtn" id="register-submit" type="button">REGISTER</button>
 
                         </div>
                     </form>

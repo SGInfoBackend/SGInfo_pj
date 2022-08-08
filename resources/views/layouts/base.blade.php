@@ -12,8 +12,8 @@
 <!-- start nav -->
 <x-partials.nav />
 <!-- end nav -->
-{
-@livewire('registration-login-component')
+<x-partials.register />
+<x-partials.login />
     @livewire('add-house-component')
     @livewire('add-general-component')
     @livewire('add-job-component')
@@ -36,6 +36,7 @@
       <script type="text/javascript">
             $(document).ready(function(){
               $('#register-submit').on('click',function(e){
+                alert('hello');
                 e.preventDefault();
                 var name = $('#name').val();               
                 var password = $('#password').val();
