@@ -6,7 +6,12 @@
                     <span onclick="document.getElementById('register').style.display='none'" class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
                 </div>
                 <div class="main">
+<<<<<<< HEAD
+=======
+
+>>>>>>> 0872be12f70c38d3a25835c226fd3c244e22163a
                     <form class="w3-container first" enctype="multipart/form-data" >
+
                         <h1 class="modal-h1">Sign up</h1>
                         <h4 class="modal-h4">Search everything on your own time from SG Info</h4>
                         <div class="userInput">
@@ -15,28 +20,23 @@
                                 <x-form.input id="name" type="text"  placeholder="Your name is required"/>
                                 <x-form.alert  class="text-danger" id="name_error"/>
                             </div>
-
                             <div class="modal-div">
                                 <x-form.label name="Email"/>
                                 <x-form.input id="email" type="email"  placeholder="Enter email"/>
                                 <x-form.alert class="text-danger" id="email_error" />
                             </div>
-
                             <div class="modal-div">
                                 <x-form.label name="Password"/>
                                 <x-form.input id="password" type="password" placeholder="Enter password"/>
                                 <x-form.alert class="text-danger" id="password_error"/>
                             </div>
-
                             <div class="modal-div">
                                 <x-form.label name="Confirm Password"/>
                                 <x-form.input id="password_confirmation"  type="password" placeholder="Confirm your password"/>
                                 <x-form.alert class="text-danger" id="password_confirmation_error"/>
                             </div>
-
                             <p class="modal-p">Between 8 and 72 characters</p>
                             <button  class="uploadBtn" id="register-submit">REGISTER</button>
-
                         </div>
                     </form>
                     <div class="otherLogin">
