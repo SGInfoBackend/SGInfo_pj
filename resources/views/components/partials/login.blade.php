@@ -6,7 +6,7 @@
                     <span onclick="document.getElementById('login').style.display='none'" class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
                 </div>
                 <div class="main">
-                    <form class="w3-container first" name="frm-login" method="POST" wire:submit.prevent="login">
+                    <form class="w3-container first" name="frm-login">
                         @csrf
                         <h1 class="modal-h1">Welcome to SG Info</h1>
                         <div>
