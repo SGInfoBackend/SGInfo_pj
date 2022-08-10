@@ -24,10 +24,6 @@ class AddJobComponent extends Component
     public function updated($fields)
     {
         $this->validateOnly($fields, [
-            // 'job_title' => [
-            //     'required',
-            //     new PropertyName()
-            // ],
             'job_title' => 'required',
             'company' => 'required',
             'salary' => 'required|numeric',
@@ -48,10 +44,6 @@ class AddJobComponent extends Component
         }
 
         $this->validate([
-            // 'job_title' => [
-            //     'required',
-            //     new PropertyName()
-            // ],
             'job_title' => 'required',
             'company' => 'required',
             'salary' => 'required|numeric',
