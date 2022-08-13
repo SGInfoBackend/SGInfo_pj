@@ -30,6 +30,18 @@ class StoreUserRequest extends FormRequest
             'password' => ['required'],
             'password_confirmation' => ['required'],
         ];
+    //     $fields = [
+    //         'required' => ['name', 'email', 'password','password_confirmation'],
+    //     ];
+    //     $rules = [];
 
+    //     foreach($fields as $rule => $fieldArray){
+    //         if(is_array($fieldArray)){
+    //             foreach($fieldArray as $field){
+    //                 $rules[$field] = $rule;
+    //             }
+    //         }
+    //     }
+    //   return $rules;
     }
 }

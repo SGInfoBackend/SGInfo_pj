@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Controllers\AuthController;
-use App\Http\Livewire\AddGeneralComponent;
+// use App\Http\Controllers\AuthController;
+// use App\Http\Livewire\AddGeneralComponent;
 use App\Http\Livewire\AddHouseComponent;
 use App\Http\Livewire\ContactComponent;
 use App\Http\Livewire\HomeComponent;
@@ -18,8 +18,8 @@ use App\Http\Livewire\RoomComponent;
 use App\Http\Livewire\RoomDetailComponent;
 use App\Http\Livewire\User\UserDashboardComponent;
 use App\Http\Livewire\UserProfileComponent;
-use App\Models\General;
-use Faker\Generator;
+// use App\Models\General;
+// use Faker\Generator;
 use Illuminate\Support\Facades\Route;
 
 

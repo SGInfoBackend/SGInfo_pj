@@ -4,11 +4,11 @@
          <div class="userInput">
 
              <x-form.label name="Journalist Name"/>
-             <x-form.input><x-slot name="input" wire:model="gname"></x-slot></x-form.input>
+             <x-form.input wire:model="gname"/>
              <x-form.alert for="gname" />
 
              <x-form.label name="News Title"/>
-             <x-form.input><x-slot name="input" wire:model="gtitle"></x-slot></x-form.input>
+             <x-form.input wire:model="gtitle"/>
              <x-form.alert for="gtitle" />
 
              <x-form.label name="News Type"/>
@@ -22,7 +22,7 @@
             <x-form.alert for="gheader_id"/>
 
             <x-form.label name="PLEASE UPLOAD PHOTOS"/>
-            <x-form.input><x-slot name="input" type="file" wire:model="gphotos"></x-slot></x-form.input>
+            <x-form.input type="file" wire:model="gphotos"/>
             <x-form.alert for="gphotos"/>
 
             <x-form.label name="PLEASE UPLOAD PHOTOS"/>
