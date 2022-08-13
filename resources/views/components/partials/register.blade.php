@@ -30,7 +30,6 @@
                                 <x-form.input id="password_confirmation"  type="password" placeholder="Confirm your password"/>
                                 <x-form.alert class="text-danger" id="password_confirmation_error"/>
                             </div>
-                            <p class="modal-p">Between 8 and 72 characters</p>
                             <button  class="uploadBtn" id="register-submit">REGISTER</button>
                         </div>
                     </form>
