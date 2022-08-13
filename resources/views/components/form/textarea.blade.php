@@ -5,3 +5,4 @@
         @endisset
     </textarea>
 </div>
+{{-- <textarea {{ $attributes->class(["modal-input"]) }}> --}}
