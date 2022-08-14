@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Http\Requests\AddJobRequest;
 use App\Models\Job;
 use App\Models\JobTypeOfRole;
 use App\Rules\PropertyName;
