@@ -1,7 +1,6 @@
 <?php
 
-use App\Http\Controllers\AuthController;
-use App\Http\Livewire\AddGeneralComponent;
+
 use App\Http\Livewire\AddHouseComponent;
 use App\Http\Livewire\ContactComponent;
 use App\Http\Livewire\HomeComponent;
@@ -18,29 +17,12 @@ use App\Http\Livewire\RoomComponent;
 use App\Http\Livewire\RoomDetailComponent;
 use App\Http\Livewire\User\UserDashboardComponent;
 use App\Http\Livewire\UserProfileComponent;
-use App\Models\General;
-use Faker\Generator;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-// Route::get('login', [AuthController::class, 'index'])->name('login');
-// Route::post('post-login', [AuthController::class, 'postLogin'])->name('login.post');
-// Route::get('registration', [AuthController::class, 'registration'])->name('register');
-// Route::post('post-registration', [AuthController::class, 'postRegistration'])->name('register.post');
-// Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+
+
+
 Route::get('/', HomeComponent::class)->name('home');
 
 Route::get('/registration', RegistrationLoginComponent::class)->name('registrationlogin');
@@ -52,8 +34,7 @@ Route::get('/job', JobComponent::class)->name('job');
 
 Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])->group(function () {
     // For Rooms
-    // Route::get('/rooms', RoomComponent::class)->name('rooms');
-    Route::get('/contact', ContactComponent::class)->name('contact');
+    // Route::get('/rooms', RoomComponent::class)->name('rooms');    Route::get('/contact', ContactComponent::class)->name('contact');
     Route::get('/addjob', AddJobComponent::class)->name('addjob');
     // For General
     Route::get('/addarticle', GeneralComponent::class)->name('addarticle');
@@ -78,16 +59,21 @@ Route::middleware(['auth:sanctum', 'verified', 'authadmin'])->group(function() {
     Route::get('/admin/dashboard', AdminDashboardComponent::class)->name('admin.dashboard');
 });
 
-// Social Media Authentication
-Route::get('login/google',[AuthSocialComponent::class, 'redirectToGoogle'])->name('googleauth');
-Route::get('auth/google/callback',[AuthSocialComponent::class, 'handleGoogleCallback']);
+// Social Route Grouping 
+$subjects = ['login', 'auth'];
 
-// Facebook login
-Route::get('login/facebook',[AuthSocialComponent::class, 'redirectToFacebook'])->name('facebookauth');
-Route::get('auth/facebook/callback',[AuthSocialComponent::class, 'handleFacebookCallback']);
+foreach($subjects as $subject)
+{
+    
+Route::controller(AuthSocialComponent::class)->prefix($subject)->group(function(){
+    Route::get('/google', 'redirectToGoogle')->name('googleauth');
+    Route::get('/facebook', 'redirectToFacebook')->name('facebookauth');
+    Route::get('/github', 'redirectToGithub')->name('githubauth');
+    // Redirect Route
+    Route::get('/google/callback', 'handleGoogleCallback');
+    Route::get('/facebook/callback','handleFacebookCallback');
+    Route::get('/github/callback','handleGithubCallback');
+});
+}
 
-// Github login
-Route::get('login/github',[AuthSocialComponent::class, 'redirectToGithub'])->name('githubauth');
-Route::get('auth/github/callback',[AuthSocialComponent::class, 'handleGithubCallback']);
 
-// Route::resource('login',[AuthSocialComponent::class]);

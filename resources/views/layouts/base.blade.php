@@ -8,7 +8,6 @@
 
 <body>
 
-
 <!-- start nav -->
 <x-partials.nav />
 <!-- end nav -->

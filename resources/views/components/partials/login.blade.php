@@ -6,7 +6,7 @@
                     <span onclick="document.getElementById('login').style.display='none'" class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
                 </div>
                 <div class="main">
-                    <form class="w3-container first" name="frm-login" method="POST" wire:submit.prevent="login">
+                    <form class="w3-container first" method="POST" action="{{ route('login') }}" enctype="multipart/form-data" >
                         @csrf
                         <h1 class="modal-h1">Welcome to SG Info</h1>
                         <div>
@@ -19,16 +19,18 @@
                         <div class="userInput">
                             <div class="modal-div">
                                 <label for="" class="modal-label">EMAIL</label> <br>
-                                <input class="modal-input" wire:model="email" type="email" placeholder="Enter email">
+                                <input class="modal-input" id="email" type="email" placeholder="Enter email">
                                 <x-form.alert  for="email"/>
+                                <span id="email_error"></span>
                             </div>
                             <div class="modal-div">
                                 <label for="" class="modal-label">PASSWORD</label> <br>
-                                <input class="modal-input" wire:model="password" type="password" placeholder="Enter password">
+                                <input class="modal-input" id="password" type="password" placeholder="Enter password">
                                 <x-form.alert  for="password"/>
+                                <span id="password_error"></span>
                             </div>
                             <p><a href="">Forgot Password?</a></p>
-                            <button class="uploadBtn" type="submit">LOGIN</button>
+                            <button class="uploadBtn" id="login_submit">LOGIN</button>
                         </div>
                     </form>
                     <div class="otherLogin">
