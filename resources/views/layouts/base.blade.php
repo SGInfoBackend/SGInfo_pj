@@ -8,11 +8,11 @@
 
 <body>
 
-<!-- start nav -->
-<x-partials.nav />
-<!-- end nav -->
-<x-partials.register />
-<x-partials.login />
+    <!-- start nav -->
+    <x-partials.nav />
+    <!-- end nav -->
+    <x-partials.register />
+    <x-partials.login />
 
     @livewire('add-house-component')
     @livewire('add-general-component')

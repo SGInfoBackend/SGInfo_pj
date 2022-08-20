@@ -1,6 +1,5 @@
 <?php
 
-
 use App\Http\Livewire\AddHouseComponent;
 use App\Http\Livewire\ContactComponent;
 use App\Http\Livewire\HomeComponent;
@@ -18,10 +17,6 @@ use App\Http\Livewire\RoomDetailComponent;
 use App\Http\Livewire\User\UserDashboardComponent;
 use App\Http\Livewire\UserProfileComponent;
 use Illuminate\Support\Facades\Route;
-
-
-
-
 
 Route::get('/', HomeComponent::class)->name('home');
 

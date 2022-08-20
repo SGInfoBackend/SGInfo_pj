@@ -12,7 +12,7 @@ class StoreUserRequest extends FormRequest
      *
      * @return bool
      */
-    public function authorize()
+    public function authorize():bool
     {
         return true;
     }
@@ -22,13 +22,26 @@ class StoreUserRequest extends FormRequest
      *
      * @return array<string, mixed>
      */
-    public function rules()
+    public function rules():array
     {
         return [
             'name' => ['required'],
             'email' => ['required','email',new UserExists],
             'password' => ['required'],
+            'password_confirmation' => ['required'],
         ];
+    //     $fields = [
+    //         'required' => ['name', 'email', 'password','password_confirmation'],
+    //     ];
+    //     $rules = [];
 
+    //     foreach($fields as $rule => $fieldArray){
+    //         if(is_array($fieldArray)){
+    //             foreach($fieldArray as $field){
+    //                 $rules[$field] = $rule;
+    //             }
+    //         }
+    //     }
+    //   return $rules;
     }
 }

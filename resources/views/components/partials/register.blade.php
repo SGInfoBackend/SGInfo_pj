@@ -11,26 +11,25 @@
                         <h4 class="modal-h4">Search everything on your own time from SG Info</h4>
                         <div class="userInput">
                             <div class="modal-div">
-                                <x-form.label name="Full Name" for="fullname" /><br>
-                                <input class="modal-input" id="name" type="text"  placeholder="Your name is required"  >
+                                <x-form.label name="Full Name"/>
+                                <x-form.input id="name" type="text"  placeholder="Your name is required"/>
                                 <x-form.alert  class="text-danger" id="name_error"/>
                             </div>
                             <div class="modal-div">
-                                <label for="" class="modal-label">EMAIL</label> <br>
-                                <input class="modal-input" id="email" type="email"  placeholder="Enter email">
+                                <x-form.label name="Email"/>
+                                <x-form.input id="email" type="email"  placeholder="Enter email"/>
                                 <x-form.alert class="text-danger" id="email_error" />
                             </div>
                             <div class="modal-div">
-                                <label for="" class="modal-label">PASSWORD</label> <br>
-                                <input class="modal-input" id="password" type="password" placeholder="Enter password">
+                                <x-form.label name="Password"/>
+                                <x-form.input id="password" type="password" placeholder="Enter password"/>
                                 <x-form.alert class="text-danger" id="password_error"/>
                             </div>
                             <div class="modal-div">
-                                <label for="" class="modal-label">COMFIRMED PASSWORD</label> <br>
-                                <input class="modal-input" id="password_confirmation"  type="password" placeholder="Confirm your password">
+                                <x-form.label name="Confirm Password"/>
+                                <x-form.input id="password_confirmation"  type="password" placeholder="Confirm your password"/>
                                 <x-form.alert class="text-danger" id="password_confirmation_error"/>
                             </div>
-                            <p class="modal-p">Between 8 and 72 characters</p>
                             <button  class="uploadBtn" id="register-submit">REGISTER</button>
                         </div>
                     </form>
@@ -42,7 +41,7 @@
                         </div>
                         <div class="facebook">
                             <img class="other-img" src="images/login_register/facebook.svg" alt="">
-                            <h2 class="other-h2"><a href="" class="other-a">Continue with Facebook</a> </h2>
+                            <h2 class="other-h2"><a href="{{ route('facebookauth') }}" class="other-a">Continue with Facebook</a> </h2>
                         </div>
                         <div class="facebook">
                             <img class="other-img" src="images/login_register/facebook.svg" alt="">

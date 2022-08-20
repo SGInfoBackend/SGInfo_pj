@@ -46,9 +46,8 @@
 
   @push('scripts')
 
-  <script type="text/javascript">
-    $(document).ready(function(){
-
+  <x-ajax.register />
+  {{-- <x-ajax.login /> --}}
         $('#register-submit').on('click',function(e){
          e.preventDefault();
          var name = $('#name').val();
@@ -117,6 +116,7 @@
 </script>
 
 <script>
+  <script>
     window.addEventListener('hide_modal', event => {
         $('#room').hide();
     })
@@ -132,6 +132,6 @@
         $('#article').hide();
         $('#login').css('display', 'block');
     })
-</script>
+  </script>
 
   @endpush()

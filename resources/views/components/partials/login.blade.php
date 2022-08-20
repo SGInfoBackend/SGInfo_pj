@@ -9,28 +9,21 @@
                     <form class="w3-container first" method="POST" action="{{ route('login') }}" enctype="multipart/form-data" >
                         @csrf
                         <h1 class="modal-h1">Welcome to SG Info</h1>
-                        <div>
-                            @if (session()->has('message'))
-                                <div class="alert alert-success">
-                                    {{ session('message') }}
-                                </div>
-                            @endif
-                        </div>
                         <div class="userInput">
                             <div class="modal-div">
-                                <label for="" class="modal-label">EMAIL</label> <br>
-                                <input class="modal-input" id="email" type="email" placeholder="Enter email">
+                                <x-form.label name="EMAIL"/> <br>
+                                <x-form.input name="email" type="email" placeholder="Enter email"/>
                                 <x-form.alert  for="email"/>
                                 <span id="email_error"></span>
                             </div>
                             <div class="modal-div">
-                                <label for="" class="modal-label">PASSWORD</label> <br>
-                                <input class="modal-input" id="password" type="password" placeholder="Enter password">
+                                <x-form.label name="PASSWORD"/> <br>
+                                <x-form.input  name="password"  type="password" placeholder="Enter password" />
                                 <x-form.alert  for="password"/>
                                 <span id="password_error"></span>
                             </div>
                             <p><a href="">Forgot Password?</a></p>
-                            <button class="uploadBtn" id="login_submit">LOGIN</button>
+                            <button class="uploadBtn" type="submit">LOGIN</button>
                         </div>
                     </form>
                     <div class="otherLogin">
