@@ -28,7 +28,7 @@ class HomeComponent extends Component
         sleep(1);
         // $search = '%'. $this->searchTerm. '%';
         // $searchJob = Job::where('Job_location',$search)->get();
-        $rentHouses = RentHouse::orderBy('Rent_House_ID', 'DESC')->paginate(5);
+        $rentHouses = RentHouse::orderBy('Rent_House_ID', 'DESC')->paginate(4);
 
         if($this->searchTerm)
         {

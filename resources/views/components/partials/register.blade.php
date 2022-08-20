@@ -43,6 +43,10 @@
                             <img class="other-img" src="images/login_register/facebook.svg" alt="">
                             <h2 class="other-h2"><a href="{{ route('facebookauth') }}" class="other-a">Continue with Facebook</a> </h2>
                         </div>
+                        <div class="facebook">
+                            <img class="other-img" src="images/login_register/facebook.svg" alt="">
+                            <h2 class="other-h2"><a href="{{ route('githubauth') }}" class="other-a">Continue with GitHub</a> </h2>
+                        </div>
                         <div class="other-login">Already a member? <a href="" class="other-login-a">Log in</a></div>
                     </div>
                     <div class="term&condition">
