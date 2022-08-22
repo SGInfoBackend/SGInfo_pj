@@ -1,3 +1,3 @@
-<div>
-    <span {{ $attributes }}></span>
-</div>
+
+<p {{ $attributes->merge(['class' => 'text-danger']) }}></p>
+
