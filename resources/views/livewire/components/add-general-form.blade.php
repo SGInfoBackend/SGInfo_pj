@@ -33,7 +33,7 @@
                 <x-form.textarea><x-slot name="description" cols="30" rows="10" wire:model="gdescription"></x-slot></x-form.textarea>
                 <x-form.error for="gdescription"/>
             </div>
-            <x-button />
+            <x-button class="uploadBtn" type="submit"/>
          </div>
      </form>
  </div>
