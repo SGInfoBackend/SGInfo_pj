@@ -243,9 +243,6 @@
                @endif --}}
             <button class="browse my-3"><a href="{{ route('job') }}">Browse All Jobs</a></button>
         </div>
-        <div class="my-3">
-            {{ $jobs->onEachSide(1)->links() }}
-        </div>
     </section>
   </div>
 

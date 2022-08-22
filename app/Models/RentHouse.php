@@ -9,6 +9,7 @@ class RentHouse extends Model
 {
     use HasFactory;
     protected $table = "sg_info_rent_house";
+    protected $fillable =[''];
     protected $primaryKey = 'Rent_House_ID';
 
     public function keyfeatures()

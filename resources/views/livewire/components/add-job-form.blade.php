@@ -48,8 +48,6 @@
             <div class="my-3">
                 <x-form.label class="modal-label" name="Exp Level" />
                 <x-form.input type="text" placeholder="Enter Exp Level" wire:model="exp_level" />
-                {{-- @error('exp_level') <x-form.alert class="text-danger" /> @enderror --}}
-                {{-- @error('exp_level') <span class="text-danger">{{ $message }}</span> @enderror --}}
                 @error('exp_level') <x-form.alert class="text-danger" /> @enderror
             </div>
 

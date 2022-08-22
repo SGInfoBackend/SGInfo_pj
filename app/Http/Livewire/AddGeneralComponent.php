@@ -22,30 +22,32 @@ class AddGeneralComponent extends Component
     public $gphotos;
     public $gdescription;
 
-    protected $rules = [
-        'gname' => 'required|string',
-        'gtitle' => 'required|string',
-        'gheader_id' => 'required',
-        'gphotos' => 'image|mimes:jpeg,png,jpg|max:1024',
-        'gdescription' => 'required',
-    ];
-
     public function updated($propertyName){
 
-        $this->validateOnly($propertyName);
-
+        $this->validateOnly($propertyName, [
+                'gname' => 'required|string',
+                'gtitle' => 'required|string',
+                'gheader_id' => 'required',
+                'gphotos' => 'image|mimes:jpeg,png,jpg|max:1024',
+                'gdescription' => 'required',
+            ]);
     }
 
     public function addArtical()
     {
-        // $validatedData = $this->validate();
-
         if(!Auth::check())
         {
             $this->dispatchBrowserEvent('show_modal');
         }
-
-        // General::create($validatedData);
+        $this->validate([
+            'gname' => 'required',
+            'gtitle' => 'required',
+            'gheader_id' => 'required',
+            'gphotos' => 'image|mimes:jpeg,png,jpg|max:1024',
+            'gdescription' => 'required',
+        ]);
+        // // General::create($validatedData);
+        // dd('is working');
             $artical = new General();
 
             $artical->USER_ID  = Auth::user()->id;

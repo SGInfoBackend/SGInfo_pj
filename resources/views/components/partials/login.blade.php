@@ -6,7 +6,7 @@
                     <span onclick="document.getElementById('login').style.display='none'" class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
                 </div>
                 <div class="main">
-                    <form class="w3-container first" method="POST" action="{{ route('login') }}" >
+                    <form class="w3-container first" method="POST" action="{{ route('login') }}" enctype="multipart/form-data" >
                         @csrf
                         <h1 class="modal-h1">Welcome to SG Info</h1>
                         <div class="userInput">
@@ -14,12 +14,15 @@
                                 <x-form.label name="EMAIL"/> <br>
                                 <x-form.input name="email" type="email" placeholder="Enter email"/>
                                 <x-form.alert  for="email"/>
+                                <span id="email_error"></span>
                             </div>
                             <div class="modal-div">
                                 <x-form.label name="PASSWORD"/> <br>
                                 <x-form.input  name="password"  type="password" placeholder="Enter password" />
                                 <x-form.alert  for="password"/>
+                                <span id="password_error"></span>
                             </div>
+                            <p><a href="">Forgot Password?</a></p>
                             <button class="uploadBtn" type="submit">LOGIN</button>
                         </div>
                     </form>
