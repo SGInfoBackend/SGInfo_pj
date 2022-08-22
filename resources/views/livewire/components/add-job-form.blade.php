@@ -12,13 +12,13 @@
             <div class="my-3">
                 <x-form.label class="modal-label" name="Company Name" />
                 <x-form.input type="text" placeholder="Enter Company Name" wire:model="company" />
-                <x-form.error for="job_title" />
+                <x-form.error for="company" />
             </div>
 
             <div class="my-3">
                 <x-form.label class="modal-label" name="Company URL" />
                 <x-form.input type="text" placeholder="Enter Company URL" wire:model="company_url_link" />
-                <x-form.error for="job_title" />
+                <x-form.error for="company_url_link" />
             </div>
 
             <div class="my-3">
@@ -31,30 +31,30 @@
                         @endforeach
                     </x-slot>
                 </x-form.select>
-                <x-form.error for="job_title" />
+               <x-form.error for="job_type_role" />
             </div>
 
             <div class="my-3">
                 <x-form.label class="modal-label" name="Salary" />
                 <x-form.input type="number" placeholder="Enter Salary" wire:model="salary" />
-                <x-form.error for="job_title" />
+               <x-form.error for="salary" />
             </div>
 
             <div class="my-3">
                 <x-form.label class="modal-label" name="Job Location" />
                 <x-form.input type="text" placeholder="Enter Location" wire:model="job_location" />
-                <x-form.error for="job_title" />
+                <x-form.error for="job_location" />
             </div>
             <div class="my-3">
                 <x-form.label class="modal-label" name="Exp Level" />
                 <x-form.input type="text" placeholder="Enter Exp Level" wire:model="exp_level" />
-                <x-form.error for="job_title" />
+                <x-form.error for="exp_level" />
             </div>
 
             <div class="my-3">
                 <x-form.label><x-slot name="name">Description</x-slot></x-form.label>
                 <x-form.textarea><x-slot name="description" cols="30" rows="10" wire:model="job_description"></x-slot></x-form.textarea>
-                <x-form.error for="job_title" />
+                <x-form.error for="job_description" />
             </div>
 
             {{-- <x-button name="UPLOAD" /> --}}

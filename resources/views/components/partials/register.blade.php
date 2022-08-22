@@ -13,7 +13,7 @@
                             <div class="modal-div">
                                 <x-form.label name="Full Name"/>
                                 <x-form.input id="name" type="text"  placeholder="Your name is required"/>
-                                <x-form.alert  class="text-danger" id="name_error"/>
+                                <x-form.alert class="text-danger" id="name_error"/>
                             </div>
                             <div class="modal-div">
                                 <x-form.label name="Email"/>
