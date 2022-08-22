@@ -59,7 +59,6 @@ class AddJobComponent extends Component
         $jobs = new Job();
         $jobs->USER_ID = Auth::user()->id;
         $jobs->Job_title = $this->job_title;
-        dd($jobs->Job_title);
         $jobs->Company = $this->company;
         $jobs->SALARY = $this->salary;
         $jobs->Job_location = $this->job_location;

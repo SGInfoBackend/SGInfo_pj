@@ -1,1 +1,1 @@
-<button class="uploadBtn" type="submit">UPLOAD</button>
+<button {{ $attributes }}>UPLOAD</button>
