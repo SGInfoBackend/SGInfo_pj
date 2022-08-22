@@ -52,9 +52,6 @@
             </div>
 
             <div class="my-3">
-                {{-- <x-form.label class="modal-label" name="Description" />
-                <x-form.textarea name="description" cols="30" rows="10" wire:model="job_description" />
-                <x-form.error for="" /> --}}
                 <x-form.label><x-slot name="name">Description</x-slot></x-form.label>
                 <x-form.textarea><x-slot name="description" cols="30" rows="10" wire:model="job_description"></x-slot></x-form.textarea>
                 <x-form.error for="job_description" />
