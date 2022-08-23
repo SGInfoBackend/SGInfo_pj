@@ -57,8 +57,7 @@
                 <x-form.error for="job_description" />
             </div>
 
-            {{-- <x-button name="UPLOAD" /> --}}
-            <x-button class="uploadBtn" type="submit">UPLOAD</x-button>
+            <x-button class="uploadBtn" type="submit"/>
 
         </div>
     </form>
