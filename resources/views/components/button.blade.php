@@ -1,1 +1,1 @@
-<button class="uploadBtn" type="submit">UPLOAD</button>
+<button class="uploadBtn uploadBtn-room" type="submit">UPLOAD</button>
