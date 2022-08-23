@@ -28,9 +28,9 @@
                   <div class="dropdown">
                       <button class="dropbtn">Upload</button>
                           <div class="dropdown-content">
-                              <a href="#" class="dropdown-a" onclick="document.getElementById('job').style.display='block'">Job</a>
-                              <a href="#" class="dropdown-b" onclick="document.getElementById('article').style.display='block'">Article</a>
-                              <a href="#" class="dropdown-c" onclick="document.getElementById('room').style.display='block'">Room</a>
+                              <a href="javascript:void()" class="dropdown-a" onclick="document.getElementById('job').style.display='block'">Job</a>
+                              <a href="javascript:void()" class="dropdown-b" onclick="document.getElementById('article').style.display='block'">Article</a>
+                              <a href="javascript:void()" class="dropdown-c" onclick="document.getElementById('room').style.display='block'">Room</a>
                           </div>
                   </div>
                 </li>
@@ -65,8 +65,8 @@
                       <div class="dropdown">
                           <button class="dropbtn"><i class="fa-regular fa-user"></i></button>
                           <div class="dropdown-content">
-                            <a href="#" class="dropdown-d" onclick="document.getElementById('register').style.display='block'">Register</a>
-                            <a href="#" class="dropdown-e" onclick="document.getElementById('login').style.display='block'">Login</a>
+                            <a href="javascript:void()" class="dropdown-d" onclick="document.getElementById('register').style.display='block'">Register</a>
+                            <a href="javascript:void()" class="dropdown-e" onclick="document.getElementById('login').style.display='block'">Login</a>
                           </div>
                       </div>
                     </li>
