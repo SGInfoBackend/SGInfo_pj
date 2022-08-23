@@ -1,1 +1,2 @@
-<button {{ $attributes }}>UPLOAD</button>
+
+<button class="uploadBtn uploadBtn-room" type="submit">UPLOAD</button>
