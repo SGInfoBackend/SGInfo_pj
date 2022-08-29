@@ -11,44 +11,45 @@
         </div>
         <hr class="line" style="width:100%" , size="5" , color=darkblue />
         <div id="news_posting_date">
-          <i class="uil uil-edit-alt writer_icon"></i>
-          @if (Auth::check())
-            <p>{{ Auth::user()->name }}</p>
-          @endif
-          <i class="uil uil-schedule calendar"></i>
-          {{-- <p><b>NOVEMBER</b> 25, 2021</p> --}}
-          <p>{{ Carbon\Carbon::parse($general->created_at)->format(' F d , Y   /   h:i A') }}</p>
-          {{-- <p class="posting_time">{{ Carbon\Carbon::parse()->format(' d-M-Y      G : IA') }}</p> --}}
-          {{-- <p class="posting_time">2 :18 PM</p> --}}
+            <i class="uil uil-edit-alt writer_icon"></i>
+            @if (Auth::check())
+                <p>{{ Auth::user()->name }}</p>
+            @endif
+            <i class="uil uil-schedule calendar"></i>
+            {{-- <p><b>NOVEMBER</b> 25, 2021</p> --}}
+            <p>{{ Carbon\Carbon::parse($general->created_at)->format(' F d , Y   /   h:i A') }}</p>
+            {{-- <p class="posting_time">{{ Carbon\Carbon::parse()->format(' d-M-Y      G : IA') }}</p> --}}
+            {{-- <p class="posting_time">2 :18 PM</p> --}}
         </div>
         <img src="{{ asset('images/general_images') }}/{{ $general->G_PHOTO }}" alt="" height="400px">
         <br>
         <p>
             {{ $general->G_Description }}
-         <br>
+            <br>
         </p>
-          <div id="news_image_and_text">
+        <div id="news_image_and_text">
             <div class="left_image">
-              <img src="{{ asset('images/general_images') }}/{{ $general->G_PHOTO }}" alt="" height="300px" width="100%"><br>
-              <h6>PHOTO: Jonathan McLaren</h6>
+                <img src="{{ asset('images/general_images') }}/{{ $general->G_PHOTO }}" alt="" height="300px"
+                    width="100%"><br>
+                <h6>PHOTO: Jonathan McLaren</h6>
             </div>
             <div class="right_text">
-              <p>{{ $general->G_Description }}</p>
+                <p>{{ $general->G_Description }}</p>
             </div>
 
-          </div>
-          <p>
+        </div>
+        <p>
             {{ $general->G_Description }}
-          </p>
-            <div id="vertical_line">
-              <div class="vl"></div>
-              <p>{{ $general->G_Description }}</p>
-            </div>
-            <img src="{{ asset('images/general_images') }}/{{ $general->G_PHOTO }}" alt="" class="last_news_img">
+        </p>
+        <div id="vertical_line">
+            <div class="vl"></div>
+            <p>{{ $general->G_Description }}</p>
+        </div>
+        <img src="{{ asset('images/general_images') }}/{{ $general->G_PHOTO }}" alt="" class="last_news_img">
+        <br>
+        <p>
+            {{ $general->G_Description }}
             <br>
-            <p>
-                {{ $general->G_Description }}
-              <br>
-            </p>
+        </p>
     </section>
 </div>

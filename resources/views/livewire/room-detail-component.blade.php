@@ -4,37 +4,37 @@
             <div class="view">
                 <div class="title">
                     <div class="title-left">
-                        <h1>{{$roomDetail->PROJECT_NAME}}</h1>
+                        <h1>{{ $roomDetail->PROJECT_NAME }}</h1>
                         <i class="fa-solid fa-star"></i>
                         <i class="fa-solid fa-star"></i>
                         <i class="fa-solid fa-star"></i>
                         <i class="fa-solid fa-star"></i>
                         <i class="fa-solid fa-star-half"></i>
                         <small>8 views</small>
-                        <small>Space: 306 sqm  |  </small>
+                        <small>Space: 306 sqm | </small>
                         <small>Max. 8 guests</small>
                     </div>
                     <div class="title-right">
                         <p>from</p>
-                        <h3>${{$roomDetail->PRICE_MAX}} / Month</h3>
+                        <h3>${{ $roomDetail->PRICE_MAX }} / Month</h3>
                     </div>
                 </div>
                 <div class="line"></div>
                 <div class="image">
                     <div class="img-large">
-                        <img src="{{asset('images/room_list/')}}/{{ $roomDetail->RH_PHOTO}}" alt="">
+                        <img src="{{ asset('images/room_list/') }}/{{ $roomDetail->RH_PHOTO }}" alt="">
                     </div>
                     <div class="img-small">
-                        <img src="{{asset('images/room_detail/2-detail.jpg')}}" style="width: 24%;" alt="">
-                        <img src="{{asset('images/room_detail/3-detail.jpg')}}" style="width: 24%;" alt="">
-                        <img src="{{asset('images/room_detail/4-detail.jpg')}}" style="width: 24%;" alt="">
-                        <img src="{{asset('images/room_detail/5-detail.jpg')}}" style="width: 24%;" alt="">
+                        <img src="{{ asset('images/room_detail/2-detail.jpg') }}" style="width: 24%;" alt="">
+                        <img src="{{ asset('images/room_detail/3-detail.jpg') }}" style="width: 24%;" alt="">
+                        <img src="{{ asset('images/room_detail/4-detail.jpg') }}" style="width: 24%;" alt="">
+                        <img src="{{ asset('images/room_detail/5-detail.jpg') }}" style="width: 24%;" alt="">
                     </div>
                 </div>
                 <div class="overview">
                     <h1>ROOM OVERVIEW</h1>
                     <p>
-                        {{$roomDetail->RH_Description}}
+                        {{ $roomDetail->RH_Description }}
                     </p>
                 </div>
                 <div class="line"></div>
@@ -44,17 +44,19 @@
                     <div class="amenities-group">
                         <div class="amentities-item">
                             <ol>
-                                <img src="{{asset('assets/images/room_detail/air-conditioner.svg')}}" style="width: 15%;" alt="">
-                                @foreach ($facilities as $facilitie )
-                                <li>{{ $facilitie}}</li>
+                                <img src="{{ asset('assets/images/room_detail/air-conditioner.svg') }}"
+                                    style="width: 15%;" alt="">
+                                @foreach ($facilities as $facilitie)
+                                    <li>{{ $facilitie }}</li>
                                 @endforeach
                             </ol>
                         </div>
                         <div class="amentities-item">
                             <ol>
-                                <img src="{{asset('assets/images/room_detail/air-conditioner.svg')}}" style="width: 15%;" alt="">
-                                @foreach ($keyfeatures as $keyfeature )
-                                <li>{{ $keyfeature}}</li>
+                                <img src="{{ asset('assets/images/room_detail/air-conditioner.svg') }}"
+                                    style="width: 15%;" alt="">
+                                @foreach ($keyfeatures as $keyfeature)
+                                    <li>{{ $keyfeature }}</li>
                                 @endforeach
                             </ol>
                         </div>
@@ -76,13 +78,15 @@
                             <h2>Check-out</h2>
                             <ol>
                                 <li> Check-out before noon</li>
-                                <li>  Express check-out </li>
+                                <li> Express check-out </li>
                             </ol>
                         </div>
                     </div>
                     <div class="special">
                         <h4>Special check-in instructions</h4>
-                        <p>Guests will receive an email 5 days before arrival with check-in instructions; front desk staff will greet guests on arrival For more details, please contact the property using the information on the booking confirmation.</p>
+                        <p>Guests will receive an email 5 days before arrival with check-in instructions; front desk
+                            staff will greet guests on arrival For more details, please contact the property using the
+                            information on the booking confirmation.</p>
                     </div>
                     <div class="special">
                         <h4>Pets</h4>
@@ -90,11 +94,14 @@
                     </div>
                     <div class="special">
                         <h4>Trip Grade: Fitness level, Medical, and Health</h4>
-                        <p>The 14-days Everest Base Camp Trek is challenging; but rewarding. Anyone can accomplish this trek. However, a bit of preparedness is vital to complete this challenging trip.</p>
+                        <p>The 14-days Everest Base Camp Trek is challenging; but rewarding. Anyone can accomplish this
+                            trek. However, a bit of preparedness is vital to complete this challenging trip.</p>
                     </div>
                     <div class="special">
                         <h4>Children and extra beds</h4>
-                        <p>Children are welcome Kids stay free! Children stay free when using existing bedding; children may not be eligible for complimentary breakfast Rollaway/extra beds are available for EUR 40.0 per day</p>
+                        <p>Children are welcome Kids stay free! Children stay free when using existing bedding; children
+                            may not be eligible for complimentary breakfast Rollaway/extra beds are available for EUR
+                            40.0 per day</p>
                     </div>
 
                 </div>
@@ -104,15 +111,17 @@
                     <h1 style="margin-bottom: 20px;">OTHER ROOM</h1>
                     <div class="other-room">
                         <div class="other-room-left">
-                            <img src="{{asset('assets/images/room_detail/other-room-left.jpg')}}" style="width: 90%;" alt="">
+                            <img src="{{ asset('assets/images/room_detail/other-room-left.jpg') }}" style="width: 90%;"
+                                alt="">
                             <h2>SUPERIOR ROOM</h2>
-                            <small>Space: 135 sqm  |  </small>
+                            <small>Space: 135 sqm | </small>
                             <small>Max. 4 guests</small>
                         </div>
                         <div class="other-room-right">
-                            <img src="{{asset('assets/images/room_detail/other-room-right.jpg')}}" style="width: 90%;" alt="">
+                            <img src="{{ asset('assets/images/room_detail/other-room-right.jpg') }}"
+                                style="width: 90%;" alt="">
                             <h2>JUNIOR SUIT</h2>
-                            <small>Space: 306 sqm  |  </small>
+                            <small>Space: 306 sqm | </small>
                             <small>Max. 8 guests</small>
                         </div>
                     </div>
@@ -123,7 +132,7 @@
                         <h1>REVIEWS</h1>
                         <div class="line"></div>
                         <div class="review-detail">
-                            <img src="{{asset('assets/images/room_detail/user.png')}}"  alt="">
+                            <img src="{{ asset('assets/images/room_detail/user.png') }}" alt="">
                             <div>
                                 <h3>Elicia</h3>
                                 <small>April 29,2022</small>
@@ -138,7 +147,7 @@
                         </div>
                         <div class="line"></div>
                         <div class="review-detail">
-                            <img src="{{asset('assets/images/room_detail/user.png')}}" alt="">
+                            <img src="{{ asset('assets/images/room_detail/user.png') }}" alt="">
                             <div>
                                 <h3>Saimon</h3>
                                 <small>April 29,2022</small>
@@ -153,7 +162,7 @@
                         </div>
                         <div class="line"></div>
                         <div class="review-detail">
-                            <img src="{{asset('assets/images/room_detail/user.png')}}" alt="">
+                            <img src="{{ asset('assets/images/room_detail/user.png') }}" alt="">
                             <div>
                                 <h3>David</h3>
                                 <small>April 29,2022</small>
@@ -186,7 +195,8 @@
                                 <i class="fa-solid fa-star-half"></i>
                             </div>
 
-                            <p><input type="checkbox" name="" id=""> Save my name, email, and website in this browser for the next time I comment.</p>
+                            <p><input type="checkbox" name="" id=""> Save my name, email, and website
+                                in this browser for the next time I comment.</p>
                             <button class="comment-btn post-btn">Post Comment</button>
                         </div>
                     </div>
