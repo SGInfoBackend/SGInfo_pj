@@ -67,5 +67,5 @@
         // $('#login').css('display', 'block');
     })
   </script>
-
+ </script>
   @endpush()
