@@ -1,5 +1,5 @@
-<select {{ $select->attributes->class(["modal-select"]) }}>
+<select {{ $select->attributes->class(['modal-select']) }}>
     @isset($select)
-    {{ $select }}
+        {{ $select }}
     @endisset
 </select>

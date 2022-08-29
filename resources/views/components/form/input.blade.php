@@ -1,2 +1,1 @@
-<input {{ $attributes->class(["modal-input"]) }}>
-
+<input {{ $attributes->class(['modal-input']) }}>

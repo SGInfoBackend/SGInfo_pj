@@ -27,6 +27,7 @@ class RegisterUser implements Rule
     public function passes($attribute, $value) :bool
     {
         $user = User::where('email', $value)->first();
+        
         if(is_null($user))
         {
             return true;
