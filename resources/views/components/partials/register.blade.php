@@ -13,22 +13,22 @@
                             <div class="modal-div">
                                 <x-form.label name="Full Name"/>
                                 <x-form.input id="name" type="text"  placeholder="Your name is required"/>
-                                <x-form.alert class="text-danger" id="name_error"/>
+                                <span class="text-danger" id="name_error"></span>
                             </div>
                             <div class="modal-div">
                                 <x-form.label name="Email"/>
                                 <x-form.input id="email" type="email"  placeholder="Enter email"/>
-                                <x-form.alert class="text-danger" id="email_error" />
+                                <span class="text-danger" id="email_error"></span>
                             </div>
                             <div class="modal-div">
                                 <x-form.label name="Password"/>
                                 <x-form.input id="password" type="password" placeholder="Enter password"/>
-                                <x-form.alert class="text-danger" id="password_error"/>
+                                <span class="text-danger" id="password_error"></span>
                             </div>
                             <div class="modal-div">
                                 <x-form.label name="Confirm Password"/>
                                 <x-form.input id="password_confirmation"  type="password" placeholder="Confirm your password"/>
-                                <x-form.alert class="text-danger" id="password_confirmation_error"/>
+                                <span class="text-danger" id="password_confirmation_error"></span>
                             </div>
                             <button  class="uploadBtn" id="register-submit">REGISTER</button>
                         </div>

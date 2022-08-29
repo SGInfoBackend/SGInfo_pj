@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\KeyFeature;
 use App\Models\RentHouse;
+use Illuminate\Support\Facades\Cache;
 use Livewire\Component;
 
 class RoomDetailComponent extends Component
@@ -16,7 +17,9 @@ class RoomDetailComponent extends Component
     }
     public function render()
     {
-        $roomDetail = RentHouse::where('Rent_House_ID', $this->renthouse_id)->first();
+        $roomDetail = Cache::remember("roome_detail_{$this->renthouse_id}", 20,function(){
+            return RentHouse::where('Rent_House_ID', $this->renthouse_id)->first();
+        });
         $facitlites = explode(',', $roomDetail->Facilities_IDS);
         $keyfeatures = explode(',', $roomDetail->KeyFeature_IDS);
         return view('livewire.room-detail-component', [

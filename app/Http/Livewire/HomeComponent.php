@@ -6,6 +6,7 @@ use App\Models\General;
 use App\Models\GHeader;
 use App\Models\Job;
 use App\Models\RentHouse;
+use Illuminate\Support\Facades\Cache;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -28,7 +29,9 @@ class HomeComponent extends Component
         sleep(1);
         // $search = '%'. $this->searchTerm. '%';
         // $searchJob = Job::where('Job_location',$search)->get();
-        $rentHouses = RentHouse::orderBy('Rent_House_ID', 'DESC')->paginate(4);
+        $rentHouses = Cache::tags('home_page_tag')->remember("rent_house", now()->addSecond(10), function(){
+            return RentHouse::orderBy('Rent_House_ID', 'DESC')->paginate(4);
+        });
 
         if($this->searchTerm)
         {
@@ -54,16 +57,28 @@ class HomeComponent extends Component
         else{
             $jobs = Job::orderBy('created_at','DESC')->paginate(5);
         }
+        // $jobs = Cache::tags('home_page_jobs')->forever('jobs', function(){
+        //     return Job::orderBy('created_at','DESC')->paginate(5);
+        // });
 
-        $allJobs = Job::all();
+        $allJobs = Cache::tags('home_page_job')->remember('all_jobs', 20, function(){
+            return Job::all();
+        });
         // For Trendings
-        $trending = General::where('GHeader_ID','=','1')->limit(1)->get();
-        $trendings = General::where('GHeader_ID','=','1')->orderBy('General_ID','DESC')->limit(5)->get();
+        $trending = Cache::tags('home_page_treding')->remember('trending', 20, function(){
+            return General::where('GHeader_ID','=','1')->limit(1)->get();
+        });
+        $trendings = Cache::tags('home_page_trend')->remember('all_trending', 20, function(){
+            return General::where('GHeader_ID','=','1')->orderBy('General_ID','DESC')->limit(5)->get();
+        });
         // For Travelguide
-        $travelGuide = General::where('GHeader_ID','=','3')->orderBy('General_ID','DESC')->take(4)->get();
-        // dd($travelGuide);
+        $travelGuide = Cache::tags('home_page_travelGuide')->remember('travel_guide', 20 , function(){
+            return General::where('GHeader_ID','=','3')->orderBy('General_ID','DESC')->take(4)->get();
+        });
 
-        $gheaders = GHeader::all();
+        $gheaders = Cache::remember('GHeader', 20, function(){
+            return GHeader::all();
+        });
 
         return view('livewire.home-component',[
             'allJobs' => $allJobs,

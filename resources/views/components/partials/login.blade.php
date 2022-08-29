@@ -6,22 +6,21 @@
                     <span onclick="document.getElementById('login').style.display='none'" class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
                 </div>
                 <div class="main">
-                    <form class="w3-container first" method="POST" action="{{ route('login') }}" enctype="multipart/form-data" >
-                        @csrf
+                    <form class="w3-container first" enctype="multipart/form-data" >
                         <h1 class="modal-h1">Welcome to SG Info</h1>
                         <div class="userInput">
                             <div class="modal-div">
                                 <x-form.label name="EMAIL"/> <br>
-                                <x-form.input name="email" type="email" placeholder="Enter email"/>
-                                <x-form.error  for="email"/>
+                                <x-form.input id="email" type="email" placeholder="Enter email"/>
+                                <span class="text-danger" id="email_error"></span>
                             </div>
                             <div class="modal-div">
                                 <x-form.label name="PASSWORD"/> <br>
-                                <x-form.input  name="password"  type="password" placeholder="Enter password" />
-                                <x-form.error  for="password"/>
+                                <x-form.input  id="password"  type="password" placeholder="Enter password" />
+                                <span class="text-danger" id="password_error"></span>
                             </div>
                             <p><a href="">Forgot Password?</a></p>
-                            <button class="uploadBtn" type="submit">LOGIN</button>
+                            <button  class="uploadBtn" id="login-submit">REGISTER</button>
                         </div>
                     </form>
                     <div class="otherLogin">

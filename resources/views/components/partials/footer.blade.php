@@ -47,6 +47,7 @@
   @push('scripts')
 
   <x-ajax.register />
+  <x-ajax.login />
 
 <script>
   <script>
@@ -63,7 +64,7 @@
         $('#room').hide();
         $('#job').hide();
         $('#article').hide();
-        $('#login').css('display', 'block');
+        // $('#login').css('display', 'block');
     })
   </script>
 
