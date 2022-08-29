@@ -28,7 +28,7 @@ class RegisterValidation extends FormRequest
     public function rules()
     {
         return [
-            'name' =>['required', new UserName()],
+            'name' => ['required', new UserName()],
             'email' => ['required', 'email', new RegisterUser()],
             'password' => ['required', 'min:8'],
             'password_confirmation' => ['required'],

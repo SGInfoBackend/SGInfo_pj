@@ -16,7 +16,8 @@ class HomeComponent extends Component
     public $job_title;
     public $job_location;
     public $searchTerm = null;
-    protected $queryString = ['searchTerm' => ['except' => '']];
+
+    // protected $queryString = ['searchTerm' => ['except' => '']];
 
     public function updatedSearchTerm()
     {
