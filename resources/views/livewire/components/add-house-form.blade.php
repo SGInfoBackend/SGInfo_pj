@@ -115,9 +115,7 @@
                     <option value="4" class="modal-option-room">4</option>
                     <option value="5" class="modal-option-room">5</option>
                 </select>
-                @error('no_birth')
-                    <p class="alert text-danger">{{$message}}</p>
-                @enderror
+                <x-form.error for="no_birth" />
             </div>
             <div class="modal-div-room modal-div-room-100">
                 <x-form.label name="Select Key Features" />

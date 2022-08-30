@@ -11,7 +11,6 @@
                         <h1 class="modal-h1">Sign up</h1>
                         <h4 class="modal-h4">Search everything on your own time from SG Info</h4>
                         <div class="userInput">
-                            <div class="modal-div">
                                 <x-form.label name="Full Name" />
                                 <x-form.input id="name" class="txtname" type="text"
                                     placeholder="Your name is required" />
