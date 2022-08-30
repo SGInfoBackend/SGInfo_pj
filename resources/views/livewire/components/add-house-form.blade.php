@@ -8,63 +8,63 @@
         @endif
         <div class="userInput-room">
             <div class="modal-div-room">
-                <label for="" class="modal-label-room">PROPERTY TYPE</label> <br>
-                <input class="modal-input-room" type="text" wire:model="project_type">
+                <x-form.label name="Property Type" />
+                <x-form.input wire:model="project_type" />
                 @error('project_type')
                     <p class="alert text-danger">{{$message}}</p>
                 @enderror
             </div>
             <div class="modal-div-room">
-                <label for="" class="modal-label-room">AVAILABILITY</label> <br>
-                <input class="modal-input-room" type="date" wire:model="availability">
+                <x-form.label name="Availability" />
+                <x-form.input type="date" wire:model="availability" />
                 @error('availability')
                     <p class="alert text-danger">{{$message}}</p>
                 @enderror
             </div>
             <div class="modal-div-room">
-                <label for="" class="modal-label-room">DEVELOPER</label> <br>
-                <input class="modal-input-room" type="text" wire:model="developer">
+                <x-form.label name="Developer" />
+                <x-form.input type="text" wire:model="developer" />
                 @error('developer')
                     <p class="alert text-danger">{{$message}}</p>
                 @enderror
             </div>
             <div class="modal-div-room">
-                <label for="" class="modal-label-room">FLOOR LEVEL</label> <br>
-                <input class="modal-input-room" type="text" wire:model="floor_lv">
+                <x-form.label name="Floor Level" />
+                <x-form.input type="text" wire:model="floor_lv" />
                 @error('floor_lv')
                     <p class="alert text-danger">{{$message}}</p>
                 @enderror
             </div>
             <div class="modal-div-room">
-                <label for="" class="modal-label-room">FLOOR SIZE (sqft)</label> <br>
-                <input class="modal-input-room" type="text" wire:model="floor_size">
+                <x-form.label name="Floor Size" />
+                <x-form.input type="text" wire:model="floor_size" />
                 @error('floor_size')
                     <p class="alert text-danger">{{$message}}</p>
                 @enderror
             </div>
             <div class="modal-div-room">
-                <label for="" class="modal-label-room">PSF (psf)</label> <br>
-                <input class="modal-input-room" type="text" wire:model="psf">
+                <x-form.label name="PST(psf)" />
+                <x-form.input type="text" wire:model="psf" />
                 @error('psf')
                     <p class="alert text-danger">{{$message}}</p>
                 @enderror
             </div>
             <div class="modal-div-room">
-                <label for="" class="modal-label-room">NEAREST MRT/LRT</label> <br>
-                <input class="modal-input-room" type="text" wire:model="mrt_near">
+                <x-form.label name="Nearest MRT/LRT" />
+                <x-form.input type="text" wire:model="mrt_near" />
                 @error('mrt_near')
                     <p class="alert text-danger">{{$message}}</p>
                 @enderror
             </div>
             <div class="modal-div-room modal-div-room-textarea">
-                <label for="" class="modal-label-room">ADDRESS</label> <br>
+                <x-form.label name="Address" />
                 <textarea class="modal-input-room-textarea" name="" id="" cols="30" rows="5" wire:model="address"></textarea></textarea>
                 @error('address')
                     <p class="alert text-danger">{{$message}}</p>
                 @enderror
             </div>
             <div class="modal-div-room modal-div-room-100">
-                <label for="" class="modal-label-room">RENT OR SALE</label> <br>
+                <x-form.label name="Rent Or Sale" />
                 <select name="" id="" class="modal-select-room" wire:model="ros">
                     <option value="" selected disabled class="modal-option-room">Choose option</option>
                     <option value="for rent" class="modal-option-room">for rent</option>
@@ -75,8 +75,8 @@
                 @enderror
             </div>
             <div class="modal-div-room modal-div-room-100">
-                <label for="" class="modal-label-room modal-div-room-100">PRICE RATE(per month)</label> <br>
-                <input class="modal-input-room modal-input-room-new" style="width: 48%;" type="text" wire:model="price">
+                <x-form.label name="Price Rate(per month)" />
+                <x-form.input style="width: 48%;" type="text" wire:model="price" />
                 <select class="modal-select-room" style="width: 48%;" wire:model="currency">
                     <option value="" selected disabled class="modal-option-room">Currency</option>
                     <option value="USD" class="modal-option-room">USD</option>
@@ -88,14 +88,14 @@
                 @enderror
             </div>
             <div class="modal-div-room modal-div-room-100">
-                <label for="" class="modal-label-room">PLEASE UPLOAD PHOTOS</label> <br>
+                <x-form.label name="Please Uploads Photo" />
                 <input class="modal-input-room-image" type="file" wire:model="images">
                 @error('images')
                     <p class="alert text-danger">{{$message}}</p>
                 @enderror
             </div>
             <div class="modal-div-room modal-div-room-100">
-                <label for="" class="modal-label-room">NUMBER OF ROOMS</label> <br>
+                <x-form.label name="Number of Rooms" />
                 <select name="" id="" class="modal-select-room" style="width: 48%;" wire:model="no_room">
                     <option value="" selected disabled class="modal-option-room">Bed room</option>
                     <option value="1" class="modal-option-room">1</option>
@@ -120,7 +120,7 @@
                 @enderror
             </div>
             <div class="modal-div-room modal-div-room-100">
-                <label class="modal-label-room">SELECT KEY FEATURES</label> <br>
+                <x-form.label name="Select Key Features" />
                 <select class="modal-select-room" style="width: 100%;padding-left:10px;" multiple wire:model="keyfeatures">
                     <option value="Air-Conditioning" class="modal-option-room-special">Air-Conditioning</option>
                     <option value="Cooker Hob/Hood" class="modal-option-room">Cooker Hob/Hood</option>
@@ -143,7 +143,7 @@
                 @enderror
             </div>
             <div class="modal-div-room modal-div-room-100">
-                <label class="modal-label-room">SELECT FACILITIES</label> <br>
+                <x-form.label name="Select Facilities" />
                 <select class="modal-select-room" style="width: 100%;padding-left:10px;" multiple wire:model="facilities">
                     <option value="Barbeque Area" class="modal-option-room-special">Barbeque Area</option>
                     <option value="Covered car park" class="modal-option-room">Covered car park</option>
@@ -164,17 +164,13 @@
             </div>
 
             <div class="modal-div-room modal-div-room-textarea">
-                <label class="modal-label-room">DESCRIPTION</label> <br>
+                <x-form.label name="Description" />
                 <textarea class="modal-input-room-textarea" cols="30" rows="10" wire:model="description"></textarea>
                 @error('description')
                     <p class="alert text-danger">{{$message}}</p>
                 @enderror
             </div>
-            <button @click.prevent="$dispatch('toast-confirmation', {
-                action: 'complete',
-                message: 'Are you sure to complete this task ?'
-            })"
-             type="submit" class="uploadBtn-room">UPLOAD</button>
+            <x-button />
         </div>
     </form>
 </div>
