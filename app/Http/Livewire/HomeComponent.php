@@ -33,7 +33,6 @@ class HomeComponent extends Component
         $rentHouses = Cache::tags('home_page_tag')->remember("rent_house", now()->addSecond(10), function(){
             return RentHouse::orderBy('Rent_House_ID', 'DESC')->paginate(4);
         });
-
         if($this->searchTerm)
         {
             $jobs = Job::where(function($query) {
