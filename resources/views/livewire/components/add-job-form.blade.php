@@ -25,7 +25,7 @@
                 <x-form.label class="modal-label" name="Type of Role" />
                 <x-form.select>
                     <x-slot name="select" wire:model="job_type_role">
-                        <option value="" selected disabled class="modal-option">Choose role</option>
+                        <option value="" selected disabled class="modal-option">Choose Role</option>
                         @foreach ($typeofroles as $typeofrole)
                             <option value="{{ $typeofrole->Typeofrole_ID }}" class="modal-option">{{ $typeofrole->Typeofrole_Name }}</option>
                         @endforeach
@@ -47,7 +47,17 @@
             </div>
             <div class="my-3">
                 <x-form.label class="modal-label" name="Exp Level" />
-                <x-form.input type="text" placeholder="Enter Exp Level" wire:model="exp_level" />
+                <x-form.select>
+                    <x-slot name="select" wire:model="exp_level">
+                        <option value="" selected disabled class="modal-option">Choose Exp Level</option>
+                        <option value="Fresher/Entry" class="modal-option">Fresher/Entry</option>
+                        <option value="Junior" class="modal-option">Junior</option>
+                        <option value="Senior" class="modal-option">Senior</option>
+                        <option value="1yearExp & Above" class="modal-option">1yearExp & Above</option>
+                        <option value="Director Above" class="modal-option">Director Above</option>
+                        <option value="Manager" class="modal-option">Manager</option>
+                    </x-slot>
+                </x-form.select>
                 <x-form.error for="exp_level" />
             </div>
 
