@@ -22,10 +22,11 @@
                             <h4>Job Type</h4>
                             @foreach ($typeofroles as $typeofrole)
                                 <div class="form-check">
-                                    <input class="form-check-input" name="typeofrole" type="checkbox" value="{{ $typeofrole->Typeofrole_ID }}" wire:model="selectedId" id="{{ $typeofrole->Typeofrole_ID }}">
+                                    <input class="form-check-input" name="typeofrole" type="checkbox" value="{{ $typeofrole->Typeofrole_ID }}" wire:model="selectedId" > {{-- id="$typeofrole->Typeofrole_ID" --}}
                                     <label class="form-check-label" for="{{ $typeofrole->Typeofrole_Name }}">
                                         {{ $typeofrole->Typeofrole_Name }}
                                     </label>
+                                    <span class="pull-right">({{ App\Models\Job::where(['Typeofrole_ID' => $typeofrole->Typeofrole_ID])->count() }})</span>
                                 </div>
                             @endforeach
                             {{-- {{ var_export($selectedId) }} --}}
@@ -38,7 +39,7 @@
                             <h4>Position</h4>
                             @foreach ($jobs as $job)
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="{{ $job->Job_title }}" wire:model="selectedJob" id="{{ $job->Job_ID }}">
+                                    <input class="form-check-input" name="position" type="checkbox" value="{{ $job->Job_title }}" wire:model="selectedJob"> {{--  id="{{ $job->Job_ID }}" --}}
                                     <label class="form-check-label" for="{{ $job->Job_title }}">
                                         {{ $job->Job_title }}
                                     </label>
@@ -60,6 +61,7 @@
                                     </label>
                                 </div>
                             @endforeach
+                            {{-- {{ var_export($expLevel) }} --}}
                             {{-- <div class="form-check">
                                 <input class="form-check-input" type="checkbox" value="" id="part_time" >
                                 <label class="form-check-label" for="part_time">
@@ -131,4 +133,82 @@
         </div>
     </div>
 </div>
+
+{{-- @push('scripts')
+    <script>
+        $('.jobId').click(function () {
+            var jobType = [];
+            $('.jobId').each(function () {
+                if ($(this).is(":checked")) {
+                    jobType.push($(this).val());
+                }
+            });
+            finalJobType = jobType.toString();
+
+            $.ajax({
+                type: 'get',
+                dataType: 'html',
+                url: '',
+                data: "jobtype=" + finalJobType,
+                success: function (response) {
+                    console.log(response);
+                    $('').html(response);
+                }
+            });
+        });
+    </script>
+@endpush --}}
+
+{{-- @push('scripts')
+    <script>
+        $(document).ready(() => {
+            $(document).on('click', '.job_checkbox', () => {
+                var ids = [];
+                var counter = 0;
+                $('.job_checkbox').each(() => {
+                    if($(this).is(":checked")) {
+                        ids.push($(this).attr('id'));
+                        counter++;
+                    }
+                });
+
+                if(counter == 0) {
+                    $('._t-item').empty();
+                    $('._t-item').append("No Data Found");
+                } else {
+                    fetchAllJobSelected(ids);
+                }
+            });
+        });
+
+        function fetchAllJobSelected(id) {
+            $('._t-item').empty();
+
+            $.ajax({
+                type: 'GET',
+                url: 'get_causes_against_job' + id,
+                success: (response) => {
+                    var response = JSON.parse(response);
+                    console.log(response);
+
+                    if(response.length == 0) {
+                        $('._t-item').append('No Data Found!');
+                    } else {
+                        response.forEach(element => {
+                            $('._t-item').append(`
+                            <div class="card card-height my-2 shadow">
+                                <div class="card-body">
+                                    <h5 class="text-decoration-none">${ element.Job_title }</h5>
+                                    <p class="mt-2">${ Str::limit(element.Job_Description, 100) }</p>
+                                    <a href="#" class="text-decoration-none">See More..</a>
+                                </div>
+                            </div>
+                            `);
+                        });
+                    }
+                }
+            });
+        }
+    </script>
+@endpush --}}
 
