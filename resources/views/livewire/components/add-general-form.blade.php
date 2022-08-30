@@ -4,12 +4,12 @@
          <div class="userInput">
             <div class="modal-div">
                 <x-form.label name="Journalist Name"/>
-                <x-form.input wire:model="gname"/>
+                <x-form.input type="text" wire:model="gname"/>
                 <x-form.error for="gname"/>
             </div>
             <div class="modal-div">
                 <x-form.label name="News Title"/>
-                <x-form.input wire:model="gtitle"/>
+                <x-form.input type="text" wire:model="gtitle"/>
                 <x-form.error for="gtitle" />
             </div>
             <div class="modal-div">
@@ -30,7 +30,7 @@
             </div>
             <div class="modal-div">
                 <x-form.label name="PLEASE UPLOAD PHOTOS"/>
-                <x-form.textarea><x-slot name="description" cols="30" rows="10" wire:model="gdescription"></x-slot></x-form.textarea>
+                <x-form.textarea><x-slot name="description" cols="30" rows="10" wire:model="gdescription" type="text"></x-slot></x-form.textarea>
                 <x-form.error for="gdescription"/>
             </div>
             <x-button class="uploadBtn" type="submit"/>

@@ -1,3 +1,2 @@
-
 @props(['name'])
-<label {{ $attributes->class(["modal-label"]) }}>{{ $name }}</label>
+<label {{ $attributes->class(['modal-label']) }}>{{ $name }}</label>

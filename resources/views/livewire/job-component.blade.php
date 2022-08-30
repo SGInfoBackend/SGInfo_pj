@@ -1,8 +1,9 @@
 <div>
     <style>
-        nav svg{
+        nav svg {
             height: 20px;
         }
+
         .slider {
             height: 37px !important;
         }
@@ -10,7 +11,7 @@
 
     <div class="py-5 title-text">
         <p class="text-center text-primary" style="font-size: 24px;">Jobs Career Opportunity</p>
-      </div>
+    </div>
     <!-- start jobs -->
     <div class="container">
         <div class="row">
@@ -47,7 +48,6 @@
                             @endforeach
                         </div>
                     </div>
-                </div>
 
                 <div class="col-12 my-2">
                     <div class="card shadow">
@@ -80,56 +80,60 @@
                                 1year_Exp & Above
                                 </label>
                             </div> --}}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 my-2">
+                        <div class="card card-h my-2 shadow">
+                            <div class="card-body workfromhome">
+                                <a href="" class="text-decoration-none">
+                                    <p class="mb-0">Search only <span class="fw-bold">Work from Home OR Remote
+                                            Jobs</span></p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 my-5" style="margin-top: 1.7rem !important;">
+                        <div class="card card-h shadow">
+                            <div class="card-body">
+                                <h4>Salary</h4>
+                                <div class="input-group mb-3">
+
+                                    <input wire:ignore type="text" id="slider" class="form-control"
+                                        placeholder="Min" aria-label="Min" id="salaryMin" wire:model="min_price">
+                                    <span class="input-group-text">-</span>
+                                    <input wire:ignore type="text" id="slider" class="form-control"
+                                        placeholder="Max" aria-label="Max" id="salaryMax" wire:model="max_price">
+
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-12 my-2">
-                  <div class="card card-h my-2 shadow">
-                    <div class="card-body workfromhome">
-                      <a href="" class="text-decoration-none">
-                         <p class="mb-0">Search only <span class="fw-bold">Work from Home OR Remote Jobs</span></p>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="col-12 my-5" style="margin-top: 1.7rem !important;">
-                    <div class="card card-h shadow">
-                        <div class="card-body">
-                            <h4>Salary</h4>
-                              <div class="input-group mb-3">
-
-                                  <input wire:ignore type="text" id="slider" class="form-control"  placeholder="Min" aria-label="Min" id="salaryMin" wire:model="min_price" >
-                                  <span class="input-group-text">-</span>
-                                  <input wire:ignore type="text" id="slider" class="form-control" placeholder="Max" aria-label="Max" id="salaryMax" wire:model="max_price">
-
-                                  </div>
-                            </div>
-                    </div>
-                </div>
             </div>
-
-          </div>
-          <div class="col-12 col-md-9">
-            @if($selectedId)
-                @foreach ($jobs as $job)
+            <div class="col-12 col-md-9">
+                @if ($selectedId)
+                    @foreach ($jobs as $job)
+                        <div class="card card-height my-2 shadow">
+                            <div class="card-body">
+                                <h5 class="text-decoration-none">{{ $job->Job_title }}</h5> {{-- href="{{ route('jobdetails', ['Job_ID'=>$job->Job_ID]) }}" --}}
+                                <p class="mt-2">{{ Str::limit($job->Job_Description, 100) }}</p>
+                                <a href="{{ route('jobdetails', ['Job_ID' => $job->Job_ID]) }}"
+                                    class="text-decoration-none">See More..</a>
+                            </div>
+                        </div>
+                    @endforeach
+                @else
                     <div class="card card-height my-2 shadow">
                         <div class="card-body">
-                            <h5 class="text-decoration-none">{{ $job->Job_title }}</h5> {{--  href="{{ route('jobdetails', ['Job_ID'=>$job->Job_ID]) }}" --}}
-                            <p class="mt-2">{{ Str::limit($job->Job_Description, 100) }}</p>
-                            <a href="{{ route('jobdetails', ['Job_ID'=>$job->Job_ID]) }}" class="text-decoration-none">See More..</a>
+                            <p class="text-primary text-muted">Here is no Job!</p>
                         </div>
                     </div>
-                @endforeach
-            @else
-                <div class="card card-height my-2 shadow">
-                    <div class="card-body">
-                        <p class="text-primary text-muted">Here is no Job!</p>
-                    </div>
-                </div>
-            @endif
-          </div>
+                @endif
+            </div>
         </div>
     </div>
 </div>
@@ -158,57 +162,3 @@
         });
     </script>
 @endpush --}}
-
-{{-- @push('scripts')
-    <script>
-        $(document).ready(() => {
-            $(document).on('click', '.job_checkbox', () => {
-                var ids = [];
-                var counter = 0;
-                $('.job_checkbox').each(() => {
-                    if($(this).is(":checked")) {
-                        ids.push($(this).attr('id'));
-                        counter++;
-                    }
-                });
-
-                if(counter == 0) {
-                    $('._t-item').empty();
-                    $('._t-item').append("No Data Found");
-                } else {
-                    fetchAllJobSelected(ids);
-                }
-            });
-        });
-
-        function fetchAllJobSelected(id) {
-            $('._t-item').empty();
-
-            $.ajax({
-                type: 'GET',
-                url: 'get_causes_against_job' + id,
-                success: (response) => {
-                    var response = JSON.parse(response);
-                    console.log(response);
-
-                    if(response.length == 0) {
-                        $('._t-item').append('No Data Found!');
-                    } else {
-                        response.forEach(element => {
-                            $('._t-item').append(`
-                            <div class="card card-height my-2 shadow">
-                                <div class="card-body">
-                                    <h5 class="text-decoration-none">${ element.Job_title }</h5>
-                                    <p class="mt-2">${ Str::limit(element.Job_Description, 100) }</p>
-                                    <a href="#" class="text-decoration-none">See More..</a>
-                                </div>
-                            </div>
-                            `);
-                        });
-                    }
-                }
-            });
-        }
-    </script>
-@endpush --}}
-
