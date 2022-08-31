@@ -2,7 +2,7 @@
     $(document).ready(function(){
         $('#login-submit').on('click',function(e){
          e.preventDefault();
-         var email = $('#email').val();
+         var email = $('#useremail').val();
          var password = $('#password').val();
          $.ajaxSetup({
             headers: {
@@ -13,20 +13,16 @@
             url: "{{ url('register') }}",
             method: 'post',
             data: {
-               name: $('#name').val(),
-               email: $('#email').val(),
+               email: $('#useremail').val(),
                password: $('#password').val(),
-               password_confirmation: $('#password_confirmation').val()
             },
             success: function(data){
               location.reload();
-              $('#register').hide();
+              $('#login').hide();
               },
             error: function(error){
               $('#name_error').text(error.responseJSON.errors.name);
               $('#email_error').text(error.responseJSON.errors.email);
-              $('#password_error').text(error.responseJSON.errors.password);
-              $('#password_confirmation_error').text(error.responseJSON.errors.password_confirmation);
             }
             });
          });
