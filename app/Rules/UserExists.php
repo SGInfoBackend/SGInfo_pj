@@ -18,18 +18,18 @@ class UserExists implements Rule
     {
 
         $user = User::where('email',$value)->first();
-        $password = User::where('password',$value)->first();
-        $name = User::where('name',$value)->first();
+        // $password = User::where('password',$value)->first();
+        // $name = User::where('name',$value)->first();
 
         if(is_null($user)){
             return true;
         }
-        elseif($password){
-            return true;
-        }
-        elseif($name){
-            return true;
-        }
+        // elseif($password){
+        //     return true;
+        // }
+        // elseif($name){
+        //     return true;
+        // }
         return false;
     }
 
@@ -42,8 +42,6 @@ class UserExists implements Rule
     {
         return [
             'email'=>'This email already exists!',
-            'password'=>'Your password must be at least 8!',
-            'name'=>'Your name must be string!',
         ];
     }
 

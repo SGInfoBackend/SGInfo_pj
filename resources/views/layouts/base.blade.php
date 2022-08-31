@@ -18,7 +18,7 @@
     @livewire('add-general-component')
     @livewire('add-job-component')
 
-    {{$slot}}
+    {{ $slot }}
 
     <!-- footer -->
     <footer class="section-footer">
@@ -30,4 +30,5 @@
     @stack('scripts')
 
 </body>
+
 </html>
