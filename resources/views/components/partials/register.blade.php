@@ -12,7 +12,7 @@
                         <h4 class="modal-h4">Search everything on your own time from SG Info</h4>
                         <div class="userInput">
                                 <x-form.label name="Full Name" />
-                                <x-form.input id="name" class="txtname" type="text"
+                                <x-form.input id="name" type="text"
                                     placeholder="Your name is required" />
                                     <x-form.error id="name_error" for="name" />
                             </div>
