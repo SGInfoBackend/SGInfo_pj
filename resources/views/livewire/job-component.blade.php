@@ -137,28 +137,3 @@
         </div>
     </div>
 </div>
-
-{{-- @push('scripts')
-    <script>
-        $('.jobId').click(function () {
-            var jobType = [];
-            $('.jobId').each(function () {
-                if ($(this).is(":checked")) {
-                    jobType.push($(this).val());
-                }
-            });
-            finalJobType = jobType.toString();
-
-            $.ajax({
-                type: 'get',
-                dataType: 'html',
-                url: '',
-                data: "jobtype=" + finalJobType,
-                success: function (response) {
-                    console.log(response);
-                    $('').html(response);
-                }
-            });
-        });
-    </script>
-@endpush --}}
