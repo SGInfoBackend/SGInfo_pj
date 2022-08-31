@@ -72,12 +72,15 @@ class AddGeneralComponent extends Component
     // add general
     public function render()
     {
-        $generals = Cache::remember('generals', now()->addMinutes(10), function(){
+        $generals = Cache::remember('generals', now()->addMinutes(10), function () {
             return General::all();
         });
-        $gheaders = Cache::remember('gheaders', now()->addMinutes(10), function(){
+        $gheaders = Cache::remember('gheaders', now()->addMinutes(10), function () {
             return GHeader::all();
         });
+
+        // $gheaders = GHeader::all();
+
         return view('livewire.add-general-component',["gheaders"=>$gheaders,"generals"=>$generals])->layout('layouts.base');
     }
 }
