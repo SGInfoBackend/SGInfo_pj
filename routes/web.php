@@ -16,6 +16,7 @@ use App\Http\Livewire\RoomComponent;
 use App\Http\Livewire\RoomDetailComponent;
 use App\Http\Livewire\User\UserDashboardComponent;
 use App\Http\Livewire\UserProfileComponent;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', HomeComponent::class)->name('home');
@@ -27,7 +28,9 @@ Route::get('/detailarticle/{General_ID}', GeneralDetailComponent::class)->name('
 Route::get('/rooms', RoomComponent::class)->name('rooms');
 Route::get('/job', JobComponent::class)->name('job');
 
-Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])->group(function () {
+Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function () {
+
+    // Artisan::call('user:create --count=10');
     // For Rooms
     // Route::get('/rooms', RoomComponent::class)->name('rooms');    Route::get('/contact', ContactComponent::class)->name('contact');
     Route::get('/addjob', AddJobComponent::class)->name('addjob');
@@ -41,34 +44,30 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])-
     // Applying Job
     Route::get('/applyjob/{Job_title}', ApplyJobComponent::class)->name('applyjob');
     Route::get('/user/profile', UserProfileComponent::class)->name('user.profile');
-
 });
 
 // For User
-Route::middleware(['auth:sanctum', 'verified'])->group(function() {
+Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/user/dashboard', UserDashboardComponent::class)->name('user.dashboard');
 });
 
 // For Admin
-Route::middleware(['auth:sanctum', 'verified', 'authadmin'])->group(function() {
+Route::middleware(['auth:sanctum', 'verified', 'authadmin'])->group(function () {
     Route::get('/admin/dashboard', AdminDashboardComponent::class)->name('admin.dashboard');
 });
 
-// Social Route Grouping 
+// Social Route Grouping
 $subjects = ['login', 'auth'];
 
-foreach($subjects as $subject)
-{
-    
-Route::controller(AuthSocialComponent::class)->prefix($subject)->group(function(){
-    Route::get('/google', 'redirectToGoogle')->name('googleauth');
-    Route::get('/facebook', 'redirectToFacebook')->name('facebookauth');
-    Route::get('/github', 'redirectToGithub')->name('githubauth');
-    // Redirect Route
-    Route::get('/google/callback', 'handleGoogleCallback');
-    Route::get('/facebook/callback','handleFacebookCallback');
-    Route::get('/github/callback','handleGithubCallback');
-});
+foreach ($subjects as $subject) {
+
+    Route::controller(AuthSocialComponent::class)->prefix($subject)->group(function () {
+        Route::get('/google', 'redirectToGoogle')->name('googleauth');
+        Route::get('/facebook', 'redirectToFacebook')->name('facebookauth');
+        Route::get('/github', 'redirectToGithub')->name('githubauth');
+        // Redirect Route
+        Route::get('/google/callback', 'handleGoogleCallback');
+        Route::get('/facebook/callback', 'handleFacebookCallback');
+        Route::get('/github/callback', 'handleGithubCallback');
+    });
 }
-
-

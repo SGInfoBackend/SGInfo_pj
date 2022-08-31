@@ -3,26 +3,26 @@
         $('#login-submit').on('click',function(e){
          e.preventDefault();
          var email = $('#useremail').val();
-         var password = $('#password').val();
+         var password = $('#userpassword').val();
          $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
           });
          $.ajax({
-            url: "{{ url('register') }}",
+            url: "{{ url('login') }}",
             method: 'post',
             data: {
                email: $('#useremail').val(),
-               password: $('#password').val(),
+               password: $('#userpassword').val(),
             },
             success: function(data){
               location.reload();
               $('#login').hide();
               },
             error: function(error){
-              $('#name_error').text(error.responseJSON.errors.name);
-              $('#email_error').text(error.responseJSON.errors.email);
+              $('#useremail_error').text(error.responseJSON.errors.email);
+              $('#userpassword_error').text(error.responseJSON.errors.password);
             }
             });
          });

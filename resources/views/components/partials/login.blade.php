@@ -13,12 +13,12 @@
                             <div class="modal-div">
                                 <x-form.label name="EMAIL" /> <br>
                                 <x-form.input id="useremail" type="email" placeholder="Enter email" />
-                                <x-form.error id="email_error" for="email" />
+                                <x-form.error id="useremail_error" for="email" />
                             </div>
                             <div class="modal-div">
                                 <x-form.label name="PASSWORD" /> <br>
                                 <x-form.input id="userpassword" type="password" placeholder="Enter password" />
-                                <x-form.error id="password_error" for="passwored" />
+                                <x-form.error id="userpassword_error" for="passwored" />
                             </div>
                             <p><a href="">Forgot Password?</a></p>
                             <button class="uploadBtn" id="login-submit">LOGIN</button>

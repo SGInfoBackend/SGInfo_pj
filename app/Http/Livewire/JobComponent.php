@@ -5,7 +5,6 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use App\Models\Job;
 use App\Models\JobTypeOfRole;
-use GuzzleHttp\Psr7\Request;
 use Illuminate\Support\Facades\Cache;
 use Livewire\WithPagination;
 
@@ -64,13 +63,27 @@ class JobComponent extends Component
 
     public function render()
     {
-        $typeofroles = JobTypeOfRole::get();
-        $jobs = Job::all();
+        $typeofroles = Cache::remember('typeofroles', now()->addMinutes(10), function() {
+            return JobTypeOfRole::get();
+        });
+        // dd(Cache::get('typeofroles'));
+
+        // $jobs = Cache::remember('show_jobs', now()->addMinutes(10), function() {
+        //     return Job::all();
+        // });
 
         if ($this->selectedId) {
             $jobs = Job::whereIn('Typeofrole_ID', $this->selectedId)->orWhereIn('Job_title', $this->selectedJob)->orWhereIn('exp_level', $this->expLevel)->whereBetween('SALARY', [$this->min_price, $this->max_price])->paginate(8);
+            // $jobs = Cache::remember('jobs', now()->addMinutes(20), function() {
+            //     return Job::whereIn('Typeofrole_ID', $this->selectedId)->orWhereIn('Job_title', $this->selectedJob)->orWhereIn('exp_level', $this->expLevel)->whereBetween('SALARY', [$this->min_price, $this->max_price])->paginate(8);
+            // });
+            // dd(Cache::get('jobs'));
+            // dd($jobs);
         } else {
             $jobs = Job::orderBy('Job_ID', 'DESC')->orwhereIn('Job_title', $this->selectedJob)->whereBetween('SALARY', [$this->min_price, $this->max_price])->paginate(8);
+            // $jobs = Cache::remember('jobs', now()->addMinutes(20), function() {
+            //     return Job::orderBy('Job_ID', 'DESC')->orwhereIn('Job_title', $this->selectedJob)->whereBetween('SALARY', [$this->min_price, $this->max_price])->paginate(8);
+            // });
         }
 
         // if($this->selectedId)
