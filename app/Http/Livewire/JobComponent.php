@@ -71,18 +71,20 @@ class JobComponent extends Component
             return Job::all();
         });
 
-        if ($this->selectedId) {
-            $jobs = Job::whereIn('Typeofrole_ID', $this->selectedId)->orWhereIn('Job_title', $this->selectedJob)->orWhereIn('exp_level', $this->expLevel)->whereBetween('SALARY', [$this->min_price, $this->max_price])->paginate(8);
-            // $jobs = Cache::remember('jobs', now()->addMinutes(20), function() {
-            //     return Job::whereIn('Typeofrole_ID', $this->selectedId)->orWhereIn('Job_title', $this->selectedJob)->orWhereIn('exp_level', $this->expLevel)->whereBetween('SALARY', [$this->min_price, $this->max_price])->paginate(8);
-            // });
-            // dd(Cache::get('jobs'));
-            // dd($jobs);
-        } else {
-            $jobs = Job::orderBy('Job_ID', 'DESC')->orwhereIn('Job_title', $this->selectedJob)->whereBetween('SALARY', [$this->min_price, $this->max_price])->paginate(8);
-            // $jobs = Cache::remember('jobs', now()->addMinutes(20), function() {
-            //     return Job::orderBy('Job_ID', 'DESC')->orwhereIn('Job_title', $this->selectedJob)->whereBetween('SALARY', [$this->min_price, $this->max_price])->paginate(8);
-            // });
+        if(Cache::has('show_jobs')) {
+            if ($this->selectedId) {
+                $jobs = Job::whereIn('Typeofrole_ID', $this->selectedId)->orWhereIn('Job_title', $this->selectedJob)->orWhereIn('exp_level', $this->expLevel)->whereBetween('SALARY', [$this->min_price, $this->max_price])->paginate(8);
+                // $jobs = Cache::remember('jobs', now()->addMinutes(20), function() {
+                //     return Job::whereIn('Typeofrole_ID', $this->selectedId)->orWhereIn('Job_title', $this->selectedJob)->orWhereIn('exp_level', $this->expLevel)->whereBetween('SALARY', [$this->min_price, $this->max_price])->paginate(8);
+                // });
+                // dd(Cache::get('jobs'));
+                // dd($jobs);
+            } else {
+                $jobs = Job::orderBy('Job_ID', 'DESC')->orwhereIn('Job_title', $this->selectedJob)->orWhereIn('exp_level', $this->expLevel)->whereBetween('SALARY', [$this->min_price, $this->max_price])->paginate(8);
+                // $jobs = Cache::remember('jobs', now()->addMinutes(20), function() {
+                //     return Job::orderBy('Job_ID', 'DESC')->orwhereIn('Job_title', $this->selectedJob)->whereBetween('SALARY', [$this->min_price, $this->max_price])->paginate(8);
+                // });
+            }
         }
 
         // if($this->selectedId)
