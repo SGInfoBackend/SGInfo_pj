@@ -11,6 +11,7 @@ use App\Rules\DateValidation;
 use App\Rules\PropertyName;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cache;
 use Livewire\Component;
 use Livewire\Event;
 
@@ -124,8 +125,12 @@ class AddHouseComponent extends Component
     }
     public function render()
     {
-        $key_features = KeyFeature::all();
-        $facilities = Facilitity::all();
+        $key_features = Cache::remember('key_feature', now()->addMinutes(10), function(){
+            return KeyFeature::all();
+        });
+        $facilities = Cache::remember('facilities', now()->addMinutes(10), function(){
+            return Facilitity::all();
+        });
         return view('livewire.add-house-component')->layout('layouts.base',[
             "keyfeatures" => $key_features,
             "facilities" => $facilities

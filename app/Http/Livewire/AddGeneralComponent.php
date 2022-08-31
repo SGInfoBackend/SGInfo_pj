@@ -80,6 +80,7 @@ class AddGeneralComponent extends Component
         });
 
         // $gheaders = GHeader::all();
+
         return view('livewire.add-general-component',["gheaders"=>$gheaders,"generals"=>$generals])->layout('layouts.base');
     }
 }
