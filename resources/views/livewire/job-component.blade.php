@@ -26,7 +26,7 @@
                                     <label class="form-check-label" for="{{ $typeofrole->Typeofrole_Name }}">
                                         {{ $typeofrole->Typeofrole_Name }}
                                     </label>
-                                    <span class="pull-right">({{ App\Models\Job::where(['Typeofrole_ID' => $typeofrole->Typeofrole_ID])->count() }})</span>
+                                    {{-- <span class="pull-right">({{ App\Models\Job::where(['Typeofrole_ID' => $typeofrole->Typeofrole_ID])->count() }})</span> --}}
                                 </div>
                             @endforeach
                             {{-- {{ var_export($selectedId) }} --}}
