@@ -11,26 +11,27 @@
                         <h1 class="modal-h1">Sign up</h1>
                         <h4 class="modal-h4">Search everything on your own time from SG Info</h4>
                         <div class="userInput">
+                            <div class="modal-div">
                                 <x-form.label name="Full Name" />
-                                <x-form.input id="name" type="text"
+                                <x-form.input id="name" class="txtname" type="text"
                                     placeholder="Your name is required" />
-                                    <x-form.error id="name_error" for="name" />
+                                <x-form.alert class="text-danger" id="name_error" />
                             </div>
                             <div class="modal-div">
                                 <x-form.label name="Email" />
                                 <x-form.input id="email" type="email" placeholder="Enter email" />
-                                <x-form.error id="email_error" for="email" />
+                                <x-form.alert class="text-danger" id="email_error" />
                             </div>
                             <div class="modal-div">
                                 <x-form.label name="Password" />
                                 <x-form.input id="password" type="password" placeholder="Enter password" />
-                                <x-form.error id="password_error" for="password" />
+                                <x-form.alert class="text-danger" id="password_error" />
                             </div>
                             <div class="modal-div">
                                 <x-form.label name="Confirm Password" />
                                 <x-form.input id="password_confirmation" type="password"
                                     placeholder="Confirm your password" />
-                                    <x-form.error id="password_comfirmation_error" for="confirmed_password" />
+                                <x-form.alert class="text-danger" id="password_confirmation_error" />
                             </div>
                             <button class="uploadBtn" id="register-submit">REGISTER</button>
                         </div>
@@ -72,5 +73,4 @@
         </div>
     </div>
 </div>
-
 
