@@ -17,7 +17,7 @@ class RoomDetailComponent extends Component
     }
     public function render()
     {
-        $roomDetail = Cache::remember("roome_detail_{$this->renthouse_id}", 20,function(){
+        $roomDetail = Cache::remember("roome_detail_{$this->renthouse_id}", now()->addMinutes(10),function(){
             return RentHouse::where('Rent_House_ID', $this->renthouse_id)->first();
         });
         $facitlites = explode(',', $roomDetail->Facilities_IDS);
