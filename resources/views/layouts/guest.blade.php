@@ -18,9 +18,8 @@
             {{ $slot }}
         </div>
     </body>
-</html>
- --}}
- <!----======== Navbar & Carousel TDTZ========= -->
+</html> --}}
+<!----======== Navbar & Carousel TDTZ========= -->
 <!doctype html>
 <html lang="en">
 
@@ -30,29 +29,29 @@
 
 <body>
 
-<!-- start nav -->
-<x-partials.nav />
-<!-- end nav -->
+    <!-- start nav -->
+    <x-partials.nav />
+    <!-- end nav -->
 
-<x-partials.login />
-<x-partials.register />
+    <x-partials.login />
+    <x-partials.register />
 
-@livewire('add-house-component')
-@livewire('add-general-component')
-@livewire('add-job-component')
+    @livewire('add-house-component')
+    @livewire('add-general-component')
+    @livewire('add-job-component')
 
-{{$slot}}
+    {{ $slot }}
 
-<!-- footer -->
-<footer class="section-footer">
-    <x-partials.footer />
-</footer>
-<!-- end of footer -->
+    <!-- footer -->
+    <footer class="section-footer">
+        <x-partials.footer />
+    </footer>
+    <!-- end of footer -->
 
-@livewireScripts()
+    @livewireScripts()
 
-@stack('scripts')
+    @stack('scripts')
 
 </body>
-</html>
 
+</html>

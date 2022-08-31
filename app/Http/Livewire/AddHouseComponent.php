@@ -3,6 +3,8 @@
 namespace App\Http\Livewire;
 
 use App\Http\Requests\RentHouseValidationRequest;
+use App\Models\Facilitity;
+use App\Models\KeyFeature;
 use Livewire\WithFileUploads;
 use App\Models\RentHouse;
 use App\Rules\DateValidation;
@@ -122,6 +124,11 @@ class AddHouseComponent extends Component
     }
     public function render()
     {
-        return view('livewire.add-house-component')->layout('layouts.base');
+        $key_features = KeyFeature::all();
+        $facilities = Facilitity::all();
+        return view('livewire.add-house-component')->layout('layouts.base',[
+            "keyfeatures" => $key_features,
+            "facilities" => $facilities
+        ]);
     }
 }

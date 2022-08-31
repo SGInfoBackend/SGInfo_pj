@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Http\Requests\AddJobRequest;
 use App\Models\Job;
 use App\Models\JobTypeOfRole;
 use App\Rules\PropertyName;
@@ -13,26 +14,24 @@ class AddJobComponent extends Component
     // add job
     public $job_title;
     public $company;
+    public $company_url_link;
+    public $job_type_role;
     public $salary;
     public $job_location;
-    public $job_category;
-    public $company_url_link;
     public $exp_level;
     public $job_description;
-    public $job_type_role;
 
     public function updated($fields)
     {
         $this->validateOnly($fields, [
             'job_title' => 'required',
             'company' => 'required',
+            'company_url_link' => 'required',
+            'job_type_role' => 'required',
             'salary' => 'required|numeric',
             'job_location' => 'required',
-            'job_category' => 'required',
-            'company_url_link' => 'required',
             'exp_level' => 'required',
             'job_description' => 'required',
-            'job_type_role' => 'required',
         ]);
     }
 
@@ -46,27 +45,24 @@ class AddJobComponent extends Component
         $this->validate([
             'job_title' => 'required',
             'company' => 'required',
+            'company_url_link' => 'required',
+            'job_type_role' => 'required',
             'salary' => 'required|numeric',
             'job_location' => 'required',
-            'job_category' => 'required',
-            'company_url_link' => 'required',
             'exp_level' => 'required',
             'job_description' => 'required',
-            'job_type_role' => 'required',
         ]);
 
         $jobs = new Job();
         $jobs->USER_ID = Auth::user()->id;
         $jobs->Job_title = $this->job_title;
-        dd($jobs->Job_title);
         $jobs->Company = $this->company;
+        $jobs->Company_URL = $this->company_url_link;
+        $jobs->Typeofrole_ID = $this->job_type_role;
         $jobs->SALARY = $this->salary;
         $jobs->Job_location = $this->job_location;
-        $jobs->Category_job = $this->job_category;
-        $jobs->Company_URL = $this->company_url_link;
         $jobs->exp_level = $this->exp_level;
         $jobs->Job_Description = $this->job_description;
-        $jobs->Typeofrole_ID = $this->job_type_role;
         $jobs->save();
 
         session()->flash('message', 'Job Information has been added successfully!');

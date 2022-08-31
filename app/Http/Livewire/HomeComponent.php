@@ -16,7 +16,8 @@ class HomeComponent extends Component
     public $job_title;
     public $job_location;
     public $searchTerm = null;
-    protected $queryString = ['searchTerm' => ['except' => '']];
+
+    // protected $queryString = ['searchTerm' => ['except' => '']];
 
     public function updatedSearchTerm()
     {
@@ -28,7 +29,7 @@ class HomeComponent extends Component
         sleep(1);
         // $search = '%'. $this->searchTerm. '%';
         // $searchJob = Job::where('Job_location',$search)->get();
-        $rentHouses = RentHouse::orderBy('Rent_House_ID', 'DESC')->paginate(5);
+        $rentHouses = RentHouse::orderBy('Rent_House_ID', 'DESC')->paginate(4);
 
         if($this->searchTerm)
         {

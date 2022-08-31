@@ -1,8 +1,9 @@
 <div>
     <style>
-        nav svg{
+        nav svg {
             height: 20px;
         }
+
         .slider {
             height: 37px !important;
         }
@@ -10,7 +11,7 @@
 
     <div class="py-5 title-text">
         <p class="text-center text-primary" style="font-size: 24px;">Jobs Career Opportunity</p>
-      </div>
+    </div>
     <!-- start jobs -->
     <div class="container">
         <div class="row">
@@ -22,10 +23,11 @@
                             <h4>Job Type</h4>
                             @foreach ($typeofroles as $typeofrole)
                                 <div class="form-check">
-                                    <input class="form-check-input" name="typeofrole" type="checkbox" value="{{ $typeofrole->Typeofrole_ID }}" wire:model="selectedId" id="{{ $typeofrole->Typeofrole_ID }}">
+                                    <input class="form-check-input" name="typeofrole" type="checkbox" value="{{ $typeofrole->Typeofrole_ID }}" wire:model="selectedId" > {{-- id="$typeofrole->Typeofrole_ID" --}}
                                     <label class="form-check-label" for="{{ $typeofrole->Typeofrole_Name }}">
                                         {{ $typeofrole->Typeofrole_Name }}
                                     </label>
+                                    {{-- <span class="pull-right">({{ App\Models\Job::where(['Typeofrole_ID' => $typeofrole->Typeofrole_ID])->count() }})</span> --}}
                                 </div>
                             @endforeach
                             {{-- {{ var_export($selectedId) }} --}}
@@ -38,7 +40,7 @@
                             <h4>Position</h4>
                             @foreach ($jobs as $job)
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="{{ $job->Job_title }}" wire:model="selectedJob" id="{{ $job->Job_ID }}">
+                                    <input class="form-check-input" name="position" type="checkbox" value="{{ $job->Job_title }}" wire:model="selectedJob"> {{--  id="{{ $job->Job_ID }}" --}}
                                     <label class="form-check-label" for="{{ $job->Job_title }}">
                                         {{ $job->Job_title }}
                                     </label>
@@ -46,7 +48,6 @@
                             @endforeach
                         </div>
                     </div>
-                </div>
 
                 <div class="col-12 my-2">
                     <div class="card shadow">
@@ -60,6 +61,7 @@
                                     </label>
                                 </div>
                             @endforeach
+                            {{-- {{ var_export($expLevel) }} --}}
                             {{-- <div class="form-check">
                                 <input class="form-check-input" type="checkbox" value="" id="part_time" >
                                 <label class="form-check-label" for="part_time">
@@ -78,57 +80,85 @@
                                 1year_Exp & Above
                                 </label>
                             </div> --}}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 my-2">
+                        <div class="card card-h my-2 shadow">
+                            <div class="card-body workfromhome">
+                                <a href="" class="text-decoration-none">
+                                    <p class="mb-0">Search only <span class="fw-bold">Work from Home OR Remote
+                                            Jobs</span></p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 my-5" style="margin-top: 1.7rem !important;">
+                        <div class="card card-h shadow">
+                            <div class="card-body">
+                                <h4>Salary</h4>
+                                <div class="input-group mb-3">
+
+                                    <input wire:ignore type="text" id="slider" class="form-control"
+                                        placeholder="Min" aria-label="Min" id="salaryMin" wire:model="min_price">
+                                    <span class="input-group-text">-</span>
+                                    <input wire:ignore type="text" id="slider" class="form-control"
+                                        placeholder="Max" aria-label="Max" id="salaryMax" wire:model="max_price">
+
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-12 my-2">
-                  <div class="card card-h my-2 shadow">
-                    <div class="card-body workfromhome">
-                      <a href="" class="text-decoration-none">
-                         <p class="mb-0">Search only <span class="fw-bold">Work from Home OR Remote Jobs</span></p>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="col-12 my-5" style="margin-top: 1.7rem !important;">
-                    <div class="card card-h shadow">
-                        <div class="card-body">
-                            <h4>Salary</h4>
-                              <div class="input-group mb-3">
-
-                                  <input wire:ignore type="text" id="slider" class="form-control"  placeholder="Min" aria-label="Min" id="salaryMin" wire:model="min_price" >
-                                  <span class="input-group-text">-</span>
-                                  <input wire:ignore type="text" id="slider" class="form-control" placeholder="Max" aria-label="Max" id="salaryMax" wire:model="max_price">
-
-                                  </div>
-                            </div>
-                    </div>
-                </div>
             </div>
-
-          </div>
-          <div class="col-12 col-md-9">
-            @if($selectedId)
-                @foreach ($jobs as $job)
+            <div class="col-12 col-md-9">
+                @if ($selectedId)
+                    @foreach ($jobs as $job)
+                        <div class="card card-height my-2 shadow">
+                            <div class="card-body">
+                                <h5 class="text-decoration-none">{{ $job->Job_title }}</h5> {{-- href="{{ route('jobdetails', ['Job_ID'=>$job->Job_ID]) }}" --}}
+                                <p class="mt-2">{{ Str::limit($job->Job_Description, 100) }}</p>
+                                <a href="{{ route('jobdetails', ['Job_ID' => $job->Job_ID]) }}"
+                                    class="text-decoration-none">See More..</a>
+                            </div>
+                        </div>
+                    @endforeach
+                @else
                     <div class="card card-height my-2 shadow">
                         <div class="card-body">
-                            <h5 class="text-decoration-none">{{ $job->Job_title }}</h5> {{--  href="{{ route('jobdetails', ['Job_ID'=>$job->Job_ID]) }}" --}}
-                            <p class="mt-2">{{ Str::limit($job->Job_Description, 100) }}</p>
-                            <a href="{{ route('jobdetails', ['Job_ID'=>$job->Job_ID]) }}" class="text-decoration-none">See More..</a>
+                            <p class="text-primary text-muted">Here is no Job!</p>
                         </div>
                     </div>
-                @endforeach
-            @else
-                <div class="card card-height my-2 shadow">
-                    <div class="card-body">
-                        <p class="text-primary text-muted">Here is no Job!</p>
-                    </div>
-                </div>
-            @endif
-          </div>
+                @endif
+            </div>
         </div>
     </div>
 </div>
 
+{{-- @push('scripts')
+    <script>
+        $('.jobId').click(function () {
+            var jobType = [];
+            $('.jobId').each(function () {
+                if ($(this).is(":checked")) {
+                    jobType.push($(this).val());
+                }
+            });
+            finalJobType = jobType.toString();
+
+            $.ajax({
+                type: 'get',
+                dataType: 'html',
+                url: '',
+                data: "jobtype=" + finalJobType,
+                success: function (response) {
+                    console.log(response);
+                    $('').html(response);
+                }
+            });
+        });
+    </script>
+@endpush --}}

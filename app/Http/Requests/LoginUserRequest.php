@@ -2,19 +2,18 @@
 
 namespace App\Http\Requests;
 
-use App\Rules\UserExists;
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreUserRequest extends FormRequest
+class LoginUserRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      *
      * @return bool
      */
-    public function authorize():bool
+    public function authorize()
     {
-        return true;
+        return false;
     }
 
     /**
@@ -22,13 +21,11 @@ class StoreUserRequest extends FormRequest
      *
      * @return array<string, mixed>
      */
-    public function rules():array
+    public function rules()
     {
         return [
-            'name' => ['required'],
-            'email' => ['required','email',new UserExists],
-            'password' => ['required'],
-            'password_confirmation' => ['required'],
+            'email' => ['required', 'email'],
+            'password' => ['required']
         ];
     }
 }
