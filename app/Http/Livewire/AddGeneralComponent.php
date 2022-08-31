@@ -8,6 +8,7 @@ use App\Models\GHeader;
 use App\Rules\PropertyName;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cache;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
@@ -71,8 +72,12 @@ class AddGeneralComponent extends Component
     // add general
     public function render()
     {
-        $generals = General::all();
-        $gheaders = GHeader::all();
+        $generals = Cache::remember('generals', now()->addMinutes(10), function(){
+            return General::all();
+        });
+        $gheaders = Cache::remember('gheaders', now()->addMinutes(10), function(){
+            return GHeader::all();
+        });
         return view('livewire.add-general-component',["gheaders"=>$gheaders,"generals"=>$generals])->layout('layouts.base');
     }
 }

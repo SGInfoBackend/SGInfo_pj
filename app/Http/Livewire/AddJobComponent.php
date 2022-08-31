@@ -7,6 +7,7 @@ use App\Models\Job;
 use App\Models\JobTypeOfRole;
 use App\Rules\PropertyName;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cache;
 use Livewire\Component;
 
 class AddJobComponent extends Component
@@ -72,7 +73,9 @@ class AddJobComponent extends Component
     public function render()
     {
 
-        $typeofroles = JobTypeOfRole::all();
+        $typeofroles = Cache::remember('type_of_role', now()->addMinutes(10), function () {
+            return JobTypeOfRole::all();
+        });
         return view('livewire.add-job-component', ['typeofroles'=>$typeofroles])->layout('layouts.base');
     }
 }
