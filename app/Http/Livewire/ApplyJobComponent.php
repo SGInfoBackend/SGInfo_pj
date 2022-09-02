@@ -27,10 +27,9 @@ class ApplyJobComponent extends Component
     public function updated($fields)
     {
         $this->validateOnly($fields, [
-            'job_title' => 'required',
             'name' => 'required',
+            'email' => 'required|email',
             'phone' => 'required',
-            'email' => 'required',
             'cvfile' => 'required',
         ]);
     }
@@ -38,10 +37,9 @@ class ApplyJobComponent extends Component
     public function storeApplyJob()
     {
         $this->validate([
-            'job_title' => 'required',
             'name' => 'required',
+            'email' => 'required|email',
             'phone' => 'required',
-            'email' => 'required',
             'cvfile' => 'required',
         ]);
 

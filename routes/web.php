@@ -43,7 +43,7 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
     // Job Details
     Route::get('/job/job-details/{Job_ID}', JobDetailsComponent::class)->name('jobdetails');
     // Applying Job
-    Route::get('/applyjob/{Job_title}', ApplyJobComponent::class)->name('applyjob');
+    Route::get('/job/job-details/applyjob/{Job_title}', ApplyJobComponent::class)->name('applyjob');
     Route::get('/user/profile', UserProfileComponent::class)->name('user.profile');
 });
 

@@ -12,7 +12,7 @@
                             <div class="form-group row">
                                 <label for="name" class="offset-md-1 col-sm-2 col-form-label">Position</label>
                                 <div class="col-sm-8">
-                                    <input type="text" name="title" class="form-control"
+                                    <input type="text" name="job_title" class="form-control" id="job_title"
                                         readonly="readonly" wire:model='job_title'>
                                 </div>
                             </div>
