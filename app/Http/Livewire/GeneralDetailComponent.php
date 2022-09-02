@@ -20,6 +20,7 @@ class GeneralDetailComponent extends Component
         $generals = Cache::remember("generals",60,function(){
             return General::where('General_ID',$this->General_ID)->first();
         });
+        
 
         return view('livewire.general-detail-component',["general"=>$generals])->layout('layouts.base');
     }
