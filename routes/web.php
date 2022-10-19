@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Livewire\AddHouseComponent;
-use App\Http\Livewire\ContactComponent;
 use App\Http\Livewire\HomeComponent;
 use App\Http\Livewire\JobComponent;
 use App\Http\Livewire\AddJobComponent;
@@ -31,9 +30,10 @@ Route::get('/job', JobComponent::class)->name('job');
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function () {
 
     // Artisan::call('user:create --count=10');
-    
+
     // For Rooms
-    // Route::get('/rooms', RoomComponent::class)->name('rooms');    Route::get('/contact', ContactComponent::class)->name('contact');
+    // Route::get('/rooms', RoomComponent::class)->name('rooms');
+    Route::get('/contact', ContactComponent::class)->name('contact');
     Route::get('/addjob', AddJobComponent::class)->name('addjob');
     // For General
     Route::get('/addarticle', GeneralComponent::class)->name('addarticle');

@@ -2,17 +2,11 @@
 
 namespace App\Http\Livewire;
 
-use App\Exceptions\DemoException;
-use App\Http\Requests\GeneralAddarticalRequest;
 use App\Models\General;
 use App\Models\GHeader;
-use App\Rules\PropertyName;
 use Carbon\Carbon;
-use Illuminate\Auth\Events\Login;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Facades\Mail;
-use Laravel\Fortify\Http\Controllers\RegisteredUserController;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
@@ -55,7 +49,7 @@ class AddGeneralComponent extends Component
         // dd('is working');
         $artical = new General();
 
-        $artical->USER_ID  = Auth::user()->id;
+        // $artical->USER_ID  = Auth::user()->id;
         $artical->G_Name = $this->gname;
         // dd($artical->G_Name );
         $artical->G_Title = $this->gtitle;
@@ -69,7 +63,9 @@ class AddGeneralComponent extends Component
 
         $artical->save();
 
-        Mail::to($this->user())->send(new RegisteredUserController());
+        // $artical = array_chunk($,10);
+
+        // Mail::to($this->user())->send(new RegisteredUserController());
 
         session()->flash('message', 'Article has been created successfully!');
         $this->dispatchBrowserEvent('hide_modal');
@@ -87,6 +83,7 @@ class AddGeneralComponent extends Component
             // return response()->file('x.txt');
             // abort(404,'Not Found');
             // throw new DemoException('some error occured!');
+
             return General::all();
         });
 
