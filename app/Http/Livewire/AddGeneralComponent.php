@@ -78,15 +78,6 @@ class AddGeneralComponent extends Component
     public function render()
     {
         $generals = Cache::remember('generals', now()->addMinutes(10), function () {
-            // try{
-            //     $a = 1/0;
-            // }catch(\Throwable $th){
-            //     // dd('catched');
-            //     report($th);
-            // }
-            // return response()->file('x.txt');
-            // abort(404,'Not Found');
-            // throw new DemoException('some error occured!');
             return General::all();
         });
 
