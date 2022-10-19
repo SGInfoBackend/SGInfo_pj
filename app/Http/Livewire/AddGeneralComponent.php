@@ -45,13 +45,10 @@ class AddGeneralComponent extends Component
             'gphotos' => 'image|mimes:jpeg,png,jpg|max:1024',
             'gdescription' => 'required',
         ]);
-        // // General::create($validatedData);
-        // dd('is working');
+
         $artical = new General();
 
-        // $artical->USER_ID  = Auth::user()->id;
         $artical->G_Name = $this->gname;
-        // dd($artical->G_Name );
         $artical->G_Title = $this->gtitle;
         $artical->GHeader_ID = $this->gheader_id;
 
@@ -63,10 +60,6 @@ class AddGeneralComponent extends Component
 
         $artical->save();
 
-        // $artical = array_chunk($,10);
-
-        // Mail::to($this->user())->send(new RegisteredUserController());
-
         session()->flash('message', 'Article has been created successfully!');
         $this->dispatchBrowserEvent('hide_modal');
     }
@@ -74,24 +67,12 @@ class AddGeneralComponent extends Component
     public function render()
     {
         $generals = Cache::remember('generals', now()->addMinutes(10), function () {
-            // try{
-            //     $a = 1/0;
-            // }catch(\Throwable $th){
-            //     // dd('catched');
-            //     report($th);
-            // }
-            // return response()->file('x.txt');
-            // abort(404,'Not Found');
-            // throw new DemoException('some error occured!');
-
             return General::all();
         });
 
         $gheaders = Cache::remember('gheaders', now()->addMinutes(10), function () {
             return GHeader::all();
         });
-
-        // $gheaders = GHeader::all();
 
         return view('livewire.add-general-component', ["gheaders" => $gheaders, "generals" => $generals])->layout('layouts.base');
     }

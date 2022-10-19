@@ -54,10 +54,9 @@
     <x-ajax.login />
 
     <script>
-        < script >
-            window.addEventListener('hide_modal', event => {
-                $('#room').hide();
-            })
+        window.addEventListener('hide_modal', event => {
+            $('#room').hide();
+        })
         window.addEventListener('hide_modal', event => {
             $('#article').hide();
         })
@@ -68,9 +67,7 @@
             $('#room').hide();
             $('#job').hide();
             $('#article').hide();
-            // $('#login').css('display', 'block');
         })
-    </script>
     </script>
     <x-ajax.script />
 @endpush()
