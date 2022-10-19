@@ -35,11 +35,6 @@ class SendEmailApplyjob extends Mailable
      */
     public function build()
     {
-        // $result = new BlogPost();
-        // $subject = "Apply Job has been added {$this->apply_job}";
-        // return $this->subject($subject)
-        //             ->view('emails.posts.send-mail');
-
         return $this->from("tintwai@gmail.com")->to($this->apply_job->Gmail, 'Hello World')
             ->view('emails.posts.send-mail')->with([
                 'job' => $this->apply_job

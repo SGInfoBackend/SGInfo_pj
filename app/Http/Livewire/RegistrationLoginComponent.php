@@ -11,18 +11,17 @@ use Livewire\Component;
 
 class RegistrationLoginComponent extends Component
 {
-    public $users, $email, $password, $name,$confirmPassword;
-    // public $registerForm = false;
+    public $users, $email, $password, $name, $confirmPassword;
 
-    public $rules =[
-                    'name' => 'required',
-                    'email' => 'required',
-                    'password' => 'required',
-                    // 'confirmPassword' => 'required','same:password',
-                    ];
+    public $rules = [
+        'name' => 'required',
+        'email' => 'required',
+        'password' => 'required',
+    ];
 
 
-    private function resetInputFields(){
+    private function resetInputFields()
+    {
         $this->name = '';
         $this->email = '';
         $this->password = '';
@@ -32,16 +31,16 @@ class RegistrationLoginComponent extends Component
     {
         // dd($this->email);
 
-        if(Auth::attempt(array('email' => $this->email, 'password' => $this->password))){
+        if (Auth::attempt(array('email' => $this->email, 'password' => $this->password))) {
             session()->flash('message', 'Post successfully updated.');
-                return redirect()->route('home');
-        }else{
+            return redirect()->route('home');
+        } else {
             session()->flash('error', 'email and password are wrong.');
         }
-
     }
 
-    public function logout() {
+    public function logout()
+    {
 
         Auth::logout();
 
@@ -80,7 +79,6 @@ class RegistrationLoginComponent extends Component
         $this->resetInputFields();
 
         return redirect(route('home'));
-
     }
 
     public function render()

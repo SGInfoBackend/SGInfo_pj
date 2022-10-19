@@ -30,7 +30,6 @@ class GeneralComponent extends Component
         $globleNews = Cache::remember('globleNews', now()->addMinutes(10), function () {
             return General::where('GHeader_ID', '=', '2')->orderBy('General_ID', 'DESC')->limit(4)->get();
         });
-        // dd($globleNew);
         $travelGuide = Cache::remember('travelGuide', now()->addMinutes(10), function () {
             return General::where('GHeader_ID', '=', '3')->orderBy('General_ID', 'DESC')->limit(4)->get();
         });
