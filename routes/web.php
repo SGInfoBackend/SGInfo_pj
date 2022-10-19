@@ -33,7 +33,7 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
 
     // For Rooms
     // Route::get('/rooms', RoomComponent::class)->name('rooms');
-    Route::get('/contact', ContactComponent::class)->name('contact');
+    // Route::get('/contact', ContactComponent::class)->name('contact');
     Route::get('/addjob', AddJobComponent::class)->name('addjob');
     // For General
     Route::get('/addarticle', GeneralComponent::class)->name('addarticle');
