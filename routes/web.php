@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Livewire\AddHouseComponent;
-use App\Http\Livewire\ContactComponent;
 use App\Http\Livewire\HomeComponent;
 use App\Http\Livewire\JobComponent;
 use App\Http\Livewire\AddJobComponent;

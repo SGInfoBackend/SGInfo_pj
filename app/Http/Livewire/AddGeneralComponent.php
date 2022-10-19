@@ -2,17 +2,11 @@
 
 namespace App\Http\Livewire;
 
-use App\Exceptions\DemoException;
-use App\Http\Requests\GeneralAddarticalRequest;
 use App\Models\General;
 use App\Models\GHeader;
-use App\Rules\PropertyName;
 use Carbon\Carbon;
-use Illuminate\Auth\Events\Login;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Facades\Mail;
-use Laravel\Fortify\Http\Controllers\RegisteredUserController;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
@@ -51,13 +45,10 @@ class AddGeneralComponent extends Component
             'gphotos' => 'image|mimes:jpeg,png,jpg|max:1024',
             'gdescription' => 'required',
         ]);
-        // // General::create($validatedData);
-        // dd('is working');
+
         $artical = new General();
 
-        $artical->USER_ID  = Auth::user()->id;
         $artical->G_Name = $this->gname;
-        // dd($artical->G_Name );
         $artical->G_Title = $this->gtitle;
         $artical->GHeader_ID = $this->gheader_id;
 
@@ -68,8 +59,6 @@ class AddGeneralComponent extends Component
         $artical->G_Description  = $this->gdescription;
 
         $artical->save();
-
-        Mail::to($this->user())->send(new RegisteredUserController());
 
         session()->flash('message', 'Article has been created successfully!');
         $this->dispatchBrowserEvent('hide_modal');
@@ -84,8 +73,6 @@ class AddGeneralComponent extends Component
         $gheaders = Cache::remember('gheaders', now()->addMinutes(10), function () {
             return GHeader::all();
         });
-
-        // $gheaders = GHeader::all();
 
         return view('livewire.add-general-component', ["gheaders" => $gheaders, "generals" => $generals])->layout('layouts.base');
     }
