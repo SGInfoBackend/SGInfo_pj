@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Session;
 
 class AuthController extends Controller
 {
-     /**
+    /**
      * Create a new controller instance.
      *
      * @return void
@@ -45,7 +45,7 @@ class AuthController extends Controller
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
             return redirect()->intended('dashboard')
-                        ->withSuccess('You have Successfully loggedin');
+                ->withSuccess('You have Successfully loggedin');
         }
 
         return redirect("login")->withSuccess('Oppes! You have entered invalid credentials');
@@ -78,7 +78,7 @@ class AuthController extends Controller
      */
     public function dashboard()
     {
-        if(Auth::check()){
+        if (Auth::check()) {
             return view('dashboard');
         }
 
@@ -92,11 +92,11 @@ class AuthController extends Controller
      */
     public function create(array $data)
     {
-      return User::create([
-        'name' => $data['name'],
-        'email' => $data['email'],
-        'password' => Hash::make($data['password'])
-      ]);
+        return User::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => Hash::make($data['password'])
+        ]);
     }
 
     /**
@@ -104,11 +104,11 @@ class AuthController extends Controller
      *
      * @return response()
      */
-    public function logout() {
+    public function logout()
+    {
         Session::flush();
         Auth::logout();
 
         return Redirect('login');
     }
-
 }

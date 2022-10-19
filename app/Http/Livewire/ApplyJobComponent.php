@@ -51,14 +51,7 @@ class ApplyJobComponent extends Component
         $applyjobs->phone = $this->phone;
         $applyjobs->Gmail = $this->email;
         $applyjobs->CV_File = $this->cvfile->store('files', 'public');
-        // dd($applyjobs);
         $applyjobs->save();
-
-
-        // Mail::to($applyjobs->user)->queue(
-        //     new SendEmailApplyjob($applyjobs)
-        // );
-        // $when = now()->addMinutes();
 
         Mail::to($applyjobs->user)->send(
             new SendEmailApplyjob($applyjobs)

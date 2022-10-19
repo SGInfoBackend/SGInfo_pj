@@ -83,7 +83,6 @@ class HomeComponent extends Component
             'trending' => $trending,
             'trendings' => $trendings,
             'travelGuide' => $travelGuide,
-            // 'searchJobs' => $searchJob,
             'gheaders' => $gheaders,
         ])->layout('layouts.base');
     }
