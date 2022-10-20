@@ -26,8 +26,6 @@ class HomeComponent extends Component
 
     public function render()
     {
-        Log::info("hey");
-
         $rentHouses = Cache::remember("rent_house", now()->addMinute(10), function () {
             return RentHouse::orderBy('Rent_House_ID', 'DESC')->paginate(4);
         });

@@ -2,9 +2,7 @@
 
 namespace App\Http\Livewire;
 
-use App\Http\Requests\StoreUserRequest;
 use App\Models\User;
-use App\Rules\UserExists;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Livewire\Component;
@@ -29,7 +27,6 @@ class RegistrationLoginComponent extends Component
 
     public function login()
     {
-        // dd($this->email);
 
         if (Auth::attempt(array('email' => $this->email, 'password' => $this->password))) {
             session()->flash('message', 'Post successfully updated.');

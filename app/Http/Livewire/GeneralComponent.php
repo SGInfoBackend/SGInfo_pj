@@ -3,7 +3,6 @@
 namespace App\Http\Livewire;
 
 use App\Models\General;
-use App\Models\GHeader;
 use Illuminate\Support\Facades\Cache;
 use Livewire\Component;
 

@@ -2,7 +2,6 @@
 
 namespace App\Http\Livewire;
 
-use App\Http\Requests\RentHouseValidationRequest;
 use App\Models\Facilitity;
 use App\Models\KeyFeature;
 use Livewire\WithFileUploads;
@@ -13,7 +12,6 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
 use Livewire\Component;
-use Livewire\Event;
 
 class AddHouseComponent extends Component
 {

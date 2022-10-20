@@ -14,7 +14,6 @@ class AddGeneralComponent extends Component
 {
     use WithFileUploads;
 
-    // public $user_id;
     public $gname;
     public $gtitle;
     public $gheader_id;

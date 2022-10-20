@@ -4,41 +4,24 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreUserRequest;
 use Illuminate\Http\Request;
-use Laravel\Socialite\Facades\Socialite;
-use Exception;
 use App\Models\User;
-// use Illuminate\Contracts\Session\Session;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 
 class AuthController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
+
     public function index()
     {
         return view('auth.login');
     }
 
-    /**
-     * Write code on Method
-     *
-     * @return response()
-     */
     public function registration()
     {
         return view('auth.register');
     }
 
-    /**
-     * Write code on Method
-     *
-     * @return response()
-     */
     public function postLogin(StoreUserRequest $request)
     {
 
@@ -51,11 +34,6 @@ class AuthController extends Controller
         return redirect("login")->withSuccess('Oppes! You have entered invalid credentials');
     }
 
-    /**
-     * Write code on Method
-     *
-     * @return response()
-     */
     public function postRegistration(Request $request)
     {
         $request->validate([
@@ -64,18 +42,11 @@ class AuthController extends Controller
             'password' => 'required|min:6',
         ]);
 
-        // $this->dispatchBrowserEvent('show-modal');
         $data = $request->all();
-        // $check = $this->create($data);
 
         return redirect("/")->withSuccess('Great! You have Successfully loggedin');
     }
 
-    /**
-     * Write code on Method
-     *
-     * @return response()
-     */
     public function dashboard()
     {
         if (Auth::check()) {
@@ -85,11 +56,6 @@ class AuthController extends Controller
         return redirect("login")->withSuccess('Opps! You do not have access');
     }
 
-    /**
-     * Write code on Method
-     *
-     * @return response()
-     */
     public function create(array $data)
     {
         return User::create([
@@ -99,11 +65,6 @@ class AuthController extends Controller
         ]);
     }
 
-    /**
-     * Write code on Method
-     *
-     * @return response()
-     */
     public function logout()
     {
         Session::flush();

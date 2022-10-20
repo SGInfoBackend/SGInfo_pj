@@ -7,12 +7,10 @@ use App\Mail\SendEmailApplyjob;
 use App\Models\ApplyJob;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
-// use Livewire\WithFileUploads;
 use Livewire\Component;
 
 class ApplyJobComponent extends Component
 {
-    // use WithFileUploads;
     // Applying Job
     public $job_title;
     public $name;
