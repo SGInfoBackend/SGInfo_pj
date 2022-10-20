@@ -7,7 +7,6 @@ use App\Models\GHeader;
 use App\Models\Job;
 use App\Models\RentHouse;
 use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Facades\Log;
 use Livewire\Component;
 use Livewire\WithPagination;
 

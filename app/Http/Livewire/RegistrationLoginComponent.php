@@ -44,15 +44,6 @@ class RegistrationLoginComponent extends Component
         return redirect('login-register');
     }
 
-    // public function rules(){
-    //     return[
-    //         'name' => ['required', new UserExists],
-    //         'email' => ['required', new UserExists],
-    //         'password' => ['required',new UserExists],
-    //         'confirmPassword' => ['required','same:password'],
-    //     ];
-    // }
-
     public function updated($fields)
     {
         $this->validateOnly($fields);
