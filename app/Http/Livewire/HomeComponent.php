@@ -7,6 +7,7 @@ use App\Models\GHeader;
 use App\Models\Job;
 use App\Models\RentHouse;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Log;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -25,6 +26,8 @@ class HomeComponent extends Component
 
     public function render()
     {
+        Log::info("hey");
+
         $rentHouses = Cache::remember("rent_house", now()->addMinute(10), function () {
             return RentHouse::orderBy('Rent_House_ID', 'DESC')->paginate(4);
         });
