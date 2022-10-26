@@ -37,8 +37,8 @@
     <p class="footer-p footer-p-last">ITVisionHub SGcamp4@2022 | All Rights Reserved</p>
 </div>
 
-<script src="{{ asset('js/main.js') }}"></script>
-<script src="{{ asset('js/table.js') }}"></script>
+<script src="{{ asset('assets/js/main.js') }}"></script>
+<script src="{{ asset('assets/js/table.js') }}"></script>
 {{-- noUiSlider cdn --}}
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
