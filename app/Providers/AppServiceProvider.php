@@ -7,6 +7,7 @@ use App\Validators\RentHouseValidator;
 use Carbon\Carbon;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\ServiceProvider;
 use Symfony\Component\CssSelector\Node\FunctionNode;
