@@ -31,6 +31,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+
+        if (config('app.env') === 'production') {
+            URL::forceScheme('https');
+        }
         Validator::extend('max_lenght', RentHouseValidator::class, 'lenght is not greater than 20');
         Validator::extend(
             'invalid_date',
@@ -40,8 +44,5 @@ class AppServiceProvider extends ServiceProvider
             },
             'Your date is expired'
         );
-        if (config('app.env') === 'production') {
-            URL::forceScheme('https');
-        }
     }
 }
