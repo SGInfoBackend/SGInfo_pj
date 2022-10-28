@@ -86,13 +86,6 @@
                     <li> <a href="#">Filling Arrival Card</a></li>
                 </ul>
 
-                {{-- @foreach ($mustRead as $mustread)
-                        <div class="gl-news-photo3">
-                            <img src="{{ asset('/images/general_images')}}/{{ $mustread->G_PHOTO }}"  class="image3" >
-                            <p class="gl-text">{{ Str::limit($mustread->G_Description, 50) }}</p>
-                        </div>
-                    @endforeach --}}
-
                 <button class="gen_info_btn" onclick="changeColor()">See More</button>
             </div>
         </div>

@@ -2,9 +2,12 @@
 
 namespace App\Http\Livewire;
 
+<<<<<<< HEAD
 use App\Mail\BookRoomConfirmedMarkdown;
 use App\Models\BookRoom;
 use App\Models\KeyFeature;
+=======
+>>>>>>> e4a5e9aa433eed2bdfb7b253f53bd3e9670a6caa
 use App\Models\RentHouse;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
@@ -38,7 +41,7 @@ class RoomDetailComponent extends Component
     }
     public function render()
     {
-        $roomDetail = Cache::remember("roome_detail_{$this->renthouse_id}", now()->addMinutes(10),function(){
+        $roomDetail = Cache::remember("roome_detail_{$this->renthouse_id}", now()->addMinutes(10), function () {
             return RentHouse::where('Rent_House_ID', $this->renthouse_id)->first();
         });
         $facitlites = explode(',', $roomDetail->Facilities_IDS);
@@ -47,6 +50,6 @@ class RoomDetailComponent extends Component
             'roomDetail' => $roomDetail,
             'facilities' => $facitlites,
             'keyfeatures' => $keyfeatures
-            ])->layout('layouts.base');
+        ])->layout('layouts.base');
     }
 }

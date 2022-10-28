@@ -4,8 +4,8 @@
          <div class="userInput">
             <div class="modal-div">
                 <x-form.label name="Journalist Name"/>
-                <x-form.input type="text" wire:model="gname"/>
-                <x-form.error for="gname"/>
+                <x-form.input type="text" wire:model="gname" />
+                <x-form.error for="gname"/> 
             </div>
             <div class="modal-div">
                 <x-form.label name="News Title"/>

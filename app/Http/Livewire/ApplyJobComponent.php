@@ -2,14 +2,15 @@
 
 namespace App\Http\Livewire;
 
+use App\Jobs\UserApplyJobNotify;
+use App\Mail\SendEmailApplyjob;
 use App\Models\ApplyJob;
 use Illuminate\Support\Facades\Auth;
-use Livewire\WithFileUploads;
+use Illuminate\Support\Facades\Mail;
 use Livewire\Component;
 
 class ApplyJobComponent extends Component
 {
-    use WithFileUploads;
     // Applying Job
     public $job_title;
     public $name;
@@ -44,14 +45,19 @@ class ApplyJobComponent extends Component
 
         $applyjobs = new ApplyJob();
         $applyjobs->USER_ID = Auth::user()->id; // fetch user id from users table
-
         $applyjobs->USER_name = $this->name;
         $applyjobs->phone = $this->phone;
         $applyjobs->Gmail = $this->email;
         $applyjobs->CV_File = $this->cvfile->store('files', 'public');
         $applyjobs->save();
-        session()->flash('success_message', 'You applied this job successfully!');
 
+        Mail::to($applyjobs->user)->send(
+            new SendEmailApplyjob($applyjobs)
+        );
+
+        UserApplyJobNotify::dispatch($applyjobs);
+
+        session()->flash('success_message', 'You applied this job successfully!');
     }
 
     public function render()

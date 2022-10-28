@@ -4,6 +4,7 @@ namespace App\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Throwable;
+use Symfony\Component\HttpFoundation\File\Exception\FileNotFoundException;
 
 class Handler extends ExceptionHandler
 {
@@ -22,7 +23,7 @@ class Handler extends ExceptionHandler
      * @var array<int, class-string<\Throwable>>
      */
     protected $dontReport = [
-        //
+        // Symfony \ Component \ HttpFoundation \ File \ Exception\ FileNotFoundException::class
     ];
 
     /**
@@ -41,10 +42,36 @@ class Handler extends ExceptionHandler
      *
      * @return void
      */
+
+    public function report(Throwable $e)
+    {
+        // if($e instanceof FileNotFoundException){
+        //     dd('ddd');
+        // }
+        parent::report($e);
+    }
+
     public function register()
     {
         $this->reportable(function (Throwable $e) {
             //
+            // if($e instanceof FileNotFoundException){
+            //     return response('some error',500);
+            // }
+
         });
+    }
+
+    // public function render($request, Throwable $e)
+    // {
+    //     if($e instanceof FileNotFoundException){
+    //             return response('some error',500);
+    //         }
+    //         return parent::render($request,$e);
+    // }
+
+    protected function context()
+    {
+        return array_merge(parent::context(),['name'=>'Tint']);
     }
 }
