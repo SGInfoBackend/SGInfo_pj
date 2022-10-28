@@ -19,21 +19,21 @@
                             <div class="form-group row mt-4">
                                 <label for="name" class="offset-md-1 col-sm-2 col-form-label">Name</label>
                                 <div class="col-sm-8">
-                                    <input type="text" name="name" class="form-control " id="name"
+                                    <input type="text" name="name" class="form-control "
                                         value="" wire:model='name'>
                                 </div>
                             </div>
                             <div class="form-group row mt-4">
                                 <label for="staticEmail" class="offset-md-1 col-sm-2 col-form-label">Email</label>
                                 <div class="col-sm-8">
-                                    <input type="email" class="form-control " id="staticEmail" name="email"
+                                    <input type="email" class="form-control " name="email"
                                         value="" wire:model='email'>
                                 </div>
                             </div>
                             <div class="form-group row mt-4">
                                 <label for="phone" class="offset-md-1 col-sm-2 col-form-label">Phone Number</label>
                                 <div class="col-sm-8">
-                                    <input type="number" class="form-control " id="phone" name="phone"
+                                    <input type="number" class="form-control " name="phone"
                                         value="" wire:model='phone'>
                                 </div>
                             </div>
@@ -41,7 +41,7 @@
                                 <label for="cv" class="offset-md-1 col-sm-2 col-form-label">CV_File</label>
                                 <div class="col-sm-8">
                                     <input type="file" accept=".txt,.pdf,.docx,.doc" class="form-control-file "
-                                        id="cv" name="cv_file" wire:model='cvfile'>
+                                         name="cv_file" wire:model='cvfile'>
                                 </div>
                             </div>
                             <input type="submit" value="Send"

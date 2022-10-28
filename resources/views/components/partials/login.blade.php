@@ -13,7 +13,7 @@
                             <div class="modal-div">
                                 <x-form.label name="EMAIL" /> <br>
                                 <x-form.input id="useremail" type="email" placeholder="Enter email" />
-                                <x-form.alert  class="text-danger" id="useremail_error" />
+                                <x-form.alert class="text-danger" id="useremail_error" />
                             </div>
                             <div class="modal-div">
                                 <x-form.label name="PASSWORD" /> <br>

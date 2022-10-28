@@ -16,10 +16,7 @@
                 <p>{{ Auth::user()->name }}</p>
             @endif
             <i class="uil uil-schedule calendar"></i>
-            {{-- <p><b>NOVEMBER</b> 25, 2021</p> --}}
             <p>{{ Carbon\Carbon::parse($general->created_at)->format(' F d , Y   /   h:i A') }}</p>
-            {{-- <p class="posting_time">{{ Carbon\Carbon::parse()->format(' d-M-Y      G : IA') }}</p> --}}
-            {{-- <p class="posting_time">2 :18 PM</p> --}}
         </div>
         <img src="{{ asset('images/general_images') }}/{{ $general->G_PHOTO }}" alt="" height="400px">
         <br>

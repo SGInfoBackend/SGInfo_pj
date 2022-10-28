@@ -18,10 +18,5 @@ class DatabaseSeeder extends Seeder
         \App\Models\RentHouse::factory(10)->create();
         \App\Models\Job::factory(10)->create();
         \App\Models\General::factory(10)->create();
-
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
     }
 }

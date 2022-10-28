@@ -81,67 +81,40 @@
         </div>
     </section>
 
-{{--  For Post Table  --}}
-{{-- <table class="table-striped table mt-5 mb-4 table-bordered">
-   <thead class="bg-primary ">
-    <tr>
-        <th>Id</th>
-        <th>Title</th>
-        <th>Company</th>
-        <th>Job location</th>
-        <th>Category Job</th>
-        <th>Company URL</th>
-        <th>Job Description</th>
-    </tr>
-   </thead>
-    <tbody>
-        @foreach ($jobs as $job)
-        <tr>
-            <td>{{ $job->Job_ID }}</td>
-            <td>{{ $job->Job_title }}</td>
-            <td>{{ $job->Company }}</td>
-            <td>{{ $job->Job_location }}</td>
-            <td>{{ $job->Category_job }}</td>
-            <td>{{ $job->Company_URL}}</td>
-            <td>{{ Str::limit($job->Job_Description, 20) }}</td>
-        </tr>
-        @endforeach
-    </tbody>
-</table> --}}
-
-<section class="table-bg">
-    <h1>Job Table</h1>
-    <div class="tbl-header">
-        <table cellpadding="0" cellspacing="0" border="0">
-            <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Title</th>
-                    <th>Company</th>
-                    <th>Job location</th>
-                    <th>Category Job</th>
-                    <th>Company URL</th>
-                    <th>Job Description</th>
-                </tr>
-            </thead>
-        </table>
-    </div>
-    <div class="tbl-content">
-        <table cellpadding="0" cellspacing="0" border="0">
-            <tbody>
-                @foreach ($jobs as $job)
-                <tr>
-                    <td>{{ $job->Job_ID }}</td>
-                    <td>{{ $job->Job_title }}</td>
-                    <td>{{ $job->Company }}</td>
-                    <td>{{ $job->Job_location }}</td>
-                    <td>{{ $job->Category_job }}</td>
-                    <td>{{ $job->Company_URL}}</td>
-                    <td>{{ Str::limit($job->Job_Description, 20) }}</td>
-                </tr>
-                @endforeach
-            </tbody>
-        </table>
-    </div>
-</section>
+    <section class="table-bg">
+        <h1>Job Table</h1>
+        <div class="tbl-header">
+            <table cellpadding="0" cellspacing="0" border="0">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Title</th>
+                        <th>Company</th>
+                        <th>Job location</th>
+                        <th>Category Job</th>
+                        <th>Company URL</th>
+                        <th>Job Description</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+        <div class="tbl-content">
+            <table cellpadding="0" cellspacing="0" border="0">
+                <tbody>
+                    @foreach ($jobs as $job)
+                        <tr>
+                            <td>{{ $job->Job_ID }}</td>
+                            <td>{{ $job->Job_title }}</td>
+                            <td>{{ $job->Company }}</td>
+                            <td>{{ $job->Job_location }}</td>
+                            <td>{{ $job->Category_job }}</td>
+                            <td>{{ $job->Company_URL }}</td>
+                            <td>{{ Str::limit($job->Job_Description, 20) }}</td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+    </section>
+</div>
 {{--  End Post Table  --}}

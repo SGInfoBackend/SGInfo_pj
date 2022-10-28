@@ -2,7 +2,6 @@
 
 namespace App\Http\Livewire;
 
-use App\Http\Requests\RentHouseValidationRequest;
 use App\Models\Facilitity;
 use App\Models\KeyFeature;
 use Livewire\WithFileUploads;
@@ -13,7 +12,6 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
 use Livewire\Component;
-use Livewire\Event;
 
 class AddHouseComponent extends Component
 {
@@ -35,13 +33,13 @@ class AddHouseComponent extends Component
     public $ros;
     public $images;
     public $description;
-    public $keyfeatures=[];
-    public $facilities=[];
+    public $keyfeatures = [];
+    public $facilities = [];
     public $currency;
 
     public function updated($fileds)
     {
-        $this->validateOnly($fileds,[
+        $this->validateOnly($fileds, [
             'project_type' => 'required',
             'availability' => 'required',
             'developer' => 'required',
@@ -63,11 +61,9 @@ class AddHouseComponent extends Component
 
     public function store(RentHouse $rent_house)
     {
-        if(!Auth::check())
-        {
+        if (!Auth::check()) {
             $this->dispatchBrowserEvent('show_modal');
         }
-        // $request->all();
         $this->validate([
             'project_type' => [
                 'required',
@@ -102,11 +98,11 @@ class AddHouseComponent extends Component
         $rent_house->PSF = $this->psf;
         $rent_house->Avaliable_From = $this->availability;
         $rent_house->SorR = $this->sor;
-        $rent_house->PRICE_MAX = $this->price. ' ' .$this->currency;
+        $rent_house->PRICE_MAX = $this->price . ' ' . $this->currency;
         $rent_house->No_Room = $this->no_room;
         $rent_house->No_Birthroom = $this->no_birth;
 
-        $imageName = Carbon::now()->timestamp. '.'. $this->images->extension();
+        $imageName = Carbon::now()->timestamp . '.' . $this->images->extension();
         $this->images->storeAs('room_list', $imageName);
         $rent_house->RH_PHOTO = $imageName;
 
@@ -119,19 +115,18 @@ class AddHouseComponent extends Component
         $rent_house->KeyFeature_IDS = $arr_1;
         $rent_house->Facilities_IDS = $arr_2;
         $rent_house->save();
-        session()->flash('success_message','House information has been created successfullly');
+        session()->flash('success_message', 'House information has been created successfullly');
         $this->dispatchBrowserEvent('hide_modal');
-
     }
     public function render()
     {
-        $key_features = Cache::remember('key_feature', now()->addMinutes(10), function(){
+        $key_features = Cache::remember('key_feature', now()->addMinutes(10), function () {
             return KeyFeature::all();
         });
-        $facilities = Cache::remember('facilities', now()->addMinutes(10), function(){
+        $facilities = Cache::remember('facilities', now()->addMinutes(10), function () {
             return Facilitity::all();
         });
-        return view('livewire.add-house-component')->layout('layouts.base',[
+        return view('livewire.add-house-component')->layout('layouts.base', [
             "keyfeatures" => $key_features,
             "facilities" => $facilities
         ]);
