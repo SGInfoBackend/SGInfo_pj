@@ -2,6 +2,8 @@
 
 namespace App\Http\Livewire;
 
+use App\Mail\BookRoomConfirmedMarkdown;
+use App\Models\BookRoom;
 use App\Models\RentHouse;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
