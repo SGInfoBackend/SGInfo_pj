@@ -28,32 +28,6 @@ class HomeComponent extends Component
         $rentHouses = Cache::remember("rent_house", now()->addMinute(10), function () {
             return RentHouse::orderBy('Rent_House_ID', 'DESC')->paginate(4);
         });
-<<<<<<< HEAD
-        // dd($rentHouses);
-        if($this->searchTerm)
-        {
-            $jobs =  Job::where(function($query) {
-                    $query->where('Job_title', 'like', '%'. $this->searchTerm . '%');
-                    $query->orWhere('Company', 'like', '%'. $this->searchTerm . '%');
-                })->orderBy('Job_ID', 'desc')->paginate(5);
-        }
-        elseif($this->job_location)
-        {
-            $jobs =  Job::where(function($query) {
-                    $query->orWhere('Job_location', 'like', '%'. $this->job_location . '%');
-                    $query->orWhere('Company', 'like', '%'. $this->job_location . '%');
-                })->orderBy('Job_ID', 'desc')->paginate(5);
-        }
-        elseif($this->job_title)
-        {
-            $jobs = Job::where(function($query) {
-                    $query->orWhere('Job_title', 'like', '%'. $this->job_title . '%');
-                    $query->orWhere('Company', 'like', '%'. $this->job_title . '%');
-                })->orderBy('Job_ID', 'desc')->paginate(5);
-        }
-        else{
-            $jobs =  Job::orderBy('created_at','DESC')->paginate(5);
-=======
 
         if ($this->searchTerm) {
             $jobs = Cache::remember('home_job', now()->addMinute(10), function () {
@@ -80,7 +54,6 @@ class HomeComponent extends Component
             $jobs = Cache::remember('home_job', now()->addMinute(10), function () {
                 return Job::orderBy('created_at', 'DESC')->paginate(5);
             });
->>>>>>> e4a5e9aa433eed2bdfb7b253f53bd3e9670a6caa
         }
 
         $allJobs = Cache::remember('all_jobs', now()->addMinute(10), function () {
