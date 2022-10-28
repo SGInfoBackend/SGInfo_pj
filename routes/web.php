@@ -8,6 +8,7 @@ use App\Http\Livewire\AddJobComponent;
 use App\Http\Livewire\Admin\AdminDashboardComponent;
 use App\Http\Livewire\ApplyJobComponent;
 use App\Http\Livewire\AuthSocialComponent;
+use App\Http\Livewire\Bookroom\BookRoomComponent;
 use App\Http\Livewire\GeneralComponent;
 use App\Http\Livewire\GeneralDetailComponent;
 use App\Http\Livewire\JobDetailsComponent;
@@ -39,6 +40,7 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
     // End General
     Route::get('/addrom', AddHouseComponent::class)->name('addroom');
     Route::get('/roomdetail/{Rent_House_ID}', RoomDetailComponent::class)->name('roomdetails');
+    Route::get('/roomdetail/bookroom/{Rent_House_ID}', BookRoomComponent::class);
     // Job Details
     Route::get('/job/job-details/{Job_ID}', JobDetailsComponent::class)->name('jobdetails');
     // Applying Job

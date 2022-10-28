@@ -4,17 +4,17 @@
 
 <title>@yield('title', 'SGInfo')</title>
 
-<link rel="stylesheet" href="{{ asset('css/home_page.css') }}">
-<link rel="stylesheet" href="{{ asset('css/general_info.css') }}">
+<link rel="stylesheet" href="css/home_page.css">
+<link rel="stylesheet" href="css/general_info.css">
 {{-- <link rel="stylesheet" href="{{asset('css/present_restaurant.css')}}"> --}}
-<link rel="stylesheet" href="{{ asset('css/room_detail.css') }}">
-<link rel="stylesheet" href="{{ asset('css/job.css') }}">
-<link rel="stylesheet" href="{{ asset('css/footer.css') }}">
+<link rel="stylesheet" href="css/room_detail.css">
+<link rel="stylesheet" href="css/job.css">
+<link rel="stylesheet" href="css/footer.css">
 {{-- <link rel="stylesheet" href="{{asset('css/contact.css')}}"> --}}
-<link rel="stylesheet" href="{{ asset('css/general_info_detail.css') }}">
-<link rel="stylesheet" href="{{ asset('css/room_list.css') }}">
-<link rel="stylesheet" href="{{ asset('css/room_posting.css') }}">
-<link rel="stylesheet" href="{{ asset('css/table.css') }}">
+<link rel="stylesheet" href="css/general_info_detail.css">
+<link rel="stylesheet" href="css/room_list.css">
+<link rel="stylesheet" href="css/room_posting.css">
+<link rel="stylesheet" href="css/table.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"
     integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -44,7 +44,7 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 
-<script src="{{ asset('js/jquery.min.js') }}"></script>
+<script src="js/jquery.min.js"></script>
 <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
 <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
 

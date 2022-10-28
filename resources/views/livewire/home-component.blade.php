@@ -281,19 +281,4 @@
             @endforeach
         </div>
     </section>
-
-
-    <section class="newsletter">
-        <div class=" newstext">
-
-            <div>
-                <h4>NEWSLETTER SIGN UP</h4>
-                <P>Lorem ipsum, or lipsum as it is sometimes known</P>
-            </div>
-        </div>
-        <div class="form">
-            <input type="text" placeholder="Your email adderss.....">
-            <button class="normal">Subscribe</button>
-        </div>
-    </section>
 </div>
