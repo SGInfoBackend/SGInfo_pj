@@ -59,6 +59,8 @@ class AddGeneralComponent extends Component
 
         $artical->save();
 
+        // Mail::to($this->user())->send(new RegisteredUserController());
+
         session()->flash('message', 'Article has been created successfully!');
         $this->dispatchBrowserEvent('hide_modal');
     }
