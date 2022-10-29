@@ -56,9 +56,18 @@ class ApplyJobComponent extends Component
         Mail::to($applyjobs->user)->queue(
             new SendEmailApplyjob($applyjobs)
         );
+
         // Mail::to($applyjobs->user)->send(
         //     new SendEmailApplyjob($applyjobs)
         // );
+
+        // $when = now()->addMinutes(1);
+
+        // Mail::to($applyjobs->user)->later(
+        //     $when,
+        //     new SendEmailApplyjob($applyjobs)
+        // );
+
         session()->flash('success_message', 'You applied this job successfully!');
     }
 

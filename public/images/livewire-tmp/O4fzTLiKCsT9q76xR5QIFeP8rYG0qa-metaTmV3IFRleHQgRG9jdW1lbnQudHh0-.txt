@@ -1,0 +1,12 @@
+Copy the HTTPS (GRC) URL if you are using the git-remote-codecommit command on your local computer.  => https://git-codecommit.us-east-1.amazonaws.com/v1/repos/TEXT_DELETE
+
+Copy the SSH URL if you are using an SSH public/private key pair with your IAM user.                 => ssh://git-codecommit.us-east-1.amazonaws.com/v1/repos/TEXT_DELETE
+
+
+GIT Token => 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
+
+
+git branch -m main master
+git fetch origin
+git branch -u origin/master master
+git remote set-head origin -a
