@@ -13,7 +13,7 @@
                         <a class="nav-link active" aria-current="page" href="/">Home</a>
                     </li>
                     <li class="nav-item  ms-lg-4">
-                        <a class="nav-link active" href="{{ route('rooms') }}">Rooms</a>
+                        <a class="nav-link active" href="{{ route('rooms') }}">Rent Rooms</a>
                     </li>
                     <li class="nav-item  ms-lg-4">
                         <a class="nav-link active" href="{{ route('general') }}">General</a>
@@ -37,58 +37,60 @@
                             </div>
                         </div>
                     </li>
-                    @if (Auth::check())
-                        @if (Auth::user()->utype == 'ADM')
-                            <li class="nav-item  ms-lg-4">
-                                <div class="dropdown">
-                                    <button class="dropbtn"><i class="fa-regular fa-user"></i></button>
-                                    <div class="dropdown-content">
-                                        <a href="{{ route('user.profile') }}" class="dropdown-e">Profile</a>
-                                        <a href="{{ route('admin.dashboard') }}" class="dropdown-e">Dashboard</a>
-                                        <a title="logout"
-                                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
-                                            href="{{ route('logout') }}">Logout</a>
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST">@csrf
-                                        </form>
+                    @if (Route::has('login'))
+                        @auth
+                            @if (Auth::user()->utype == 'ADM')
+                                <li class="nav-item  ms-lg-4">
+                                    <div class="dropdown">
+                                        <button class="dropbtn"><i class="fa-regular fa-user"></i></button>
+                                        <div class="dropdown-content">
+                                            <a href="{{ route('user.profile') }}" class="dropdown-e">Profile</a>
+                                            <a href="{{ route('admin.dashboard') }}" class="dropdown-e">Admin Dashboard</a>
+                                            <a title="logout"
+                                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
+                                                href="{{ route('logout') }}">Logout</a>
+                                            <form id="logout-form" action="{{ route('logout') }}" method="POST">@csrf
+                                            </form>
+                                        </div>
                                     </div>
-                                </div>
-                            </li>
+                                </li>
+                            @else
+                                <li class="nav-item  ms-lg-4">
+                                    <div class="dropdown">
+                                        <button class="dropbtn"><i class="fa-regular fa-user"></i></button>
+                                        <div class="dropdown-content">
+                                            <a href="{{ route('user.profile') }}" class="dropdown-e">Profile</a>
+                                            <a href="{{ route('user.dashboard') }}" class="dropdown-e">Dashboard</a>
+                                            <a title="logout"
+                                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
+                                                href="{{ route('logout') }}">Logout</a>
+                                            <form id="logout-form" action="{{ route('logout') }}" method="POST">@csrf
+                                            </form>
+                                        </div>
+                                    </div>
+                                </li>
+                            @endif
                         @else
                             <li class="nav-item  ms-lg-4">
                                 <div class="dropdown">
                                     <button class="dropbtn"><i class="fa-regular fa-user"></i></button>
                                     <div class="dropdown-content">
-                                        <a href="{{ route('user.profile') }}" class="dropdown-e">Profile</a>
-                                        <a href="{{ route('user.dashboard') }}" class="dropdown-e">Dashboard</a>
-                                        <a title="logout"
-                                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
-                                            href="{{ route('logout') }}">Logout</a>
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST">@csrf
-                                        </form>
+                                        <a href="javascript:void(0)" class="dropdown-d"
+                                            onclick="document.getElementById('register').style.display='block'">Register</a>
+                                        <a href="javascript:void(0)" class="dropdown-e"
+                                            onclick="document.getElementById('login').style.display='block'">Login</a>
                                     </div>
                                 </div>
                             </li>
                         @endif
-                    @else
+                        @endif
                         <li class="nav-item  ms-lg-4">
-                            <div class="dropdown">
-                                <button class="dropbtn"><i class="fa-regular fa-user"></i></button>
-                                <div class="dropdown-content">
-                                    <a href="javascript:void(0)" class="dropdown-d"
-                                        onclick="document.getElementById('register').style.display='block'">Register</a>
-                                    <a href="javascript:void(0)" class="dropdown-e"
-                                        onclick="document.getElementById('login').style.display='block'">Login</a>
-                                </div>
-                            </div>
+                            <a class="nav-link active" href="#"><img src="{{ asset('images/myanmar.png') }}"
+                                    alt="" class="logoimg"></a>
                         </li>
-                    @endif
-                    <li class="nav-item  ms-lg-4">
-                        <a class="nav-link active" href="#"><img src="{{ asset('images/myanmar.png') }}"
-                                alt="" class="logoimg"></a>
-                    </li>
-                </ul>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </nav>
+        </nav>
 
-</div>
+    </div>

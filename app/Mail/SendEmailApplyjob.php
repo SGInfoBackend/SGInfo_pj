@@ -24,6 +24,7 @@ class SendEmailApplyjob extends Mailable
     {
         //
         $this->apply_job = $apply_job;
+        // dd($this->apply_job);
     }
 
     /**
@@ -33,13 +34,9 @@ class SendEmailApplyjob extends Mailable
      */
     public function build()
     {
-        // $subject = "Apply Job has been added {$this->apply_job}";
-        // return $this->subject($subject)
-        //             ->view('emails.posts.send-mail');
-
-        return $this->from("tintwai@gmail.com")->to($this->apply_job->Gmail,'Hello World')
-                    ->view('emails.posts.send-mail')->with([
-                        'job' => $this->apply_job
-                    ]);
+        return $this->from("tintwai@gmail.com")->to($this->apply_job->Gmail, 'Hello World')
+            ->view('emails.posts.send-mail')->with([
+                'job' => $this->apply_job
+            ]);
     }
 }

@@ -20,13 +20,11 @@ class JobDetailsComponent extends Component
     {
         $jobdetails = Job::where('Job_ID', $this->job_ID)->first();
         $rolename = JobTypeOfRole::where('Typeofrole_ID', $jobdetails->Typeofrole_ID)->first();
-        // dd($jobdetails->Job_title);
         $similarjobs = Job::where('Job_title', $jobdetails->Job_title)->get();
-        // dd($similarjobs);
         return view('livewire.job-details-component', [
             'jobdetails' => $jobdetails,
             'similarjobs' => $similarjobs,
-            'rolename'=>$rolename
-            ])->layout('layouts.base');
+            'rolename' => $rolename
+        ])->layout('layouts.base');
     }
 }
