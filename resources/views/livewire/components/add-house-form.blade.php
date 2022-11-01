@@ -1,6 +1,6 @@
 <div class="main-room" >
     <form class="w3-container first-room" wire:submit.prevent="store">
-        <h1 class="modal-h1-room">ROOM UPLOAD FORM</h1>
+        <h1 class="modal-h1-room">ROOM ADD FORM</h1>
         @if (Session::has('success_message'))
             <div class="alert alert-success">
                 {{Session::get('success_message')}}

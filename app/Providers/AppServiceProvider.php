@@ -31,9 +31,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        if($this->app->environment('production')) {
-            \URL::forceScheme('http');
-        }
+        // if($this->app->environment('production')) {
+        //     \URL::forceScheme('http');
+        // }
+        
         Validator::extend('max_lenght', RentHouseValidator::class, 'lenght is not greater than 20');
         Validator::extend(
             'invalid_date',
