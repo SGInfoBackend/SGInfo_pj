@@ -290,6 +290,7 @@ img{
 a.room-detail {
     padding-bottom: 20px;
     padding-right: 55px;
+    text-decoration: none;
 }
 
 a.room-detail:hover{
@@ -302,8 +303,8 @@ a.room-detail:hover{
     height: 0.15rem;
     background-color: #fab702;
     position: absolute;
-    top: 135px;
-    right: 580px;
+    top: 142px;
+    right: 638px;
 }
 
 #home-room-container {
