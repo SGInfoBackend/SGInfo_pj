@@ -1,2 +1,2 @@
-<input {{ $attributes->class(['modal-input room-input']) }}>
+<input {{ $attributes->class(['modal-input']) }}>
 

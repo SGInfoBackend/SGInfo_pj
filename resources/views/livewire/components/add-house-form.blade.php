@@ -9,28 +9,29 @@
         <div class="userInput-room">
             <div class="modal-div-room">
                 <x-form.label name="Property Type" />
-                <x-form.input wire:model="project_type" />
+                <input type="text" class="modal-input-room" wire:model='project_type'>
                 @error('project_type')
                     <p class="alert text-danger">{{$message}}</p>
                 @enderror
             </div>
             <div class="modal-div-room">
                 <x-form.label name="Availability" />
-                <x-form.input type="date" wire:model="availability" />
+                <input type="text" class="modal-input-room" wire:model='availability'>
                 @error('availability')
                     <p class="alert text-danger">{{$message}}</p>
                 @enderror
             </div>
             <div class="modal-div-room">
                 <x-form.label name="Developer" />
-                <x-form.input type="text" wire:model="developer" />
+                {{-- <x-form.input type="text" wire:model="developer" /> --}}
+                <input type="text" class="modal-input-room" wire:model='developer'>
                 @error('developer')
                     <p class="alert text-danger">{{$message}}</p>
                 @enderror
             </div>
             <div class="modal-div-room">
                 <x-form.label name="Floor Level" />
-                <x-form.input type="text" wire:model="floor_lv" />
+                <input type="text" class="modal-input-room" wire:model='floor_lv'>
                 @error('floor_lv')
                     <p class="alert text-danger">{{$message}}</p>
                 @enderror
@@ -38,20 +39,21 @@
             <div class="modal-div-room">
                 <x-form.label name="Floor Size" />
                 <x-form.input type="text" wire:model="floor_size" />
+                <input type="text" class="modal-input-room" wire:model='floor_size'>
                 @error('floor_size')
                     <p class="alert text-danger">{{$message}}</p>
                 @enderror
             </div>
             <div class="modal-div-room">
                 <x-form.label name="PST(psf)" />
-                <x-form.input type="text" wire:model="psf" />
+                <input type="text" class="modal-input-room" wire:model='psf'>
                 @error('psf')
                     <p class="alert text-danger">{{$message}}</p>
                 @enderror
             </div>
             <div class="modal-div-room">
                 <x-form.label name="Nearest MRT/LRT" />
-                <x-form.input type="text" wire:model="mrt_near" />
+                <input type="text" class="modal-input-room" wire:model='mrt_near'>
                 @error('mrt_near')
                     <p class="alert text-danger">{{$message}}</p>
                 @enderror
@@ -76,7 +78,7 @@
             </div>
             <div class="modal-div-room modal-div-room-100">
                 <x-form.label name="Price Rate(per month)" />
-                <x-form.input style="width: 48%;" type="text" wire:model="price" />
+                <input type="text" style="width: 48%;" class="modal-input-room" wire:model='price'>
                 <select class="modal-select-room" style="width: 48%;" wire:model="currency">
                     <option value="" selected disabled class="modal-option-room">Currency</option>
                     <option value="USD" class="modal-option-room">USD</option>
@@ -94,7 +96,7 @@
                     <p class="alert text-danger">{{$message}}</p>
                 @enderror
             </div>
-            <div class="modal-div-room modal-div-room-100">
+            <div class="modal-div-room modal-div-room-100" style="display: grid;">
                 <x-form.label name="Number of Rooms" />
                 <select name="" id="" class="modal-select-room" style="width: 48%;" wire:model="no_room">
                     <option value="" selected disabled class="modal-option-room">Bed room</option>

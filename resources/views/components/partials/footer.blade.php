@@ -15,9 +15,9 @@
 
 <div class="foot-col">
     <h4 class="footer-h4">QUICK LINKS</h4>
-    <a class="footer-a" href="room_list.html">Rooms</a>
-    <a class="footer-a" href="Job.html">Jobs</a>
-    <a class="footer-a" href="general_info.html">General</a>
+    <a class="footer-a" href="#">Rooms</a>
+    <a class="footer-a" href="#">Jobs</a>
+    <a class="footer-a" href="#">General</a>
 </div>
 
 <div class="foot-col footer-last">

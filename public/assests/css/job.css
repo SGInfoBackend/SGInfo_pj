@@ -13,7 +13,7 @@ label {
 .carousel_text{
     position: absolute;
     top: 250px;
-    left: 150px;
+    left: 200px;
     z-index: 1;
     color: white;
 }
