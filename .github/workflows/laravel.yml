@@ -1,0 +1,36 @@
+name: Deploy Production
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  job_one:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+    - name: testing ssh connection
+      uses: appleboy/ssh-action@master
+      with: 
+        host: 157.245.147.3
+        username: root
+        key: ${{ secrets.SSH_SECRET }}
+        port: 22
+        script: | 
+          cd /var/www/html/
+          rm -rf SGInfo_pj
+          git clone git@github.com:SGInfoBackend/SGInfo_pj.git
+          cp .env SGInfo_pj/.env
+          cp session.php SGInfo_pj/config/session.php
+          cd SGInfo_pj
+          composer update
+          mkdir storage/framework/cache/data
+          sudo chmod -R 777 bootstrap/cache
+          sudo chmod -R 777 storage
+          php artisan config:clear
+          php artisan cache:clear
+          php artisan optimize:clear
+          
+    
