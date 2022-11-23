@@ -13,7 +13,7 @@
                         <a class="nav-link active" aria-current="page" href="/">Home</a>
                     </li>
                     <li class="nav-item  ms-lg-4">
-                        <a class="nav-link active" href="{{ route('rooms') }}">Rent Rooms</a>
+                        <a class="nav-link active" href="{{ route('rooms') }}">Rooms</a>
                     </li>
                     <li class="nav-item  ms-lg-4">
                         <a class="nav-link active" href="{{ route('general') }}">General</a>
